@@ -11,7 +11,7 @@ const App = () => {
       <div className='pt-20'>
         <Outlet/>
       </div>
-      <div className='pt-1'>
+      <div className=''>
         <Footer/>
       </div>
     </div>

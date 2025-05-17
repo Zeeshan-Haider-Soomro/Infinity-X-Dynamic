@@ -1,32 +1,58 @@
-
 const services = [
-  { label: "GRAPHIC MOTION", link: "your-link-1.html" },
-  { label: "3D ANIMATION", link: "your-link-2.html" },
-  { label: "2D ANIMATION", link: "your-link-3.html" },
-  { label: "SOCIAL MEDIA MARKETING", link: "your-link-4.html" },
-  { label: "WEB DEVELLOPMENT", link: "your-link-5.html" },
-  { label: "CARTOON ANIMATION", link: "your-link-6.html" },
-  { label: "WHITEBOARD VIDEOS", link: "your-link-6.html" },
-  { label: "LOGO ANIMATION", link: "your-link-6.html" },
-  { label: "AUGMENTED REALITY", link: "your-link-6.html" },
-  { label: "CGI/VFX", link: "your-link-6.html" },
-  { label: "IT SOLUTIONS", link: "your-link-6.html" },
+  "GRAPHIC MOTION",
+  "3D ANIMATION",
+  "2D ANIMATION",
+  "SOCIAL MEDIA MARKETING",
+  "WEB DEVELLOPMENT",
+  "CARTOON ANIMATION",
+  "WHITEBOARD VIDEOS",
+  "LOGO ANIMATION",
+  "AUGMENTED REALITY",
+  "CGI/VFX",
+  "IT SOLUTIONS",
+  "SEO SMM",
 ];
 
-export default function ServiceButtons() {
+const links = [
+  "your-link-1.html",
+  "your-link-2.html",
+  "your-link-3.html",
+  "your-link-4.html",
+  "your-link-5.html",
+  "your-link-6.html",
+  "your-link-6.html",
+  "your-link-6.html",
+  "your-link-6.html",
+  "your-link-6.html",
+  "your-link-6.html",
+  "#",
+];
+
+export default function ServiceButtons({ activeIndex }) {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex flex-wrap justify-center gap-6 mt-10">
-        {services.map((service, index) => (
-          <a
-            key={index}
-            href={service.link}
-            className="group relative px-6 py-3 min-w-[220px] text-white font-semibold uppercase rounded-full border-2 border-white overflow-hidden transition-all duration-300 text-center"
-          >
-            <span className="relative z-10">{service.label}</span>
-            <span className="absolute inset-0 bg-[#9c448d] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-in-out rounded-full z-0" />
-          </a>
-        ))}
+      <div className="grid md:grid-cols-4 grid-cols-1 justify-center gap-6 mt-3">
+        {services.map((label, index) => {
+          const isActive = index === activeIndex;
+          return (
+            <a
+              key={index}
+              href={links[index]}
+              className={`group relative px-6 py-3 min-w-[200px] text-white font-semibold uppercase rounded-full border-2 overflow-hidden text-center transition-all duration-300 ${
+                isActive
+                  ? "bg-[#9c448d] border-[#9c448d]"
+                  : "border-white"
+              }`}
+            >
+              <span className="relative z-10">{label}</span>
+              <span
+                className={`absolute inset-0 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-in-out rounded-full z-0 ${
+                  !isActive ? "bg-[#9c448d]" : ""
+                }`}
+              />
+            </a>
+          );
+        })}
       </div>
     </div>
   );

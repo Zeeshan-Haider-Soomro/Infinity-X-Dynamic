@@ -11,25 +11,48 @@ import VideoSliderRight from "../Components/VideoSliderRight";
 import ImageSlider from "../Components/ImageSlider";
 import HistorySlider from "../Components/HistorySlider";
 import AchievementGallery from "../Components/AchievementGallery";
+import { useEffect, useState } from "react";
+
+const phrases = [
+  ["Graphic", "Motions"],
+  ["3D", "Animations"],
+  ["2D", "Animations"],
+  ["Social Media", "Marketing"],
+  ["Web", "Development"],
+  ["Cartoon", "Animation"],
+  ["Whiteboard", "Videos"],
+  ["Logo", "Animation"],
+  ["Augmented", "Reality"],
+  ["CGI", "VFX"],
+  ["IT", "Solutions"],
+  ["SEO", "SMM"],
+];
 
 const Home = () => {
+
+    const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % phrases.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="">
       {/* banner section */}
       <div className="">
         <section className="bg-[#320142] relative p-10 pb-30 overflow-hidden">
-          <h1 className="text-white text-center text-[20px] lg:text-[50px]">
-            We Provide
-          </h1>
-          <div className="h-[100px]">
-            <DynamicHeading />
-          </div>
-          <h1 className="text-white text-center text-[40px] lg:text-[70px] font-medium pt-2">
-            Services
-          </h1>
-          <div className="">
-            <ServiceButtons />
-          </div>
+          <h1 className="text-white text-center text-[30px] lg:text-[50px]">We Provide</h1>
+      <div className="h-[100px]">
+        <DynamicHeading phrases={phrases} index={index} />
+      </div>
+      <h1 className="text-white text-center text-[50px] lg:text-[70px] font-medium pt-2">Services</h1>
+      <div>
+        <ServiceButtons activeIndex={index} />
+      </div>
           <div className="p-10 flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center">
             <button className="rounded-full bg-[#A95C9C] hover:bg-[#9C448D] py-3 px-10 text-white text-base md:text-[20px] font-medium border border-white hover:border-transparent cursor-pointer">
               GET STARTED
@@ -39,7 +62,7 @@ const Home = () => {
             </button>
           </div>
           {/* Social Icons - Right Side */}
-          <div className="absolute hidden md:block top-1/2 right-12 transform -translate-y-1/2 flex flex-col space-y-4 text-2xl">
+          <div className="absolute hidden md:block top-45 right-12 transform -translate-y-1/2 flex flex-col space-y-4 text-2xl">
             <div className="border border-white rounded-full p-2">
               <a
                 href="https://www.facebook.com"

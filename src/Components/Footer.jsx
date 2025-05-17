@@ -18,6 +18,7 @@ import {
   FaServicestack,
   FaUsers,
 } from "react-icons/fa";
+import { CgWebsite } from "react-icons/cg";
 
 const Footer = () => {
   return (
@@ -45,6 +46,9 @@ const Footer = () => {
           <ul className="space-y-2">
             <li className="flex items-center hover:text-[#5C0E6E] transition cursor-pointer">
               <FaFilm className="mr-2 text-[#5C0E6E]" /> 2D Animation
+            </li>
+            <li className="flex items-center hover:text-[#5C0E6E] transition cursor-pointer">
+              <CgWebsite  className="mr-2 text-[#5C0E6E]" /> Web Development
             </li>
             <li className="flex items-center hover:text-[#5C0E6E] transition cursor-pointer">
               <FaVideo className="mr-2 text-[#5C0E6E]" /> 3D Animation

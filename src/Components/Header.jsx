@@ -2,84 +2,132 @@ import { Link, NavLink } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
-
 const Header = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showServices, setShowServices] = useState(false);
 
   const navLinks = [
     { name: "About Us", path: "/about-us" },
     { name: "Our Work", path: "/our-work" },
-    { name: "Our Services", path: "/our-services" },
+    { name: "Our Services", path: "#" },
     { name: "Our Clients", path: "/our-clients" },
     { name: "Contact Us", path: "/contact-us" },
   ];
-  return (
-       <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between">
-          {/* Logo */}
-          <div className="h-20 w-20 flex items-center">
-            <Link to="/home">
-            <img src="src\assets\Logo.jpg" alt="" />
-            </Link>
-          </div>
 
-          {/* Desktop Nav */}
-          <div className="w-full bg-white px-6 sm:px-12 py-2 flex items-center justify-between">
-            <img src="" alt="" />
-            <nav className="flex-1 flex justify-center hidden md:flex">
-            <ul className="flex gap-5 space-x-7 text-white text-sm font-medium">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <NavLink
-                    to={link.path}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-[#2398FF] border-b-2 border-[#2398FF] pb-1"
-                        : "relative text-[#320142] hover:text-[#2398FF] transition duration-300 before:content-[''] before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-[#2398FF] hover:before:w-full before:transition-all before:duration-300"
-                    }
-                  >
-                    {link.name}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-            </nav>
-            <button className="bg-[#299cf3] text-white font-semibold rounded-full px-5 py-2 ml-4 hover:bg-[#217dc4] transition hidden sm:block">LET'S TALK</button>
-          </div>
-          <div>
+  const services = [
+    { label: "2D Animation", icon: "https://cdn-icons-png.flaticon.com/512/1146/1146869.png" },
+    { label: "3D Animation", icon: "https://cdn-icons-png.flaticon.com/512/2166/2166824.png" },
+    { label: "Cartoon Animation", icon: "https://cdn-icons-png.flaticon.com/512/4905/4905451.png" },
+    { label: "Motion Graphic", icon: "https://cdn-icons-png.flaticon.com/512/846/846338.png" },
+    { label: "Whiteboard", icon: "https://cdn-icons-png.flaticon.com/512/9476/9476796.png" },
+    { label: "Logo Animation", icon: "https://cdn-icons-png.flaticon.com/512/4187/4187457.png" },
+    { label: "Augmented Reality", icon: "https://cdn-icons-png.flaticon.com/512/2972/2972865.png" },
+    { label: "CGI / VFX", icon: "https://cdn-icons-png.flaticon.com/512/2907/2907100.png" },
+  ];
+
+  return (
+    <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between h-20">
+        {/* Logo */}
+        <div className="h-16 w-24 flex items-center">
+          <Link to="/">
+            <img src="src\assets\Logo.jpg" alt="Logo" className="h-full w-auto" />
+          </Link>
+        </div>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex gap-8 items-center text-[#320142] font-semibold text-lg relative">
+          {navLinks.map((link) =>
+            link.name === "Our Services" ? (
+        <div
+  key={link.name}
+  onMouseEnter={() => setShowServices(true)}
+  onMouseLeave={() => setShowServices(false)}
+  className="relative group"
+>
+  <span className="cursor-pointer hover:text-[#9C448D]">
+    {link.name}
+  </span>
+
+  {showServices && (
+   <div
+  className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-4 z-100 transition-all duration-300 ease-in-out ${
+    showServices ? "opacity-100 scale-100 visible" : "opacity-0 scale-95 invisible"
+  }`}
+>
+  {/* Arrow */}
+  <div className="absolute top-[-10px] left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-white shadow border-l border-t border-gray-200 z-50"></div>
+
+  {/* Dropdown Panel */}
+  <div className="bg-white shadow-xl rounded-xl p-6 w-[90vw] max-w-4xl border border-gray-200">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {services.map((service, index) => (
+        <div
+          key={index}
+          className="flex items-center gap-4 cursor-pointer hover:scale-105 transition-transform"
+        >
+          <img
+            src={service.icon}
+            alt={service.label}
+            className="w-14 h-14 object-contain p-2 bg-gray-100 rounded-lg shadow"
+          />
+          <span className="text-black font-semibold">{service.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
 </div>
 
+  )}
+</div>
+
+            ) : (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[#320142] border-b-2 border-[#320142] pb-1"
+                    : "hover:text-[#9C448D] transition"
+                }
+              >
+                {link.name}
+              </NavLink>
+            )
+          )}
+        </div>
+
+        {/* Talk Button */}
+        <button className="hidden md:block bg-[#9C448D] hover:bg-[#320142] text-white px-5 py-2 rounded-full transition">
+          LET'S TALK
+        </button>
 
         {/* Mobile Hamburger */}
         <div className="md:hidden">
           <button onClick={() => setSidebarOpen(true)}>
-            <Menu size={24} className="text-purple-700" />
+            <Menu size={28} className="text-[#320142]" />
           </button>
         </div>
       </div>
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-[240px] bg-white dark:bg-gray-900 z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-[240px] bg-white z-50 transform transition-transform duration-300 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex justify-between items-center p-4 border-b">
           <button onClick={() => setSidebarOpen(false)}>
-            <X size={24} className="text-purple-700" />
+            <X size={24} className="text-[#9C448D]" />
           </button>
         </div>
-        <div className="flex flex-col gap-6 px-6 py-8">
+        <div className="flex flex-col gap-6 px-6 py-8 text-[#320142] font-semibold">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.path}
-              onClick={() => setSidebarOpen(false)} // auto-close on click
-              className={({ isActive }) =>
-                isActive
-                  ? "text-purple-700 font-semibold"
-                  : "text-gray-800 dark:text-white hover:text-purple-600 transition"
-              }
+              onClick={() => setSidebarOpen(false)}
+              className="hover:text-[#9C448D] transition"
             >
               {link.name}
             </NavLink>
@@ -87,15 +135,15 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Optional Overlay */}
+      {/* Overlay */}
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
         />
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

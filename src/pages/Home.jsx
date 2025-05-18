@@ -12,6 +12,7 @@ import ImageSlider from "../Components/ImageSlider";
 import HistorySlider from "../Components/HistorySlider";
 import AchievementGallery from "../Components/AchievementGallery";
 import { useEffect, useState } from "react";
+import ContactSocialIcons from "../Components/ContactSocialIcons";
 
 const phrases = [
   ["Graphic", "Motions"],
@@ -44,7 +45,7 @@ const Home = () => {
     <div className="">
       {/* banner section */}
       <div className="">
-        <section className="bg-[#320142] relative p-10 pb-30 overflow-hidden">
+        <section className="bg-[#320142] relative z-20 p-10 pb-30 overflow-hidden">
           <h1 className="text-white text-center text-[30px] lg:text-[50px]">We Provide</h1>
       <div className="h-[100px]">
         <DynamicHeading phrases={phrases} index={index} />
@@ -61,82 +62,7 @@ const Home = () => {
               VIEW PORTFOLIO
             </button>
           </div>
-          {/* Social Icons - Right Side */}
-          <div className="absolute hidden md:block top-45 right-12 transform -translate-y-1/2 flex flex-col space-y-4 text-2xl">
-            <div className="border border-white rounded-full p-2">
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-purple-300"
-              >
-                <FaFacebook />
-              </a>
-            </div>
-            <div className="border border-white rounded-full p-2">
-              <a
-                href="https://www.twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-purple-300"
-              >
-                <FaTwitter />
-              </a>
-            </div>
-            <div className="border border-white rounded-full p-2">
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-purple-300"
-              >
-                <FaLinkedin />
-              </a>
-            </div>
-            <div className="border border-white rounded-full p-2">
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-purple-300"
-              >
-                <FaInstagram />
-              </a>
-            </div>
-          </div>
-          {/* contact icons - bottom side */}
-          <div className="absolute hidden md:block -bottom-7 transform -translate-y-1/2 flex flex-col space-y-3 text-2xl">
-            <div className="flex space-x-2">
-              <div className="border border-white rounded-full p-2">
-                <a
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-purple-300"
-                >
-                  <CiMail />
-                </a>
-              </div>
-              <div>
-                <p className="text-white">info@infinityXdynamic.com</p>
-              </div>
-            </div>
-            <div className="flex space-x-2">
-              <div className="border border-white rounded-full p-2">
-                <a
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-purple-300"
-                >
-                  <IoIosCall />
-                </a>
-              </div>
-              <div>
-                <p className="text-white"> +92 3128379812</p>
-              </div>
-            </div>
-          </div>
+      <ContactSocialIcons />
         </section>
       </div>
       {/* 2nd section  */}
@@ -224,7 +150,7 @@ const Home = () => {
       </section>
       {/* history slider section */}
       <section className="bg-[#EEDFFF]">
-        <h1 className="md:p-10 pt-10">
+        <div className="md:p-10 pt-10">
           <CustomHeading
             firstText="Key Highlights in the History of"
             // secondText="Clients"
@@ -241,14 +167,14 @@ const Home = () => {
             textSize="text-4xl md:text-6xl font-bold p-5"
             align="text-center"
           />
-        </h1>
+        </div>
         <div>
           <HistorySlider />
         </div>
       </section>
       {/* image gallery section */}
       <section className="bg-[#320142]">
-        <h1 className="md:p-10 pt-10">
+        <div className="md:p-10 pt-10">
                 <CustomHeading
             firstText="OUR"
             secondText="ACHIEVEMENTS"
@@ -257,7 +183,7 @@ const Home = () => {
             textSize="text-4xl md:text-6xl font-bold p-5"
             align="text-center"
           />
-        </h1>
+        </div>
         <AchievementGallery />
       </section>
     </div>

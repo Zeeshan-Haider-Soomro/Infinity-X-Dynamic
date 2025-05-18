@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import TalkModal from "./TalkModal";
+import SocialLinks from "./SocialLinks";
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -58,7 +59,7 @@ const Header = () => {
         <div className="h-16 w-24 flex items-center">
           <Link to="/">
             <img
-              src="src\assets\Logo.jpg"
+              src="src/assets/Logo.jpg"
               alt="Logo"
               className="h-full w-auto"
             />
@@ -158,7 +159,7 @@ const Header = () => {
             <X size={24} className="text-[#9C448D]" />
           </button>
         </div>
-        <div className="flex flex-col gap-6 px-6 py-8 text-[#320142] font-semibold">
+        <div className="flex flex-col justify-center items-center gap-10 px-6 py-8 text-[#320142] font-semibold">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
@@ -169,6 +170,16 @@ const Header = () => {
               {link.name}
             </NavLink>
           ))}
+        </div>
+        {/* social media links */}
+        <div>
+          <SocialLinks />
+        </div>
+        {/* 2025 */}
+        <div className="p-10">
+              <div className="text-center text-sm border-t border-[#A95C9C] pt-4 pb-6">
+        © {new Date().getFullYear()} Infinity X Dynamics. All Rights Reserved.
+      </div>
         </div>
       </div>
 

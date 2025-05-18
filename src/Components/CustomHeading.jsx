@@ -15,3 +15,12 @@ const CustomHeading = ({
 };
 
 export default CustomHeading;
+
+          // <CustomHeading
+          //   firstText="OUR"
+          //   secondText="ACHIEVEMENTS"
+          //   firstColor="#fff"
+          //   secondColor="#D977C8"
+          //   textSize="text-4xl md:text-6xl font-bold p-5"
+          //   align="text-center"
+          // />

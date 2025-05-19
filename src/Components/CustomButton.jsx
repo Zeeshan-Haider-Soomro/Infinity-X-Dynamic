@@ -11,7 +11,7 @@ const CustomButton = ({
   return (
     <button
       onClick={onClick}
-      className={`rounded-full py-3 px-10 text-white text-base md:text-[20px] font-medium border border-white hover:border-none cursor-pointer`}
+      className={`rounded-full py-3 px-10 text-white text-base md:text-[20px] font-medium cursor-pointer`}
       style={{
         backgroundColor: bgColor,
         transition: "background-color 0.3s ease",

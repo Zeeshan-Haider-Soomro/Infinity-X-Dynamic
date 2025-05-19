@@ -93,7 +93,7 @@ const AboutUs = () => {
         <div>
            <ContactForm />
         </div>
-        <div>
+        <div className="md:h-[700px] h-[1400px] px-4">
            <FAQSection />
         </div>
       </section>

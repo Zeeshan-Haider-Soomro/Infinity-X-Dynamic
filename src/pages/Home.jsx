@@ -1,6 +1,3 @@
-import { CiMail } from "react-icons/ci";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { IoIosCall } from "react-icons/io";
 import DynamicHeading from "../Components/DynamicHeading";
 import ServiceButtons from "../Components/ServiceButtons";
 import TypewriterText from "../Components/TypewriterText";

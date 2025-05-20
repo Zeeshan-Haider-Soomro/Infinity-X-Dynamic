@@ -33,17 +33,17 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="bg-[#320142] py-12 px-4">
-      <div className="max-w-5xl mx-auto rounded-2xl shadow-lg flex flex-col md:flex-row items-center p-8 gap-8">
+    <section className="py-12 md:px-4">
+      <div className="max-w-5xl mx-auto rounded-2xl flex flex-col md:flex-row items-center p-8 gap-8">
         {/* Left Side Text */}
         <div className="md:w-1/2 text-center md:text-left">
           <h2 className="text-3xl font-bold mb-2">
             <span className="text-white">Hi</span>{' '}
-            <span className="text-[#D977C8]">There!</span>
+            <span className="text-[#A95C9C]">There!</span>
           </h2>
           <p className="text-4xl font-bold text-white">
             Ready to bring your <br />{' '}
-            <span className="text-[#D977C8]">story to life?</span>
+            <span className="text-[#A95C9C]">story to life?</span>
           </p>
         </div>
 
@@ -125,7 +125,7 @@ const ContactForm = () => {
               className={`${
                 isLoading
                   ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-[#b44ac0] hover:bg-[#9930a7] cursor-pointer'
+                  : 'bg-[#A95C9C] hover:bg-[#9C448D] cursor-pointer'
               } text-white font-semibold py-2 px-6 rounded-full transition flex items-center justify-center gap-2`}
             >
               {isLoading && (

@@ -132,7 +132,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* 3rd section  */}
+      {/* amazing client section  */}
       <section className="bg-[#320142]">
         <h1 className="text-center text-4xl font-bold text-white pt-5">Our</h1>
         <CustomHeading
@@ -169,7 +169,7 @@ const Home = () => {
           <HistorySlider />
         </div>
       </section>
-      {/* image gallery section */}
+      {/* our achievement section */}
       <section className="bg-[#320142]">
         <div className="md:p-10 pt-10">
                 <CustomHeading

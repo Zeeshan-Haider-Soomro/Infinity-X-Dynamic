@@ -1,7 +1,19 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
-const ContactForm = () => {
+const ContactForm = ({
+  heading1,
+  heading2,
+  highlightTextLine1,
+  highlightTextLine2,
+  heading1Color = "text-white",
+  heading2Color = "text-[#A95C9C]",
+  line1Color = "text-white",
+  line2Color = "text-[#A95C9C]",
+  headingSize = "text-3xl",
+  subheadingSize = "text-3xl",
+  highlightSize = "text-4xl"
+}) => {
   const form = useRef();
   const [isSent, setIsSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -12,21 +24,21 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        'service_tpjof08',     // Replace with your Service ID
-        'template_zl2utgt',    // Replace with your Template ID
+        'service_tpjof08',
+        'template_zl2utgt',
         form.current,
-        'poKViSTe66jSxtizY'    // Replace with your Public Key
+        'poKViSTe66jSxtizY'
       )
       .then(
         (result) => {
-          console.log(result.text);
+          console.log("Email sent:", result.text);
           setIsSent(true);
           setIsLoading(false);
           form.current.reset();
-          setTimeout(() => setIsSent(false), 4000); // Auto-hide success message
+          setTimeout(() => setIsSent(false), 4000);
         },
         (error) => {
-          console.error(error.text);
+          console.error("Email send error:", error.text);
           setIsLoading(false);
         }
       );
@@ -37,13 +49,14 @@ const ContactForm = () => {
       <div className="max-w-5xl mx-auto rounded-2xl flex flex-col md:flex-row items-center p-8 gap-8">
         {/* Left Side Text */}
         <div className="md:w-1/2 text-center md:text-left">
-          <h2 className="text-3xl font-bold mb-2">
-            <span className="text-white">Hi</span>{' '}
-            <span className="text-[#A95C9C]">There!</span>
+          <h2 className={`font-bold mb-2 ${headingSize}`}>
+            <span className={`${heading1Color}`}>{heading1}</span>{' '}
+            <span className={`${heading2Color}`}>{heading2}</span>
           </h2>
-          <p className="text-4xl font-bold text-white">
-            Ready to bring your <br />{' '}
-            <span className="text-[#A95C9C]">story to life?</span>
+          <p className={`font-bold ${highlightSize}`}>
+            <span className={`${line1Color}`}>{highlightTextLine1}</span>
+            <br />
+            <span className={`${line2Color}`}>{highlightTextLine2}</span>
           </p>
         </div>
 
@@ -118,6 +131,12 @@ const ContactForm = () => {
             ></textarea>
           </div>
 
+          {isSent && (
+            <p className="text-green-600 text-sm text-center mt-2 transition-all duration-500 ease-in-out">
+              ✅ Message sent successfully!
+            </p>
+          )}
+
           <div className="text-right">
             <button
               type="submit"
@@ -153,12 +172,6 @@ const ContactForm = () => {
               {isLoading ? 'Sending...' : 'Submit Your Request'}
             </button>
           </div>
-
-          {isSent && (
-            <p className="text-green-600 text-sm text-center mt-2">
-              ✅ Message sent successfully!
-            </p>
-          )}
         </form>
       </div>
     </section>

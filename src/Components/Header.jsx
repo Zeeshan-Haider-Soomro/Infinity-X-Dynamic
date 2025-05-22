@@ -3,8 +3,11 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import TalkModal from "./TalkModal";
 import SocialLinks from "./SocialLinks";
+import { AppImages } from "../constant/AppImages";
+
 
 const Header = () => {
+  const {Logo} = AppImages
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showServices, setShowServices] = useState(false);
   const [isTalkModalOpen, setIsTalkModalOpen] = useState(false);
@@ -59,7 +62,7 @@ const Header = () => {
         <div className="h-16 w-24 flex items-center">
           <Link to="/">
             <img
-              src="src/assets/Logo.jpg"
+              src={Logo}
               alt="Logo"
               className="h-full w-auto"
             />

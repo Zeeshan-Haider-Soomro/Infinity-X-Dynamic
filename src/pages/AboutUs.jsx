@@ -5,8 +5,11 @@ import CustomHeading from "../Components/CustomHeading";
 import FAQSection from "../Components/FAQSection";
 import ImageSlider from "../Components/ImageSlider";
 import TeamSection from "../Components/TeamSection";
+import { AppImages } from "../constant/AppImages";
+
 
 const AboutUs = () => {
+  const {CeoImg} = AppImages
   return (
     <div>
       {/* hero section */}
@@ -64,7 +67,7 @@ const AboutUs = () => {
           {/* Right Side - Image */}
           <div className="w-full md:w-1/2">
             <img
-              src="/src/assets/ceo.avif"
+              src= {CeoImg}
               alt="CEO"
               className="w-full h-auto rounded-lg shadow-lg object-cover"
             />

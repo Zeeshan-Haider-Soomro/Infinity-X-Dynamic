@@ -10,6 +10,8 @@ import HistorySlider from "../Components/HistorySlider";
 import AchievementGallery from "../Components/AchievementGallery";
 import { useEffect, useState } from "react";
 import ContactSocialIcons from "../Components/ContactSocialIcons";
+import { AppImages } from "../constant/AppImages";
+
 
 const phrases = [
   ["Graphic", "Motions"],
@@ -27,6 +29,8 @@ const phrases = [
 ];
 
 const Home = () => {
+
+  const {bannerImg} = AppImages
 
     const [index, setIndex] = useState(0);
 
@@ -75,7 +79,7 @@ const Home = () => {
           {/* Left: Image */}
           <div className="w-full lg:w-1/2">
             <img
-              src="src/assets/2ndbanner.avif"
+              src={bannerImg}
               alt="Banner"
               className="w-full h-auto rounded-lg"
             />

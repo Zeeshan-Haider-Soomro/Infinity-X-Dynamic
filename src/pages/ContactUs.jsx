@@ -122,7 +122,7 @@ const ContactUs = () => {
           <p className="font-semibold">Address</p>
           <p className="mb-4">Modal Colony, Karachi, Sindh, Pakistan</p>
           <p className="font-semibold">Hours</p>
-          <p>9 AM – 5 PM</p>
+          <p>9 AM - 5 PM</p>
         </div>
 
         {/* Map Embed */}

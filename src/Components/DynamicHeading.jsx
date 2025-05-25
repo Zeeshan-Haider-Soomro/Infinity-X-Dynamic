@@ -7,7 +7,7 @@ const DynamicHeading = ({ phrases, index }) => {
     setOpacity(0);
     const timeout = setTimeout(() => {
       setOpacity(1);
-    }, 300);
+    }, 200);
     return () => clearTimeout(timeout);
   }, [index]);
 

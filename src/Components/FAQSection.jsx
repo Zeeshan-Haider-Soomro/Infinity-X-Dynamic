@@ -61,17 +61,6 @@ export default function FAQSection() {
 
   return (
     <div className="px-6 pb-20">
-        <div>
-            
-           <CustomHeading
-            firstText="Frequently Asked"
-            secondText="Questions"
-            firstColor="#fff"
-            secondColor="#D977C8"
-            textSize="text-4xl md:text-6xl font-bold p-5"
-            align="text-center"
-          />
-        </div>
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:space-x-6">
           {/* Left Column */}

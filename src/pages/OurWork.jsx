@@ -66,9 +66,32 @@ const OurWork = () => {
       {/* contact form section */}
       <section className="bg-[#EEDFFF]">
         <div>
-          <ContactForm />
+          <ContactForm
+  heading1="Hi, "
+  heading2="There!"
+  highlightTextLine1="Ready to bring your"
+  highlightTextLine2="story to life?"
+  heading1Color="text-[#5C0E6E]"
+  heading2Color="text-[#A95C9C]"
+  line1Color="text-[#5C0E6E] font-extrabold"
+  line2Color="text-[#A95C9C] font-extrabold"
+  headingSize="md:text-4xl text-4xl font-extrabold"
+  subheadingSize="text-6xl font-extrabold"
+  highlightSize="text-6xl font-extrabold"
+/>
         </div>
         <div className="md:h-[700px] h-[1400px] px-4">
+          <div>
+            
+           <CustomHeading
+            firstText="Frequently Asked"
+            secondText="Questions"
+            firstColor="#5C0E6E"
+            secondColor="#A95C9C"
+            textSize="text-4xl md:text-6xl font-bold p-5"
+            align="text-center"
+          />
+        </div>
           <FAQSection />
         </div>
       </section>

@@ -53,9 +53,32 @@ const OurClients = () => {
             {/* contact form section */}
       <section className="bg-[#320142]">
         <div>
-           <ContactForm />
+           <ContactForm
+  heading1="Hi, "
+  heading2="There!"
+  highlightTextLine1="Ready to bring your"
+  highlightTextLine2="story to life?"
+  heading1Color="text-white"
+  heading2Color="text-[#D977C8]"
+  line1Color="text-white font-extrabold"
+  line2Color="text-[#D977C8] font-extrabold"
+  headingSize="md:text-4xl text-4xl font-extrabold"
+  subheadingSize="text-6xl font-extrabold"
+  highlightSize="text-6xl font-extrabold"
+/>
         </div>
         <div className="md:h-[700px] h-[1400px] px-4">
+          <div>
+            
+           <CustomHeading
+            firstText="Frequently Asked"
+            secondText="Questions"
+            firstColor="#fff"
+            secondColor="#D977C8"
+            textSize="text-4xl md:text-6xl font-bold p-5"
+            align="text-center"
+          />
+        </div>
            <FAQSection />
         </div>
       </section>

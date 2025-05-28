@@ -8,6 +8,12 @@ import OurClients from "../pages/OurClients";
 import ContactUs from "../pages/ContactUs";
 import Home from "../pages/Home";
 import ThankYou from "../Components/ThankYou";
+import TwoDAnimation from "../pages/services/TwoDAnimation";
+import ThreeDAnimation from "../pages/services/ThreeDAnimation";
+import LogoAnimation from "../pages/services/LogoAnimation";
+import VfxCgi from "../pages/services/VfxCgi";
+import WebDevelopment from "../pages/services/WebDevelopment";
+import WhiteBoard from "../pages/services/WhiteBoard";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +47,30 @@ const router = createBrowserRouter([
             {
                 path: "/contact-us",
                 element: <ContactUs/>
+            },
+            {
+                path: "/2d-animation",
+                element: <TwoDAnimation/>
+            },
+            {
+                path: "/3d-animation",
+                element: <ThreeDAnimation/>
+            },
+            {
+                path: "/logo-animation",
+                element: <LogoAnimation/>
+            },
+            {
+                path: "/cgi-vfx",
+                element: <VfxCgi/>
+            },
+            {
+                path: "/web-developemt",
+                element: <WebDevelopment/>
+            },
+            {
+                path: "/whiteBoard",
+                element: <WhiteBoard/>
             },
             {
                 path: "/thank-you",

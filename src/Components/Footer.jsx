@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import {
-  FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
   FaFilm,
@@ -17,19 +16,20 @@ import {
   FaBriefcase,
   FaServicestack,
   FaUsers,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-[#A95C9C] px-6 pb-10">
+    <footer className="bg-white text-[#A95C9C] px-2 pb-10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10 p-10 md:p-20 flex-wrap">
 
         {/* 📞 Contact Us */}
-        <div className="flex-1 min-w-[220px]">
+        <div className="flex-1 min-w-[300px]">
           <h3 className="text-lg font-semibold mb-4">CONTACT US</h3>
           <p className="mb-2 flex items-center hover:text-[#5C0E6E] transition cursor-pointer">
-            <FaPhone className="mr-2 text-[#5C0E6E]" /> +92 321 8456611
+            <FaPhoneAlt className="mr-2 text-[#5C0E6E]" /> +92 321 8456611
           </p>
           <p className="mb-2 flex items-center hover:text-[#5C0E6E] transition cursor-pointer">
             <FaEnvelope className="mr-2 text-[#5C0E6E]" /> contact@infinityxdynamics.com

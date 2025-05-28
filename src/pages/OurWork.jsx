@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CustomHeading from "../Components/CustomHeading";
 import ContactSocialIcons from "../Components/ContactSocialIcons";
 import PortfolioTabs from "../Components/PortfolioTabs";
@@ -7,8 +7,15 @@ import ContactForm from "../Components/ContactForm";
 import FAQSection from "../Components/FAQSection";
 import ImageSlider from "../Components/ImageSlider";
 import FeedbackSection from "../Components/FeedbackSection";
+import ScrollToTopButton from "../Components/ScrollToTopButton";
 
 const OurWork = () => {
+  useEffect(() => {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 0);
+}, []);
+
   return (
     <div>
       {/* hero section */}
@@ -128,6 +135,7 @@ const OurWork = () => {
           <FeedbackSection />
         </div>
       </section>
+        <ScrollToTopButton/>
     </div>
   );
 };

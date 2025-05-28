@@ -4,6 +4,7 @@ import ContactSocialIcons from "../Components/ContactSocialIcons";
 import CustomHeading from "../Components/CustomHeading";
 import FAQSection from "../Components/FAQSection";
 import FeedbackSection from "../Components/FeedbackSection";
+import ScrollToTopButton from "../Components/ScrollToTopButton";
 
 const clientLogos = [
   { id: 1, src: "/2ndbanner.avif", alt: "Client 1" },
@@ -152,6 +153,7 @@ const OurClients = () => {
           <FeedbackSection />
         </div>
       </section>
+        <ScrollToTopButton/>
     </div>
   );
 };

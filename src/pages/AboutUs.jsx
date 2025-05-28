@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import AwardsSection from "../Components/AwardsSection";
 import ContactForm from "../Components/ContactForm";
 import ContactSocialIcons from "../Components/ContactSocialIcons";
@@ -6,9 +7,16 @@ import FAQSection from "../Components/FAQSection";
 import ImageSlider from "../Components/ImageSlider";
 import TeamSection from "../Components/TeamSection";
 import { AppImages } from "../constant/AppImages";
+import ScrollToTopButton from "../Components/ScrollToTopButton";
 
 
 const AboutUs = () => {
+    useEffect(() => {
+    // Force scroll after render
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+    }, 0) // delay if there's animation or content is loading
+  }, [])
   const {CeoImg} = AppImages
   return (
     <div>
@@ -140,6 +148,7 @@ const AboutUs = () => {
       <section className="bg-[#320142]">
         <TeamSection/>
       </section>
+        <ScrollToTopButton/>
     </div>
   );
 };

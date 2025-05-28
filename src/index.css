@@ -3,3 +3,20 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+/* Scrollbar Track */
+::-webkit-scrollbar {
+  width: 10px; /* for vertical scrollbar */
+  height: 8px; /* for horizontal scrollbar (optional) */
+}
+
+/* Scrollbar Thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #FB64B6; /* Change this to your color */
+  border-radius: 8px;
+}
+
+/* Scrollbar Track Background */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light grey */
+}

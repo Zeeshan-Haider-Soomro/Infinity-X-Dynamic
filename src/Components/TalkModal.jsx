@@ -33,7 +33,7 @@ const TalkModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#EEDFFF] rounded-xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden relative shadow-xl">
+      <div className="bg-[#EEDFFF] rounded-xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden relative shadow-xl md:h-[500px]">
         <button
           onClick={onClose}
           className="absolute cursor-pointer top-4 right-4 text-white bg-[#320142] hover:bg-[#9C448D] rounded-full w-8 h-8 flex items-center justify-center transition"
@@ -45,9 +45,9 @@ const TalkModal = ({ isOpen, onClose }) => {
         {/* Left Side Image – Hidden on Mobile */}
         <div className="hidden md:block w-1/2 bg-[#320142]">
           <img
-            src="https://i.ibb.co/2NwcKgh/vfx-image.png"
+            src="/let'sTalk.gif"
             alt="VFX"
-            className="w-full h-full object-cover"
+            className="w-full h-auto object-contain"
           />
         </div>
 

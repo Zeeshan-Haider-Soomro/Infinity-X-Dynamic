@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const videos = [
   "https://assets.zyrosite.com/AVL7Qn7WvkSKJGaj/gill-hgnz9h59jidagqidq0ivhp5bmdjaaaf-Aq2WL9wRbQcRa3EX.mp4",

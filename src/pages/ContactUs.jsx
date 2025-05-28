@@ -5,6 +5,7 @@ import CustomHeading from "../Components/CustomHeading"
 import FAQSection from "../Components/FAQSection"
 import FeedbackSection from "../Components/FeedbackSection"
 import ImageSlider from "../Components/ImageSlider"
+import ScrollToTopButton from "../Components/ScrollToTopButton"
 
 const ContactUs = () => {
   return (
@@ -160,6 +161,7 @@ const ContactUs = () => {
         </div>
       </div>
     </section>
+        <ScrollToTopButton/>
     </div>
   )
 }

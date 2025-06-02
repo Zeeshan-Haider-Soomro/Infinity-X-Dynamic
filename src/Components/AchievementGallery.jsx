@@ -33,7 +33,7 @@ const AchievementGallery = () => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
 
   return (
-    <div className="md:px-20 p-5 pb-20 text-center">
+    <div data-aos="flip-up" className="md:px-20 p-5 pb-20 text-center">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {images.map((src, index) => (
           <img

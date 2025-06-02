@@ -42,7 +42,7 @@ const VideoSlider = () => {
         }
       `}</style>
 
-      <div className="w-full pt-5">
+      <div data-aos="fade-left" className="w-full pt-5">
         <div
           className="flex w-max"
           style={{

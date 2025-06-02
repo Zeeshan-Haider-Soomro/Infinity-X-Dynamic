@@ -58,10 +58,10 @@ const Home = () => {
           <h1 className="text-white text-center text-[50px] lg:text-[70px] font-medium pt-2">
             Services
           </h1>
-          <div>
+          <div data-aos="fade-up">
             <ServiceButtons activeIndex={index} />
           </div>
-          <div className="p-10 flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center">
+          <div data-aos="fade-up" className="p-10 flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center">
             <button onClick={() => setIsModalOpen(true)} className="rounded-full bg-[#A95C9C] hover:bg-[#9C448D] py-3 px-10 text-white text-base md:text-[20px] font-medium border border-white hover:border-transparent cursor-pointer">
               GET STARTED
             </button>
@@ -76,16 +76,16 @@ const Home = () => {
       </div>
       {/* 2nd section  */}
       <section className="bg-[#EEDFFF]">
-        <h1 className="text-4xl font-bold text-center text-[#A95C9C] pt-10 p-3">
+        <h1 data-aos="fade-up" className="text-4xl font-bold text-center text-[#A95C9C] pt-10 p-3">
           Welcome to Infinity X Dynamic,
         </h1>
         <div className="">
           <TypewriterText />
         </div>
         {/* text and image section */}
-        <div className="flex flex-col lg:flex-row items-center gap-10 p-6">
+        <div  className="flex flex-col lg:flex-row items-center gap-10 p-6">
           {/* Left: Image */}
-          <div className="relative w-full lg:w-1/2">
+          <div data-aos="fade-right" className="relative w-full lg:w-1/2">
             <img
               src={bannerImg}
               alt="Banner"
@@ -96,7 +96,7 @@ const Home = () => {
           </div>
 
           {/* Right: Text + Button */}
-          <div className="w-full lg:w-1/2 space-y-6">
+          <div data-aos="fade-left" className="w-full lg:w-1/2 space-y-6">
             <p className="text-[#320142] text-base md:text-lg leading-relaxed">
               At Infinity X Dynamics, we merge creativity with cutting-edge
               technology to deliver immersive experiences. From stunning visual
@@ -164,7 +164,7 @@ const Home = () => {
       </section>
       {/* history slider section */}
       <section className="bg-[#EEDFFF]">
-        <div className="md:p-10 pt-10">
+        <div data-aos="fade-up" className="md:p-10 pt-10">
           <CustomHeading
             firstText="Key Highlights in the History of"
             // secondText="Clients"
@@ -188,7 +188,7 @@ const Home = () => {
       </section>
       {/* our achievement section */}
       <section className="bg-[#320142]">
-        <div className="md:p-10 pt-10">
+        <div data-aos="fade-up" className="md:p-10 pt-10">
           <CustomHeading
             firstText="OUR"
             secondText="ACHIEVEMENTS"

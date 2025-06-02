@@ -74,7 +74,7 @@ const HistorySlider = () => {
   ];
 
   return (
-    <div className="w-full p-4 box-border">
+    <div data-aos="zoom-in" className="w-full p-4 box-border">
       <div
         ref={sliderRef}
         className="flex overflow-x-auto gap-5 mb-4 scrollbar-hide scroll-smooth"

@@ -93,7 +93,7 @@ const ImageSlider = () => {
 
   return (
     <>
-      <div className="w-full py-12 flex flex-col items-center">
+      <div data-aos="zoom-in" className="w-full py-12 flex flex-col items-center">
         <div
           ref={sliderRef}
           className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-hide"

@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 2000); // 9 seconds
+    }, 7000); // 9 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -24,6 +24,7 @@ const App = () => {
       duration: 1000,
       once: true, // animate only once
     });
+      // AOS.refresh();
   }, []);
 
   if (showIntro) {

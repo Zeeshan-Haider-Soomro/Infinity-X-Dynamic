@@ -48,7 +48,7 @@ const ContactForm = ({
     <section className="py-12 md:px-4">
       <div className="max-w-5xl mx-auto rounded-2xl flex flex-col md:flex-row items-center p-8 gap-8">
         {/* Left Side Text */}
-        <div className="md:w-1/2 text-center md:text-left">
+        <div data-aos="fade-right" className="md:w-1/2 text-center md:text-left">
           <h2 className={`font-bold mb-2 ${headingSize}`}>
             <span className={`${heading1Color}`}>{heading1}</span>{' '}
             <span className={`${heading2Color}`}>{heading2}</span>
@@ -62,6 +62,7 @@ const ContactForm = ({
 
         {/* Right Side Form */}
         <form
+        data-aos="fade-left"
           ref={form}
           onSubmit={sendEmail}
           className="md:w-1/2 bg-white p-5 rounded-2xl w-full space-y-4"

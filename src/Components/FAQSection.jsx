@@ -64,7 +64,7 @@ export default function FAQSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:space-x-6">
           {/* Left Column */}
-          <div className="flex-1 space-y-4">
+          <div data-aos-delay="1000" data-aos="fade-right" className="flex-1 space-y-4">
             {faqData.slice(0, 6).map((faq, index) => (
               <FAQItem
                 key={index}
@@ -78,7 +78,7 @@ export default function FAQSection() {
           </div>
 
           {/* Right Column */}
-          <div className="flex-1 space-y-4 mt-6 md:mt-0">
+          <div data-aos-delay="50" data-aos="fade-left" className="flex-1 space-y-4 mt-6 md:mt-0">
             {faqData.slice(6).map((faq, index) => (
               <FAQItem
                 key={index + 6}

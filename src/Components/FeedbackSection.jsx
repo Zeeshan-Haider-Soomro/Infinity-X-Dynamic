@@ -36,7 +36,7 @@ const FeedbackSection = () => {
   };
 
   return (
-    <div className="overflow-hidden w-full max-w-5xl mx-auto pb-20">
+    <div data-aos="zoom-in-down" className="overflow-hidden w-full max-w-5xl mx-auto pb-20">
       <div ref={sliderRef} className="flex gap-5 transition-transform duration-500 ease-in-out">
         {feedbacks.map((feedback, index) => (
           <div

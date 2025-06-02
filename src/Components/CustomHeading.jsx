@@ -7,7 +7,7 @@ const CustomHeading = ({
   align = "text-center"
 }) => {
   return (
-    <h2 className={`${textSize} ${align} font-bold`}>
+    <h2 data-aos="fade-up" className={`${textSize} ${align} font-bold`}>
       <span style={{ color: firstColor }}>{firstText}</span>{" "}
       <span style={{ color: secondColor }}>{secondText}</span>
     </h2>

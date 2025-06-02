@@ -30,13 +30,12 @@ const links = [
 
 export default function ServiceButtons({ activeIndex }) {
   return (
-    <div className="flex items-center justify-center">
+    <div data-aos="fade-up" className="flex items-center justify-center">
       <div className="grid md:grid-cols-4 grid-cols-1 justify-center gap-6 mt-3">
         {services.map((label, index) => {
           const isActive = index === activeIndex;
           return (
             <a
-            data-aos="fade-up"
               key={index}
               href={links[index]}
               className={`group relative px-6 py-3 min-w-[200px] text-white font-semibold uppercase rounded-full border-2 overflow-hidden text-center transition-all duration-300 ${

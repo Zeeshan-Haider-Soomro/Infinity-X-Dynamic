@@ -12,7 +12,20 @@ const ContactUs = () => {
     <div>
             {/* Hero Section */}
       <section className="bg-[#440755] relative h-screen z-20">
-        <div className="flex justify-center items-center h-[80vh]">
+ <div className="flex justify-center items-center h-[80vh]">
+             <div className="text-center">
+          <h2 className="mb-2 md:text-5xl text-4xl font-extrabold">
+            <span className="text-white">Hi,</span>{' '}
+            <span className="text-[#D977C8]">There</span>
+          </h2>
+          <p className="md:leading-20 leading-20 text-6xl font-extrabold">
+            <span className="text-white pb-3 font-extrabold">Ready to Bring Your</span>
+            <br />
+            <span className="text-[#D977C8] mt-3 font-extrabold">Story to life?</span>
+          </p>
+        </div>
+ </div>
+        {/* <div className="flex justify-center items-center h-[80vh]">
           <div>
             <h1 className="text-4xl text-center md:text-6xl font-bold p-5 font-[poppins] text-white">
               Hi There!
@@ -24,7 +37,7 @@ const ContactUs = () => {
               Story to life?
             </h1>
           </div>
-        </div>
+        </div> */}
         <ContactSocialIcons />
       </section>
       {/* have a project section */}

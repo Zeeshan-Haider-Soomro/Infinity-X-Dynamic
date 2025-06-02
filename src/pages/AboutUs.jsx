@@ -42,7 +42,7 @@ const AboutUs = () => {
             secondText="MESSAGE"
             firstColor="#5C0E6E"
             secondColor="#A95C9C"
-            textSize="text-4xl md:text-7xl font-medium p-10 font-[poppins]"
+            textSize="text-4xl md:text-7xl font-medium md:p-10 p-3 font-[poppins]"
             align="text-center"
           />
         </div>
@@ -56,13 +56,11 @@ const AboutUs = () => {
               breakthroughs, we’ve built IXD around one mission — to turn bold
               ideas into real impact.
               <br />
-              <br />
               We don’t just develop apps or create visuals — we craft
               experiences that connect, inspire, and drive results. Every team
               member, every client, and every campaign is part of our vision to
               lead the next wave of digital innovation across Pakistan and
               beyond.
-              <br />
               <br />
               Thank you for being a part of our journey. The future is dynamic —
               and we’re just getting started.”

@@ -14,18 +14,18 @@ const services = [
 ];
 
 const links = [
-  "your-link-1.html",
-  "your-link-2.html",
-  "your-link-3.html",
-  "your-link-4.html",
-  "your-link-5.html",
-  "your-link-6.html",
-  "your-link-6.html",
-  "your-link-6.html",
-  "your-link-6.html",
-  "your-link-6.html",
-  "your-link-6.html",
-  "#",
+  "#",                     // GRAPHIC MOTION → not yet implemented
+  "/3d-animation",         // 3D ANIMATION
+  "/2d-animation",         // 2D ANIMATION
+  "#",                     // SOCIAL MEDIA MARKETING
+  "/web-developemt",       // WEB DEVELOPMENT (spelling is with 't' in your router!)
+  "/cartoonAnimation",     // CARTOON ANIMATION
+  "/whiteBoard",           // WHITEBOARD VIDEOS
+  "/logo-animation",       // LOGO ANIMATION
+  "#",                     // AUGMENTED REALITY
+  "/cgi-vfx",              // CGI/VFX
+  "#",                     // IT SOLUTIONS
+  "#",                     // SEO SMM
 ];
 
 export default function ServiceButtons({ activeIndex }) {

@@ -14,6 +14,7 @@ import LogoAnimation from "../pages/services/LogoAnimation";
 import VfxCgi from "../pages/services/VfxCgi";
 import WebDevelopment from "../pages/services/WebDevelopment";
 import WhiteBoard from "../pages/services/WhiteBoard";
+import CartoonAnimation from "../pages/services/CartoonAnimation";
 
 const router = createBrowserRouter([
     {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
             {
                 path: "/whiteBoard",
                 element: <WhiteBoard/>
+            },
+            {
+                path: "/cartoonAnimation",
+                element: <CartoonAnimation/>
             },
             {
                 path: "/thank-you",

@@ -58,7 +58,7 @@ const Home = () => {
           <h1 className="text-white text-center text-[50px] lg:text-[70px] font-medium pt-2">
             Services
           </h1>
-          <div data-aos="fade-up">
+          <div >
             <ServiceButtons activeIndex={index} />
           </div>
           <div data-aos="fade-up" className="p-10 flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center">

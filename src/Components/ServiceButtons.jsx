@@ -36,6 +36,7 @@ export default function ServiceButtons({ activeIndex }) {
           const isActive = index === activeIndex;
           return (
             <a
+            data-aos="fade-up"
               key={index}
               href={links[index]}
               className={`group relative px-6 py-3 min-w-[200px] text-white font-semibold uppercase rounded-full border-2 overflow-hidden text-center transition-all duration-300 ${

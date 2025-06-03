@@ -5,8 +5,14 @@ import Footer from './Components/Footer';
 import IntroVideo from './Components/IntroVideo';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // AOS styles
+import CustomCursor from './Components/CustomCursor';
+import MirrorMagnifierCursor from './Components/MirrorMagnifierCursor';
+import React, { useRef } from 'react';
+import MirrorCursor from './Components/MirrorCursor';
+import ScrollToTop from './Components/ScrollToTop';
 
 const App = () => {
+  const appRef = useRef(null);
   const [showIntro, setShowIntro] = useState(true); // ✅ Start with true
 
   // Intro Video Timer
@@ -22,7 +28,6 @@ const App = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true, // animate only once
     });
       // AOS.refresh();
   }, []);
@@ -32,12 +37,18 @@ const App = () => {
   }
 
   return (
-    <div className="overflow-hidden">
+    <div>
+      <ScrollToTop />
+      <CustomCursor />
+      {/* <MirrorCursor/> */}
+    <div ref={appRef} id="main-content" className="overflow-hidden">
+       {/* <MirrorMagnifierCursor zoomTargetRef={appRef} /> */}
       <Header />
       <div className="pt-20">
         <Outlet />
       </div>
       <Footer />
+    </div>
     </div>
   );
 };

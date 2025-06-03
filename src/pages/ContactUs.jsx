@@ -127,7 +127,7 @@ const ContactUs = () => {
  <section className="bg-[#320142] text-white py-12 px-6 lg:px-24">
       <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
         {/* Text Section */}
-        <div className="lg:w-1/2">
+        <div data-aos="fade-right" className="lg:w-1/2">
           <h2 className="text-4xl font-bold mb-4">Our Location</h2>
           <p className="text-lg mb-6">
             Visit us at Infinity X Dynamics for innovative marketing solutions and
@@ -140,7 +140,7 @@ const ContactUs = () => {
         </div>
 
         {/* Map Embed */}
-        <div className="lg:w-1/2 w-full">
+        <div data-aos="fade-left" className="lg:w-1/2 w-full">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7234.773192364578!2d66.993014!3d24.917482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f0fdc53c6ef%3A0xa7bc23528e1e548!2sModal%20Colony%2C%20Karachi%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1716711312345!5m2!1sen!2s"
             width="100%"

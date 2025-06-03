@@ -22,7 +22,7 @@ const AboutUs = () => {
     <div>
       {/* hero section */}
       <section className="bg-[#440755] relative h-screen z-20">
-        <div className="flex justify-center items-center h-[80vh]">
+        <div data-aos="fade-up" className="flex justify-center items-center h-[80vh]">
           <CustomHeading
             firstText="ABOUT"
             secondText="US"
@@ -48,22 +48,22 @@ const AboutUs = () => {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-6 md:p-12">
           {/* Left Side - Text */}
-          <div className="w-full md:w-1/2 text-[#320142] space-y-4">
+          <div data-aos="fade-right" className="w-full md:w-1/2 text-[#320142] space-y-4">
             <p className="text-lg leading-relaxed">
               “At Infinity X Dynamics, we believe that creativity backed by
               technology has the power to transform brands and reshape
               industries. From our earliest projects to our latest digital
-              breakthroughs, we’ve built IXD around one mission — to turn bold
+              breakthroughs, we've built IXD around one mission — to turn bold
               ideas into real impact.
               <br />
-              We don’t just develop apps or create visuals — we craft
+              We don't just develop apps or create visuals — we craft
               experiences that connect, inspire, and drive results. Every team
               member, every client, and every campaign is part of our vision to
               lead the next wave of digital innovation across Pakistan and
               beyond.
               <br />
               Thank you for being a part of our journey. The future is dynamic —
-              and we’re just getting started.”
+              and we're just getting started.”
             </p>
             <p className="font-semibold text-[#9C448D]">
               Founder & CEO - Jahanzaib Akram
@@ -71,7 +71,7 @@ const AboutUs = () => {
           </div>
 
           {/* Right Side - Image */}
-          <div className="w-full md:w-1/2">
+          <div data-aos="fade-left" className="w-full md:w-1/2">
             <img
               src= {CeoImg}
               alt="CEO"
@@ -80,7 +80,7 @@ const AboutUs = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div data-aos="fade-up">
             <CustomHeading
               firstText="What"
               secondText="We Do"
@@ -90,8 +90,8 @@ const AboutUs = () => {
               align="text-center"
             />
           </div>
-          <p className="text-center text-[#5C0E6E] text-[20px] md:px-30 px-7">Infinity X Dynamics (IXD) is a creative technology studio that blends storytelling with innovation. We specialize in VFX, CGI, app and game development, and digital marketing — helping brands grow, engage, and inspire.</p>
-          <p className="text-center text-[#5C0E6E] text-[25px] md:px-30 p-7">Over the years, our bold ideas and future-ready solutions have empowered startups, brands, and enterprise clients to stand out in the digital space.</p>
+          <p data-aos="fade-up" className="text-center text-[#5C0E6E] text-[20px] md:px-30 px-7">Infinity X Dynamics (IXD) is a creative technology studio that blends storytelling with innovation. We specialize in VFX, CGI, app and game development, and digital marketing — helping brands grow, engage, and inspire.</p>
+          <p data-aos="fade-up" className="text-center text-[#5C0E6E] text-[25px] md:px-30 p-7">Over the years, our bold ideas and future-ready solutions have empowered startups, brands, and enterprise clients to stand out in the digital space.</p>
         </div>
         <div>
           <AwardsSection />

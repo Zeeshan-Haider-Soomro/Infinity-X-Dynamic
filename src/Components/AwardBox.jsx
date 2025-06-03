@@ -30,7 +30,7 @@ const AwardBox = ({ target, label }) => {
   }, [target]);
 
   return (
-    <div className="w-64 h-56 border-b-4 border-transparent bg-gray-100 rounded-lg text-center p-6 transition-all duration-300 m-auto hover:bg-blue-50 hover:border-[#9C448D] flex flex-col justify-center items-center cursor-pointer">
+    <div className="w-90 md:w-64 h-56 border-b-4 border-transparent bg-gray-100 rounded-lg text-center p-6 transition-all duration-300 m-auto hover:bg-blue-50 hover:border-[#9C448D] flex flex-col justify-center items-center cursor-pointer">
       <div className="text-5xl font-bold text-black flex items-center">
         <span ref={countRef}>0</span>
         <span className="text-[#9C448D] ml-1">+</span>

@@ -66,7 +66,7 @@ const router = createBrowserRouter([
                 element: <VfxCgi/>
             },
             {
-                path: "/web-developemt",
+                path: "/web-development",
                 element: <WebDevelopment/>
             },
             {

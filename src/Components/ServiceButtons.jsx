@@ -18,7 +18,7 @@ const links = [
   "/3d-animation",         // 3D ANIMATION
   "/2d-animation",         // 2D ANIMATION
   "#",                     // SOCIAL MEDIA MARKETING
-  "/web-developemt",       // WEB DEVELOPMENT (spelling is with 't' in your router!)
+  "/web-development",      // WEB DEVELOPMENT (spelling is with 't' in your router!)
   "/cartoonAnimation",     // CARTOON ANIMATION
   "/whiteBoard",           // WHITEBOARD VIDEOS
   "/logo-animation",       // LOGO ANIMATION

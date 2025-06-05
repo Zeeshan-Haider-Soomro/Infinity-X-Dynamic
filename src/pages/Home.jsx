@@ -135,8 +135,8 @@ const Home = () => {
             align="text-center"
           />
           <div>
-            {/* <VideoSlider /> */}
-            {/* <VideoSliderRight /> */}
+            <VideoSlider />
+            <VideoSliderRight />
           </div>
           <Link to={"/our-work"}>
             <div className="text-center pt-20">

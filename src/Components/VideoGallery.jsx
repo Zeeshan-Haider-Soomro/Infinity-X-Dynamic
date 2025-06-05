@@ -37,7 +37,7 @@ export default function VideoGallery({ videos, title = "Our Videos" }) {
           <div className="bg-black p-4 rounded-lg max-w-3xl w-full relative">
             <button
               onClick={closeModal}
-              className="cursor-pointer absolute -top-5 -right-5 text-white text-2xl font-bold"
+              className="cursor-pointer absolute md:-top-5 top-0 right-0 md:-right-5 text-white text-2xl font-bold"
             >
               x
             </button>

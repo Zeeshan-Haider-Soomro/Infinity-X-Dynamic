@@ -45,13 +45,13 @@ const MirrorCursor = () => {
     <>
       {/* Main Cursor */}
       <motion.div
-        className="w-4 h-4 rounded-full bg-yellow-400 fixed pointer-events-none z-[9999]"
+        className="w-6 h-6 rounded-full bg-yellow-400 fixed pointer-events-none z-[9999]"
         style={{ x: cursorX, y: cursorY }}
       />
 
       {/* Mirror Cursor */}
       <motion.div
-        className="w-4 h-4 rounded-full bg-purple-500 fixed pointer-events-none z-[9998] opacity-70"
+        className="w-6 h-6 rounded-full bg-purple-500 fixed pointer-events-none z-[9998] opacity-70"
         style={{ x: mirrorX, y: mirrorY }}
       />
     </>

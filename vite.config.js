@@ -8,5 +8,5 @@ export default defineConfig({
   plugins: [react(),
         tailwindcss(),
   ],
-  base: "https://infinityxdynamics.com", // Use "/" for custom domains or "/repo-name/" for default 
+    base: "https://infinityxdynamics.com", // Use "/" for custom domains or "/repo-name/" for default 
 })

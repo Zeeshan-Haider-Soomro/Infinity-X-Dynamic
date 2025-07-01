@@ -1,3 +1,5 @@
+import { Link } from "react-router"; // ✅ Make sure this is react-router-dom, not just "react-router"
+
 const services = [
   "GRAPHIC MOTION",
   "3D ANIMATION",
@@ -14,18 +16,18 @@ const services = [
 ];
 
 const links = [
-  "#",                     // GRAPHIC MOTION → not yet implemented
-  "/3d-animation",         // 3D ANIMATION
-  "/2d-animation",         // 2D ANIMATION
-  "#",                     // SOCIAL MEDIA MARKETING
-  "/web-development",      // WEB DEVELOPMENT (spelling is with 't' in your router!)
-  "/cartoonAnimation",     // CARTOON ANIMATION
-  "/whiteBoard",           // WHITEBOARD VIDEOS
-  "/logo-animation",       // LOGO ANIMATION
-  "#",                     // AUGMENTED REALITY
-  "/cgi-vfx",              // CGI/VFX
-  "#",                     // IT SOLUTIONS
-  "#",                     // SEO SMM
+  "#",
+  "/3d-animation",
+  "/2d-animation",
+  "#",
+  "/web-development",
+  "/cartoonAnimation",
+  "/whiteBoard",
+  "/logo-animation",
+  "#",
+  "/cgi-vfx",
+  "#",
+  "#",
 ];
 
 export default function ServiceButtons({ activeIndex }) {
@@ -34,14 +36,15 @@ export default function ServiceButtons({ activeIndex }) {
       <div className="grid md:grid-cols-4 grid-cols-1 justify-center gap-6 mt-3">
         {services.map((label, index) => {
           const isActive = index === activeIndex;
-          return (
-            <a
+          const link = links[index];
+          const isClickable = link !== "#"; // Disable unlinked ones
+
+          return isClickable ? (
+            <Link
               key={index}
-              href={links[index]}
+              to={link}
               className={`group relative px-6 py-3 min-w-[200px] text-white font-semibold uppercase rounded-full border-2 overflow-hidden text-center transition-all duration-300 ${
-                isActive
-                  ? "bg-[#9c448d] border-[#9c448d]"
-                  : "border-white"
+                isActive ? "bg-[#9c448d] border-[#9c448d]" : "border-white"
               }`}
             >
               <span className="relative z-10">{label}</span>
@@ -50,7 +53,14 @@ export default function ServiceButtons({ activeIndex }) {
                   !isActive ? "bg-[#9c448d]" : ""
                 }`}
               />
-            </a>
+            </Link>
+          ) : (
+            <div
+              key={index}
+              className="group relative px-6 py-3 min-w-[200px] text-white font-semibold uppercase rounded-full border-2 border-gray-400 cursor-not-allowed text-center opacity-50"
+            >
+              <span className="relative z-10">{label}</span>
+            </div>
           );
         })}
       </div>

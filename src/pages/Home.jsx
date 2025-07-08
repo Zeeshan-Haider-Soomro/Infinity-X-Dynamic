@@ -14,6 +14,7 @@ import { AppImages } from "../constant/AppImages";
 import { Link } from "react-router";
 import TalkModal from "../Components/TalkModal";
 import ScrollToTopButton from "../Components/ScrollToTopButton";
+import { Button } from "@/Components/ui/button";
 
 const phrases = [
   ["Graphic", "Motions"],
@@ -48,7 +49,7 @@ const Home = () => {
     <div className="">
       {/* banner section */}
       <div className="">
-        <section className="bg-[#320142] relative z-20 p-10 pb-30 overflow-hidden">
+        <section className=" top-[50px] relative z-20 p-10 pb-30 overflow-hidden">
           <h1 className="text-white text-center text-[30px] lg:text-[50px]">
             We Provide
           </h1>
@@ -58,11 +59,17 @@ const Home = () => {
           <h1 className="text-white text-center text-[50px] lg:text-[70px] font-medium pt-2">
             Services
           </h1>
-          <div >
+          <div>
             <ServiceButtons activeIndex={index} />
           </div>
-          <div data-aos="fade-up" className="p-10 flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center">
-            <button onClick={() => setIsModalOpen(true)} className="rounded-full bg-[#A95C9C] hover:bg-[#9C448D] py-3 px-10 text-white text-base md:text-[20px] font-medium border border-white hover:border-transparent cursor-pointer">
+          <div
+            data-aos="fade-up"
+            className="p-10 flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center"
+          >
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="rounded-full bg-[#A95C9C] hover:bg-[#9C448D] py-3 px-10 text-white text-base md:text-[20px] font-medium border border-white hover:border-transparent cursor-pointer"
+            >
               GET STARTED
             </button>
             <Link to={"/our-work"}>
@@ -75,45 +82,41 @@ const Home = () => {
         </section>
       </div>
       {/* 2nd section  */}
-      <section className="bg-[#EEDFFF]">
-        <h1 data-aos="fade-up" className="text-4xl font-bold text-center text-[#A95C9C] pt-10 p-3">
+      <section className="bg-[#3C0945]">
+        <h1
+          data-aos="fade-up"
+          className="text-4xl font-bold text-center text-[#FFF] pt-10 p-3"
+        >
           Welcome to Infinity X Dynamic,
         </h1>
         <div className="">
           <TypewriterText />
         </div>
         {/* text and image section */}
-        <div  className="flex flex-col lg:flex-row items-center gap-10 p-6">
+        <div className="flex flex-col lg:flex-row items-center gap-10 p-6">
           {/* Left: Image */}
-          <div data-aos="fade-right" className="relative w-full lg:w-1/2">
-            <img
-              src={bannerImg}
-              alt="Banner"
-                className="w-[400px] h-[300px] sm:w-[400px] sm:h-[300px] md:w-[500px] md:h-[450px] object-contain rounded-lg mx-auto z-10 relative"
-            />
-             <div className="absolute -top-8 left-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div>
-    <div className="absolute -bottom-7 right-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div>
-          </div>
 
           {/* Right: Text + Button */}
-          <div data-aos="fade-left" className="w-full lg:w-1/2 space-y-6">
-            <p className="text-[#320142] text-base md:text-lg leading-relaxed">
+          <div data-aos="fade-right" className="w-full lg:w-1/2 space-y-6">
+            <p className="text-[#FFF] text-base md:text-lg leading-relaxed">
               At Infinity X Dynamics, we merge creativity with cutting-edge
               technology to deliver immersive experiences. From stunning visual
               effects to innovative software solutions, our team is dedicated to
               bringing your vision to life. Founded in 2020, Infinity X Dynamics
               has rapidly evolved into a hub for digital excellence.
             </p>
-            <Link to={"/about-us"}>
-              {/* Button aligned to left */}
-              <div className="text-left">
-                <CustomButton
-                  text="READ MORE"
-                  bgColor="#A95C9C"
-                  hoverColor="#9C448D"
-                />
-              </div>
-            </Link>
+
+            <CustomButton to="/about-us">READ MORE</CustomButton>
+          </div>
+
+          <div data-aos="fade-left" className="relative w-full lg:w-1/2">
+            <img
+              src={bannerImg}
+              alt="Banner"
+              className="w-[400px] h-[300px] sm:w-[400px] sm:h-[300px] md:w-[500px] md:h-[450px] object-contain rounded-lg mx-auto z-10 relative"
+            />
+            <div className="absolute -top-8 left-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div>
+            <div className="absolute -bottom-7 right-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div>
           </div>
         </div>
         {/* videos section */}
@@ -201,9 +204,8 @@ const Home = () => {
         <AchievementGallery />
       </section>
       <TalkModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-        <ScrollToTopButton/>
+      <ScrollToTopButton />
     </div>
-    
   );
 };
 

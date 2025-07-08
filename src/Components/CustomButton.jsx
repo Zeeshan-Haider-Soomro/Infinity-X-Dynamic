@@ -1,48 +1,51 @@
-// src/Components/CustomButton.jsx
-import React from "react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 
 const CustomButton = ({
-  text,
+  children,
+  to, // optional routing support
   onClick,
-  bgColor = "#A95C9C",
-  hoverColor = "#9C448D",
+  type = "button",
+  className = "",
 }) => {
+  const buttonStyles = clsx(
+    "h-10 w-48 rounded-[35px]",
+    "border border-solid border-[#c55ebd]",
+    "shadow-[0px_0px_40px_#ffffff80]",
+    "bg-[linear-gradient(180deg,rgba(107,45,110,1)_0%,rgba(60,9,69,1)_100%)]",
+    "[font-family:'Quicksand',Helvetica]",
+    "font-semibold text-white text-lg",
+    "transition-all duration-300 hover:brightness-110",
+    className
+  );
+
+  if (to) {
+    return (
+      <Button asChild className={buttonStyles}>
+        <Link to={to}>{children}</Link>
+      </Button>
+    );
+  }
+
   return (
-    <button
+    <Button
       onClick={onClick}
-      className={`rounded-full py-3 px-10 text-white text-base md:text-[20px] font-medium cursor-pointer`}
-      style={{
-        backgroundColor: bgColor,
-        transition: "background-color 0.3s ease",
-      }}
-      onMouseEnter={(e) => (e.target.style.backgroundColor = hoverColor)}
-      onMouseLeave={(e) => (e.target.style.backgroundColor = bgColor)}
+      type={type}
+      className={buttonStyles}
     >
-      {text}
-    </button>
+      {children}
+    </Button>
   );
 };
 
 CustomButton.propTypes = {
-  text: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  to: PropTypes.string,
   onClick: PropTypes.func,
-  bgColor: PropTypes.string,
-  hoverColor: PropTypes.string,
+  type: PropTypes.string,
+  className: PropTypes.string,
 };
-
-//  for dark
-//        <CustomButton
-//     text="VIEW PORTFOLIO"
-//     bgColor="#451650"
-//     hoverColor="#9C448D"
-//   />
-
-// for light
-// <CustomButton
-//     text="GET STARTED"
-//     bgColor="#A95C9C"
-//     hoverColor="#9C448D"
-//   />
 
 export default CustomButton;

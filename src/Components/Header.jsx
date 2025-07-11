@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import CustomButton from "./CustomButton";
+import { CurveArrow } from "@/assets/ImagesFile";
 
 const Header = () => {
   const { Logo } = AppImages;
@@ -30,14 +31,38 @@ const Header = () => {
   ];
 
   const services = [
-    { label: "2D Animation", icon: "https://cdn-icons-png.flaticon.com/512/1146/1146869.png" },
-    { label: "3D Animation", icon: "https://cdn-icons-png.flaticon.com/512/2166/2166824.png" },
-    { label: "Cartoon Animation", icon: "https://cdn-icons-png.flaticon.com/512/4905/4905451.png" },
-    { label: "Motion Graphic", icon: "https://cdn-icons-png.flaticon.com/512/846/846338.png" },
-    { label: "Whiteboard", icon: "https://cdn-icons-png.flaticon.com/512/9476/9476796.png" },
-    { label: "Logo Animation", icon: "https://cdn-icons-png.flaticon.com/512/4187/4187457.png" },
-    { label: "Augmented Reality", icon: "https://cdn-icons-png.flaticon.com/512/2972/2972865.png" },
-    { label: "CGI / VFX", icon: "https://cdn-icons-png.flaticon.com/512/2907/2907100.png" },
+    {
+      label: "2D Animation",
+      icon: "https://cdn-icons-png.flaticon.com/512/1146/1146869.png",
+    },
+    {
+      label: "3D Animation",
+      icon: "https://cdn-icons-png.flaticon.com/512/2166/2166824.png",
+    },
+    {
+      label: "Cartoon Animation",
+      icon: "https://cdn-icons-png.flaticon.com/512/4905/4905451.png",
+    },
+    {
+      label: "Motion Graphic",
+      icon: "https://cdn-icons-png.flaticon.com/512/846/846338.png",
+    },
+    {
+      label: "Whiteboard",
+      icon: "https://cdn-icons-png.flaticon.com/512/9476/9476796.png",
+    },
+    {
+      label: "Logo Animation",
+      icon: "https://cdn-icons-png.flaticon.com/512/4187/4187457.png",
+    },
+    {
+      label: "Augmented Reality",
+      icon: "https://cdn-icons-png.flaticon.com/512/2972/2972865.png",
+    },
+    {
+      label: "CGI / VFX",
+      icon: "https://cdn-icons-png.flaticon.com/512/2907/2907100.png",
+    },
   ];
 
   useEffect(() => {
@@ -48,11 +73,10 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navWrapper = `fixed z-50 transition-all duration-500 ease-in-out ${
-    scrolled
-      ? "w-full left-0 right-0 top-0 rounded-none bg-[#320142] shadow-[0_0_10px_#874182]"
-      : "top-[15px] left-[21px] right-[21px] rounded-[50px] bg-[rgba(255,255,255,0.25)] shadow-[0_0_10px_#874182] backdrop-blur-md"
-  }`;
+  const navWrapper = `fixed z-50 transition-all duration-500 ease-in-out ${scrolled
+    ? "w-full left-0 right-0 top-0 rounded-none bg-[#320142] shadow-[0_0_10px_#874182]"
+    : "top-[15px] left-[21px] right-[21px] rounded-[50px] bg-[rgba(255,255,255,0.25)] shadow-[0_0_10px_#874182] backdrop-blur-md"
+    }`;
 
   return (
     <>
@@ -79,31 +103,117 @@ const Header = () => {
                       >
                         {link.name}
                       </NavigationMenuTrigger>
-                      <NavigationMenuContent className="bg-white shadow-md rounded-lg p-4">
-                        <ul className="grid w-[90vw] max-w-4xl gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                          {services.map((service, index) => (
-                            <li key={index}>
-                              <NavigationMenuLink asChild>
-                                <Link
-                                  to={`/services/${service.label
-                                    .toLowerCase()
-                                    .replace(/\s+/g, "-")}`}
-                                  className="flex items-center gap-3 p-2 rounded transition-colors hover:text-[#9C448D]"
-                                >
-                                  <img
-                                    src={service.icon}
-                                    alt={service.label}
-                                    className="w-12 h-12 object-contain p-1 bg-gray-100 rounded-lg shadow"
-                                  />
-                                  <span className="text-sm font-semibold text-[#320142]">
-                                    {service.label}
-                                  </span>
-                                </Link>
-                              </NavigationMenuLink>
-                            </li>
-                          ))}
-                        </ul>
+                      <NavigationMenuContent
+                        className="bg-[#1A0127] text-white w-[595px] h-100vh rounded-lg flex justify-center items-center p-8 pb-12"
+                      >
+                        <div className="flex gap-12 pt-[29px]">
+                          {/* Left Column */}
+                          <div className="flex flex-col w-[222px] gap-4">
+                            <h3 className="text-lg font-bold mb-2">Animation Services</h3>
+
+                            <Link
+                              to="/services/2d-3d-animation"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">2D/3D Animation</div>
+                                <div className="text-sm text-gray-300">
+                                  Engaging character and product animations in 2D or 3D.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/services/cartoon-animation"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Cartoon Animation</div>
+                                <div className="text-sm text-gray-300">
+                                  Stylized, fun animations perfect for storytelling.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/services/whiteboard-videos"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Whiteboard Videos</div>
+                                <div className="text-sm text-gray-300">
+                                  Stylized, fun animations perfect for storytelling.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/services/logo-animation"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Logo Animation</div>
+                                <div className="text-sm text-gray-300">
+                                  Bring your brand logo to life with motion and impact.
+                                </div>
+                              </div>
+                            </Link>
+                          </div>
+
+                          {/* Right Column */}
+                          <div className="flex flex-col w-[222px] gap-4">
+                            <h3 className="text-lg font-bold mb-2">Advanced Visuals</h3>
+
+                            <Link
+                              to="/services/vfx-cgi"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">VFX/CGI</div>
+                                <div className="text-sm text-gray-300">
+                                  Cinematic-quality visual effects and CGI enhancements.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/services/motion-graphics"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Motion Graphics</div>
+                                <div className="text-sm text-gray-300">
+                                  Text, shapes, and movement to convey messages smartly.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/services/augmented-reality"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Augmented Reality</div>
+                                <div className="text-sm text-gray-300">
+                                  Interactive, immersive AR experiences for your brand.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <CustomButton className="mt-4">
+                              View Portfolio
+                            </CustomButton>
+                          </div>
+                        </div>
                       </NavigationMenuContent>
+
                     </NavigationMenuItem>
                   ) : (
                     <NavigationMenuItem key={link.name}>
@@ -116,7 +226,7 @@ const Header = () => {
                         </NavLink>
                       </NavigationMenuLink>
                     </NavigationMenuItem>
-                  )
+                  ),
                 )}
               </NavigationMenuList>
             </NavigationMenu>
@@ -154,7 +264,8 @@ const Header = () => {
                   <SocialLinks />
                 </div>
                 <div className="text-center text-sm mt-6 border-t pt-4 border-[#A95C9C]">
-                  © {new Date().getFullYear()} Infinity X Dynamics. All Rights Reserved.
+                  © {new Date().getFullYear()} Infinity X Dynamics. All Rights
+                  Reserved.
                 </div>
               </SheetContent>
             </Sheet>
@@ -162,7 +273,10 @@ const Header = () => {
         </div>
       </nav>
 
-      <TalkModal isOpen={isTalkModalOpen} onClose={() => setIsTalkModalOpen(false)} />
+      <TalkModal
+        isOpen={isTalkModalOpen}
+        onClose={() => setIsTalkModalOpen(false)}
+      />
     </>
   );
 };

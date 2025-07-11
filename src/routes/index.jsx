@@ -7,6 +7,7 @@ import OurServices from "../pages/OurServices";
 import OurClients from "../pages/OurClients";
 import ContactUs from "../pages/ContactUs";
 import Home from "../pages/Home";
+import Shop from "../pages/Shop";
 import ThankYou from "../Components/ThankYou";
 import TwoDAnimation from "../pages/services/TwoDAnimation";
 import ThreeDAnimation from "../pages/services/ThreeDAnimation";
@@ -17,76 +18,80 @@ import WhiteBoard from "../pages/services/WhiteBoard";
 import CartoonAnimation from "../pages/services/CartoonAnimation";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
         path: "/",
-        element: <App/>,
-        children:[
-            {
-                path: "/",
-                element: <Home/>
-            },
-            {
-                path: "/home",
-                element: <Home/>
-            },
-            {
-                path: "/about-us",
-                element: <AboutUs/>
-            },
-            {
-                path: "/our-work",
-                element: <OurWork/>
-            },
-            {
-                path: "/our-services",
-                element: <OurServices/>
-            },
-            {
-                path: "/our-clients",
-                element: <OurClients/>
-            },
-            {
-                path: "/contact-us",
-                element: <ContactUs/>
-            },
-            {
-                path: "/2d-animation",
-                element: <TwoDAnimation/>
-            },
-            {
-                path: "/3d-animation",
-                element: <ThreeDAnimation/>
-            },
-            {
-                path: "/logo-animation",
-                element: <LogoAnimation/>
-            },
-            {
-                path: "/cgi-vfx",
-                element: <VfxCgi/>
-            },
-            {
-                path: "/web-development",
-                element: <WebDevelopment/>
-            },
-            {
-                path: "/whiteBoard",
-                element: <WhiteBoard/>
-            },
-            {
-                path: "/cartoonAnimation",
-                element: <CartoonAnimation/>
-            },
-            {
-                path: "/thank-you",
-                element: <ThankYou />
-            },
-        ]
-    },
-    {
-        path: "*",
-        element: <NotFound/>
-    },
-])
+        element: <Home />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "/our-work",
+        element: <OurWork />,
+      },
+      {
+        path: "/our-services",
+        element: <OurServices />,
+      },
+      {
+        path: "/our-clients",
+        element: <OurClients />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
+      },
+      {
+        path: "/shop",
+        element: <Shop />,
+      },
+      {
+        path: "/2d-animation",
+        element: <TwoDAnimation />,
+      },
+      {
+        path: "/3d-animation",
+        element: <ThreeDAnimation />,
+      },
+      {
+        path: "/logo-animation",
+        element: <LogoAnimation />,
+      },
+      {
+        path: "/cgi-vfx",
+        element: <VfxCgi />,
+      },
+      {
+        path: "/web-development",
+        element: <WebDevelopment />,
+      },
+      {
+        path: "/whiteBoard",
+        element: <WhiteBoard />,
+      },
+      {
+        path: "/cartoonAnimation",
+        element: <CartoonAnimation />,
+      },
+      {
+        path: "/thank-you",
+        element: <ThankYou />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
 
-export default router
+export default router;

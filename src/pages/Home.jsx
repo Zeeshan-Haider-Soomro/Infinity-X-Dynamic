@@ -15,6 +15,11 @@ import { Link } from "react-router";
 import TalkModal from "../Components/TalkModal";
 import ScrollToTopButton from "../Components/ScrollToTopButton";
 import { Button } from "@/Components/ui/button";
+import { ImagesAssets } from "@/utils/ImagesAssets";
+import { RecentProjects } from "@/Components/RecentProjects";
+import { AchievementsSection } from "@/Components/AchievementsSection";
+import { Card } from "@/Components/ui/card";
+import History from "@/Components/History";
 
 const phrases = [
   ["Graphic", "Motions"],
@@ -29,6 +34,12 @@ const phrases = [
   ["CGI", "VFX"],
   ["IT", "Solutions"],
   ["SEO", "SMM"],
+];
+
+const awards = [
+  { src: ImagesAssets.award, alt: "Award 1" },
+  { src: ImagesAssets.award, alt: "Award 2" },
+  { src: ImagesAssets.award, alt: "Award 3" },
 ];
 
 const Home = () => {
@@ -92,6 +103,7 @@ const Home = () => {
         <div className="">
           <TypewriterText />
         </div>
+        
         {/* text and image section */}
         <div className="flex flex-col lg:flex-row items-center gap-10 p-6">
           {/* Left: Image */}
@@ -110,15 +122,23 @@ const Home = () => {
           </div>
 
           <div data-aos="fade-left" className="relative w-full lg:w-1/2">
-            <img
-              src={bannerImg}
+            <ImagesAssets.botOne />
+            {/* <img
+              src={ImagesAssets.botOne}
               alt="Banner"
               className="w-[400px] h-[300px] sm:w-[400px] sm:h-[300px] md:w-[500px] md:h-[450px] object-contain rounded-lg mx-auto z-10 relative"
-            />
-            <div className="absolute -top-8 left-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div>
-            <div className="absolute -bottom-7 right-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div>
+            /> */}
+            {/* <div className="absolute -top-8 left-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div> */}
+            {/* <div className="absolute -bottom-7 right-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div> */}
           </div>
         </div>
+
+        <section className="">
+          <div>
+            <RecentProjects />
+          </div>
+        </section>
+
         {/* videos section */}
         <div className="md:p-10 p-10">
           <CustomHeading
@@ -141,7 +161,10 @@ const Home = () => {
             <VideoSlider />
             <VideoSliderRight />
           </div>
-          <Link to={"/our-work"}>
+          <CustomButton className="text-center
+            flex justify-center items-center mx-auto mt-10 transition-all duration-300
+          " to={"/our-work"} >VIEW PORTFOLIO</CustomButton>
+          {/* <Link to={"/our-work"}>
             <div className="text-center pt-20">
               <CustomButton
                 text="VIEW PORTFOLIO"
@@ -149,11 +172,15 @@ const Home = () => {
                 hoverColor="#9C448D"
               />
             </div>
-          </Link>
+          </Link> */}
         </div>
+        
       </section>
+
+      
+
       {/* amazing client section  */}
-      <section className="bg-[#320142]">
+      {/* <section className="bg-[#320142]">
         <h1 className="text-center text-4xl font-bold text-white pt-5">Our</h1>
         <CustomHeading
           firstText="Amazing"
@@ -164,9 +191,15 @@ const Home = () => {
           align="text-center"
         />
         <ImageSlider />
-      </section>
+      </section> */}
+      
+
+
+
       {/* history slider section */}
-      <section className="bg-[#EEDFFF]">
+
+      <History />
+      {/* <section className="bg-[#EEDFFF]">
         <div data-aos="fade-up" className="md:p-10 pt-10">
           <CustomHeading
             firstText="Key Highlights in the History of"
@@ -188,9 +221,9 @@ const Home = () => {
         <div>
           <HistorySlider />
         </div>
-      </section>
+      </section> */}
       {/* our achievement section */}
-      <section className="bg-[#320142]">
+      {/* <section className="bg-[#320142]">
         <div data-aos="fade-up" className="md:p-10 pt-10">
           <CustomHeading
             firstText="OUR"
@@ -202,6 +235,43 @@ const Home = () => {
           />
         </div>
         <AchievementGallery />
+      </section> */}
+
+      <AchievementsSection />
+
+      {/* Awards Section */}
+      <section className="w-full px-6 py-16 ">
+        <div className="max-w-[1236px] mx-auto flex flex-col items-center text-center text-white">
+          {/* Title */}
+          <h2 className="text-4xl font-bold mb-4">
+            Our <span className="text-[#8B7190]">Achievements</span>
+          </h2>
+
+          {/* Subtitle */}
+          <p className="max-w-3xl text-lg font-light mb-12">
+            Over 100+ successful projects delivered for clients across 10+
+            industries — from startups to global brands. Our work has earned
+            long-term partnerships in countries like Egypt, UAE, and the UK.
+          </p>
+
+          {/* Awards */}
+          <div className="flex flex-wrap justify-center gap-10">
+            {awards.map((award, index) => (
+              <Card
+                key={index}
+                className="w-[305px] h-[189.93px] rounded-[25px] overflow-hidden bg-white/10 flex items-center justify-center shadow-xl border border-white/10"
+              >
+                <img
+                  src={award.src}
+                  alt={award.alt}
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+            ))}
+          </div>
+
+
+        </div>
       </section>
       <TalkModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <ScrollToTopButton />

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import CustomButton from './CustomButton';
 
 const ContactForm = ({
   heading1,
@@ -10,9 +11,9 @@ const ContactForm = ({
   heading2Color = "text-[#A95C9C]",
   line1Color = "text-white",
   line2Color = "text-[#A95C9C]",
-  headingSize = "text-3xl",
-  subheadingSize = "text-3xl",
-  highlightSize = "text-4xl"
+  headingSize = "text-4xl",
+  subheadingSize = "text-2xl",
+  highlightSize = "text-4xl",
 }) => {
   const form = useRef();
   const [isSent, setIsSent] = useState(false);
@@ -45,134 +46,125 @@ const ContactForm = ({
   };
 
   return (
-    <section className="py-12 md:px-4">
-      <div className="max-w-5xl mx-auto rounded-2xl flex flex-col md:flex-row items-center p-8 gap-8">
-        {/* Left Side Text */}
-        <div data-aos="fade-right" className="md:w-1/2 text-center md:text-left">
-          <h2 className={`font-bold mb-2 ${headingSize}`}>
-            <span className={`${heading1Color}`}>{heading1}</span>{' '}
+    <section className="py-16 bg-[#1a0127] px-4 border-t-4 border-[#A95C9C] rounded-t-[65px]">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+        {/* LEFT TEXT */}
+        <div data-aos="fade-right" className="space-y-6 text-center md:text-left">
+          <h2 className={`${headingSize} font-bold`}>
+            <span className={`${heading1Color}`}>{heading1}</span>{" "}
             <span className={`${heading2Color}`}>{heading2}</span>
           </h2>
-          <p className={`font-bold ${highlightSize}`}>
+          <p className={`${highlightSize} font-bold`}>
             <span className={`${line1Color}`}>{highlightTextLine1}</span>
             <br />
             <span className={`${line2Color}`}>{highlightTextLine2}</span>
           </p>
         </div>
 
-        {/* Right Side Form */}
+        {/* RIGHT FORM */}
         <form
-        data-aos="fade-left"
+          data-aos="fade-left"
           ref={form}
           onSubmit={sendEmail}
-          className="md:w-1/2 bg-white p-5 rounded-2xl w-full space-y-4"
+          className="w-full bg-[#A95C9C]/50 backdrop-blur-md rounded-[25px] p-8 text-white space-y-6"
         >
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Your First Name: <span className="text-red-700">*</span>
-            </label>
-            <input
-              type="text"
-              name="first_name"
-              required
-              placeholder="Enter Your First Name"
-              className="w-full border-[1.5px] border-gray-400 rounded-md px-4 py-2 focus:outline-none hover:border-[#b44ac0] focus:ring-2 focus:ring-[#b44ac0]"
-            />
+          {/* Input Groups */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-semibold mb-2 text-[#A95C9C]">First Name <span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                name="first_name"
+                required
+                placeholder="Enter your first name"
+                className="w-full px-4 py-3 rounded-md bg-[#8B7190] text-white border border-[#A95C9C]/50 focus:ring-2 focus:ring-[#A95C9C] placeholder:text-white/50"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-2 text-[#A95C9C]">Last Name <span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                name="last_name"
+                required
+                placeholder="Enter your last name"
+                className="w-full px-4 py-3 rounded-md bg-[#8B7190] text-white border border-[#A95C9C]/50 focus:ring-2 focus:ring-[#A95C9C] placeholder:text-white/50"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-2 text-[#A95C9C]">Email <span className="text-red-500">*</span></label>
+              <input
+                type="email"
+                name="user_email"
+                required
+                placeholder="example@domain.com"
+                className="w-full px-4 py-3 rounded-md bg-[#8B7190] text-white border border-[#A95C9C]/50 focus:ring-2 focus:ring-[#A95C9C] placeholder:text-white/50"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-2 text-[#A95C9C]">Phone <span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                name="user_phone"
+                required
+                placeholder="+92 300 1234567"
+                className="w-full px-4 py-3 rounded-md bg-[#8B7190] text-white border border-[#A95C9C]/50 focus:ring-2 focus:ring-[#A95C9C] placeholder:text-white/50"
+              />
+            </div>
           </div>
 
           <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Your Last Name: <span className="text-red-700">*</span>
-            </label>
-            <input
-              type="text"
-              name="last_name"
-              required
-              placeholder="Enter Your Last Name"
-              className="w-full border-[1.5px] border-gray-400 rounded-md px-4 py-2 focus:outline-none hover:border-[#b44ac0] focus:ring-2 focus:ring-[#b44ac0]"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Your Email Address: <span className="text-red-700">*</span>
-            </label>
-            <input
-              type="email"
-              name="user_email"
-              required
-              placeholder="Enter Your Email Address"
-              className="w-full border-[1.5px] border-gray-400 rounded-md px-4 py-2 focus:outline-none hover:border-[#b44ac0] focus:ring-2 focus:ring-[#b44ac0]"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Contact Number: <span className="text-red-700">*</span>
-            </label>
-            <input
-              type="text"
-              name="user_phone"
-              required
-              placeholder="Contact Number"
-              className="w-full border-[1.5px] border-gray-400 rounded-md px-4 py-2 focus:outline-none hover:border-[#b44ac0] focus:ring-2 focus:ring-[#b44ac0]"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">
-              Your Message: <span className="text-red-700">*</span>
-            </label>
+            <label className="block text-sm font-semibold mb-2 text-[#A95C9C]">Message <span className="text-red-500">*</span></label>
             <textarea
               name="message"
               required
-              rows="3"
-              placeholder="Type your message here"
-              className="w-full border-[1.5px] border-gray-400 rounded-md px-4 py-2 focus:outline-none hover:border-[#b44ac0] focus:ring-2 focus:ring-[#b44ac0]"
+              rows="4"
+              placeholder="Type your message here..."
+              className="w-full px-4 py-3 rounded-md bg-[#8B7190] text-white border border-[#A95C9C]/50 focus:ring-2 focus:ring-[#A95C9C] placeholder:text-white/50"
             ></textarea>
           </div>
 
+          {/* Success Message */}
           {isSent && (
-            <p className="text-green-600 text-sm text-center mt-2 transition-all duration-500 ease-in-out">
-              ✅ Message sent successfully!
+            <p className="text-green-400 text-sm text-center">
+              ✅ Your message has been sent successfully!
             </p>
           )}
 
-          <div className="text-right">
-            <button
+          <div className="text-center md:text-right mt-4">
+            <CustomButton
               type="submit"
+              className={isLoading ? "cursor-not-allowed opacity-50" : ""}
               disabled={isLoading}
-              className={`${
-                isLoading
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-[#A95C9C] hover:bg-[#9C448D] cursor-pointer'
-              } text-white font-semibold py-2 px-6 rounded-full transition flex items-center justify-center gap-2`}
             >
-              {isLoading && (
-                <svg
-                  className="animate-spin h-5 w-5 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                  ></path>
-                </svg>
-              )}
-              {isLoading ? 'Sending...' : 'Submit Your Request'}
-            </button>
+              <div className="flex items-center justify-center gap-2">
+                {isLoading && (
+                  <svg
+                    className="animate-spin h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                )}
+                <span>{isLoading ? "Sending..." : "Submit Your Request"}</span>
+              </div>
+            </CustomButton>
           </div>
+
         </form>
       </div>
     </section>

@@ -103,7 +103,7 @@ const Home = () => {
         <div className="">
           <TypewriterText />
         </div>
-        
+
         {/* text and image section */}
         <div className="flex flex-col lg:flex-row items-center gap-10 p-6">
           {/* Left: Image */}
@@ -174,10 +174,10 @@ const Home = () => {
             </div>
           </Link> */}
         </div>
-        
+
       </section>
 
-      
+
 
       {/* amazing client section  */}
       {/* <section className="bg-[#320142]">
@@ -192,7 +192,7 @@ const Home = () => {
         />
         <ImageSlider />
       </section> */}
-      
+
 
 
 
@@ -255,22 +255,20 @@ const Home = () => {
           </p>
 
           {/* Awards */}
-          <div className="flex flex-wrap justify-center gap-10">
+          <div className="flex flex-wrap justify-around items-center">
             {awards.map((award, index) => (
-              <Card
+              <div
                 key={index}
-                className="w-[305px] h-[189.93px] rounded-[25px] overflow-hidden bg-white/10 flex items-center justify-center shadow-xl border border-white/10"
+                className=" "
               >
                 <img
                   src={award.src}
                   alt={award.alt}
-                  className="w-full h-full object-cover"
+                  className=""
                 />
-              </Card>
+              </div>
             ))}
           </div>
-
-
         </div>
       </section>
       <TalkModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

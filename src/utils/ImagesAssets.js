@@ -4,7 +4,9 @@ import {
   BotThreeIcon,
   BotFourIcon,
   Flag,
-  CurveArrow
+  CurveArrow,
+  LeftButton,
+  RightButton
 } from "@/assets/ImagesFile";
 import idxwhitelogo from "../assets/ixdwhitelogo.png";
 import footerlogo from "../assets/footerlogo.png";
@@ -13,6 +15,7 @@ import award from "../assets/award.png";
 import demobanner from "../assets/demobanner.avif";
 import projects from "../assets/projects.png";
 import client from "../assets/client.png";
+import history from "../assets/history.png";
 
 export const ImagesAssets = {
   botOne: BotOneIcon,
@@ -28,4 +31,7 @@ export const ImagesAssets = {
   client: client,
   flag: Flag,
   curveArrow: CurveArrow,
+  history: history,
+  leftButton: LeftButton,
+  rightButton: RightButton
 };

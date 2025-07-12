@@ -164,18 +164,18 @@ const ContactUs = () => {
           </p>
 
           {/* Awards */}
-          <div className="flex flex-wrap justify-center gap-10">
+          <div className="flex flex-wrap justify-around items-center">
             {awards.map((award, index) => (
-              <Card
+              <div
                 key={index}
-                className="w-[305px] h-[189.93px] rounded-[25px] overflow-hidden bg-white/10 flex items-center justify-center shadow-xl border border-white/10"
+                className=" "
               >
                 <img
                   src={award.src}
                   alt={award.alt}
-                  className="w-full h-full object-cover"
+                  className=""
                 />
-              </Card>
+              </div>
             ))}
           </div>
         </div>

@@ -1,13 +1,45 @@
+import { ImagesAssets } from "@/utils/ImagesAssets";
+import { Badge } from "lucide-react";
+
+const historyCards = [
+  {
+    image: ImagesAssets.history,
+    year: "2025",
+    title: "Dubai HQ Announcement",
+    description:
+      "Preparing for our next leap opening our headquarters in Dubai to serve global clients more closely.",
+    soonTag: "#SOON",
+  },
+  {
+    image: ImagesAssets.history,
+    year: "2025",
+    title: "Dubai HQ Announcement",
+    description:
+      "Preparing for our next leap opening our headquarters in Dubai to serve global clients more closely.",
+    soonTag: "#SOON",
+  },
+  {
+    image: ImagesAssets.history,
+    year: "2025",
+    title: "Dubai HQ Announcement",
+    description:
+      "Preparing for our next leap opening our headquarters in Dubai to serve global clients more closely.",
+    soonTag: "#SOON",
+  },
+];
+
 const History = () => {
   return (
-    <section className="bg-[rgba(26,1,39,0.9)] w-full rounded-t-[65px] border-t-[3px] border-white px-6 pt-10 pb-16">
-      {/* Headings */}
+    <section className="relative bg-[rgba(26,1,39,0.9)] w-full rounded-t-[65px] border-t-[3px] border-white px-6 pt-10 pb-16 overflow-hidden">
+      {/* Top Headings */}
       <div className="text-center space-y-4">
         <h2 className="text-white text-[32px] font-normal leading-[3]">
           Key Highlights in the History of
         </h2>
         <h3 className="text-white text-[32px] font-normal leading-[3]">
-          <span className="text-[#8b7190]">INFINITY x DYNAMICS</span>
+          <span className="text-[#8b7190] font-medium">
+            INFINITY x DYNAMICS
+          </span>
         </h3>
       </div>
 
@@ -18,22 +50,71 @@ const History = () => {
         INFINITY X DYNAMIC.
       </p>
 
-      {/* Images Grid */}
-      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center items-stretch">
-        {[
-          "https://cdn.builder.io/api/v1/image/assets/7ed207259b02478a9dc06d688a7c628f/99613095-96bc-4cc2-bf43-a54b69595656?placeholderIfAbsent=true",
-          "https://cdn.builder.io/api/v1/image/assets/7ed207259b02478a9dc06d688a7c628f/4bf3c43de74a23a151c9ba72f79acdf03db4519d?placeholderIfAbsent=true",
-          "https://cdn.builder.io/api/v1/image/assets/7ed207259b02478a9dc06d688a7c628f/7bb76642-6ea2-43b9-8a46-afc8b20309d4?placeholderIfAbsent=true",
-        ].map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt={`Company milestone ${index + 1}`}
-            className="w-full h-[320px] object-cover rounded-xl border border-white/10 shadow-lg"
-          />
-        ))}
+      {/* Decorative background shapes */}
+
+
+      {/* Cards Grid with Side Buttons */}
+      <div className="relative mt-14 flex justify-center items-center w-full">
+        {/* Left Button */}
+        <button className="absolute left-0 z-10 hover:scale-110 transition-transform duration-300">
+          <ImagesAssets.leftButton />
+        </button>
+
+        {/* Cards */}
+
+        {/* <div className="hidden md:block absolute left-[-50px] top-[0px] w-[142.301px] h-[125.644px] bg-[#6B2D6E] rotate-[-42.093deg]"></div>
+        <div className="hidden md:block absolute left-[-50px] top-[50px] w-[100.783px] h-[125.644px] bg-white rotate-[-18.551deg]"></div> */}
+        <div className="flex flex-wrap justify-center gap-24 w-full max-w-7xl px-20 ">
+          {historyCards.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col rounded-xl  overflow-hidden flex-grow basis-[300px] max-w-[400px] w-full"
+            >
+
+              {/* Image Section */}
+              <div
+                className="h-[180px] rounded-t-[5px] bg-cover bg-center shadow-lg w-full"
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                }}
+              ></div>
+
+              {/* Gradient Details Section */}
+              <div
+                className="flex-grow border rounded-xl border-white/50 opacity-50 flex flex-col justify-between p-4 bg-[#370E40]"
+
+              >
+                {/* Year Badge */}
+                <span className="inline-block bg-white text-[#3C0945] text-[16px] font-semibold px-[19px] py-1 rounded-full mb-3 w-fit">
+                  {item.year}
+                </span>
+
+                {/* Title */}
+                <h4 className="text-white font-semibold text-lg mb-2">
+                  {item.title}
+                </h4>
+
+                {/* Description */}
+                <p className="text-white text-sm opacity-80 mb-3">
+                  {item.description}
+                </p>
+
+                {/* Soon Tag */}
+                <span className="inline-block text-white text-xl font-semibold px-[19px] py-1 rounded-2xl border border-white/50">
+                  {item.soonTag}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Right Button */}
+        <button className="absolute right-0 z-10 hover:scale-110 transition-transform duration-300">
+          <ImagesAssets.rightButton />
+        </button>
       </div>
     </section>
+
   );
 };
 

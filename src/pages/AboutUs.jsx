@@ -180,7 +180,7 @@ const AboutUs = () => {
           </div>
 
           {/* Center Text */}
-          <div className="flex-1 text-center lg:text-left [font-family:'Quicksand',Helvetica] font-medium text-white text-2xl leading-[30px]">
+          <div className="flex-1 text-center lg:text-left  font-medium text-white text-2xl leading-[30px]">
             <h3 className="text-3xl font-bold mb-4">
               Our <span className="text-[#8B7190]">Team</span>
             </h3>
@@ -201,39 +201,33 @@ const AboutUs = () => {
           <div className="w-[150px] h-[150px] bg-white rounded-[75px] blur-[60px] absolute top-0 -left-[60px]" />
         </div>
         {/* Slider */}
-        <div className="flex flex-col items-center">
-
-          <div className="overflow-hidden w-full max-w-[1000px] mx-auto">
-
+        <div className="flex flex-col justify-around items-center">
+          <div className="flex justify-around overflow-hidden w-full max-w-[1000px] mx-auto">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${currentIndex * (100 / visibleCount)
-                  }%)`,
+                transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
                 width: `${(achievementImages.length / visibleCount) * 100}%`,
               }}
             >
               {achievementImages.map((image, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-1/3 px-4 flex justify-center"
+                  className="flex-shrink-0 w-1/3 mb-8 px-3 " // Added vertical spacing between rows
                 >
-                  <Card className="rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent">
+                  <Card className="rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent h-[400px] py-8 flex flex-col">
                     {/* Image */}
                     <div
-                      className="w-[305px] h-[189.93px] rounded-t-[25px] bg-cover bg-center"
+                      className="w-full h-[190px] rounded-t-[25px] bg-cover bg-center flex-shrink-0"
                       style={{
                         backgroundImage: `url(${image.src})`,
-                        aspectRatio: "305/189.93",
                       }}
                     />
 
                     {/* Details */}
-                    <CardContent className="p-4 bg-[#3C0945]/50 w-[305px] h-[162.308px] rounded-b-[10px] flex flex-col items-center justify-center text-center text-white">
+                    <CardContent className="p-4 py-8 bg-[#3C0945]/50 w-full flex-grow rounded-b-[10px] flex flex-col justify-start text-left text-white">
                       <h1 className="text-2xl font-bold mb-2">{image.name}</h1>
-                      <h3 className="text-lg font-semibold mb-2">
-                        {image.title}
-                      </h3>
+                      <h3 className="text-lg font-semibold mb-2">{image.title}</h3>
                       <p className="text-white/80 text-sm">
                         {image.description}
                       </p>
@@ -245,44 +239,23 @@ const AboutUs = () => {
           </div>
 
           {/* Buttons */}
-          <div className="flex justify-center gap-10 mt-12">
+          <div className="flex justify-start gap-10 mt-12">
             <button
               onClick={handlePrev}
               className="hover:scale-110 transition-transform duration-300"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="120"
-                height="120"
-                viewBox="0 0 120 120"
-                fill="none"
-              >
-                <path
-                  d="M61.4503 43.5507L48.5003 56.5007C48.0368 56.9633 47.6691 57.5128 47.4181 58.1176C47.1672 58.7225 47.0381 59.3709 47.0381 60.0257C47.0381 60.6806 47.1672 61.329 47.4181 61.9339C47.6691 62.5387 48.0368 63.0882 48.5003 63.5507L61.4503 76.5007C64.6003 79.6507 70.0003 77.4007 70.0003 72.9507V47.0507C70.0003 42.6007 64.6003 40.4007 61.4503 43.5507Z"
-                  fill="#8B7190"
-                />
-              </svg>
+              <ImagesAssets.leftButton />
             </button>
 
             <button
               onClick={handleNext}
               className="hover:scale-110 transition-transform duration-300"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="120"
-                height="120"
-                viewBox="0 0 120 120"
-                fill="none"
-              >
-                <path
-                  d="M58.5497 43.5507L71.4997 56.5007C71.9632 56.9633 72.3309 57.5128 72.5819 58.1176C72.8328 58.7225 72.9619 59.3709 72.9619 60.0257C72.9619 60.6806 72.8328 61.329 72.5819 61.9339C72.3309 62.5387 71.9632 63.0882 71.4997 63.5507L58.5497 76.5007C55.3997 79.6507 49.9997 77.4007 49.9997 72.9507V47.0507C49.9997 42.6007 55.3997 40.4007 58.5497 43.5507Z"
-                  fill="#8B7190"
-                />
-              </svg>
+              <ImagesAssets.rightButton />
             </button>
           </div>
         </div>
+
       </section>
 
       <section className="w-full px-6 py-16 ">
@@ -300,18 +273,18 @@ const AboutUs = () => {
           </p>
 
           {/* Awards */}
-          <div className="flex flex-wrap justify-center gap-10">
+          <div className="flex flex-wrap justify-around items-center">
             {awards.map((award, index) => (
-              <Card
+              <div
                 key={index}
-                className="w-[305px] h-[189.93px] rounded-[25px] overflow-hidden bg-white/10 flex items-center justify-center shadow-xl border border-white/10"
+                className=" "
               >
                 <img
                   src={award.src}
                   alt={award.alt}
-                  className="w-full h-full object-cover"
+                  className=""
                 />
-              </Card>
+              </div>
             ))}
           </div>
         </div>

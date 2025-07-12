@@ -207,6 +207,40 @@ export const CurveArrow = (props) => (
 );
 
 
+export const RightButton = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="95"
+    height="120"
+    fill="none"
+    viewBox="0 0 95 120"
+  >
+    <path
+      fill="#8B7190"
+      d="M58.55 43.55 71.5 56.5a4.983 4.983 0 0 1 0 7.05L58.55 76.5c-3.15 3.15-8.55.9-8.55-3.55v-25.9c0-4.45 5.4-6.65 8.55-3.5"
+    ></path>
+  </svg>
+);
+
+
+export const LeftButton = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="95"
+    height="120"
+    fill="none"
+    viewBox="0 0 95 120"
+  >
+    <path
+      fill="#8B7190"
+      d="M36.45 43.55 23.5 56.5a4.983 4.983 0 0 0 0 7.05L36.45 76.5c3.15 3.15 8.55.9 8.55-3.55v-25.9c0-4.45-5.4-6.65-8.55-3.5"
+    ></path>
+  </svg>
+);
+
+
+
+
 
 
 

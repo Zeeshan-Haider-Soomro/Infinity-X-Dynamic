@@ -32,12 +32,12 @@ const History = () => {
   return (
     <section className="relative bg-[rgba(26,1,39,0.9)] w-full rounded-t-[65px] border-t-[3px] border-white px-6 pt-10 pb-16 overflow-hidden">
       {/* Top Headings */}
-      <div className="text-center space-y-4">
-        <h2 className="text-white text-[32px] font-normal leading-[3]">
+      <div className="text-center">
+        <h2 className="text-white text-[32px] font-normal leading-[3] font-secular">
           Key Highlights in the History of
         </h2>
         <h3 className="text-white text-[32px] font-normal leading-[3]">
-          <span className="text-[#8b7190] font-medium">
+          <span className="text-[#8b7190] font-medium font-secular">
             INFINITY x DYNAMICS
           </span>
         </h3>
@@ -64,7 +64,7 @@ const History = () => {
 
         {/* <div className="hidden md:block absolute left-[-50px] top-[0px] w-[142.301px] h-[125.644px] bg-[#6B2D6E] rotate-[-42.093deg]"></div>
         <div className="hidden md:block absolute left-[-50px] top-[50px] w-[100.783px] h-[125.644px] bg-white rotate-[-18.551deg]"></div> */}
-        <div className="flex flex-wrap justify-center gap-24 w-full max-w-7xl px-20 ">
+        <div className="flex flex-wrap justify-center gap-24 w-full max-w-7xl px-16 ">
           {historyCards.map((item, index) => (
             <div
               key={index}

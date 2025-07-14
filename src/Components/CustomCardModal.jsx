@@ -21,15 +21,15 @@ const CustomCardModal = ({ title, sections }) => {
         
       "
     >
-      {title && <h2 className="text-3xl font-bold">{title}</h2>}
+      {title && <h2 className="text-3xl font-bold font-secular">{title}</h2>}
 
       {sections?.map((section, index) => (
         <div key={index}>
           {section.heading && (
-            <h3 className="text-2xl font-semibold mb-2">{section.heading}</h3>
+            <h3 className="text-2xl font-semibold mb-2 font-secular text-[#8B7190]">{section.heading}</h3>
           )}
           {section.text && (
-            <p className="text-lg leading-relaxed">{section.text}</p>
+            <p className="text-lg leading-relaxed ">{section.text}</p>
           )}
         </div>
       ))}

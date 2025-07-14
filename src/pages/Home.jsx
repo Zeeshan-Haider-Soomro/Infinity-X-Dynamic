@@ -46,7 +46,7 @@ const Home = () => {
   const { bannerImg } = AppImages;
 
   const [index, setIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Add this line
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -61,13 +61,13 @@ const Home = () => {
       {/* banner section */}
       <div className="">
         <section className=" top-[50px] relative z-20 p-10 pb-30 overflow-hidden">
-          <h1 className="text-white text-center text-[30px] lg:text-[50px]">
+          <h1 className="text-white text-center text-[30px] lg:text-[50px] font-secular">
             We Provide
           </h1>
           <div className="h-[100px]">
             <DynamicHeading phrases={phrases} index={index} />
           </div>
-          <h1 className="text-white text-center text-[50px] lg:text-[70px] font-medium pt-2">
+          <h1 className="text-white text-center text-[50px] lg:text-[70px] font-medium pt-2 font-secular">
             Services
           </h1>
           <div>
@@ -77,23 +77,27 @@ const Home = () => {
             data-aos="fade-up"
             className="p-10 flex flex-col md:flex-row gap-4 md:gap-10 justify-center items-center"
           >
-            <button
+            <CustomButton
               onClick={() => setIsModalOpen(true)}
-              className="rounded-full bg-[#A95C9C] hover:bg-[#9C448D] py-3 px-10 text-white text-base md:text-[20px] font-medium border border-white hover:border-transparent cursor-pointer"
+              className="py-6 text-base md:text-[20px]"
             >
               GET STARTED
-            </button>
-            <Link to={"/our-work"}>
-              <button className="rounded-full bg-[#A95C9C] hover:bg-[#9C448D] py-3 px-10 text-white text-base md:text-[20px] font-medium border border-white hover:border-transparent cursor-pointer">
-                VIEW PORTFOLIO
-              </button>
-            </Link>
+            </CustomButton>
+
+            <CustomButton to="/our-work" className="py-6 text-base md:text-[20px]">
+              VIEW PORTFOLIO
+            </CustomButton>
+
           </div>
           <ContactSocialIcons />
         </section>
       </div>
       {/* 2nd section  */}
-      <section className="bg-[#3C0945]">
+      <section className="bg-[#3C0945] bg-zero bg-contain bg-no-repeat"
+        style={{
+          backgroundImage: `url(${ImagesAssets.sectionOne})`,
+        }}
+      >
         <h1
           data-aos="fade-up"
           className="text-4xl font-bold text-center text-[#FFF] pt-10 p-3"
@@ -144,7 +148,7 @@ const Home = () => {
           <CustomHeading
             firstText="We turn your thoughts"
             secondText="into visuals"
-            firstColor="#5C0E6E"
+            firstColor="#FFF"
             secondColor="#A95C9C"
             textSize="text-2xl md:text-4xl"
             align="text-center"
@@ -153,7 +157,7 @@ const Home = () => {
             firstText="See Our Recent"
             secondText="Projects"
             firstColor="#A95C9C"
-            secondColor="#5C0E6E"
+            secondColor="#FFF"
             textSize="text-4xl md:text-6xl"
             align="text-center"
           />
@@ -243,7 +247,7 @@ const Home = () => {
       <section className="w-full px-6 py-16 ">
         <div className="max-w-[1236px] mx-auto flex flex-col items-center text-center text-white">
           {/* Title */}
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold mb-4 font-secular">
             Our <span className="text-[#8B7190]">Achievements</span>
           </h2>
 

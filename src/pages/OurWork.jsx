@@ -19,13 +19,10 @@ import { AchievementsSection } from "@/Components/AchievementsSection";
 
 const sections = [
   {
-    heading: "Our Work ",
     text: `From bold animations to immersive digital experiences, every project is crafted with precision, passion, and innovation.Explore our portfolio and see how we turn ideas into visual stories that move, inspire, and deliver results.`,
   },
   {
     heading: "Our Work Speaks in Motion",
-    text: `Over the years, our bold ideas and future-ready solutions have empowered
-      startups, brands, and enterprise clients to stand out in the digital space.`,
   },
 ];
 
@@ -92,12 +89,16 @@ const OurWork = () => {
   return (
     <div>
       {/* hero section */}
-      <section className="top-[80px] relative min-h-screen z-20 pb-6">
-        <div className="flex flex-col items-center gap-10 p-6">
+      <section className="w-full relative min-h-screen z-20 pb-6">
+        <div className="absolute inset-0 z-0">
+          <ImagesAssets.backgroundWave className="w-full h-full object-cover items-center" />
+        </div>
+
+        <div className="flex flex-col justify-center items-center min-h-screen gap-10 p-6">
           {/* Top Row: Card + Image */}
           <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-10">
             <div data-aos="fade-right">
-              <CustomCardModal title=" " sections={sections} />
+              <CustomCardModal title="Our Work" sections={sections} />
             </div>
             <div data-aos="fade-left" className="relative w-full lg:w-1/2">
               <ImagesAssets.botOne />
@@ -105,6 +106,7 @@ const OurWork = () => {
           </div>
         </div>
       </section>
+
       {/* 2nd section */}
       <section className="">
         {/* <div className="md:p-10 p-10">
@@ -131,15 +133,14 @@ const OurWork = () => {
         </div>
       </section>
 
-
-
-      <section className="mt-10 w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white py-16 px-4 overflow-hidden">
+      {/* Feedback section */}
+      <section className="w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white px-4 overflow-hidden py-10">
         {/* Header Section */}
-        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
           {/* Text */}
           <div className="lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
-            <h3 className="text-[32px] font-semibold mb-4">We Love Feedback!</h3>
-            <p className="text-xl max-w-xl">
+            <h3 className="text-[32px] font-semibold mb-2">We Love Feedback!</h3>
+            <p className="text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed text-white/80">
               Share your thoughts with us, and let's turn your feedback into the
               masterpiece that shapes our journey.
             </p>
@@ -154,58 +155,73 @@ const OurWork = () => {
         </div>
 
         {/* Glow Effect */}
-        <div className="relative w-full h-[1px] mt-6">
+        <div className="relative w-full mt-8">
           <div className="w-[150px] h-[150px] bg-white rounded-full blur-[60px] absolute top-0 -left-[60px] opacity-30" />
         </div>
 
         {/* Carousel Section */}
-        <div className="max-w-6xl mx-auto mt-16 relative px-4">
-          <Carousel
-            opts={{
-              align: "start",
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {achievementImages.map((item, index) => (
-                <CarouselItem
+        <div className="flex flex-col justify-around items-center">
+          <div className="flex justify-around overflow-hidden w-full max-w-[1000px] mx-auto">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+                width: `${(achievementImages.length / visibleCount) * 100}%`,
+              }}
+            >
+              {achievementImages.map((image, index) => (
+                <div
                   key={index}
-                  className="pl-4 md:basis-1/2 lg:basis-1/3"
+                  className="flex-shrink-0 w-1/3 mb-8 px-3 "
                 >
-                  <Card className="rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent">
+                  <Card className="rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent h-[400px] py-8 flex flex-col">
                     {/* Image */}
                     <div
-                      className="w-full h-[190px] bg-cover bg-center"
-                      style={{ backgroundImage: `url(${item.src})` }}
+                      className="w-full h-[190px] rounded-t-[25px] bg-cover bg-center flex-shrink-0"
+                      style={{
+                        backgroundImage: `url(${image.src})`,
+                      }}
                     />
 
-                    {/* Content */}
-                    <CardContent className="p-4 bg-[#3C0945]/50 text-white text-center">
-                      <h1 className="text-2xl font-bold mb-2">{item.name}</h1>
-                      <h3 className="text-lg font-semibold mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-white/80 text-sm">{item.description}</p>
+                    {/* Details */}
+                    <CardContent className="p-4 py-8 bg-[#3C0945]/50 w-full flex-grow rounded-b-[10px] flex flex-col justify-start text-left text-white">
+                      <h1 className="text-2xl font-bold mb-2">{image.name}</h1>
+                      <h3 className="text-lg font-semibold mb-2">{image.title}</h3>
+                      <p className="text-white/80 text-sm">
+                        {image.description}
+                      </p>
                     </CardContent>
                   </Card>
-                </CarouselItem>
+                </div>
               ))}
-            </CarouselContent>
+            </div>
+          </div>
 
-            <CarouselPrevious className="!left-0 sm:!left-[-50px]" />
-            <CarouselNext className="!right-0 sm:!right-[-50px]" />
-          </Carousel>
+          {/* Buttons */}
+          <div className="flex justify-start gap-10 mt-12">
+            <button
+              onClick={handlePrev}
+              className="hover:scale-110 transition-transform duration-300"
+            >
+              <ImagesAssets.leftButton />
+            </button>
+
+            <button
+              onClick={handleNext}
+              className="hover:scale-110 transition-transform duration-300"
+            >
+              <ImagesAssets.rightButton />
+            </button>
+          </div>
         </div>
       </section>
-
-
 
 
       {/* our achievement section */}
       <section className="w-full px-6 py-16 ">
         <div className="max-w-[1236px] mx-auto flex flex-col items-center text-center text-white">
           {/* Title */}
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold mb-4 font-secular">
             Our <span className="text-[#8B7190]">Achievements</span>
           </h2>
 
@@ -217,18 +233,18 @@ const OurWork = () => {
           </p>
 
           {/* Awards */}
-          <div className="flex flex-wrap justify-center gap-10">
+          <div className="flex flex-wrap justify-around items-center">
             {awards.map((award, index) => (
-              <Card
+              <div
                 key={index}
-                className="w-[305px] h-[189.93px] rounded-[25px] object-fill overflow-hidden bg-white/10 flex items-center justify-center shadow-xl border border-white/10"
+                className=" "
               >
                 <img
                   src={award.src}
                   alt={award.alt}
-                  className="w-full h-full object-cover"
+                  className=""
                 />
-              </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -258,19 +274,42 @@ const OurWork = () => {
             highlightTextLine1="Ready to bring your"
             highlightTextLine2="story to life?"
             heading1Color="text-white"
-            heading2Color="text-[#D977C8]"
+            heading2Color="text-[#8B7190]"
             line1Color="text-white font-extrabold"
-            line2Color="text-[#D977C8] font-extrabold"
+            line2Color="text-[#8B7190] font-extrabold"
             headingSize="md:text-4xl text-4xl font-extrabold"
-            subheadingSize="text-6xl font-extrabold"
-            highlightSize="text-6xl font-extrabold"
+            subheadingSize="text-4xl font-extrabold"
+            highlightSize="text-4xl font-extrabold"
           />
         </div>
 
       </section>
 
 
-    <AchievementsSection />
+      <AchievementsSection noBg noBorder />
+
+      {/* FAQs Section */}
+
+      <section className="relative overflow-visible ">
+        {/* Bot positioned absolutely */}
+        <div className="absolute right-6 -top-40 z-10">
+          <ImagesAssets.botTwo />
+        </div>
+
+        <div className="py-10 px-4 relative z-20">
+          {/* <CustomHeading
+                  firstText="Frequently Asked"
+                  secondText="Questions"
+                  firstColor="#FFF"
+                  secondColor="#A95C9C"
+                  textSize="text-4xl md:text-6xl font-bold p-5"
+                  align="text-center"
+                /> */}
+
+          <FAQSection />
+        </div>
+      </section>
+
 
 
       {/* <section className="bg-[#EEDFFF]">

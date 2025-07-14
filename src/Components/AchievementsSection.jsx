@@ -2,7 +2,8 @@ import React from "react";
 import { Card, CardContent } from "../components/ui/card";
 import { ImagesAssets } from "@/utils/ImagesAssets";
 
-export const AchievementsSection = () => {
+export const AchievementsSection = (props) => {
+  const { noBg, noBorder } = props;
   const testimonials = [
     {
       id: 1,
@@ -34,16 +35,22 @@ export const AchievementsSection = () => {
   ];
 
   return (
-    <section className="mt-10 w-full bg-[#1a0127e6] border-t-[3px] border-white rounded-t-[65px] px-6 pb-24 relative overflow-hidden">
+    <section
+  className={
+    `mt-10 w-full px-6 pb-24 relative overflow-hidden ` +
+    `${noBg ? "" : "bg-[#1a0127e6] "} ` +
+    `${noBorder ? "" : "border-t-[3px] border-white rounded-t-[65px]"}`
+  }
+>
       {/* Centered Heading and Text */}
       <div className="flex flex-col items-center text-center pt-10 z-10 relative">
-        <h2 className="text-[32px] [-webkit-text-stroke:1px_#874182] font-['Secular_One'] leading-[100px]">
+        <h2 className="text-[32px]  font-secular leading-[100px]">
           <span className="text-white">Our </span>
           <span className="text-[#8b7190]">Amazing </span>
           <span className="text-white">Clients</span>
         </h2>
 
-        <p className="mt-4 max-w-3xl font-['Quicksand'] text-white text-2xl leading-[30px]">
+        <p className="mt-4 max-w-3xl  text-white text-2xl leading-[30px]">
           Our clients consistently praise our creativity, reliability, and
           results — with glowing reviews from across the globe, reflecting trust
           in every project we deliver.
@@ -60,7 +67,7 @@ export const AchievementsSection = () => {
               lg:absolute`}
           >
             <CardContent className="relative w-full h-full p-5">
-              <h4 className="text-2xl text-white font-bold font-['Secular_One'] mb-3">
+              <h4 className="text-2xl text-white font-bold font-secular mb-3">
                 “Extra<span className="text-[#8b7190]">Ordinary</span>”
               </h4>
               <p className="text-white text-sm font-['Quicksand'] leading-5 mb-4">

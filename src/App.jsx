@@ -41,10 +41,12 @@ const App = () => {
       <ScrollToTop />
       {/* <CustomCursor /> */}
       <MirrorCursor />
+
+      {/* bg-[#3C0945] */}
       <div
         ref={appRef}
         id="main-content"
-        className="overflow-hidden bg-[#320142]"
+        className="overflow-hidden bg-main-color"
       >
         {/* <MirrorMagnifierCursor zoomTargetRef={appRef} /> */}
         <Header />

@@ -17,7 +17,7 @@ const CustomButton = ({
   const buttonStyles = unstyled
     ? className
     : clsx(
-        "h-10 w-48 rounded-[35px] cursor-pointer hover:text-[#9C448D]",
+        " rounded-[35px] cursor-pointer hover:text-[#9C448D]",
         "border border-solid border-[#c55ebd]",
         "shadow-[0px_0px_40px_#ffffff80]",
         "bg-[linear-gradient(180deg,rgba(107,45,110,1)_0%,rgba(60,9,69,1)_100%)]",

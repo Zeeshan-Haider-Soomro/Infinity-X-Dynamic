@@ -30,7 +30,7 @@ const AwardBox = ({ target, label }) => {
   }, [target]);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 cursor-pointer group">
+    <div className="flex  flex-col items-center justify-center gap-4 cursor-pointer group">
       {/* CIRCLE NUMBER */}
       <div
         className="
@@ -49,7 +49,7 @@ const AwardBox = ({ target, label }) => {
           duration-300
           border-[3px]
           shadow-[0_1px_8px_0px_#ffffff]
-          
+          font-secular
         "
       >
         <span
@@ -58,7 +58,7 @@ const AwardBox = ({ target, label }) => {
             text-white
             text-center
             font-['Titan One']
-            text-[40px]
+            text-[32px]
             leading-[100px]
             font-medium
             

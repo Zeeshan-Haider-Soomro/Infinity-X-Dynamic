@@ -181,7 +181,7 @@ const AboutUs = () => {
 
           {/* Center Text */}
           <div className="flex-1 text-center lg:text-left  font-medium text-white text-2xl leading-[30px]">
-            <h3 className="text-3xl font-bold mb-4">
+            <h3 className="text-3xl font-bold mb-4 font-secular">
               Our <span className="text-[#8B7190]">Team</span>
             </h3>
             <p>
@@ -213,7 +213,7 @@ const AboutUs = () => {
               {achievementImages.map((image, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-1/3 mb-8 px-3 " // Added vertical spacing between rows
+                  className="flex-shrink-0 w-1/3 mb-8 px-3 "
                 >
                   <Card className="rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent h-[400px] py-8 flex flex-col">
                     {/* Image */}
@@ -261,7 +261,7 @@ const AboutUs = () => {
       <section className="w-full px-6 py-16 ">
         <div className="max-w-[1236px] mx-auto flex flex-col items-center text-center text-white">
           {/* Title */}
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold mb-4 font-secular">
             Our <span className="text-[#8B7190]">Achievements</span>
           </h2>
 
@@ -291,7 +291,7 @@ const AboutUs = () => {
       </section>
 
       {/* contact form section */}
-      <section className="bg-[#320142]">
+      <section className="relative">
         <div>
           <ContactForm
             heading1="Hi, "
@@ -299,28 +299,26 @@ const AboutUs = () => {
             highlightTextLine1="Ready to bring your"
             highlightTextLine2="story to life?"
             heading1Color="text-white"
-            heading2Color="text-[#D977C8]"
-            line1Color="text-white font-extrabold"
-            line2Color="text-[#D977C8] font-extrabold"
-            headingSize="md:text-4xl text-4xl font-extrabold"
-            subheadingSize="text-6xl font-extrabold"
-            highlightSize="text-6xl font-extrabold"
+            heading2Color="text-[#8B7190]"
+            line1Color="text-white  font-extrabold"
+            line2Color="text-[#8B7190] font-extrabold"
+            headingSize="md:text-4xl  font-extrabold"
+            subheadingSize="text-4xl font-extrabold"
+            highlightSize="text-4xl font-extrabold"
           />
         </div>
-        <div className="md:h-[700px] h-[1400px] px-4">
-          <div>
-            <CustomHeading
-              firstText="Frequently Asked"
-              secondText="Questions"
-              firstColor="#fff"
-              secondColor="#D977C8"
-              textSize="text-4xl md:text-6xl font-bold p-5"
-              align="text-center"
-            />
-          </div>
+
+        {/* Responsive Bot Image */}
+        <div className="absolute top-[55%] right-4 md:right-80 translate-y-[-50%] z-20 pointer-events-none w-[80px] md:w-[180px]">
+          <ImagesAssets.botTwo />
+        </div>
+
+
+        <div className="md:h-[700px] h-[1400px] px-4  pt-16">
           <FAQSection />
         </div>
       </section>
+
 
       {/* amazing clients section */}
       {/* <section className="bg-[#F2E6FF]">

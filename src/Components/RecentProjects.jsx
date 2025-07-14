@@ -82,18 +82,18 @@ export const RecentProjects = () => {
             );
 
     return (
-        <section className="w-full py-16 bg-[#3E224F] rounded-[50px] px-4 md:px-10 lg:px-20">
+        <section className="w-full py-8 my-2 bg-[#3E224F] rounded-[50px] px-0 mx md:px-10 lg:px-16">
             {/* Title */}
-            <h2 className="text-white text-3xl md:text-4xl font-bold font-['Secular One'] mb-2">
-                See Our Recent Projects
-            </h2>
-            <p className="text-white text-lg font-medium font-['Quicksand'] mb-8 max-w-[700px]">
-                We create stunning 2D and 3D animations that captivate and communicate your vision.
-            </p>
+            <div className="mb-8">
+                <h2 className="text-white font-secular text-3xl md:text-4xl font-bold mb-2">
+                    See Our Recent <span className="text-[#8B7190]">Projects</span>
+                </h2>
+                <p className="text-white text-lg font-medium font-['Quicksand'] max-w-[700px]">
+                    We create stunning 2D and 3D animations that captivate and communicate your vision.
+                </p>
+            </div>
 
             {/* Tabs */}
-
-
             <div className="flex flex-wrap justify-center gap-3 mb-8">
                 {tabs.map((tab, index) => (
                     <CustomButton
@@ -112,14 +112,12 @@ export const RecentProjects = () => {
                 ))}
             </div>
 
-
-
             {/* Cards */}
-            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
                 {filteredProjects.map((card) => (
                     <Card
                         key={card.id}
-                        className="relative w-[305px]  bg-[#3c0945]/70 border border-white/20 hover:border-white transition-all duration-300 shadow-[0px_0px_20px_#ffffff40]  flex flex-col overflow-hidden"
+                        className="relative w-full max-w-[305px] bg-[#3c0945]/70 border border-white/20 hover:border-white transition-all duration-300 shadow-[0px_0px_20px_#ffffff40] flex flex-col overflow-hidden"
                     >
                         <CardContent className="p-0 relative flex flex-col h-full">
                             {/* Image (fills top) */}
@@ -127,7 +125,7 @@ export const RecentProjects = () => {
                                 <img
                                     src={card.img}
                                     alt={card.title}
-                                    className="w-full h-full object-cover rounded-t-[20px] "
+                                    className="w-full h-full object-cover rounded-t-[20px]"
                                 />
 
                                 {/* Top-right icon button */}
@@ -158,14 +156,14 @@ export const RecentProjects = () => {
                                     <h3 className="text-white text-xl font-semibold mb-2">
                                         {card.title}
                                     </h3>
-                                    <p className="text-white text-sm ">
+                                    <p className="text-white text-sm">
                                         {card.description}
                                     </p>
                                 </div>
 
                                 {/* Badge on bottom-right */}
                                 <div className="absolute bottom-2 right-4">
-                                    <Badge className="rounded-full px-[17px] py-[5px] bg-[#3c0945] border border-white  text-white hover:bg-[#5c0e6e] hover:text-white transition-all">
+                                    <Badge className="rounded-full px-[17px] py-[5px] bg-[#3c0945] border border-white text-white hover:bg-[#5c0e6e] hover:text-white transition-all">
                                         {card.badge}
                                     </Badge>
                                 </div>
@@ -174,7 +172,6 @@ export const RecentProjects = () => {
                     </Card>
                 ))}
             </div>
-
         </section>
     );
 };

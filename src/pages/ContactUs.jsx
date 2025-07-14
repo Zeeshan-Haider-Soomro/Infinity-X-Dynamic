@@ -15,7 +15,6 @@ import CustomButton from "@/Components/CustomButton"
 
 const sections = [
   {
-    heading: "Contact Us",
     text: `Reach out today and let’s bring your vision to life.Reach out today and let’s bring your vision to life.Reach out today and let’s bring your vision to life.`,
   },
   {
@@ -81,12 +80,16 @@ const ContactUs = () => {
         <ContactSocialIcons />
       </section> */}
 
-      <section className="top-[80px] relative min-h-screen z-20 pb-6">
-        <div className="flex flex-col items-center gap-10 p-6">
+      <section className="top-[80px] relative min-h-screen z-20 "
+      >
+        <div className="absolute inset-0 z-0">
+          <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
+        </div>
+        <div className="flex flex-col items-center gap-10 px-6 py-20">
           {/* Top Row: Card + Image */}
           <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-10">
             <div data-aos="fade-right">
-              <CustomCardModal title=" " sections={sections} />
+              <CustomCardModal title=" Contact Us" sections={sections} />
             </div>
             <div data-aos="fade-left" className="relative w-full lg:w-1/2">
               <ImagesAssets.botOne />
@@ -97,20 +100,22 @@ const ContactUs = () => {
 
       {/* have a project section */}
 
-      <section className="bg-[#320142]">
+      <section className="py-16 ">
         <div>
           <ContactForm
-            heading1="Hi, "
-            heading2="There!"
-            highlightTextLine1="Ready to bring your"
-            highlightTextLine2="story to life?"
+            heading1="Have a "
+            heading2="Project?"
+            description="We're ready when you are. Whether you're building a brand, launching a product, or exploring new digital ideas, Infinity X Dynamics is here to bring your vision to life. Share your project details with us — our expert team will guide you every step of the way, from strategy to execution. Let’s turn your ideas into something extraordinary."
             heading1Color="text-white"
-            heading2Color="text-[#D977C8]"
+            heading2Color="text-[#8B7190]"
             line1Color="text-white font-extrabold"
-            line2Color="text-[#D977C8] font-extrabold"
+            line2Color="text-[#8B7190] font-extrabold"
             headingSize="md:text-4xl text-4xl font-extrabold"
-            subheadingSize="text-6xl font-extrabold"
-            highlightSize="text-6xl font-extrabold"
+            subheadingSize="text-4xl font-extrabold"
+            highlightSize="text-4xl font-extrabold"
+            descriptionClass={" text-white font-light mb-6"}
+            noBg // disables background
+            noBorder // disables border
           />
         </div>
 
@@ -149,11 +154,11 @@ const ContactUs = () => {
       </section> */}
 
 
-      <section className="w-full px-6 py-16 ">
+      <section className="w-full px-6 py-16 bg-[#1a0127] rounded-t-[65px] border-t-4 border-[#A95C9C]">
         <div className="max-w-[1236px] mx-auto flex flex-col items-center text-center text-white">
           {/* Title */}
-          <h2 className="text-4xl font-bold mb-4">
-            Our <span className="text-[#8B7190]">Achievements</span>
+          <h2 className="text-4xl font-bold mb-4 font-secular">
+            Our <span className="text-[#8B7190] ">Achievements</span>
           </h2>
 
           {/* Subtitle */}
@@ -180,20 +185,25 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-      {/*  */}
-      <section className="">
-        <div className="md:h-[700px] h-[1400px] py-10 px-4">
-          <div>
 
-            <CustomHeading
-              firstText="Frequently Asked"
-              secondText="Questions"
-              firstColor="#5C0E6E"
-              secondColor="#A95C9C"
-              textSize="text-4xl md:text-6xl font-bold p-5"
-              align="text-center"
-            />
-          </div>
+      {/* FAQs Section */}
+
+      <section className="relative overflow-visible ">
+        {/* Bot positioned absolutely */}
+        <div className="absolute right-6 -top-40 z-10">
+          <ImagesAssets.botTwo />
+        </div>
+
+        <div className="py-10 px-4 relative z-20">
+          {/* <CustomHeading
+            firstText="Frequently Asked"
+            secondText="Questions"
+            firstColor="#FFF"
+            secondColor="#A95C9C"
+            textSize="text-4xl md:text-6xl font-bold p-5"
+            align="text-center"
+          /> */}
+
           <FAQSection />
         </div>
       </section>
@@ -215,20 +225,22 @@ const ContactUs = () => {
       <AchievementsSection />
       {/* feedback section */}
 
-      <section className="mt-10 w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white py-16 px-4 overflow-hidden">
+      <section className="mt-10 w-full px-4 overflow-hidden pb-4">
         {/* Header Section */}
-        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+        <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between">
           {/* Text */}
           <div className="lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
-            <h3 className="text-[32px] font-semibold mb-4">We Love Feedback!</h3>
-            <p className="text-xl max-w-xl">
+            <h3 className="text-[32px] font-semibold mb-2 font-secular">
+              We Love Feedback!
+            </h3>
+            <p className="text-xl max-w-lg mx-auto lg:mx-0">
               Share your thoughts with us, and let's turn your feedback into the
               masterpiece that shapes our journey.
             </p>
           </div>
 
           {/* Right Illustration */}
-          <div className="flex justify-center lg:justify-end lg:w-1/3">
+          <div className="flex justify-center lg:justify-end lg:w-1/3 mb-6 lg:mb-0">
             <div className="text-[32px] [-webkit-text-stroke:1px_#874182]">
               <ImagesAssets.botTwo />
             </div>
@@ -236,40 +248,41 @@ const ContactUs = () => {
         </div>
 
         {/* Glow Effect */}
-        <div className="relative w-full h-[1px] mt-6">
+        <div className="relative w-full h-[1px] mt-2">
           <div className="w-[150px] h-[150px] bg-white rounded-full blur-[60px] absolute top-0 -left-[60px] opacity-30" />
         </div>
 
         {/* Carousel Section */}
-        <div className="max-w-6xl mx-auto mt-16 relative px-4">
+        <div className="max-w-7xl mx-auto px-[132px] mt-8">
           <Carousel
             opts={{
               align: "start",
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="flex gap-[70px]">
               {achievementImages.map((item, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-4 md:basis-1/2 lg:basis-1/3"
+                  className="basis-[305px] flex-shrink-0"
                 >
-                  <Card className="rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent">
+                  {/* Card */}
+                  <div className="w-[305px] rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent flex flex-col">
                     {/* Image */}
                     <div
-                      className="w-full h-[190px] bg-cover bg-center"
-                      style={{ backgroundImage: `url(${item.src})` }}
-                    />
+                      className="w-full h-[189.932px] rounded-t-[25px] bg-cover bg-center"
+                      style={{
+                        backgroundImage: `url(${item.src})`,
+                      }}
+                    ></div>
 
-                    {/* Content */}
-                    <CardContent className="p-4 bg-[#3C0945]/50 text-white text-center">
-                      <h1 className="text-2xl font-bold mb-2">{item.name}</h1>
-                      <h3 className="text-lg font-semibold mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-white/80 text-sm">{item.description}</p>
-                    </CardContent>
-                  </Card>
+                    {/* Description */}
+                    <div className="w-full h-[162.308px] bg-[#3C0945]/50 rounded-b-[10px] text-white flex flex-col justify-center p-4">
+                      <h1 className="text-xl font-bold mb-1">{item.name}</h1>
+                      <h3 className="text-base font-semibold mb-2">{item.title}</h3>
+                      <p className="text-white/80 text-sm italic">{item.description}</p>
+                    </div>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -279,6 +292,7 @@ const ContactUs = () => {
           </Carousel>
         </div>
       </section>
+
       {/* <section className="bg-[#EEDFFF]">
         <div className="md:p-14 p-8">
           <CustomHeading
@@ -336,13 +350,13 @@ const ContactUs = () => {
           </div>
           {/* Text Section */}
           <div data-aos="fade-left" className="lg:w-1/2">
-            <h2 className="text-4xl font-bold mb-4"><span className="text-[#8B7190]">Our</span> Location</h2>
+            <h2 className="text-4xl font-bold mb-4 font-secular"><span className="text-[#8B7190]">Our</span> Location</h2>
             <p className="text-lg mb-6">
               Share your thoughts with us, and let's turn your feedback into the masterpiece that shapes our journey.
             </p>
-            <p className="font-semibold text-3xl text-[#8B7190]">Address</p>
+            <p className="font-semibold text-3xl text-[#8B7190] font-secular">Address</p>
             <p className="mb-4 font-semibold text-3xl">Modal Colony, Karachi, Sindh, Pakistan</p>
-            <p className="font-semibold text-3xl text-[#8B7190]">Hours</p>
+            <p className="font-semibold text-3xl text-[#8B7190] font-secular">Hours</p>
             <p className="font-semibold text-3xl">9 AM - 5 PM</p>
           </div>
 

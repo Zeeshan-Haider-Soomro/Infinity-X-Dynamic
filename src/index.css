@@ -17,12 +17,39 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'SecularOne';
+  src: url('/static/SecularOne-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-secular,
+.font-secular * {
+  font-family: 'SecularOne', sans-serif !important;
+}
+
+.bg-main-color {
+  background: #6B2D6E;
+background: linear-gradient(90deg, rgba(107, 45, 110, 1) 0%, rgba(60, 9, 69, 1) 100%);
+}
+
+.bg-section-color {
+  background: #1A0127;
+  background: linear-gradient(90deg, rgba(26, 1, 39, 1) 0%, rgba(60, 9, 69, 1) 100%);
+}
+
 
 @custom-variant dark (&:is(.dark *));
 
 * {
   font-family: 'Quicksand', sans-serif;
   box-sizing: border-box;
+}
+
+
+nav a.active {
+  color: #FB64B6;
 }
 
 /* Scrollbar Track */

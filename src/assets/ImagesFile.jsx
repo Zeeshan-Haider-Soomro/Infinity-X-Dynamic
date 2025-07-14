@@ -191,21 +191,47 @@ export const Flag = (props) => (
   </svg>
 );
 
-export const CurveArrow = (props) => (
+export const CurveArrow = ({ color = "#6B2D6E", className = "", ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"
     fill="none"
     viewBox="0 0 20 20"
+    className={className}
+    {...props}
   >
     <path
-      fill="#6B2D6E"
+      fill={color}
       d="M.7 0a.7.7 0 0 0-.7.7v8.278a6.7 6.7 0 0 0 6.699 6.698l10.996-.001-3.131 3.13a.7.7 0 0 0 .99.99l4.24-4.241a.7.7 0 0 0 0-.99l-4.241-4.241a.699.699 0 1 0-.99.99l2.965 2.963H6.698A5.3 5.3 0 0 1 1.4 8.978V.7A.7.7 0 0 0 .7 0"
+    />
+  </svg>
+);
+
+export const ButtonArrow = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="35"
+    height="35"
+    fill="none"
+    viewBox="0 0 35 35"
+  >
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="m11.55 13.81 9.639-2.26m0 0 2.26 9.64m-2.26-9.64-7.38 11.898"
     ></path>
   </svg>
 );
 
+export const CircleIcon = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" stroke="currentColor"></circle>
+    <path fill="currentColor" d="M4 12a8 8 0 0 1 8-8v4a4 4 0 0 0-4 4z"></path>
+  </svg>
+);
 
 export const RightButton = (props) => (
   <svg
@@ -237,6 +263,61 @@ export const LeftButton = (props) => (
     ></path>
   </svg>
 );
+
+
+export const BackgroundWave = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1280 558"
+    preserveAspectRatio="xMidYMid slice"
+    className="w-full h-auto"
+    {...props}
+  >
+    <g filter="url(#filter0_d_347_330)">
+      <path
+        fill="#170221"
+        fillOpacity="0.5"
+        d="M0 20c531.993 40.452 809.552 41.518 1280 0v518H0z"
+        shapeRendering="crispEdges"
+      />
+    </g>
+    <defs>
+      <filter
+        id="filter0_d_347_330"
+        width="1320"
+        height="558"
+        x="-20"
+        y="0"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          result="hardAlpha"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="10" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix
+          values="0 0 0 0 0.924266 0 0 0 0 0.819334 0 0 0 0 0.927885 0 0 0 1 0"
+        />
+        <feBlend
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_347_330"
+        />
+        <feBlend
+          in="SourceGraphic"
+          in2="effect1_dropShadow_347_330"
+          result="shape"
+        />
+      </filter>
+    </defs>
+  </svg>
+);
+
+
 
 
 

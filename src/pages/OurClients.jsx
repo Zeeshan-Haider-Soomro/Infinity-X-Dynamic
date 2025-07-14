@@ -27,7 +27,7 @@ const clientLogos = [
 
 const sections = [
     {
-      heading: "Our Clients",
+      
       text: "Our clients consistently praise our creativity, reliability, and results — with glowing reviews from across the globe, reflecting trust in every project we deliver.",
     },
     {
@@ -91,12 +91,15 @@ const OurClients = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="top-[80px] relative min-h-screen z-20 pb-6">
+      <section className=" w-full px-6 py-16 relative min-h-screen z-20 pb-6">
+        <div className="absolute inset-0 z-0">
+          <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
+        </div>
         <div className="flex flex-col items-center gap-10 p-6">
           {/* Top Row: Card + Image */}
           <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-10">
             <div data-aos="fade-right">
-              <CustomCardModal title=" " sections={sections} />
+              <CustomCardModal title="Our Clients" sections={sections} />
             </div>
             <div data-aos="fade-left" className="relative w-full lg:w-1/2">
               <ImagesAssets.botOne />
@@ -105,7 +108,7 @@ const OurClients = () => {
         </div>
       </section>
 
-      <section className="mt-10 w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white py-16 px-4 overflow-hidden">
+      <section className="mt-10 w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white py-8 px-4 overflow-hidden">
         {/* Header Section */}
         <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           {/* Text */}
@@ -179,16 +182,16 @@ const OurClients = () => {
             highlightTextLine1="Ready to bring your"
             highlightTextLine2="story to life?"
             heading1Color="text-white"
-            heading2Color="text-[#D977C8]"
+            heading2Color="text-[#8B7190]"
             line1Color="text-white font-extrabold"
-            line2Color="text-[#D977C8] font-extrabold"
+            line2Color="text-[#8B7190] font-extrabold"
             headingSize="md:text-4xl text-4xl font-extrabold"
-            subheadingSize="text-6xl font-extrabold"
-            highlightSize="text-6xl font-extrabold"
+            subheadingSize="text-4xl font-extrabold"
+            highlightSize="text-4xl font-extrabold"
           />
         </div>
         <div className="md:h-[700px] h-[1400px] px-4">
-          <div>
+          {/* <div>
             <CustomHeading
               firstText="Frequently Asked"
               secondText="Questions"
@@ -197,7 +200,7 @@ const OurClients = () => {
               textSize="text-4xl md:text-6xl font-bold p-5"
               align="text-center"
             />
-          </div>
+          </div> */}
           <FAQSection />
         </div>
       </section>

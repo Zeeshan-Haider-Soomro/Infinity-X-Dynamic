@@ -1,15 +1,15 @@
 import { useState } from "react";
-import ContactForm from "../Components/ContactForm";
-import ContactSocialIcons from "../Components/ContactSocialIcons";
-import CustomHeading from "../Components/CustomHeading";
-import FAQSection from "../Components/FAQSection";
-import FeedbackSection from "../Components/FeedbackSection";
-import ScrollToTopButton from "../Components/ScrollToTopButton";
+import ContactForm from "../components/ContactForm";
+import ContactSocialIcons from "../components/ContactSocialIcons";
+import CustomHeading from "../components/CustomHeading";
+import FAQSection from "../components/FAQSection";
+import FeedbackSection from "../components/FeedbackSection";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import { ImagesAssets } from "@/utils/ImagesAssets";
-import CustomCardModal from "@/Components/CustomCardModal";
-import AwardBox from "@/Components/AwardBox";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/Components/ui/carousel";
-import { Card, CardContent } from "@/Components/ui/card";
+import CustomCardModal from "@/components/CustomCardModal";
+import AwardBox from "@/components/AwardBox";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
 
 const clientLogos = [
   { id: 1, src: "/2ndbanner.avif", alt: "Client 1" },
@@ -91,17 +91,17 @@ const OurClients = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className=" w-full px-6 py-16 relative min-h-screen z-20 pb-6">
+      <section className=" w-full md:px-6 py-20 md:py-16 relative md:min-h-screen z-20 pb-6">
         <div className="absolute inset-0 z-0">
           <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
         </div>
         <div className="flex flex-col items-center gap-10 p-6">
           {/* Top Row: Card + Image */}
           <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-10">
-            <div data-aos="fade-right">
+            <div data-aos="fade-right sm:fade-up" className="w-full lg:w-1/2">
               <CustomCardModal title="Our Clients" sections={sections} />
             </div>
-            <div data-aos="fade-left" className="relative w-full lg:w-1/2">
+            <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
               <ImagesAssets.botOne />
             </div>
           </div>
@@ -122,7 +122,7 @@ const OurClients = () => {
 
           {/* Right Illustration */}
           <div className="flex justify-center lg:justify-end lg:w-1/3">
-            <div className="text-[32px] [-webkit-text-stroke:1px_#874182]">
+            <div className="text-[32px] [-webkit-text-stroke:1px_#874182] hidden md:block">
               <ImagesAssets.botTwo />
             </div>
           </div>
@@ -155,7 +155,7 @@ const OurClients = () => {
                     />
 
                     {/* Content */}
-                    <CardContent className="p-4 bg-[#3C0945]/50 text-white text-center">
+                    <CardContent className="p-4 bg-[#3C0945]/50 text-white ">
                       <h1 className="text-2xl font-bold mb-2">{item.name}</h1>
                       <h3 className="text-lg font-semibold mb-2">
                         {item.title}

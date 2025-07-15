@@ -1,17 +1,17 @@
 import { ImagesAssets } from "@/utils/ImagesAssets"
-import AchievementGallery from "../Components/AchievementGallery"
-import ContactForm from "../Components/ContactForm"
-import ContactSocialIcons from "../Components/ContactSocialIcons"
-import CustomHeading from "../Components/CustomHeading"
-import FAQSection from "../Components/FAQSection"
-import FeedbackSection from "../Components/FeedbackSection"
-import ImageSlider from "../Components/ImageSlider"
-import ScrollToTopButton from "../Components/ScrollToTopButton"
-import CustomCardModal from "@/Components/CustomCardModal"
-import { Card, CardContent } from "@/Components/ui/card"
-import { AchievementsSection } from "@/Components/AchievementsSection"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/Components/ui/carousel"
-import CustomButton from "@/Components/CustomButton"
+import AchievementGallery from "../components/AchievementGallery"
+import ContactForm from "../components/ContactForm"
+import ContactSocialIcons from "../components/ContactSocialIcons"
+import CustomHeading from "../components/CustomHeading"
+import FAQSection from "../components/FAQSection"
+import FeedbackSection from "../components/FeedbackSection"
+import ImageSlider from "../components/ImageSlider"
+import ScrollToTopButton from "../components/ScrollToTopButton"
+import CustomCardModal from "@/components/CustomCardModal"
+import { Card, CardContent } from "@/components/ui/card"
+import { AchievementsSection } from "@/components/AchievementsSection"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import CustomButton from "@/components/CustomButton"
 
 const sections = [
   {
@@ -91,7 +91,7 @@ const ContactUs = () => {
             <div data-aos="fade-right">
               <CustomCardModal title=" Contact Us" sections={sections} />
             </div>
-            <div data-aos="fade-left" className="relative w-full lg:w-1/2">
+            <div data-aos="fade-left" className="hidden md:block relative w-full lg:w-1/2">
               <ImagesAssets.botOne />
             </div>
           </div>
@@ -190,7 +190,7 @@ const ContactUs = () => {
 
       <section className="relative overflow-visible ">
         {/* Bot positioned absolutely */}
-        <div className="absolute right-6 -top-40 z-10">
+        <div className="hidden md:block absolute right-6 -top-40 z-10">
           <ImagesAssets.botTwo />
         </div>
 
@@ -253,7 +253,7 @@ const ContactUs = () => {
         </div>
 
         {/* Carousel Section */}
-        <div className="max-w-7xl mx-auto px-[132px] mt-8">
+        <div className="max-w-7xl mx-auto px-[70px] md:px-[130px]  mt-8">
           <Carousel
             opts={{
               align: "start",

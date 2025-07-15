@@ -59,7 +59,7 @@ const ContactForm = ({
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* LEFT TEXT */}
-        <div data-aos="fade-right" className="space-y-6 font-secular text-center md:text-left">
+        <div data-aos=" md:fade-right" className="space-y-6 font-secular text-center md:text-left">
           <h2 className={`${headingSize} font-bold`}>
             <span className={`${heading1Color}`}>{heading1}</span>{" "}
             <span className={`${heading2Color}`}>{heading2}</span>
@@ -75,7 +75,7 @@ const ContactForm = ({
 
         {/* RIGHT FORM */}
         <form
-          data-aos="fade-left"
+          data-aos=" md:fade-left"
           ref={form}
           onSubmit={sendEmail}
           className="w-full  bg-[#A95C9C]/50 backdrop-blur-md rounded-[25px] p-8 text-white space-y-6"

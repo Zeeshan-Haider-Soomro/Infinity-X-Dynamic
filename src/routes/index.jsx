@@ -8,7 +8,7 @@ import OurClients from "../pages/OurClients";
 import ContactUs from "../pages/ContactUs";
 import Home from "../pages/Home";
 import Shop from "../pages/Shop";
-import ThankYou from "../Components/ThankYou";
+import ThankYou from "../components/ThankYou";
 import TwoDAnimation from "../pages/services/TwoDAnimation";
 import ThreeDAnimation from "../pages/services/ThreeDAnimation";
 import LogoAnimation from "../pages/services/LogoAnimation";

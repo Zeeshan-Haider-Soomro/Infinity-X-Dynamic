@@ -1,25 +1,25 @@
-import DynamicHeading from "../Components/DynamicHeading";
-import ServiceButtons from "../Components/ServiceButtons";
-import TypewriterText from "../Components/TypewriterText";
-import CustomButton from "../Components/CustomButton";
-import CustomHeading from "../Components/CustomHeading";
-import VideoSlider from "../Components/VideoSlider";
-import VideoSliderRight from "../Components/VideoSliderRight";
-import ImageSlider from "../Components/ImageSlider";
-import HistorySlider from "../Components/HistorySlider";
-import AchievementGallery from "../Components/AchievementGallery";
+import DynamicHeading from "../components/DynamicHeading";
+import ServiceButtons from "../components/ServiceButtons";
+import TypewriterText from "../components/TypewriterText";
+import CustomButton from "../components/CustomButton";
+import CustomHeading from "../components/CustomHeading";
+import VideoSlider from "../components/VideoSlider";
+import VideoSliderRight from "../components/VideoSliderRight";
+import ImageSlider from "../components/ImageSlider";
+import HistorySlider from "../components/HistorySlider";
+import AchievementGallery from "../components/AchievementGallery";
 import { useEffect, useState } from "react";
-import ContactSocialIcons from "../Components/ContactSocialIcons";
+import ContactSocialIcons from "../components/ContactSocialIcons";
 import { AppImages } from "../constant/AppImages";
 import { Link } from "react-router";
-import TalkModal from "../Components/TalkModal";
-import ScrollToTopButton from "../Components/ScrollToTopButton";
-import { Button } from "@/Components/ui/button";
+import TalkModal from "../components/TalkModal";
+import ScrollToTopButton from "../components/ScrollToTopButton";
+import { Button } from "@/components/ui/button";
 import { ImagesAssets } from "@/utils/ImagesAssets";
-import { RecentProjects } from "@/Components/RecentProjects";
-import { AchievementsSection } from "@/Components/AchievementsSection";
-import { Card } from "@/Components/ui/card";
-import History from "@/Components/History";
+import { RecentProjects } from "@/components/RecentProjects";
+import { AchievementsSection } from "@/components/AchievementsSection";
+import { Card } from "@/components/ui/card";
+import History from "@/components/History";
 
 const phrases = [
   ["Graphic", "Motions"],
@@ -125,7 +125,7 @@ const Home = () => {
             <CustomButton to="/about-us">READ MORE</CustomButton>
           </div>
 
-          <div data-aos="fade-left" className="relative w-full lg:w-1/2">
+          <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
             <ImagesAssets.botOne />
             {/* <img
               src={ImagesAssets.botOne}
@@ -247,12 +247,12 @@ const Home = () => {
       <section className="w-full px-6 py-16 ">
         <div className="max-w-[1236px] mx-auto flex flex-col items-center text-center text-white">
           {/* Title */}
-          <h2 className="text-4xl font-bold mb-4 font-secular">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-secular">
             Our <span className="text-[#8B7190]">Achievements</span>
           </h2>
 
           {/* Subtitle */}
-          <p className="max-w-3xl text-lg font-light mb-12">
+          <p className="max-w-3xl md:text-lg font-light mb-12">
             Over 100+ successful projects delivered for clients across 10+
             industries — from startups to global brands. Our work has earned
             long-term partnerships in countries like Egypt, UAE, and the UK.

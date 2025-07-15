@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
-import CustomHeading from "../Components/CustomHeading";
-import ContactSocialIcons from "../Components/ContactSocialIcons";
-import PortfolioTabs from "../Components/PortfolioTabs";
-import AchievementGallery from "../Components/AchievementGallery";
-import ContactForm from "../Components/ContactForm";
-import FAQSection from "../Components/FAQSection";
-import ImageSlider from "../Components/ImageSlider";
-import FeedbackSection from "../Components/FeedbackSection";
-import ScrollToTopButton from "../Components/ScrollToTopButton";
-import AwardsSection from "@/Components/AwardsSection";
+import CustomHeading from "../components/CustomHeading";
+import ContactSocialIcons from "../components/ContactSocialIcons";
+import PortfolioTabs from "../components/PortfolioTabs";
+import AchievementGallery from "../components/AchievementGallery";
+import ContactForm from "../components/ContactForm";
+import FAQSection from "../components/FAQSection";
+import ImageSlider from "../components/ImageSlider";
+import FeedbackSection from "../components/FeedbackSection";
+import ScrollToTopButton from "../components/ScrollToTopButton";
+import AwardsSection from "@/components/AwardsSection";
 import { ImagesAssets } from "@/utils/ImagesAssets";
-import CustomCardModal from "@/Components/CustomCardModal";
-import { RecentProjects } from "@/Components/RecentProjects";
-import { Card, CardContent } from "@/Components/ui/card";
-import AwardBox from "@/Components/AwardBox";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/Components/ui/carousel";
-import { AchievementsSection } from "@/Components/AchievementsSection";
+import CustomCardModal from "@/components/CustomCardModal";
+import { RecentProjects } from "@/components/RecentProjects";
+import { Card, CardContent } from "@/components/ui/card";
+import AwardBox from "@/components/AwardBox";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { AchievementsSection } from "@/components/AchievementsSection";
 
 const sections = [
   {
@@ -100,7 +100,7 @@ const OurWork = () => {
             <div data-aos="fade-right">
               <CustomCardModal title="Our Work" sections={sections} />
             </div>
-            <div data-aos="fade-left" className="relative w-full lg:w-1/2">
+            <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
               <ImagesAssets.botOne />
             </div>
           </div>
@@ -148,7 +148,7 @@ const OurWork = () => {
 
           {/* Right Illustration */}
           <div className="flex justify-center lg:justify-end lg:w-1/3">
-            <div className="text-[32px] [-webkit-text-stroke:1px_#874182]">
+            <div className="text-[32px] [-webkit-text-stroke:1px_#874182] hidden lg:block">
               <ImagesAssets.botTwo />
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/Components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { ImagesAssets } from "@/utils/ImagesAssets";
 import CustomButton from "./CustomButton";
 import clsx from "clsx";
@@ -82,10 +82,10 @@ export const RecentProjects = () => {
             );
 
     return (
-        <section className="w-full py-8 my-2 bg-[#3E224F] rounded-[50px] px-0 mx md:px-10 lg:px-16">
+        <section className="w-full py-8 my-2 bg-[#3E224F] px-10 md:px-5 rounded-[50px] px-0 mx md:px-10 lg:px-16">
             {/* Title */}
             <div className="mb-8">
-                <h2 className="text-white font-secular text-3xl md:text-4xl font-bold mb-2">
+                <h2 className="text-white font-secular  text-2xl md:text-4xl font-bold mb-2">
                     See Our Recent <span className="text-[#8B7190]">Projects</span>
                 </h2>
                 <p className="text-white text-lg font-medium font-['Quicksand'] max-w-[700px]">

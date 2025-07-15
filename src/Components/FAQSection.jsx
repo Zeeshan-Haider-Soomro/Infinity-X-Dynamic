@@ -107,7 +107,7 @@ function FAQItem({ index, question, answer, isOpen, toggleFAQ }) {
 
       {/* Answer */}
       <div
-        className={`px-6 overflow-hidden transition-all duration-300 ease-in-out text-white/80 text-sm ${
+        className={`px-6 overflow-hidden transition-all duration-300 md:ease-in-out text-white/80 text-sm ${
           isOpen ? "max-h-40 py-3" : "max-h-0 py-0"
         }`}
         style={{ transitionProperty: "max-height, padding" }}

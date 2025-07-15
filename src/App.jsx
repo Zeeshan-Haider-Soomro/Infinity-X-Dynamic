@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import Header from "./Components/Header";
+import Header from "./components/Header";
 import { Outlet } from "react-router";
-import Footer from "./Components/Footer";
-import IntroVideo from "./Components/IntroVideo";
+import Footer from "./components/Footer";
+import IntroVideo from "./components/IntroVideo";
 import AOS from "aos";
 import "aos/dist/aos.css"; // AOS styles
-import CustomCursor from "./Components/CustomCursor";
-import MirrorMagnifierCursor from "./Components/MirrorMagnifierCursor";
+import CustomCursor from "./components/CustomCursor";
+import MirrorMagnifierCursor from "./components/MirrorMagnifierCursor";
 import React, { useRef } from "react";
-import MirrorCursor from "./Components/MirrorCursor";
-import ScrollToTop from "./Components/ScrollToTop";
+import MirrorCursor from "./components/MirrorCursor";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   const appRef = useRef(null);

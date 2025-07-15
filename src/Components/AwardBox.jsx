@@ -30,24 +30,25 @@ const AwardBox = ({ target, label }) => {
   }, [target]);
 
   return (
-    <div className="flex  flex-col items-center justify-center gap-4 cursor-pointer group">
+    <div className="flex flex-col items-center justify-center gap-2 md:gap-4 cursor-pointer group">
       {/* CIRCLE NUMBER */}
       <div
         className="
           inline-flex
           justify-center
           items-center
-          px-[19px]
-          py-[1.5px]
+          px-3 md:px-[19px]
+          py-[1px] md:py-[1.5px]
           rounded-full
           border-[#8B7190]
           aspect-square
-          w-[100px]
-          h-[100px]
+          w-16 h-16
+          sm:w-20 sm:h-20
+          md:w-[100px] md:h-[100px]
           group-hover:bg-[#320142]
           transition-colors
           duration-300
-          border-[3px]
+          border-2 md:border-[3px]
           shadow-[0_1px_8px_0px_#ffffff]
           font-secular
         "
@@ -58,10 +59,10 @@ const AwardBox = ({ target, label }) => {
             text-white
             text-center
             font-['Titan One']
-            text-[32px]
-            leading-[100px]
+            text-xl sm:text-2xl
+            md:text-[32px]
+            leading-[64px] sm:leading-[80px] md:leading-[100px]
             font-medium
-            
           "
         >
           0
@@ -69,9 +70,10 @@ const AwardBox = ({ target, label }) => {
         <span
           className="
             text-white
-            text-[40px]
+            text-xl sm:text-2xl
+            md:text-[40px]
             font-['Titan One']
-            ml-1
+            ml-0.5 md:ml-1
           "
         >
           +
@@ -79,7 +81,7 @@ const AwardBox = ({ target, label }) => {
       </div>
 
       {/* LABEL */}
-      <div className="text-center text-white  text-base">
+      <div className="text-center text-white text-xs sm:text-sm md:text-base px-1">
         {label}
       </div>
     </div>

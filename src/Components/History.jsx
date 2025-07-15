@@ -33,10 +33,10 @@ const History = () => {
     <section className="relative bg-[rgba(26,1,39,0.9)] w-full rounded-t-[65px] border-t-[3px] border-white px-6 pt-10 pb-16 overflow-hidden">
       {/* Top Headings */}
       <div className="text-center">
-        <h2 className="text-white text-[32px] font-normal leading-[3] font-secular">
+        <h2 className="text-white text-2xl md:text-[32px] font-normal leading-[3] font-secular">
           Key Highlights in the History of
         </h2>
-        <h3 className="text-white text-[32px] font-normal leading-[3]">
+        <h3 className="text-white text-2xl md:text-[32px] font-normal leading-[3]">
           <span className="text-[#8b7190] font-medium font-secular">
             INFINITY x DYNAMICS
           </span>
@@ -44,7 +44,7 @@ const History = () => {
       </div>
 
       {/* Paragraph */}
-      <p className="text-white text-2xl font-medium leading-[30px] mt-14 max-w-5xl mx-auto text-center px-4">
+      <p className="text-white text-xl md:text-2xl font-medium leading-[30px] mt-14 max-w-5xl mx-auto text-center px-4">
         From humble beginnings to global expansion, our journey is marked by
         innovation, growth, and milestone moments that define the spirit of
         INFINITY X DYNAMIC.

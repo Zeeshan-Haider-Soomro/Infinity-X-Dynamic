@@ -46,7 +46,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full border-t-[5px] border-white mt-8">
+    <footer className="w-full border-t-[1px] border-white mt-8">
       <Card className="w-full bg-[#1a0127] opacity-90 rounded-none">
         <CardContent className="p-0">
           <div className="container mx-auto px-4 py-16">

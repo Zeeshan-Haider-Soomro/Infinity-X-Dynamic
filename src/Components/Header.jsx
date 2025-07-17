@@ -3,7 +3,7 @@ import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import TalkModal from "./TalkModal";
 import SocialLinks from "./SocialLinks";
-import { AppImages } from "../constant/AppImages";
+import { AppImages } from "@/constant/AppImages";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   NavigationMenu,

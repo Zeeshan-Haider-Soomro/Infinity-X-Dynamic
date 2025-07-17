@@ -1,10 +1,10 @@
 import { useState } from "react";
-import ContactForm from "../components/ContactForm";
-import ContactSocialIcons from "../components/ContactSocialIcons";
-import CustomHeading from "../components/CustomHeading";
-import FAQSection from "../components/FAQSection";
-import FeedbackSection from "../components/FeedbackSection";
-import ScrollToTopButton from "../components/ScrollToTopButton";
+import ContactForm from "@/components/ContactForm";
+import ContactSocialIcons from "@/components/ContactSocialIcons";
+import CustomHeading from "@/components/CustomHeading";
+import FAQSection from "@/components/FAQSection";
+import FeedbackSection from "@/components/FeedbackSection";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { ImagesAssets } from "@/utils/ImagesAssets";
 import CustomCardModal from "@/components/CustomCardModal";
 import AwardBox from "@/components/AwardBox";

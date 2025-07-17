@@ -91,9 +91,9 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center">
             <NavigationMenu>
-              <NavigationMenuList>
+              <NavigationMenuList className="flex items-center gap-8">
                 {navLinks.map((link) =>
                   link.name === "Our Services" ? (
                     <NavigationMenuItem key={link.name}>
@@ -234,7 +234,7 @@ const Header = () => {
 
           {/* Right Side */}
           <div className="flex items-center gap-3">
-            <CustomButton>Sign Up</CustomButton>
+            <CustomButton onClick={() => setIsTalkModalOpen(true)}>Sign Up</CustomButton>
             <CustomButton
               className="hidden md:inline-flex items-center justify-center bg-[#9C448D] hover:bg-[#320142] text-white rounded-full px-5 py-2"
               onClick={() => setIsTalkModalOpen(true)}
@@ -244,28 +244,57 @@ const Header = () => {
 
             {/* Mobile Sidebar */}
             <Sheet>
+              {/* Hamburger Button */}
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu size={28} className="text-white" />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden text-white hover:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                >
+                  <Menu size={28} />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[240px] px-4 py-6">
-                <div className="flex flex-col items-start gap-6">
-                  {navLinks.map((link) => (
-                    <NavLink
-                      key={link.name}
-                      to={link.path}
-                      onClick={() => setIsTalkModalOpen(false)}
-                      className="hover:text-[#9C448D] text-[#320142] font-semibold"
+
+              {/* Sidebar Content */}
+              <SheetContent
+                side="left"
+                className="w-[260px] px-6 py-6 bg-gradient-to-b from-[#320142] to-[#9C448D] text-white shadow-xl"
+              >
+                <div className="flex flex-col justify-between h-full">
+                  {/* Nav Links */}
+                  <div className="space-y-5">
+                    {navLinks.map((link) => (
+                      <NavLink
+                        key={link.name}
+                        to={link.path}
+                        onClick={() => setIsTalkModalOpen(false)}
+                        className={({ isActive }) =>
+                          `block text-lg font-medium transition hover:text-[#FB64B6] ${isActive ? "text-[#FB64B6]" : "text-white"
+                          }`
+                        }
+                      >
+                        {link.name}
+                      </NavLink>
+                    ))}
+
+                    {/* Call-to-action */}
+                    <CustomButton
+                      onClick={() => setIsTalkModalOpen(true)}
+                      className="mt-4 w-full bg-[#FB64B6] text-white rounded-full py-2 px-4 font-semibold hover:bg-pink-600 transition"
                     >
-                      {link.name}
-                    </NavLink>
-                  ))}
-                  <SocialLinks />
-                </div>
-                <div className="text-center text-sm mt-6 border-t pt-4 border-[#A95C9C]">
-                  © {new Date().getFullYear()} Infinity X Dynamics. All Rights
-                  Reserved.
+                      Let’s Talk
+                    </CustomButton>
+
+                    {/* Social Icons */}
+                    <div className="pt-6 border-t border-[#FB64B6]">
+                      <SocialLinks />
+                    </div>
+                  </div>
+
+                  {/* Footer */}
+                  <div className="text-center text-xs pt-6 text-white opacity-80">
+                    © {new Date().getFullYear()} Infinity X Dynamics. All Rights Reserved.
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

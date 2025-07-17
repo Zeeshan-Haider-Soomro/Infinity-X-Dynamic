@@ -7,6 +7,8 @@ export const BotOneIcon = (props) => (
     height="382"
     fill="none"
     viewBox="0 0 458 382"
+    className={`animate-float ${props.className || ''}`}
+    {...props}
   >
     <path fill="url(#pattern0_340_89)" d="M0 0h458v382H0z"></path>
     <defs>
@@ -31,8 +33,6 @@ export const BotOneIcon = (props) => (
     </defs>
   </svg>
 );
-
-
 
 export const BotTwoIcon = (props) => (
   <svg
@@ -67,7 +67,6 @@ export const BotTwoIcon = (props) => (
   </svg>
 );
 
-
 export const BotThreeIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -100,8 +99,6 @@ export const BotThreeIcon = (props) => (
     </defs>
   </svg>
 );
-
-
 
 export const BotFourIcon = (props) => (
   <svg

@@ -82,7 +82,7 @@ export const RecentProjects = () => {
             );
 
     return (
-        <section className="w-full py-8 my-2 bg-[#3E224F] px-10 md:px-5 rounded-[50px] px-0 mx md:px-10 lg:px-16">
+        <section className="w-full py-8 my-2 bg-[#3E224F] px-10 md:px-5 rounded-[50px] mx lg:px-16">
             {/* Title */}
             <div className="mb-8">
                 <h2 className="text-white font-secular  text-2xl md:text-4xl font-bold mb-2">

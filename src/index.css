@@ -40,6 +40,23 @@ background: linear-gradient(90deg, rgba(107, 45, 110, 1) 0%, rgba(60, 9, 69, 1) 
 }
 
 
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+
 @custom-variant dark (&:is(.dark *));
 
 * {
@@ -48,9 +65,24 @@ background: linear-gradient(90deg, rgba(107, 45, 110, 1) 0%, rgba(60, 9, 69, 1) 
 }
 
 
+/* Add this to your CSS file */
+
 nav a.active {
   color: #FB64B6;
+  position: relative;
 }
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; 
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #FB64B6;
+  border-radius: 4px;
+}
+
 
 /* Scrollbar Track */
 ::-webkit-scrollbar {

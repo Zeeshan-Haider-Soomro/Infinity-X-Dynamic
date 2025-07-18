@@ -93,12 +93,12 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
             <NavigationMenu>
-              <NavigationMenuList className="flex items-center gap-8">
+              <NavigationMenuList className="flex items-center  md:gap-2 lg:gap-6">
                 {navLinks.map((link) =>
                   link.name === "Our Services" ? (
                     <NavigationMenuItem key={link.name}>
                       <NavigationMenuTrigger
-                        className="font-['Quicksand'] text-white text-[18px] font-bold bg-transparent hover:text-[#9C448D] transition
+                        className=" text-white sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold bg-transparent hover:text-[#9C448D] transition
                           data-[state=open]:bg-transparent hover:bg-transparent focus:bg-transparent"
                       >
                         {link.name}
@@ -220,7 +220,7 @@ const Header = () => {
                       <NavigationMenuLink asChild>
                         <NavLink
                           to={link.path}
-                          className="font-['Quicksand'] text-[18px] text-white font-bold hover:text-[#9C448D] transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent"
+                          className="sm:text-[14px] md:text-[16px] lg:text-[18px] text-white font-bold hover:text-[#9C448D] transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent"
                         >
                           {link.name}
                         </NavLink>

@@ -46,31 +46,25 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full border-t-[1px] border-white mt-8">
+    <footer className="w-full">
       <Card className="w-full bg-[#1a0127] opacity-90 rounded-none">
         <CardContent className="p-0">
-          <div className="container mx-auto px-4 py-16">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {/* Logo Section */}
-              <div className="relative flex items-start">
-                <div className="w-[150px] h-[150px] bg-white rounded-[75px] blur-[35px] absolute top-0 left-5" />
-                <img
-                  className="relative w-[179px] h-[125px] object-cover z-10"
-                  alt="Company Logo"
-                  src={ImagesAssets.footerlogo}
-                />
+              <div className="relative flex items-start sm:w-[150px] sm:h-[150px]">
+                <div className=" sm:w-[150px] sm:h-[150px] bg-white rounded-full blur-[100px] absolute top-0 left-5" />
+                <ImagesAssets.footerLogo />
               </div>
 
               {/* Service Links */}
               <div>
-                <h3 className="text-white   font-bold mb-4">
-                  OUR SERVICES
-                </h3>
+                <h3 className="text-white font-bold mb-4">OUR SERVICES</h3>
                 <ul className="space-y-1">
                   {serviceLinks.map((service, idx) => (
                     <li
                       key={`service-${idx}`}
-                      className="text-white  leading-[28px]"
+                      className="text-white leading-[28px]"
                     >
                       {service}
                     </li>
@@ -80,14 +74,12 @@ const Footer = () => {
 
               {/* Quick Links */}
               <div>
-                <h3 className="text-white   font-bold mb-4">
-                  QUICK LINKS
-                </h3>
+                <h3 className="text-white font-bold mb-4">QUICK LINKS</h3>
                 <ul className="space-y-1">
                   {quickLinks.map((link, idx) => (
                     <li
                       key={`quick-${idx}`}
-                      className="text-white  leading-[28px]"
+                      className="text-white leading-[28px]"
                     >
                       {link}
                     </li>
@@ -97,14 +89,12 @@ const Footer = () => {
 
               {/* Page Links */}
               <div>
-                <h3 className="text-white   font-bold mb-4">
-                  PAGES
-                </h3>
+                <h3 className="text-white font-bold mb-4">PAGES</h3>
                 <ul className="space-y-1">
                   {pageLinks.map((link, idx) => (
                     <li
                       key={`page-${idx}`}
-                      className="text-white  leading-[28px]"
+                      className="text-white leading-[28px]"
                     >
                       <a
                         href={link.url}
@@ -120,19 +110,17 @@ const Footer = () => {
               </div>
 
               {/* Contact & Social Section */}
-              <div className="md:ml-[-40px]">
-                <h3 className="text-white   font-bold mb-4">
-                  CONNECT WITH US!
-                </h3>
+              <div>
+                <h3 className="text-white font-bold mb-4">CONNECT WITH US!</h3>
 
                 <div className="flex flex-col space-y-2">
                   {/* Phone */}
-                  <p className="mb-2 flex items-center text-white  leading-[28px] hover:text-[#A95C9C] transition cursor-pointer">
+                  <p className="flex items-center text-white leading-[28px] hover:text-[#A95C9C] transition cursor-pointer">
                     <FaPhoneAlt className="mr-2" /> +92 321 8456611
                   </p>
 
                   {/* Email */}
-                  <div className="flex items-center text-white  hover:text-[#A95C9C] transition cursor-pointer">
+                  <div className="flex items-center text-white hover:text-[#A95C9C] transition cursor-pointer">
                     <span className="p-2 mr-2 rounded-full bg-white/10 flex items-center justify-center">
                       <FaEnvelope className="text-white w-4 h-4" />
                     </span>
@@ -142,7 +130,7 @@ const Footer = () => {
                   </div>
 
                   {/* Location */}
-                  <div className="flex items-center text-white   leading-[28px] hover:text-[#A95C9C] transition cursor-pointer">
+                  <div className="flex items-center text-white leading-[28px] hover:text-[#A95C9C] transition cursor-pointer">
                     <span className="p-2 mr-2 rounded-full bg-white/10 flex items-center justify-center">
                       <FaMapMarkerAlt className="text-white w-4 h-4" />
                     </span>
@@ -153,12 +141,12 @@ const Footer = () => {
                 </div>
 
                 {/* Social Icons */}
-                <div className="flex items-center gap-5 mt-6">
+                <div className="flex items-center gap-4 mt-6">
                   {socialLinks.map((social, idx) => (
                     <NavLink
                       key={`social-${idx}`}
                       to={social.to}
-                      className="w-10 h-10 flex items-center justify-center border border-[#4b1b57] rounded-[20px] text-white hover:text-[#A95C9C] transition"
+                      className="w-10 h-10 flex items-center justify-center border border-[#4b1b57] rounded-full text-white hover:text-[#A95C9C] transition"
                       title={social.alt}
                     >
                       {social.icon}
@@ -171,7 +159,7 @@ const Footer = () => {
             {/* Copyright */}
             <Separator className="my-6 bg-[#4b1b57]" />
             <div className="text-center">
-              <p className="text-white   leading-[28px]">
+              <p className="text-white leading-[28px]">
                 © {new Date().getFullYear()} Infinity X Dynamics. All Rights
                 Reserved.
               </p>

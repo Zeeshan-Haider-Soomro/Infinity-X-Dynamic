@@ -10,6 +10,7 @@ import CustomCardModal from "@/components/CustomCardModal";
 import AwardBox from "@/components/AwardBox";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
+import SliderCards from "@/components/SliderCards";
 
 const clientLogos = [
   { id: 1, src: "/2ndbanner.avif", alt: "Client 1" },
@@ -43,51 +44,11 @@ const sections = [
     },
   ];
 
-const achievementImages = [
-  {
-    src: ImagesAssets.person,
-    name: "Mr Abc",
-    title: "UI/UX Designer",
-    description:
-      "As a UI/UX designer at IXD, I craft interfaces that don’t just look stunning—they guide, engage, and convert with purpose.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Ms Def",
-    title: "Developer",
-    description: "I turn code into digital experiences at IXD.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Mr Ghi",
-    title: "Project Manager",
-    description: "I keep IXD projects on track and teams aligned.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Ms Jkl",
-    title: "Animator",
-    description: "I bring IXD’s visuals to life with motion.",
-  },
-];
+
 
 
 const OurClients = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const openModal = (index) => {
-    setCurrentIndex(index);
-    setModalOpen(true);
-  };
-
-  const closeModal = () => setModalOpen(false);
-
-  const prevImage = () =>
-    setCurrentIndex((prev) => (prev === 0 ? clientLogos.length - 1 : prev - 1));
-
-  const nextImage = () =>
-    setCurrentIndex((prev) => (prev === clientLogos.length - 1 ? 0 : prev + 1));
   return (
     <div>
       {/* Hero Section */}
@@ -134,43 +95,7 @@ const OurClients = () => {
         </div>
 
         {/* Carousel Section */}
-        <div className="max-w-6xl mx-auto mt-16 relative px-4">
-          <Carousel
-            opts={{
-              align: "start",
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {achievementImages.map((item, index) => (
-                <CarouselItem
-                  key={index}
-                  className="pl-4 md:basis-1/2 lg:basis-1/3"
-                >
-                  <Card className="rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent">
-                    {/* Image */}
-                    <div
-                      className="w-full h-[190px] bg-cover bg-center"
-                      style={{ backgroundImage: `url(${item.src})` }}
-                    />
-
-                    {/* Content */}
-                    <CardContent className="p-4 bg-[#3C0945]/50 text-white ">
-                      <h1 className="text-2xl font-bold mb-2">{item.name}</h1>
-                      <h3 className="text-lg font-semibold mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-white/80 text-sm">{item.description}</p>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            <CarouselPrevious className="!left-0 sm:!left-[-50px]" />
-            <CarouselNext className="!right-0 sm:!right-[-50px]" />
-          </Carousel>
-        </div>
+        <SliderCards />
       </section>
 
 
@@ -190,7 +115,7 @@ const OurClients = () => {
             highlightSize="text-4xl font-extrabold"
           />
         </div>
-        <div className="md:h-[700px] h-[1400px] px-4">
+        <div className="py-8 px-4">
           {/* <div>
             <CustomHeading
               firstText="Frequently Asked"

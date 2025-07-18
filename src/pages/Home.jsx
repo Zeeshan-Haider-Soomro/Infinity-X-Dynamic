@@ -160,22 +160,23 @@ const Home = () => {
             textSize="text-4xl md:text-6xl"
             align="text-center"
           />
+
           <div>
             <VideoSlider />
             <VideoSliderRight />
           </div>
-          <CustomButton className="  mt-10 transition-all duration-300
-          " to={"/our-work"} >VIEW PORTFOLIO</CustomButton>
-          {/* <Link to={"/our-work"}>
-            <div className="text-center pt-20">
-              <CustomButton
-                text="VIEW PORTFOLIO"
-                bgColor="#451650"
-                hoverColor="#9C448D"
-              />
-            </div>
-          </Link> */}
+
+          {/* 👇 Centered Button */}
+          <div className="flex justify-center mt-10">
+            <CustomButton
+              className="transition-all duration-300"
+              to={"/our-work"}
+            >
+              VIEW PORTFOLIO
+            </CustomButton>
+          </div>
         </div>
+
 
       </section>
 

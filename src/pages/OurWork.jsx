@@ -16,6 +16,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import AwardBox from "@/components/AwardBox";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AchievementsSection } from "@/components/AchievementsSection";
+import SliderCards from "@/components/SliderCards";
 
 const sections = [
   {
@@ -23,34 +24,6 @@ const sections = [
   },
   {
     heading: "Our Work Speaks in Motion",
-  },
-];
-
-const achievementImages = [
-  {
-    src: ImagesAssets.person,
-    name: "Mr Abc",
-    title: "UI/UX Designer",
-    description:
-      "As a UI/UX designer at IXD, I craft interfaces that don’t just look stunning—they guide, engage, and convert with purpose.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Ms Def",
-    title: "Developer",
-    description: "I turn code into digital experiences at IXD.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Mr Ghi",
-    title: "Project Manager",
-    description: "I keep IXD projects on track and teams aligned.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Ms Jkl",
-    title: "Animator",
-    description: "I bring IXD’s visuals to life with motion.",
   },
 ];
 
@@ -63,21 +36,7 @@ const awards = [
 
 
 const OurWork = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const visibleCount = 3;
-
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev + 1 >= achievementImages.length ? 0 : prev + 1
-    );
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev - 1 < 0 ? achievementImages.length - 1 : prev - 1
-    );
-  };
-
+ 
 
 
   useEffect(() => {
@@ -155,65 +114,12 @@ const OurWork = () => {
         </div>
 
         {/* Glow Effect */}
-        <div className="relative w-full mt-8">
+        <div className="relative w-full mt-8 ">
           <div className="w-[150px] h-[150px] bg-white rounded-full blur-[60px] absolute top-0 -left-[60px] opacity-30" />
         </div>
 
-        {/* Carousel Section */}
-        <div className="flex flex-col justify-around items-center">
-          <div className="flex justify-around overflow-hidden w-full max-w-[1000px] mx-auto">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
-                width: `${(achievementImages.length / visibleCount) * 100}%`,
-              }}
-            >
-              {achievementImages.map((image, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-1/3 mb-8 px-3 "
-                >
-                  <Card className="rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent h-[400px] py-8 flex flex-col">
-                    {/* Image */}
-                    <div
-                      className="w-full h-[190px] rounded-t-[25px] bg-cover bg-center flex-shrink-0"
-                      style={{
-                        backgroundImage: `url(${image.src})`,
-                      }}
-                    />
+        <SliderCards />
 
-                    {/* Details */}
-                    <CardContent className="p-4 py-8 bg-[#3C0945]/50 w-full flex-grow rounded-b-[10px] flex flex-col justify-start text-left text-white">
-                      <h1 className="text-2xl font-bold mb-2">{image.name}</h1>
-                      <h3 className="text-lg font-semibold mb-2">{image.title}</h3>
-                      <p className="text-white/80 text-sm">
-                        {image.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Buttons */}
-          <div className="flex justify-start gap-10 mt-12">
-            <button
-              onClick={handlePrev}
-              className="hover:scale-110 transition-transform duration-300"
-            >
-              <ImagesAssets.leftButton />
-            </button>
-
-            <button
-              onClick={handleNext}
-              className="hover:scale-110 transition-transform duration-300"
-            >
-              <ImagesAssets.rightButton />
-            </button>
-          </div>
-        </div>
       </section>
 
 

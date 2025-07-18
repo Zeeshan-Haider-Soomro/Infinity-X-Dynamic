@@ -9,11 +9,13 @@ import {
   RightButton,
   ButtonArrow,
   CircleIcon,
-  BackgroundWave
+  BackgroundWave,
+  FooterLogo
 } from "@/assets/ImagesFile";
 import idxwhitelogo from "../assets/ixdwhitelogo.png";
 import footerlogo from "../assets/footerlogo.png";
 import person from "../assets/person.png";
+import person1 from "../assets/person1.jpg";
 import award from "../assets/award.png";
 import demobanner from "../assets/demobanner.avif";
 import projects from "../assets/projects.png";
@@ -43,5 +45,7 @@ export const ImagesAssets = {
   buttonArrow: ButtonArrow,
   circleIcon: CircleIcon,
   backgroundWave: BackgroundWave,
-  formImage: formImage
+  formImage: formImage,
+  footerLogo: FooterLogo,
+  person1: person1
 };

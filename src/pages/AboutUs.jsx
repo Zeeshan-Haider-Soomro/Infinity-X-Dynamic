@@ -13,34 +13,7 @@ import CustomButton from "@/components/CustomButton";
 import CustomCardModal from "@/components/CustomCardModal";
 import { Card, CardContent } from "@/components/ui/card";
 import AwardBox from "@/components/AwardBox";
-
-const achievementImages = [
-  {
-    src: ImagesAssets.person,
-    name: "Mr Abc",
-    title: "UI/UX Designer",
-    description:
-      "As a UI/UX designer at IXD, I craft interfaces that don’t just look stunning—they guide, engage, and convert with purpose.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Ms Def",
-    title: "Developer",
-    description: "I turn code into digital experiences at IXD.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Mr Ghi",
-    title: "Project Manager",
-    description: "I keep IXD projects on track and teams aligned.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Ms Jkl",
-    title: "Animator",
-    description: "I bring IXD’s visuals to life with motion.",
-  },
-];
+import SliderCards from "@/components/SliderCards";
 
 const sections = [
   {
@@ -65,27 +38,14 @@ const awards = [
 ];
 
 const AboutUs = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const visibleCount = 3;
-
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev + 1 >= achievementImages.length ? 0 : prev + 1
-    );
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev - 1 < 0 ? achievementImages.length - 1 : prev - 1
-    );
-  };
-
+ 
   useEffect(() => {
     // Force scroll after render
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0); // delay if there's animation or content is loading
   }, []);
+
   const { CeoImg } = AppImages;
   return (
     <div>
@@ -199,60 +159,8 @@ const AboutUs = () => {
           <div className="w-[150px] h-[150px] bg-white rounded-[75px] blur-[60px] absolute top-0 -left-[60px]" />
         </div>
         {/* Slider */}
-        <div className="flex flex-col justify-around items-center w-full px-4 sm:px-6">
-          <div className="flex justify-center overflow-hidden w-full max-w-[1000px] mx-auto">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
-                width: `${(achievementImages.length / visibleCount) * 100}%`,
-              }}
-            >
-              {achievementImages.map((image, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 mb-8 px-2 sm:px-3"
-                >
-                  <Card className="rounded-[15px] md:rounded-[25px] overflow-hidden shadow-lg md:shadow-xl border border-white/10 bg-transparent h-[350px] sm:h-[380px] md:h-[400px] py-6 md:py-8 flex flex-col">
-                    {/* Image */}
-                    <div
-                      className="w-full h-[150px] sm:h-[170px] md:h-[190px] rounded-t-[15px] md:rounded-t-[25px] bg-cover bg-center flex-shrink-0"
-                      style={{
-                        backgroundImage: `url(${image.src})`,
-                      }}
-                    />
 
-                    {/* Details */}
-                    <CardContent className="p-3 sm:p-4 py-6 md:py-8 bg-[#3C0945]/50 w-full flex-grow rounded-b-[8px] md:rounded-b-[10px] flex flex-col justify-start text-left text-white">
-                      <h1 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">{image.name}</h1>
-                      <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">{image.title}</h3>
-                      <p className="text-white/80 text-xs sm:text-sm">
-                        {image.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Buttons */}
-          <div className="flex justify-center gap-6 sm:gap-10 mt-8 sm:mt-12">
-            <button
-              onClick={handlePrev}
-              className="hover:scale-110 transition-transform duration-300 w-8 h-8 sm:w-10 sm:h-10"
-            >
-              <ImagesAssets.leftButton className="w-full h-full" />
-            </button>
-
-            <button
-              onClick={handleNext}
-              className="hover:scale-110 transition-transform duration-300 sm:w-10 sm:h-10"
-            >
-              <ImagesAssets.rightButton className="w-full h-full" />
-            </button>
-          </div>
-        </div>
+        <SliderCards />
 
       </section>
 
@@ -312,7 +220,7 @@ const AboutUs = () => {
         </div>
 
 
-        <div className="md:h-[700px] h-[1400px] px-4  pt-16">
+        <div className=" px-4  py-16">
           <FAQSection />
         </div>
       </section>

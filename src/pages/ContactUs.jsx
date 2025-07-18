@@ -12,6 +12,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { AchievementsSection } from "@/components/AchievementsSection"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import CustomButton from "@/components/CustomButton"
+import { useState } from "react"
+import SliderCards from "@/components/SliderCards"
 
 const sections = [
   {
@@ -29,36 +31,9 @@ const awards = [
   { src: ImagesAssets.award, alt: "Award 3" },
 ];
 
-const achievementImages = [
-  {
-    src: ImagesAssets.person,
-    name: "Mr Abc",
-    title: "UI/UX Designer",
-    description:
-      "As a UI/UX designer at IXD, I craft interfaces that don’t just look stunning—they guide, engage, and convert with purpose.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Ms Def",
-    title: "Developer",
-    description: "I turn code into digital experiences at IXD.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Mr Ghi",
-    title: "Project Manager",
-    description: "I keep IXD projects on track and teams aligned.",
-  },
-  {
-    src: ImagesAssets.person,
-    name: "Ms Jkl",
-    title: "Animator",
-    description: "I bring IXD’s visuals to life with motion.",
-  },
-];
-
 
 const ContactUs = () => {
+
   return (
     <div>
       {/* Hero Section */}
@@ -190,7 +165,7 @@ const ContactUs = () => {
 
       <section className="relative overflow-visible ">
         {/* Bot positioned absolutely */}
-        <div className="hidden md:block absolute right-6 -top-40 z-10">
+        <div className="hidden md:block absolute right-6 -top-50 z-20">
           <ImagesAssets.botTwo />
         </div>
 
@@ -241,7 +216,7 @@ const ContactUs = () => {
 
           {/* Right Illustration */}
           <div className="flex justify-center lg:justify-end lg:w-1/3 mb-6 lg:mb-0">
-            <div className="text-[32px] [-webkit-text-stroke:1px_#874182]">
+            <div className="hidden md:block text-[32px] [-webkit-text-stroke:1px_#874182]">
               <ImagesAssets.botTwo />
             </div>
           </div>
@@ -253,44 +228,7 @@ const ContactUs = () => {
         </div>
 
         {/* Carousel Section */}
-        <div className="max-w-7xl mx-auto px-[70px] md:px-[130px]  mt-8">
-          <Carousel
-            opts={{
-              align: "start",
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="flex gap-[70px]">
-              {achievementImages.map((item, index) => (
-                <CarouselItem
-                  key={index}
-                  className="basis-[305px] flex-shrink-0"
-                >
-                  {/* Card */}
-                  <div className="w-[305px] rounded-[25px] overflow-hidden shadow-xl border border-white/10 bg-transparent flex flex-col">
-                    {/* Image */}
-                    <div
-                      className="w-full h-[189.932px] rounded-t-[25px] bg-cover bg-center"
-                      style={{
-                        backgroundImage: `url(${item.src})`,
-                      }}
-                    ></div>
-
-                    {/* Description */}
-                    <div className="w-full h-[162.308px] bg-[#3C0945]/50 rounded-b-[10px] text-white flex flex-col justify-center p-4">
-                      <h1 className="text-xl font-bold mb-1">{item.name}</h1>
-                      <h3 className="text-base font-semibold mb-2">{item.title}</h3>
-                      <p className="text-white/80 text-sm italic">{item.description}</p>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            <CarouselPrevious className="!left-0 sm:!left-[-50px]" />
-            <CarouselNext className="!right-0 sm:!right-[-50px]" />
-          </Carousel>
-        </div>
+        <SliderCards />
       </section>
 
       {/* <section className="bg-[#EEDFFF]">

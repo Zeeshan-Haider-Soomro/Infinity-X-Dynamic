@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/temp/components/ui/card";
+import { Badge } from "@/temp/components/ui/badge";
 import { ImagesAssets } from "@/utils/ImagesAssets";
 import CustomButton from "./CustomButton";
 import clsx from "clsx";

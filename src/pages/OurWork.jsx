@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
-import CustomHeading from "@/components/CustomHeading";
-import ContactSocialIcons from "@/components/ContactSocialIcons";
-import PortfolioTabs from "@/components/PortfolioTabs";
-import AchievementGallery from "@/components/AchievementGallery";
-import ContactForm from "@/components/ContactForm";
-import FAQSection from "@/components/FAQSection";
-import ImageSlider from "@/components/ImageSlider";
-import FeedbackSection from "@/components/FeedbackSection";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
-import AwardsSection from "@/components/AwardsSection";
+import CustomHeading from "@/temp/components/CustomHeading";
+import ContactSocialIcons from "@/temp/components/ContactSocialIcons";
+import PortfolioTabs from "@/temp/components/PortfolioTabs";
+import AchievementGallery from "@/temp/components/AchievementGallery";
+import ContactForm from "@/temp/components/ContactForm";
+import FAQSection from "@/temp/components/FAQSection";
+import ImageSlider from "@/temp/components/ImageSlider";
+import FeedbackSection from "@/temp/components/FeedbackSection";
+import ScrollToTopButton from "@/temp/components/ScrollToTopButton";
+import AwardsSection from "@/temp/components/AwardsSection";
 import { ImagesAssets } from "@/utils/ImagesAssets";
-import CustomCardModal from "@/components/CustomCardModal";
-import { RecentProjects } from "@/components/RecentProjects";
-import { Card, CardContent } from "@/components/ui/card";
-import AwardBox from "@/components/AwardBox";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { AchievementsSection } from "@/components/AchievementsSection";
-import SliderCards from "@/components/SliderCards";
+import CustomCardModal from "@/temp/components/CustomCardModal";
+import { RecentProjects } from "@/temp/components/RecentProjects";
+import { Card, CardContent } from "@/temp/components/ui/card";
+import AwardBox from "@/temp/components/AwardBox";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/temp/components/ui/carousel";
+import { AchievementsSection } from "@/temp/components/AchievementsSection";
+import SliderCards from "@/temp/components/SliderCards";
 
 const sections = [
   {

@@ -1,16 +1,16 @@
 import { useState } from "react";
-import ContactForm from "@/components/ContactForm";
-import ContactSocialIcons from "@/components/ContactSocialIcons";
-import CustomHeading from "@/components/CustomHeading";
-import FAQSection from "@/components/FAQSection";
-import FeedbackSection from "@/components/FeedbackSection";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ContactForm from "@/temp/components/ContactForm";
+import ContactSocialIcons from "@/temp/components/ContactSocialIcons";
+import CustomHeading from "@/temp/components/CustomHeading";
+import FAQSection from "@/temp/components/FAQSection";
+import FeedbackSection from "@/temp/components/FeedbackSection";
+import ScrollToTopButton from "@/temp/components/ScrollToTopButton";
 import { ImagesAssets } from "@/utils/ImagesAssets";
-import CustomCardModal from "@/components/CustomCardModal";
-import AwardBox from "@/components/AwardBox";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
-import SliderCards from "@/components/SliderCards";
+import CustomCardModal from "@/temp/components/CustomCardModal";
+import AwardBox from "@/temp/components/AwardBox";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/temp/components/ui/carousel";
+import { Card, CardContent } from "@/temp/components/ui/card";
+import SliderCards from "@/temp/components/SliderCards";
 
 const clientLogos = [
   { id: 1, src: "/2ndbanner.avif", alt: "Client 1" },

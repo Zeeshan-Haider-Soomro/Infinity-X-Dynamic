@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import TalkModal from "./TalkModal";
 import SocialLinks from "./SocialLinks";
 import { AppImages } from "@/constant/AppImages";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/temp/components/ui/sheet";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,8 +12,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { Button } from "@/components/ui/button";
+} from "@/temp/components/ui/navigation-menu";
+import { Button } from "@/temp/components/ui/button";
 import CustomButton from "./CustomButton";
 import { CurveArrow } from "@/assets/ImagesFile";
 

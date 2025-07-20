@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ProductGrid from "@/components/ProductGrid";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import ProductGrid from "@/temp/components/ProductGrid";
+import Header from "@/temp/components/Header";
+import Footer from "@/temp/components/Footer";
 
 const Shop = () => {
   const [products] = useState([

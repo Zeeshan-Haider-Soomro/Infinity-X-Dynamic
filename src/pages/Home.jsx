@@ -1,25 +1,25 @@
-import DynamicHeading from "@/components/DynamicHeading";
-import ServiceButtons from "@/components/ServiceButtons";
-import TypewriterText from "@/components/TypewriterText";
-import CustomButton from "@/components/CustomButton";
-import CustomHeading from "@/components/CustomHeading";
-import VideoSlider from "@/components/VideoSlider";
-import VideoSliderRight from "@/components/VideoSliderRight";
-import ImageSlider from "@/components/ImageSlider";
-import HistorySlider from "@/components/HistorySlider";
-import AchievementGallery from "@/components/AchievementGallery";
+import DynamicHeading from "@/temp/components/DynamicHeading";
+import ServiceButtons from "@/temp/components/ServiceButtons";
+import TypewriterText from "@/temp/components/TypewriterText";
+import CustomButton from "@/temp/components/CustomButton";
+import CustomHeading from "@/temp/components/CustomHeading";
+import VideoSlider from "@/temp/components/VideoSlider";
+import VideoSliderRight from "@/temp/components/VideoSliderRight";
+import ImageSlider from "@/temp/components/ImageSlider";
+import HistorySlider from "@/temp/components/HistorySlider";
+import AchievementGallery from "@/temp/components/AchievementGallery";
 import { useEffect, useState } from "react";
-import ContactSocialIcons from "@/components/ContactSocialIcons";
+import ContactSocialIcons from "@/temp/components/ContactSocialIcons";
 import { AppImages } from "@/constant/AppImages";
 import { Link } from "react-router";
-import TalkModal from "@/components/TalkModal";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
-import { Button } from "@/components/ui/button";
+import TalkModal from "@/temp/components/TalkModal";
+import ScrollToTopButton from "@/temp/components/ScrollToTopButton";
+import { Button } from "@/temp/components/ui/button";
 import { ImagesAssets } from "@/utils/ImagesAssets";
-import { RecentProjects } from "@/components/RecentProjects";
-import { AchievementsSection } from "@/components/AchievementsSection";
-import { Card } from "@/components/ui/card";
-import History from "@/components/History";
+import { RecentProjects } from "@/temp/components/RecentProjects";
+import { AchievementsSection } from "@/temp/components/AchievementsSection";
+import { Card } from "@/temp/components/ui/card";
+import History from "@/temp/components/History";
 
 const phrases = [
   ["Graphic", "Motions"],

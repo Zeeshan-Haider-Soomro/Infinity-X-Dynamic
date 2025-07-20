@@ -1,15 +1,15 @@
 import { useState } from "react";
-import BannerSectionForServices from "../../Components/BannerSectionForServices";
-import ContactSocialIcons from "../../Components/ContactSocialIcons";
-import CustomHeading from "../../Components/CustomHeading";
-import TalkModal from "../../Components/TalkModal";
-import VideoGallery from "../../Components/VideoGallery";
-import AboutCategory from "../../Components/AboutCategory";
-import AchievementGallery from "../../Components/AchievementGallery";
-import FAQSection from "../../Components/FAQSection";
-import ContactForm from "../../Components/ContactForm";
-import ImageSlider from "../../Components/ImageSlider";
-import FeedbackSection from "../../Components/FeedbackSection";
+import BannerSectionForServices from "@/components/BannerSectionForServices";
+import ContactSocialIcons from "@/components/ContactSocialIcons";
+import CustomHeading from "@/components/CustomHeading";
+import TalkModal from "@/components/TalkModal";
+import VideoGallery from "@/components/VideoGallery";
+import AboutCategory from "@/components/AboutCategory";
+import AchievementGallery from "@/components/AchievementGallery";
+import FAQSection from "@/components/FAQSection";
+import ContactForm from "@/components/ContactForm";
+import ImageSlider from "@/components/ImageSlider";
+import FeedbackSection from "@/components/FeedbackSection";
 
 // videogallery component items
 

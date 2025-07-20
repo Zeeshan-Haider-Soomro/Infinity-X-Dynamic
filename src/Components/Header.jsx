@@ -1,16 +1,26 @@
-import { Link, NavLink } from "react-router";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Menu } from "lucide-react";
+import { useEffect, useState } from "react";
 import TalkModal from "./TalkModal";
 import SocialLinks from "./SocialLinks";
-import { AppImages } from "../constant/AppImages";
-
+import { AppImages } from "@/constant/AppImages";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
+import CustomButton from "./CustomButton";
+import { CurveArrow } from "@/assets/ImagesFile";
 
 const Header = () => {
-  const {Logo} = AppImages
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [showServices, setShowServices] = useState(false);
+  const { Logo } = AppImages;
   const [isTalkModalOpen, setIsTalkModalOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const navLinks = [
     { name: "About Us", path: "/about-us" },
@@ -55,149 +65,248 @@ const Header = () => {
     },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navWrapper = `fixed z-50 transition-all duration-500 ease-in-out ${scrolled
+    ? "w-full left-0 right-0 top-0 rounded-none bg-[#320142] shadow-[0_0_10px_#874182]"
+    : "top-[15px] left-[21px] right-[21px] rounded-[50px] bg-[rgba(255,255,255,0.25)] shadow-[0_0_10px_#874182] backdrop-blur-md"
+    }`;
+
   return (
-    <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between h-20">
-        {/* Logo */}
-        <div className="h-16 w-24 flex items-center">
-          <Link to="/">
-            <img
-              src={Logo}
-              alt="Logo"
-              className="h-full w-auto"
-            />
+    <>
+      <nav className={navWrapper}>
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link
+            to="/"
+            className="flex items-center justify-center h-16 w-16 rounded-full bg-white shadow-md overflow-hidden"
+          >
+            <img src={Logo} alt="Logo" className="h-12 w-12 object-contain" />
           </Link>
-        </div>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex gap-8 items-center text-[#320142] font-semibold text-lg relative">
-          {navLinks.map((link) =>
-            link.name === "Our Services" ? (
-              <div
-                key={link.name}
-                onMouseEnter={() => setShowServices(true)}
-                onMouseLeave={() => setShowServices(false)}
-                className="relative group"
-              >
-                <span className="cursor-pointer hover:text-[#9C448D]">
-                  {link.name}
-                </span>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center">
+            <NavigationMenu>
+              <NavigationMenuList className="flex items-center  md:gap-2 lg:gap-6">
+                {navLinks.map((link) =>
+                  link.name === "Our Services" ? (
+                    <NavigationMenuItem key={link.name}>
+                      <NavigationMenuTrigger
+                        className=" text-white sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold bg-transparent hover:text-[#9C448D] transition
+                          data-[state=open]:bg-transparent hover:bg-transparent focus:bg-transparent"
+                      >
+                        {link.name}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent
+                        className="bg-[#1A0127] text-white w-[595px] h-100vh rounded-lg flex justify-center items-center p-8 pb-12"
+                      >
+                        <div className="flex gap-12 pt-[29px]">
+                          {/* Left Column */}
+                          <div className="flex flex-col w-[222px] gap-4">
+                            <h3 className="text-lg font-bold mb-2">Animation Services</h3>
 
-                {showServices && (
-                  <div
-                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-4 z-100 transition-all duration-300 ease-in-out ${
-                      showServices
-                        ? "opacity-100 scale-100 visible"
-                        : "opacity-0 scale-95 invisible"
-                    }`}
-                  >
-                    {/* Arrow */}
-                    <div className="absolute top-[-10px] left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-white shadow border-l border-t border-gray-200 z-50"></div>
+                            <Link
+                              to="/services/2d-3d-animation"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">2D/3D Animation</div>
+                                <div className="text-sm text-gray-300">
+                                  Engaging character and product animations in 2D or 3D.
+                                </div>
+                              </div>
+                            </Link>
 
-                    {/* Dropdown Panel */}
-                    <div className="bg-white shadow-xl rounded-xl p-6 w-[90vw] max-w-4xl border border-gray-200">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {services.map((service, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center gap-4 cursor-pointer hover:scale-105 transition-transform"
-                          >
-                            <img
-                              src={service.icon}
-                              alt={service.label}
-                              className="w-14 h-14 object-contain p-2 bg-gray-100 rounded-lg shadow"
-                            />
-                            <span className="text-black font-semibold">
-                              {service.label}
-                            </span>
+                            <Link
+                              to="/services/cartoon-animation"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Cartoon Animation</div>
+                                <div className="text-sm text-gray-300">
+                                  Stylized, fun animations perfect for storytelling.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/services/whiteboard-videos"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Whiteboard Videos</div>
+                                <div className="text-sm text-gray-300">
+                                  Stylized, fun animations perfect for storytelling.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/services/logo-animation"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Logo Animation</div>
+                                <div className="text-sm text-gray-300">
+                                  Bring your brand logo to life with motion and impact.
+                                </div>
+                              </div>
+                            </Link>
                           </div>
-                        ))}
-                      </div>
+
+                          {/* Right Column */}
+                          <div className="flex flex-col w-[222px] gap-4">
+                            <h3 className="text-lg font-bold mb-2">Advanced Visuals</h3>
+
+                            <Link
+                              to="/services/vfx-cgi"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">VFX/CGI</div>
+                                <div className="text-sm text-gray-300">
+                                  Cinematic-quality visual effects and CGI enhancements.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/services/motion-graphics"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Motion Graphics</div>
+                                <div className="text-sm text-gray-300">
+                                  Text, shapes, and movement to convey messages smartly.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/services/augmented-reality"
+                              className="hover:text-[#9C448D] transition flex gap-2 items-start"
+                            >
+                              <CurveArrow className="flex-shrink-0 mt-1" />
+                              <div>
+                                <div className="text-base font-semibold">Augmented Reality</div>
+                                <div className="text-sm text-gray-300">
+                                  Interactive, immersive AR experiences for your brand.
+                                </div>
+                              </div>
+                            </Link>
+
+                            <CustomButton className="mt-4">
+                              View Portfolio
+                            </CustomButton>
+                          </div>
+                        </div>
+                      </NavigationMenuContent>
+
+                    </NavigationMenuItem>
+                  ) : (
+                    <NavigationMenuItem key={link.name}>
+                      <NavigationMenuLink asChild>
+                        <NavLink
+                          to={link.path}
+                          className="sm:text-[14px] md:text-[16px] lg:text-[18px] text-white font-bold hover:text-[#9C448D] transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent"
+                        >
+                          {link.name}
+                        </NavLink>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  ),
+                )}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+
+          {/* Right Side */}
+          <div className="flex items-center gap-3">
+            <CustomButton onClick={() => setIsTalkModalOpen(true)}>Sign Up</CustomButton>
+            <CustomButton
+              className="hidden md:inline-flex items-center justify-center bg-[#9C448D] hover:bg-[#320142] text-white rounded-full px-5 py-2"
+              onClick={() => setIsTalkModalOpen(true)}
+            >
+              LET&apos;S TALK
+            </CustomButton>
+
+            {/* Mobile Sidebar */}
+            <Sheet>
+              {/* Hamburger Button */}
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden text-white hover:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                >
+                  <Menu size={28} />
+                </Button>
+              </SheetTrigger>
+
+              {/* Sidebar Content */}
+              <SheetContent
+                side="left"
+                className="w-[260px] px-6 py-6 bg-gradient-to-b from-[#320142] to-[#9C448D] text-white shadow-xl"
+              >
+                <div className="flex flex-col justify-between h-full">
+                  {/* Nav Links */}
+                  <div className="space-y-5">
+                    {navLinks.map((link) => (
+                      <NavLink
+                        key={link.name}
+                        to={link.path}
+                        onClick={() => setIsTalkModalOpen(false)}
+                        className={({ isActive }) =>
+                          `block text-lg font-medium transition hover:text-[#FB64B6] ${isActive ? "text-[#FB64B6]" : "text-white"
+                          }`
+                        }
+                      >
+                        {link.name}
+                      </NavLink>
+                    ))}
+
+                    {/* Call-to-action */}
+                    <CustomButton
+                      onClick={() => setIsTalkModalOpen(true)}
+                      className="mt-4 w-full bg-[#FB64B6] text-white rounded-full py-2 px-4 font-semibold hover:bg-pink-600 transition"
+                    >
+                      Let’s Talk
+                    </CustomButton>
+
+                    {/* Social Icons */}
+                    <div className="pt-6 border-t border-[#FB64B6]">
+                      <SocialLinks />
                     </div>
                   </div>
-                )}
-              </div>
-            ) : (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-[#320142] border-b-2 border-[#320142] pb-1"
-                    : "hover:text-[#9C448D] transition"
-                }
-              >
-                {link.name}
-              </NavLink>
-            )
-          )}
-        </div>
 
-   <div className="flex items-center gap-3">
-         {/* Talk Button */}
-        <button
-          className=" cursor-pointer md:block bg-[#9C448D] hover:bg-[#320142] text-white px-5 py-2 rounded-full transition"
-          onClick={() => setIsTalkModalOpen(true)}
-        >
-          LET'S TALK
-        </button>
+                  {/* Footer */}
+                  <div className="text-center text-xs pt-6 text-white opacity-80">
+                    © {new Date().getFullYear()} Infinity X Dynamics. All Rights Reserved.
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </nav>
 
-        {/* Mobile Hamburger */}
-        <div className="md:hidden pt-1">
-          <button onClick={() => setSidebarOpen(true)}>
-            <Menu size={35} className="text-[#320142]" />
-          </button>
-        </div>
-      </div>
-   </div>
-
-      {/* Mobile Sidebar */}
-      <div
-        className={`fixed top-0 left-0 h-full w-[240px] bg-white z-50 transform transition-transform duration-300 ease-in-out ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <div className="flex justify-between items-center p-4 border-b">
-          <button onClick={() => setSidebarOpen(false)}>
-            <X size={24} className="text-[#9C448D]" />
-          </button>
-        </div>
-        <div className="flex flex-col justify-center items-center gap-10 px-6 py-8 text-[#320142] font-semibold">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.path}
-              onClick={() => setSidebarOpen(false)}
-              className="hover:text-[#9C448D] transition"
-            >
-              {link.name}
-            </NavLink>
-          ))}
-        </div>
-        {/* social media links */}
-        <div>
-          <SocialLinks />
-        </div>
-        {/* 2025 */}
-        <div className="p-10">
-              <div className="text-center text-sm border-t border-[#A95C9C] pt-4 pb-6">
-        © {new Date().getFullYear()} Infinity X Dynamics. All Rights Reserved.
-      </div>
-        </div>
-      </div>
-
-      {/* Overlay */}
-      {sidebarOpen && (
-        <div
-          onClick={() => setSidebarOpen(false)}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
-        />
-      )}
       <TalkModal
         isOpen={isTalkModalOpen}
         onClose={() => setIsTalkModalOpen(false)}
       />
-    </nav>
+    </>
   );
 };
 

@@ -1,12 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import path from 'path' // Needed for path aliases
 
-
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),
-        tailwindcss(),
+  plugins: [
+    react(),
+    tailwindcss(),
   ],
-    base: "https://infinityxdynamics.com", // Use "/" for custom domains or "/repo-name/" for default 
+  base: "/",
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@lib': path.resolve(__dirname, './src/lib'),
+    }
+  }
 })

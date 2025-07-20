@@ -2,6 +2,8 @@ import { X } from "lucide-react";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import emailjs from '@emailjs/browser';
+import { ImagesAssets } from "@/utils/ImagesAssets";
+import CustomButton from "./CustomButton";
 
 const TalkModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
@@ -33,7 +35,7 @@ const TalkModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#EEDFFF] rounded-xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden relative shadow-xl md:h-[500px]">
+      <div className="bg-[#FFF] rounded-xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden relative shadow-xl md:h-[500px]">
         <button
           onClick={onClose}
           className="absolute cursor-pointer top-4 right-4 text-white bg-[#320142] hover:bg-[#9C448D] rounded-full w-8 h-8 flex items-center justify-center transition"
@@ -45,54 +47,65 @@ const TalkModal = ({ isOpen, onClose }) => {
         {/* Left Side Image – Hidden on Mobile */}
         <div className="hidden md:block w-1/2 bg-[#320142]">
           <img
-            src="/let'sTalk.gif"
+            src={ImagesAssets.formImage}
             alt="VFX"
-            className="w-full h-auto object-contain"
+            className="w-full h-full object-cover"
+
           />
         </div>
 
         <div className="w-full md:w-1/2 p-6 space-y-4 text-[#320142]">
-          <h3 className="text-sm font-semibold text-[#9C448D] uppercase">Limited Time Offer</h3>
-          <h2 className="text-2xl font-bold leading-tight text-[#320142]">
+          <h3 className="text-sm font-semibold text-[#4B1B57] uppercase font-secular">Limited Time Offer</h3>
+          <h2 className="text-2xl font-bold leading-tight text-[#000] font-secular">
             Exclusive Video <br /> Animations Awaits
           </h2>
 
           <form ref={formRef} className="space-y-3" onSubmit={handleSubmit}>
+            <label className="text-sm font-semibold text-[#3C0945]">
+              Your Name
+            </label>
             <input
               type="text"
               name="user_name"
               placeholder="Enter Name"
               required
               disabled={isSending}
-              className="w-full p-3 rounded bg-white text-[#320142] placeholder-[#9C448D] border border-[#9C448D] focus:outline-[#FB64B6]"
+              className="w-full p-2 rounded-[8px] bg-white text-[#320142] placeholder-[#9C448D] border border-[#8B7190] focus:outline-[#FB64B6]"
             />
+            <label className="text-sm font-semibold text-[#3C0945]">
+              Email Address
+            </label>
             <input
               type="email"
               name="user_email"
               placeholder="Enter Email"
               required
               disabled={isSending}
-              className="w-full p-3 rounded bg-white text-[#320142] placeholder-[#9C448D] border border-[#9C448D]"
+              className="w-full p-2 rounded-[8px] bg-white text-[#320142] placeholder-[#9C448D] border border-[#8B7190]"
             />
-            <input
+            {/* <input
               type="tel"
               name="user_phone"
               placeholder="Enter Phone"
               required
               disabled={isSending}
               className="w-full p-3 rounded bg-white text-[#320142] placeholder-[#9C448D] border border-[#9C448D]"
-            />
+            /> */}
+
+            <label className="text-sm font-semibold text-[#3C0945]">
+              Tell Us About Your Project
+            </label>
             <textarea
               placeholder="Tell us about your project"
               required
               name="message"
               disabled={isSending}
-              className="w-full p-3 rounded bg-white text-[#320142] placeholder-[#9C448D] border border-[#9C448D] h-24"
+              className="w-full p-3 rounded-[8px] bg-white text-[#320142] placeholder-[#9C448D] border border-[#8B7190] h-28"
             />
-            <button
+            <CustomButton
               type="submit"
               disabled={isSending}
-              className="w-full flex items-center justify-center gap-2 bg-[#FB64B6] cursor-pointer text-white font-semibold py-3 rounded hover:bg-[#9C448D] transition disabled:opacity-60 disabled:cursor-not-allowed"
+              className
             >
               {isSending && (
                 <svg
@@ -117,7 +130,8 @@ const TalkModal = ({ isOpen, onClose }) => {
                 </svg>
               )}
               {isSending ? "Sending..." : "SIGNUP NOW"}
-            </button>
+            </CustomButton>
+
           </form>
         </div>
       </div>

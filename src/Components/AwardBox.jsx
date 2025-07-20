@@ -7,7 +7,7 @@ const AwardBox = ({ target, label }) => {
     const animateCount = (el, target) => {
       let start = 0;
       const duration = 2000;
-      const stepTime = Math.floor(duration / target);
+      const stepTime = Math.max(Math.floor(duration / target), 20);
 
       const counter = setInterval(() => {
         start++;
@@ -20,7 +20,7 @@ const AwardBox = ({ target, label }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           animateCount(countRef.current, target);
-          observer.disconnect(); // run once
+          observer.disconnect();
         }
       },
       { threshold: 0.5 }
@@ -30,12 +30,60 @@ const AwardBox = ({ target, label }) => {
   }, [target]);
 
   return (
-    <div className="w-90 md:w-64 h-56 border-b-4 border-transparent bg-gray-100 rounded-lg text-center p-6 transition-all duration-300 m-auto hover:bg-blue-50 hover:border-[#9C448D] flex flex-col justify-center items-center cursor-pointer">
-      <div className="text-5xl font-bold text-black flex items-center">
-        <span ref={countRef}>0</span>
-        <span className="text-[#9C448D] ml-1">+</span>
+    <div className="flex flex-col items-center justify-center gap-2 md:gap-4 cursor-pointer group">
+      {/* CIRCLE NUMBER */}
+      <div
+        className="
+          inline-flex
+          justify-center
+          items-center
+          px-3 md:px-[19px]
+          py-[1px] md:py-[1.5px]
+          rounded-full
+          border-[#8B7190]
+          aspect-square
+          w-16 h-16
+          sm:w-20 sm:h-20
+          md:w-[100px] md:h-[100px]
+          group-hover:bg-[#320142]
+          transition-colors
+          duration-300
+          border-2 md:border-[3px]
+          shadow-[0_1px_8px_0px_#ffffff]
+          font-secular
+        "
+      >
+        <span
+          ref={countRef}
+          className="
+            text-white
+            text-center
+            font-['Titan One']
+            text-xl sm:text-2xl
+            md:text-[32px]
+            leading-[64px] sm:leading-[80px] md:leading-[100px]
+            font-medium
+          "
+        >
+          0
+        </span>
+        <span
+          className="
+            text-white
+            text-xl sm:text-2xl
+            md:text-[40px]
+            font-['Titan One']
+            ml-0.5 md:ml-1
+          "
+        >
+          +
+        </span>
       </div>
-      <div className="mt-4 text-xl font-semibold text-gray-800">{label}</div>
+
+      {/* LABEL */}
+      <div className="text-center text-white text-xs sm:text-sm md:text-base px-1">
+        {label}
+      </div>
     </div>
   );
 };

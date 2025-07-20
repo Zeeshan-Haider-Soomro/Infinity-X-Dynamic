@@ -28,7 +28,7 @@ const AboutCategory = ({ sectionHeading, sectionDescription, cards }) => {
           {cards.map((card, index) => (
             <div
               key={index}
-              className={`bg-blue-500 p-6 px-4 py-6 rounded-lg shadow-md transition-all duration-500 hover:bg-white group cursor-pointer md:text-start text-center py-20 
+              className={`bg-blue-500 p-6 px-4 rounded-lg shadow-md transition-all duration-500 hover:bg-white group cursor-pointer md:text-start text-center py-20 
               ${index % 2 === 0 ? 'md:translate-y-8' : 'md:-translate-y-8'}`}
             >
               <img

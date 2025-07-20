@@ -66,8 +66,13 @@ const ContactUs = () => {
             <div data-aos="fade-right">
               <CustomCardModal title=" Contact Us" sections={sections} />
             </div>
-            <div data-aos="fade-left" className="hidden md:block relative w-full lg:w-1/2">
-              <ImagesAssets.botOne />
+            <div data-aos="fade-left" className="hidden lg:block relative w-full lg:w-1/2">
+              <div className="z-10 relative">
+                <ImagesAssets.botOne/>
+              </div>
+              <div className="absolute top-0 z-0 -left-56 w-full h-full flex items-center justify-center">
+                <ImagesAssets.contactCall />
+              </div>
             </div>
           </div>
         </div>
@@ -88,7 +93,7 @@ const ContactUs = () => {
             headingSize="md:text-4xl text-4xl font-extrabold"
             subheadingSize="text-4xl font-extrabold"
             highlightSize="text-4xl font-extrabold"
-            descriptionClass={" text-white font-light mb-6"}
+            descriptionClass={" text-white md:text-lg text-normal font-light"}
             noBg // disables background
             noBorder // disables border
           />

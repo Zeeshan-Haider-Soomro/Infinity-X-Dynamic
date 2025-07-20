@@ -10,7 +10,8 @@ import {
   ButtonArrow,
   CircleIcon,
   BackgroundWave,
-  FooterLogo
+  FooterLogo,
+  ContactCall
 } from "@/assets/ImagesFile";
 import idxwhitelogo from "../assets/ixdwhitelogo.png";
 import footerlogo from "../assets/footerlogo.png";
@@ -47,5 +48,6 @@ export const ImagesAssets = {
   backgroundWave: BackgroundWave,
   formImage: formImage,
   footerLogo: FooterLogo,
-  person1: person1
+  person1: person1,
+  contactCall: ContactCall
 };

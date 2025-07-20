@@ -47,55 +47,49 @@ const Footer = () => {
 
   return (
     <footer className="w-full">
-      <Card className="w-full bg-[#1a0127] opacity-90 rounded-none">
+      <Card className="w-full bg-[#1a0127] opacity-90 border-0 rounded-none">
         <CardContent className="p-0">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="container mx-auto px-4 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[repeat(5,minmax(0,1fr))] gap-8 py-10">
+
               {/* Logo Section */}
-              <div className="relative flex items-start sm:w-[150px] sm:h-[150px]">
-                <div className=" sm:w-[150px] sm:h-[150px] bg-white rounded-full blur-[100px] absolute top-0 left-5" />
-                <ImagesAssets.footerLogo />
+              <div className="min-w-[200px] pr-4 flex flex-col">
+                <div className="relative sm:w-[160px] sm:h-[160px] flex items-start">
+                  <div className="sm:w-[150px] sm:h-[150px] bg-white rounded-full blur-[100px] absolute top-0 left-5" />
+                  <ImagesAssets.footerLogo />
+                </div>
               </div>
 
-              {/* Service Links */}
-              <div>
+              {/* OUR SERVICES */}
+              <div className="min-w-[200px] flex flex-col">
                 <h3 className="text-white font-bold mb-4">OUR SERVICES</h3>
                 <ul className="space-y-1">
                   {serviceLinks.map((service, idx) => (
-                    <li
-                      key={`service-${idx}`}
-                      className="text-white leading-[28px]"
-                    >
+                    <li key={`service-${idx}`} className="text-white leading-[28px]">
                       {service}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Quick Links */}
-              <div>
+              {/* QUICK LINKS */}
+              <div className="min-w-[200px] flex flex-col">
                 <h3 className="text-white font-bold mb-4">QUICK LINKS</h3>
                 <ul className="space-y-1">
                   {quickLinks.map((link, idx) => (
-                    <li
-                      key={`quick-${idx}`}
-                      className="text-white leading-[28px]"
-                    >
+                    <li key={`quick-${idx}`} className="text-white leading-[28px]">
                       {link}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Page Links */}
-              <div>
+              {/* PAGES */}
+              <div className="min-w-[200px] flex flex-col">
                 <h3 className="text-white font-bold mb-4">PAGES</h3>
                 <ul className="space-y-1">
                   {pageLinks.map((link, idx) => (
-                    <li
-                      key={`page-${idx}`}
-                      className="text-white leading-[28px]"
-                    >
+                    <li key={`page-${idx}`} className="text-white leading-[28px]">
                       <a
                         href={link.url}
                         target="_blank"
@@ -109,29 +103,34 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Contact & Social Section */}
-              <div>
+              {/* CONNECT WITH US */}
+              <div className="min-w-[200px] flex flex-col">
                 <h3 className="text-white font-bold mb-4">CONNECT WITH US!</h3>
 
                 <div className="flex flex-col space-y-2">
                   {/* Phone */}
-                  <p className="flex items-center text-white leading-[28px] hover:text-[#A95C9C] transition cursor-pointer">
-                    <FaPhoneAlt className="mr-2" /> +92 321 8456611
+                  <p className="flex items-center  text-white leading-[28px] hover:text-[#A95C9C] transition cursor-pointer">
+                    <span className="p-2 mr-2 rounded-full bg-white/10 flex items-center justify-center">
+                      <FaPhoneAlt className="text-white w-4 h-4" />
+                    </span>
+                    <span >
+                      +92 321 8456611
+                    </span>
                   </p>
 
                   {/* Email */}
-                  <div className="flex items-center text-white hover:text-[#A95C9C] transition cursor-pointer">
+                  <div className="flex items-center text-white hover:text-[#A95C9C] transition cursor-pointer break-all">
                     <span className="p-2 mr-2 rounded-full bg-white/10 flex items-center justify-center">
                       <FaEnvelope className="text-white w-4 h-4" />
                     </span>
-                    <span className="underline">
+                    <span >
                       contact@infinityxdynamics.com
                     </span>
                   </div>
 
                   {/* Location */}
-                  <div className="flex items-center text-white leading-[28px] hover:text-[#A95C9C] transition cursor-pointer">
-                    <span className="p-2 mr-2 rounded-full bg-white/10 flex items-center justify-center">
+                  <div className="flex items-start text-white leading-[28px] hover:text-[#A95C9C] transition cursor-pointer">
+                    <span className="p-2 mr-2 rounded-full bg-white/10 flex items-center justify-center mt-1">
                       <FaMapMarkerAlt className="text-white w-4 h-4" />
                     </span>
                     <span>
@@ -160,14 +159,14 @@ const Footer = () => {
             <Separator className="my-6 bg-[#4b1b57]" />
             <div className="text-center">
               <p className="text-white leading-[28px]">
-                © {new Date().getFullYear()} Infinity X Dynamics. All Rights
-                Reserved.
+                © {new Date().getFullYear()} Infinity X Dynamics. All Rights Reserved.
               </p>
             </div>
           </div>
         </CardContent>
       </Card>
     </footer>
+
   );
 };
 

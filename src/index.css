@@ -215,4 +215,5 @@ nav a.active::after {
   body {
     @apply bg-background text-foreground;
   }
+  
 }

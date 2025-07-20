@@ -64,7 +64,7 @@ const ContactForm = ({
             <span className={`${heading1Color}`}>{heading1}</span>{" "}
             <span className={`${heading2Color}`}>{heading2}</span>
           </h2>
-          <p className={`${descriptionClass}`}>{description}</p>
+          <p className={`${descriptionClass} !font-normal !text-[Quicksand]`}>{description}</p>
           <p className={`${highlightSize} font-bold`}>
             <span className={`${line1Color}`}>{highlightTextLine1}</span>
             <br />

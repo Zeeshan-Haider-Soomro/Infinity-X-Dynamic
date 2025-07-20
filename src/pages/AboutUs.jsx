@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import AwardsSection from "@/temp/components/AwardsSection";
-import ContactForm from "@/temp/components/ContactForm";
-import ContactSocialIcons from "@/temp/components/ContactSocialIcons";
-import CustomHeading from "@/temp/components/CustomHeading";
-import FAQSection from "@/temp/components/FAQSection";
-import ImageSlider from "@/temp/components/ImageSlider";
-import TeamSection from "@/temp/components/TeamSection";
+import AwardsSection from "@/components/AwardsSection";
+import ContactForm from "@/components/ContactForm";
+import ContactSocialIcons from "@/components/ContactSocialIcons";
+import CustomHeading from "@/components/CustomHeading";
+import FAQSection from "@/components/FAQSection";
+import ImageSlider from "@/components/ImageSlider";
+import TeamSection from "@/components/TeamSection";
 import { AppImages } from "@/constant/AppImages";
-import ScrollToTopButton from "@/temp/components/ScrollToTopButton";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { ImagesAssets } from "@/utils/ImagesAssets";
-import CustomButton from "@/temp/components/CustomButton";
-import CustomCardModal from "@/temp/components/CustomCardModal";
-import { Card, CardContent } from "@/temp/components/ui/card";
-import AwardBox from "@/temp/components/AwardBox";
-import SliderCards from "@/temp/components/SliderCards";
+import CustomButton from "@/components/CustomButton";
+import CustomCardModal from "@/components/CustomCardModal";
+import { Card, CardContent } from "@/components/ui/card";
+import AwardBox from "@/components/AwardBox";
+import SliderCards from "@/components/SliderCards";
 
 const sections = [
   {

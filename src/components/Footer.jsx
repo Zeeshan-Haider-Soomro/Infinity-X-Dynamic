@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/temp/components/ui/card";
-import { Separator } from "@/temp/components/ui/separator";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { ImagesAssets } from "@/utils/ImagesAssets";
 import {
   FaFacebook,

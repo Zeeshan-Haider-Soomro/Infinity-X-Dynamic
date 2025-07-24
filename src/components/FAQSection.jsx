@@ -60,7 +60,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="relative pt-6 px-6 text-white overflow-hidden">
+    <section className="relative pt-6 px-6 h-[600px] text-white overflow-hidden">
       {/* Title */}
       <h2 className="text-3xl font-secular  font-semibold mb-12 z-10 relative">
         Frequently Asked <span className="font-black text-[#8B7190]">Questions</span> (FAQ’S)

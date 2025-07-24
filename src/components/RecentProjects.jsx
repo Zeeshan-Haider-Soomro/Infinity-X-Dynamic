@@ -82,10 +82,10 @@ export const RecentProjects = () => {
             );
 
     return (
-        <section className="w-full py-8 my-2 bg-[#3E224F] px-10 md:px-5 rounded-[50px] mx lg:px-16">
+        <section className="w-full py-8 bg-[#3E224F] px-10 md:px-5 lg:px-16 rounded-[50px]">
             {/* Title */}
             <div className="mb-8">
-                <h2 className="text-white font-secular  text-2xl md:text-4xl font-bold mb-2">
+                <h2 className="text-white font-secular text-2xl md:text-4xl font-bold mb-2">
                     See Our Recent <span className="text-[#8B7190]">Projects</span>
                 </h2>
                 <p className="text-white text-lg font-medium font-['Quicksand'] max-w-[700px]">

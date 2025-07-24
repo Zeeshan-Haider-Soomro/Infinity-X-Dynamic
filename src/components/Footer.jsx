@@ -39,10 +39,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <FaTwitter />, alt: "Twitter", to: "/twitter" },
-    { icon: <FaInstagram />, alt: "Instagram", to: "/instagram" },
-    { icon: <FaLinkedin />, alt: "LinkedIn", to: "/linkedin" },
-    { icon: <FaFacebook />, alt: "Facebook", to: "/facebook" },
+    { icon: <FaTwitter />, alt: "Twitter", to: "https://www.twitter.com/Infinityxdynamics" },
+    { icon: <FaInstagram />, alt: "Instagram", to: "https://www.instagram.com/Infinityxdynamics/" },
+    { icon: <FaLinkedin />, alt: "LinkedIn", to: "https://www.linkedin.com/Infinityxdynamics" },
+    { icon: <FaFacebook />, alt: "Facebook", to: "https://www.facebook.com/Infinityxdynamics" },
   ];
 
   return (
@@ -142,14 +142,16 @@ const Footer = () => {
                 {/* Social Icons */}
                 <div className="flex items-center gap-4 mt-6">
                   {socialLinks.map((social, idx) => (
-                    <NavLink
+                    <a
                       key={`social-${idx}`}
-                      to={social.to}
+                      href={social.to}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 flex items-center justify-center border border-[#4b1b57] rounded-full text-white hover:text-[#A95C9C] transition"
                       title={social.alt}
                     >
                       {social.icon}
-                    </NavLink>
+                    </a>
                   ))}
                 </div>
               </div>

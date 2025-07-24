@@ -98,7 +98,7 @@ const Header = () => {
                   link.name === "Our Services" ? (
                     <NavigationMenuItem key={link.name}>
                       <NavigationMenuTrigger
-                        className=" text-white sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold bg-transparent hover:text-[#9C448D] transition
+                        className=" text-white sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold bg-transparent hover:text-[#e7d5e4] transition
                           data-[state=open]:bg-transparent hover:bg-transparent focus:bg-transparent"
                       >
                         {link.name}
@@ -112,7 +112,7 @@ const Header = () => {
                             <h3 className="text-lg font-bold mb-2">Animation Services</h3>
 
                             <Link
-                              to="/services/2d-3d-animation"
+                              to="/3d-animation"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -125,7 +125,7 @@ const Header = () => {
                             </Link>
 
                             <Link
-                              to="/services/cartoon-animation"
+                              to="/cartoonAnimation"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -138,7 +138,7 @@ const Header = () => {
                             </Link>
 
                             <Link
-                              to="/services/whiteboard-videos"
+                              to="/whiteBoard"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -151,7 +151,7 @@ const Header = () => {
                             </Link>
 
                             <Link
-                              to="/services/logo-animation"
+                              to="/logo-animation"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -169,7 +169,7 @@ const Header = () => {
                             <h3 className="text-lg font-bold mb-2">Advanced Visuals</h3>
 
                             <Link
-                              to="/services/vfx-cgi"
+                              to="/cgi-vfx"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -182,7 +182,7 @@ const Header = () => {
                             </Link>
 
                             <Link
-                              to="/services/motion-graphics"
+                              to="/motion-graphics"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -195,7 +195,7 @@ const Header = () => {
                             </Link>
 
                             <Link
-                              to="/services/augmented-reality"
+                              to="/augmented-reality"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />

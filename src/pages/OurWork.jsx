@@ -48,7 +48,7 @@ const OurWork = () => {
   return (
     <div>
       {/* hero section */}
-      <section className="w-full relative min-h-screen z-20 pb-6">
+      <section className="w-full relative min-h-screen z-20">
         <div className="absolute inset-0 z-0">
           <ImagesAssets.backgroundWave className="w-full h-full object-cover items-center" />
         </div>
@@ -172,7 +172,7 @@ const OurWork = () => {
       </section> */}
 
       {/* contact form section */}
-      <section className="bg-[#320142]">
+      <section>
         <div>
           <ContactForm
             heading1="Hi, "

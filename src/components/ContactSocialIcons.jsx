@@ -7,7 +7,7 @@ const ContactSocialIcons = () => {
   return (
     <>
       {/* Contact Icons – Bottom Left */}
-      <div data-aos="fade-right" className="absolute hidden md:block left-12 -bottom-5 transform -translate-y-1/2 flex-col space-y-3 text-2xl z-50">
+      <div data-aos="fade-right" className="absolute hidden md:block left-12 transform -translate-y-1/2 flex-col space-y-3 text-2xl z-50">
         <div className="flex space-x-2 items-center">
           <div className="border border-white rounded-full p-2">
             <a
@@ -36,7 +36,7 @@ const ContactSocialIcons = () => {
       <div data-aos="fade-left" className="absolute hidden md:block top-1/4 right-12 transform -translate-y-1/2  flex-col space-y-4 text-2xl z-50">
         <div className="border border-white rounded-full p-2">
           <a
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/Infinityxdynamics"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-purple-300"
@@ -46,7 +46,7 @@ const ContactSocialIcons = () => {
         </div>
         <div className="border border-white rounded-full p-2">
           <a
-            href="https://www.twitter.com"
+            href="https://www.twitter.com/Infinityxdynamics"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-purple-300"
@@ -56,7 +56,7 @@ const ContactSocialIcons = () => {
         </div>
         <div className="border border-white rounded-full p-2">
           <a
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/Infinityxdynamics"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-purple-300"
@@ -66,7 +66,7 @@ const ContactSocialIcons = () => {
         </div>
         <div className="border border-white rounded-full p-2">
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/Infinityxdynamics"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-purple-300"

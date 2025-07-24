@@ -24,6 +24,7 @@ import client from "../assets/client.png";
 import history from "../assets/history.png";
 import sectionOne from "../assets/sectionOne.svg"
 import formImage from "../assets/form.png"
+import video from "../assets/video.png"
 
 export const ImagesAssets = {
   botOne: BotOneIcon,
@@ -49,5 +50,6 @@ export const ImagesAssets = {
   formImage: formImage,
   footerLogo: FooterLogo,
   person1: person1,
-  contactCall: ContactCall
+  contactCall: ContactCall,
+  video: video
 };

@@ -101,7 +101,7 @@ const Home = () => {
       >
         <h1
           data-aos="fade-up"
-          className="text-4xl font-bold text-center text-[#FFF] pt-10 p-3"
+          className=" text-2xl  md:text-4xl font-bold text-center text-[#FFF] pt-10 p-3"
         >
           Welcome to Infinity X Dynamic,
         </h1>

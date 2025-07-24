@@ -20,6 +20,7 @@ import { RecentProjects } from "@/components/RecentProjects";
 import { AchievementsSection } from "@/components/AchievementsSection";
 import { Card } from "@/components/ui/card";
 import History from "@/components/History";
+import AwardBox from "@/components/AwardBox";
 
 const phrases = [
   ["Graphic", "Motions"],
@@ -180,7 +181,53 @@ const Home = () => {
 
       </section>
 
+      <section className="mt-10 w-full rounded-t-[65px] border-t-[3px] border-white pt-9 pb-4">
+        <div className="max-w-[1236px] md:mx-auto px-6">
+          <AwardBox target={21} label=" Successfully Completed Projects" />
+        </div>
+        <div className="max-w-full mx-auto px-6 mt-6">
+          <h3 className=" text-white text-lg md:text-2xl font-bold">
+            See Our Recent <span className=" text-[#A95C9C]">Projects</span>
+          </h3>
+          <p className=" text-white text-sm md:text-lg font-light">
+            We create stunning 2D and 3D animations that captivate and communicate your vision.
+          </p>
+        </div>
+        <div className="max-w-full mx-auto px-4 md:px-[122px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
+            <Card className="bg-[#320142] text-white p-4 text-center border-0">
+              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
+              <img
+                src={ImagesAssets.video}
+                alt="Project 1"
+                className="w-full object-cover rounded-lg"
+              />
+            </Card>
+            <Card className="bg-[#320142] text-white p-4 text-center border-0">
+              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
+              <img
+                src={ImagesAssets.video}
+                alt="Project 2"
+                className="w-full object-cover rounded-lg"
+              />
+            </Card>
+            <Card className="bg-[#320142] text-white p-4 text-center border-0">
+              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
+              <img
+                src={ImagesAssets.video}
+                alt="Project 3"
+                className="w-full object-cover rounded-lg"
+              />
+            </Card>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <CustomButton className="mt-6" to="/our-work">
+            VIEW ALL PROJECTS
+          </CustomButton>
+        </div>
 
+      </section>
 
       {/* amazing client section  */}
       {/* <section className="bg-[#320142]">
@@ -196,8 +243,7 @@ const Home = () => {
         <ImageSlider />
       </section> */}
 
-
-
+      
 
       {/* history slider section */}
 

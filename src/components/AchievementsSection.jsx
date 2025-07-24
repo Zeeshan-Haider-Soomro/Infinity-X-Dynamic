@@ -37,20 +37,20 @@ export const AchievementsSection = (props) => {
   return (
     <section
   className={
-    `mt-10 w-full px-6 pb-24 relative overflow-hidden ` +
+    `mt-2 w-full px-6 pb-24 relative overflow-hidden ` +
     `${noBg ? "" : "bg-[#1a0127e6] "} ` +
     `${noBorder ? "" : "border-t-[3px] border-white rounded-t-[65px]"}`
   }
 >
       {/* Centered Heading and Text */}
       <div className="flex flex-col items-center text-center pt-10 z-10 relative">
-        <h2 className="text-[32px]  font-secular leading-[100px]">
+        <h2 className="text-2xl font-secular md:text-3xl font-secular leading-[100px]">
           <span className="text-white">Our </span>
           <span className="text-[#8b7190]">Amazing </span>
           <span className="text-white">Clients</span>
         </h2>
 
-        <p className="mt-4 max-w-3xl  text-white text-2xl leading-[30px]">
+        <p className=" max-w-3xl  text-white text-lg md:text-xl leading-[30px]">
           Our clients consistently praise our creativity, reliability, and
           results — with glowing reviews from across the globe, reflecting trust
           in every project we deliver.

@@ -52,7 +52,7 @@ const OurClients = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className=" w-full md:px-6 py-20 md:py-16 relative md:min-h-screen z-20 pb-6">
+      <section className="w-full md:px-6 top-8 md:top-18 py-4 md:py-16 relative md:min-h-screen z-20 pb-6">
         <div className="absolute inset-0 z-0">
           <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
         </div>
@@ -69,11 +69,11 @@ const OurClients = () => {
         </div>
       </section>
 
-      <section className="mt-10 w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white py-8 px-4 overflow-hidden">
+      <section className="w-full rounded-t-[65px] border-t-[3px] border-white overflow-hidden">
         {/* Header Section */}
         <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           {/* Text */}
-          <div className="lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
+          <div className="lg:w-2/3 text-center lg:text-left  text-white">
             <h3 className="text-[32px] font-semibold mb-4">We Love Feedback!</h3>
             <p className="text-xl max-w-xl">
               Share your thoughts with us, and let's turn your feedback into the
@@ -99,7 +99,7 @@ const OurClients = () => {
       </section>
 
 
-      <section className="bg-[#320142]">
+      <section >
         <div>
           <ContactForm
             heading1="Hi, "

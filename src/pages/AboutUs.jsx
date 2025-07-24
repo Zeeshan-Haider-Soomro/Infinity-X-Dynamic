@@ -50,7 +50,7 @@ const AboutUs = () => {
   return (
     <div>
       {/* hero section */}
-      <section className="top-[80px] relative min-h-screen z-20 pb-6">
+      <section className="top-[100px] md:top-[80px] relative min-h-screen z-20 pb-6">
         <div className="flex flex-col items-center gap-10 p-6">
           {/* Top Row: Card + Image */}
           <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-10">
@@ -63,7 +63,7 @@ const AboutUs = () => {
           </div>
 
           {/* Awards Section Centered */}
-          <div className="w-full flex justify-center -mt-16">
+          <div className="w-full flex justify-center -mt-16 ">
             <AwardsSection />
           </div>
         </div>
@@ -204,8 +204,8 @@ const AboutUs = () => {
             heading2="There!"
             highlightTextLine1="Ready to bring your"
             highlightTextLine2="story to life?"
-            heading1Color="text-white"
-            heading2Color="text-[#8B7190]"
+            heading1Color="text-white text-4xl font-extrabold"
+            heading2Color="text-[#8B7190] text-4xl font-extrabold"
             line1Color="text-white  font-extrabold"
             line2Color="text-[#8B7190] font-extrabold"
             headingSize="md:text-4xl  font-extrabold"

@@ -18,7 +18,6 @@ const CustomCardModal = ({ title, sections }) => {
         text-white
         backdrop-blur-md
         relative
-        
       "
     >
       {title && <h2 className="md:text-3xl font-bold font-secular">{title}</h2>}
@@ -51,7 +50,7 @@ CustomCardModal.propTypes = {
     PropTypes.shape({
       heading: PropTypes.string,
       text: PropTypes.string,
-      content: PropTypes.node, // JSX like <AwardBox />
+      content: PropTypes.node,
     })
   ),
 };

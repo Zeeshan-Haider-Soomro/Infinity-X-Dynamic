@@ -98,7 +98,7 @@ const Header = () => {
                   link.name === "Our Services" ? (
                     <NavigationMenuItem key={link.name}>
                       <NavigationMenuTrigger
-                        className=" text-white sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold bg-transparent hover:text-[#9C448D] transition
+                        className=" text-white sm:text-[14px] md:text-[16px] lg:text-[18px] font-bold bg-transparent hover:text-[#e7d5e4] transition
                           data-[state=open]:bg-transparent hover:bg-transparent focus:bg-transparent"
                       >
                         {link.name}

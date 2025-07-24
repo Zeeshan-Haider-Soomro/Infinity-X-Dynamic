@@ -16,7 +16,7 @@ const DynamicHeading = ({ phrases, index }) => {
       className={`text-center font-bold flex flex-wrap justify-center items-center gap-2 transition-opacity duration-300 ${
         opacity === 0 ? "opacity-0" : "opacity-100"
       } 
-      text-[42px] sm:text-[48px] md:text-[64px] lg:text-[70px] xl:text-[80px] 
+      text-[30px] sm:text-[40px] md:text-[64px] lg:text-[70px] xl:text-[80px] 
       leading-tight px-4 font-sans`}
     >
       <span className="text-white">{phrases[index][0]}</span>

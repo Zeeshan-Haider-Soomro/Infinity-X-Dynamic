@@ -61,14 +61,14 @@ const Home = () => {
     <div className="">
       {/* banner section */}
       <div className="">
-        <section className=" top-[50px] relative z-20 p-10 pb-30 overflow-hidden">
-          <h1 className="text-white text-center text-[30px] lg:text-[50px] font-secular">
+        <section className="top-16 relative z-20 p-10 pb-30 overflow-hidden">
+          <h1 className="text-white text-center text-3xl lg:text-[50px] font-secular">
             We Provide
           </h1>
           <div className="h-[100px]">
             <DynamicHeading phrases={phrases} index={index} />
           </div>
-          <h1 className="text-white text-center text-[50px] lg:text-[70px] font-medium pt-2 font-secular">
+          <h1 className="text-white text-center text-3xl md:text-[50px] lg:text-[70px] font-medium pt-2 font-secular">
             Services
           </h1>
           <div>

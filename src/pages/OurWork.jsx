@@ -17,6 +17,7 @@ import AwardBox from "@/components/AwardBox";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AchievementsSection } from "@/components/AchievementsSection";
 import SliderCards from "@/components/SliderCards";
+import CustomButton from "@/components/CustomButton";
 
 const sections = [
   {
@@ -36,7 +37,7 @@ const awards = [
 
 
 const OurWork = () => {
- 
+
 
 
   useEffect(() => {
@@ -64,6 +65,53 @@ const OurWork = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className=" w-full pb-4">
+
+        <div className="max-w-full flex justify-between mx-auto px-4 md:px-24 md:pb-16 mt-6">
+          <div>
+            <h3 className=" text-white font-secular text-lg md:text-2xl font-bold">
+              See Our Recent <span className=" text-[#A95C9C]">Projects</span>
+            </h3>
+            <p className="text-white text-lg md:text-2xl font-bold">We turn your thoughts into visuals</p>
+          </div>
+          <div className="">
+            <CustomButton className="mt-6" to="/our-work">
+              VIEW ALL PROJECTS
+            </CustomButton>
+          </div>
+        </div>
+        <div className="max-w-full mx-auto px-4 md:px-[122px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
+            <Card className="bg-[#320142] text-white p-4 text-center border-0">
+              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
+              <img
+                src={ImagesAssets.video}
+                alt="Project 1"
+                className="w-full object-cover rounded-lg"
+              />
+            </Card>
+            <Card className="bg-[#320142] text-white p-4 text-center border-0">
+              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
+              <img
+                src={ImagesAssets.video}
+                alt="Project 2"
+                className="w-full object-cover rounded-lg"
+              />
+            </Card>
+            <Card className="bg-[#320142] text-white p-4 text-center border-0">
+              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
+              <img
+                src={ImagesAssets.video}
+                alt="Project 3"
+                className="w-full object-cover rounded-lg"
+              />
+            </Card>
+          </div>
+        </div>
+
+
       </section>
 
       {/* 2nd section */}

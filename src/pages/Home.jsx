@@ -21,6 +21,9 @@ import { AchievementsSection } from "@/components/AchievementsSection";
 import { Card } from "@/components/ui/card";
 import History from "@/components/History";
 import AwardBox from "@/components/AwardBox";
+import ThreeDBackground from "@/components/ThreeBackground";
+
+
 
 const phrases = [
   ["Graphic", "Motions"],
@@ -43,7 +46,11 @@ const awards = [
   { src: ImagesAssets.award, alt: "Award 3" },
 ];
 
+
+
+
 const Home = () => {
+  
   const { bannerImg } = AppImages;
 
   const [index, setIndex] = useState(0);
@@ -60,15 +67,16 @@ const Home = () => {
   return (
     <div className="">
       {/* banner section */}
-      <div className="">
-        <section className=" top-[50px] relative z-20 p-10 pb-30 overflow-hidden">
-          <h1 className="text-white text-center text-[30px] lg:text-[50px] font-secular">
+      <div className="relative h-full overflow-hidden">
+        <ThreeDBackground />
+        <section className="top-16 relative z-20 p-10 pb-30 overflow-hidden">
+          <h1 className="text-white text-center text-3xl lg:text-[50px] font-secular">
             We Provide
           </h1>
           <div className="h-[100px]">
             <DynamicHeading phrases={phrases} index={index} />
           </div>
-          <h1 className="text-white text-center text-[50px] lg:text-[70px] font-medium pt-2 font-secular">
+          <h1 className="text-white text-center text-3xl md:text-[50px] lg:text-[70px] font-medium pt-2 font-secular">
             Services
           </h1>
           <div>
@@ -101,7 +109,7 @@ const Home = () => {
       >
         <h1
           data-aos="fade-up"
-          className="text-4xl font-bold text-center text-[#FFF] pt-10 p-3"
+          className=" text-2xl  md:text-4xl font-bold text-center text-[#FFF] pt-10 p-3"
         >
           Welcome to Infinity X Dynamic,
         </h1>

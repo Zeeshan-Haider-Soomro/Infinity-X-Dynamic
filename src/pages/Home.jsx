@@ -73,10 +73,10 @@ const Home = () => {
           <h1 className="text-white text-center text-3xl lg:text-[50px] font-secular">
             We Provide
           </h1>
-          <div className="h-[100px]">
+          <div className="h-[50px] md:h-[80px]">
             <DynamicHeading phrases={phrases} index={index} />
           </div>
-          <h1 className="text-white text-center text-3xl md:text-[50px] lg:text-[70px] font-medium pt-2 font-secular">
+          <h1 className="text-white text-center pb-2 text-3xl md:text-[50px] lg:text-[70px] font-medium font-secular">
             Services
           </h1>
           <div>

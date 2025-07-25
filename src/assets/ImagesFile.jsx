@@ -319,7 +319,7 @@ export const BackgroundWave = (props) => (
       <filter
         id="filter0_d_347_330"
         width="1320"
-        height="480"
+        height="518"
         x="-20"
         y="0"
         colorInterpolationFilters="sRGB"

@@ -55,8 +55,7 @@ const ContactUs = () => {
         <ContactSocialIcons />
       </section> */}
 
-      <section className="top-[80px] relative min-h-screen z-20 "
-      >
+      <section className="top-[80px] relative min-h-screen z-20 ">
         <div className="absolute inset-0 z-0">
           <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
         </div>
@@ -87,13 +86,8 @@ const ContactUs = () => {
             heading2="Project?"
             description="We're ready when you are. Whether you're building a brand, launching a product, or exploring new digital ideas, Infinity X Dynamics is here to bring your vision to life. Share your project details with us — our expert team will guide you every step of the way, from strategy to execution. Let’s turn your ideas into something extraordinary."
             heading1Color="text-white"
-            heading2Color="text-[#8B7190]"
-            line1Color="text-white font-extrabold"
-            line2Color="text-[#8B7190] font-extrabold"
             headingSize="md:text-4xl text-4xl font-extrabold"
-            subheadingSize="text-4xl font-extrabold"
-            highlightSize="text-4xl font-extrabold"
-            descriptionClass={" text-white md:text-lg text-normal font-light"}
+            descriptionClass={" text-white"}
             noBg // disables background
             noBorder // disables border
           />

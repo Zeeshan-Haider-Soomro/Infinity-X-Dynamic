@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom"; // ✅ Updated to react-router-dom
+import { Link } from "react-router-dom"; 
 
 const services = [
   "GRAPHIC MOTION",
   "3D ANIMATION", 
   "2D ANIMATION",
   "SOCIAL MEDIA MARKETING",
-  "WEB DEVELOPMENT", // Fixed typo in "DEVELOPMENT"
+  "WEB DEVELOPMENT",
   "CARTOON ANIMATION",
   "WHITEBOARD VIDEOS",
   "LOGO ANIMATION",
@@ -33,7 +33,7 @@ const links = [
 export default function ServiceButtons({ activeIndex }) {
   return (
     <div data-aos="fade-up" className="flex items-center justify-center px-4">
-      <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 md:gap-4 w-full max-w-6xl">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 md:gap-4 w-full max-w-6xl">
         {services.map((label, index) => {
           const isActive = index === activeIndex;
           const link = links[index];

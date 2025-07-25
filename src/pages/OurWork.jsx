@@ -49,39 +49,53 @@ const OurWork = () => {
   return (
     <div>
       {/* hero section */}
-      <section className="w-full relative min-h-screen z-20">
-        <div className="absolute inset-0 z-0">
-          <ImagesAssets.backgroundWave className="w-full h-full object-cover items-center" />
+      <div className="h-20" />
+      {/* Our Clients Section */}
+      <section className="relative flex w-full items-center min-h-screen z-0 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-10">
+          <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
         </div>
 
-        <div className="flex flex-col justify-center items-center min-h-screen gap-10 p-6">
-          {/* Top Row: Card + Image */}
-          <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-10">
-            <div data-aos="fade-right">
-              <CustomCardModal title="Our Work" sections={sections} />
-            </div>
-            <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
-              <ImagesAssets.botOne />
-            </div>
+        {/* Foreground Content */}
+        <div className="flex flex-col-reverse lg:flex-row justify-around items-center z-10 p-5 gap-10">
+          {/* Left: Text and Stats */}
+          <div className="text-white max-w-2xl rounded-3xl p-8 shadow-lg bg-white/10 backdrop-blur-md">
+            <h1 className="text-2xl md:text-3xl lg:text-3xl font-secular font-bold text-center md:text-left">
+              <span className="text-[#8B7190]">Work </span>Our
+            </h1>
+            <p className="text-lg md:text-2xl text-center md:text-left mt-4">
+              Our clients consistently praise our creativity, reliability, and results — with glowing reviews from across the globe, reflecting trust in every project we deliver.
+            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-secular mt-4 text-[#8B7190] font-semibold ">
+              Their vision, our creativity
+            </h2>
+          </div>
+
+          {/* Right: Bot Illustration */}
+          <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
+            <ImagesAssets.botOne />
           </div>
         </div>
       </section>
 
       <section className=" w-full pb-4">
 
-        <div className="max-w-full flex justify-between mx-auto px-4 md:px-24 md:pb-16 mt-6">
+        <div className="w-full flex flex-col items-center justify-center text-center px-4 md:h-auto md:flex-row md:justify-between md:text-left md:px-24 md:pb-16">
           <div>
-            <h3 className=" text-white font-secular text-lg md:text-2xl font-bold">
-              See Our Recent <span className=" text-[#A95C9C]">Projects</span>
+            <h3 className="text-white font-secular text-lg md:text-2xl font-bold">
+              See Our Recent <span className="text-[#A95C9C]">Projects</span>
             </h3>
-            <p className="text-white text-lg md:text-2xl font-bold">We turn your thoughts into visuals</p>
+            <p className="text-white text-lg md:text-2xl font-bold mt-2">
+              We turn your thoughts into visuals
+            </p>
           </div>
-          <div className="">
-            <CustomButton className="mt-6" to="/our-work">
-              VIEW ALL PROJECTS
-            </CustomButton>
-          </div>
+          <CustomButton className="mt-4 md:mt-0" to="/our-work">
+            VIEW ALL PROJECTS
+          </CustomButton>
         </div>
+
+
         <div className="max-w-full mx-auto px-4 md:px-[122px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
             <Card className="bg-[#320142] text-white p-4 text-center border-0">
@@ -140,35 +154,39 @@ const OurWork = () => {
         </div>
       </section>
 
-      {/* Feedback section */}
-      <section className="w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white px-4 overflow-hidden py-10">
-        {/* Header Section */}
-        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
-          {/* Text */}
-          <div className="lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
-            <h3 className="text-[32px] font-semibold mb-2">We Love Feedback!</h3>
-            <p className="text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed text-white/80">
-              Share your thoughts with us, and let's turn your feedback into the
-              masterpiece that shapes our journey.
-            </p>
-          </div>
+     {/* Feedback section */}
+<section className="w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white px-2 sm:px-4 py-8 overflow-hidden">
+  {/* Header Section */}
+  <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-6 sm:gap-10">
+    
+    {/* Text */}
+    <div className="w-full lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
+      <h3 className="text-2xl sm:text-3xl font-semibold mb-2">We Love Feedback!</h3>
+      <p className="text-base sm:text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed text-white/80">
+        Share your thoughts with us, and let's turn your feedback into the
+        masterpiece that shapes our journey.
+      </p>
+    </div>
 
-          {/* Right Illustration */}
-          <div className="flex justify-center lg:justify-end lg:w-1/3">
-            <div className="text-[32px] [-webkit-text-stroke:1px_#874182] hidden lg:block">
-              <ImagesAssets.botTwo />
-            </div>
-          </div>
-        </div>
+    {/* Right Illustration */}
+    <div className="w-full lg:w-1/3 flex justify-center lg:justify-end">
+      <div className="w-[300px] max-w-full hidden lg:block">
+        <ImagesAssets.botTwo className="w-full h-auto" />
+      </div>
+    </div>
+  </div>
 
-        {/* Glow Effect */}
-        <div className="relative w-full mt-8 ">
-          <div className="w-[150px] h-[150px] bg-white rounded-full blur-[60px] absolute top-0 -left-[60px] opacity-30" />
-        </div>
+  {/* Glow Effect */}
+  <div className="relative w-full mt-6">
+    <div className="w-[120px] h-[120px] bg-white rounded-full blur-[60px] absolute top-0 -left-[50px] opacity-30" />
+  </div>
 
-        <SliderCards />
+  {/* Slider Cards */}
+  <div className="mt-6">
+    <SliderCards />
+  </div>
+</section>
 
-      </section>
 
 
       {/* our achievement section */}

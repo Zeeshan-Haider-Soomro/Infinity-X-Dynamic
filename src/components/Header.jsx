@@ -251,7 +251,7 @@ const Header = () => {
                   size="icon"
                   className="md:hidden text-white hover:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                 >
-                  <Menu size={28} />
+                  <Menu size={34} />
                 </Button>
               </SheetTrigger>
 

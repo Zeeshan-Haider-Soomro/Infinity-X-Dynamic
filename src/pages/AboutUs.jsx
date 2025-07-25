@@ -38,7 +38,7 @@ const awards = [
 ];
 
 const AboutUs = () => {
- 
+
   useEffect(() => {
     // Force scroll after render
     setTimeout(() => {
@@ -50,24 +50,41 @@ const AboutUs = () => {
   return (
     <div>
       {/* hero section */}
-      <section className="top-[100px] md:top-[80px] relative min-h-screen z-20 pb-6">
-        <div className="flex flex-col items-center gap-10 p-6">
-          {/* Top Row: Card + Image */}
-          <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-10">
-            <div data-aos="fade-right">
-              <CustomCardModal title="About Us" sections={sections} />
-            </div>
-            <div data-aos="fade-left" className="relative w-full hidden md:block lg:w-1/2">
-              <ImagesAssets.botOne />
-            </div>
+      <div className="h-20" />
+      <section className="relative flex w-full items-center min-h-screen z-0 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-10">
+          <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
+        </div>
+
+        {/* Foreground Content */}
+        <div className="flex flex-col-reverse lg:flex-row justify-around items-center z-10 p-5 gap-10">
+          {/* Left: Text and Stats */}
+          <div className="text-white max-w-2xl rounded-3xl p-8 shadow-lg bg-white/10 backdrop-blur-md">
+            <h1 className="text-2xl md:text-3xl lg:text-3xl font-secular font-bold text-center md:text-left">
+              About<span className="text-[#8B7190]" > Us </span>
+            </h1>
+            <p className="text-[16px] md:text-xl text-center md:text-left mt-4">
+             At Infinity X Dynamics, we merge creativity with cutting-edge technology to deliver immersive experiences. From stunning visual effects to innovative software solutions, our team is dedicated to bringing your vision to life. Founded in 2020, Infinity X Dynamics has rapidly evolved into a hub for digital excellence.
+            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-secular mt-4 text-[#8B7190] font-semibold ">
+              What We Do
+            </h2>
+            <p className="text-[16px] md:text-xl md:text-left mt-2">
+              Over the years, our bold ideas and future-ready solutions have empowered startups, brands, and enterprise clients to stand out in the digital space.
+            </p>
           </div>
 
-          {/* Awards Section Centered */}
-          <div className="w-full flex justify-center -mt-16 ">
-            <AwardsSection />
+          {/* Right: Bot Illustration */}
+          <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
+            <ImagesAssets.botOne />
           </div>
         </div>
       </section>
+
+      <div className="w-full flex justify-center -mt-16 ">
+        <AwardsSection />
+      </div>
 
       {/* CEO message section */}
 

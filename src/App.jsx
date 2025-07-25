@@ -1,35 +1,46 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import { Outlet } from "react-router";
 import Footer from "@/components/Footer";
 import IntroVideo from "@/components/IntroVideo";
 import AOS from "aos";
-import "aos/dist/aos.css"; // AOS styles
+import "aos/dist/aos.css";
 import CustomCursor from "@/components/CustomCursor";
 import MirrorMagnifierCursor from "@/components/MirrorMagnifierCursor";
-import React, { useRef } from "react";
 import MirrorCursor from "@/components/MirrorCursor";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const App = () => {
   const appRef = useRef(null);
-  const [showIntro, setShowIntro] = useState(true); // ✅ Start with true
+  const [showIntro, setShowIntro] = useState(true);
 
-  // Intro Video Timer
+  // Timer to auto-hide intro video
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 7000); // 9 seconds
+    }, 7000);
 
     return () => clearTimeout(timer);
   }, []);
 
-  // 🔥 Initialize AOS globally
+  // ✅ Skip on screen click
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-    });
-    // AOS.refresh();
+    const skipIntro = () => {
+      setShowIntro(false);
+    };
+
+    if (showIntro) {
+      window.addEventListener("click", skipIntro);
+    }
+
+    return () => {
+      window.removeEventListener("click", skipIntro);
+    };
+  }, [showIntro]);
+
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
   }, []);
 
   if (showIntro) {
@@ -40,14 +51,9 @@ const App = () => {
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
       {/* <CustomCursor /> */}
-      <MirrorCursor />
+      {/* <MirrorCursor /> */}
 
-      {/* bg-[#3C0945] */}
-      <div
-        ref={appRef}
-        id="main-content"
-        className="overflow-hidden bg-main-color"
-      >
+      <div ref={appRef} id="main-content" className="overflow-hidden bg-main-color">
         {/* <MirrorMagnifierCursor zoomTargetRef={appRef} /> */}
         <Header />
         <div className="">

@@ -234,7 +234,7 @@ const Header = () => {
 
           {/* Right Side */}
           <div className="flex items-center gap-3">
-            <CustomButton onClick={() => setIsTalkModalOpen(true)}>Sign Up</CustomButton>
+            {/* <CustomButton onClick={() => setIsTalkModalOpen(true)}>Sign Up</CustomButton> */}
             <CustomButton
               className="hidden md:inline-flex items-center justify-center bg-[#9C448D] hover:bg-[#320142] text-white rounded-full px-5 py-2"
               onClick={() => setIsTalkModalOpen(true)}

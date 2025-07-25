@@ -33,7 +33,7 @@ const ContactSocialIcons = () => {
       </div>
 
       {/* Social Media Icons – Right Side */}
-      <div data-aos="fade-left" className="absolute hidden md:block top-1/4 right-12 transform -translate-y-1/2  flex-col space-y-4 text-2xl z-50">
+      <div data-aos="fade-left" className="absolute hidden md:block top-1/5 right-12 transform -translate-y-1/2  flex-col space-y-4 text-2xl z-50">
         <div className="border border-white rounded-full p-2">
           <a
             href="https://www.facebook.com/Infinityxdynamics"

@@ -27,22 +27,22 @@ const clientLogos = [
 ];
 
 const sections = [
-    {
-      
-      text: "Our clients consistently praise our creativity, reliability, and results — with glowing reviews from across the globe, reflecting trust in every project we deliver.",
-    },
-    {
-      heading: "Their vision, our creativity",
-      
-    },
-    {
-      content: (
-        <div className="w-[300px] flex justify-center">
-          <AwardBox target={100} label="Satisfied Clients" />
-        </div>
-      ),
-    },
-  ];
+  {
+
+    text: "Our clients consistently praise our creativity, reliability, and results — with glowing reviews from across the globe, reflecting trust in every project we deliver.",
+  },
+  {
+    heading: "Their vision, our creativity",
+
+  },
+  {
+    content: (
+      <div className="w-[300px] flex justify-center">
+        <AwardBox target={100} label="Satisfied Clients" />
+      </div>
+    ),
+  },
+];
 
 
 
@@ -52,42 +52,56 @@ const OurClients = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="w-full md:px-6 top-8 md:top-18 py-4 md:py-16 relative md:min-h-screen z-20 pb-6">
-        <div className="absolute inset-0 z-0">
+
+      {/* Spacer to push content below fixed header */}
+      <div className="h-20" />
+      {/* Our Clients Section */}
+      <section className="relative flex w-full items-center min-h-screen z-0 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-10">
           <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
         </div>
-        <div className="flex flex-col items-center gap-10 p-6">
-          {/* Top Row: Card + Image */}
-          <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-10">
-            <div data-aos="fade-right sm:fade-up" className="w-full lg:w-1/2">
-              <CustomCardModal title="Our Clients" sections={sections} />
+
+        {/* Foreground Content */}
+        <div className="flex flex-col-reverse lg:flex-row justify-around items-center z-10 p-5 gap-10">
+          {/* Left: Text and Stats */}
+          <div className="text-white max-w-2xl rounded-3xl p-8 shadow-lg bg-white/10 backdrop-blur-md">
+            <h1 className="text-2xl md:text-3xl lg:text-3xl font-secular font-bold text-center md:text-left">
+              Our <span className="text-[#8B7190]" >Clients</span>
+            </h1>
+            <p className="text-lg md:text-2xl text-center md:text-left mt-4">
+              Our clients consistently praise our creativity, reliability, and results — with glowing reviews from across the globe, reflecting trust in every project we deliver.
+            </p>
+            <div className="flex justify-between items-center mt-6 gap-4">
+              <h2 className="text-xl md:text-xl lg:text-2xl font-semibold ">
+                Their vision, our creativity
+              </h2>
+              <AwardBox target={100} label="Satisfied Clients" className="ml-0 md:ml-4" />
             </div>
-            <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
-              <ImagesAssets.botOne />
-            </div>
+          </div>
+
+          {/* Right: Bot Illustration */}
+          <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
+            <ImagesAssets.botOne />
           </div>
         </div>
       </section>
 
+      {/* Feedback Section */}
       <section className="w-full rounded-t-[65px] border-t-[3px] border-white overflow-hidden">
         {/* Header Section */}
-        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-          {/* Text */}
-          <div className="lg:w-2/3 text-center lg:text-left  text-white">
-            <h3 className="text-[32px] font-semibold mb-4">We Love Feedback!</h3>
-            <p className="text-xl max-w-xl">
-              Share your thoughts with us, and let's turn your feedback into the
-              masterpiece that shapes our journey.
-            </p>
-          </div>
 
-          {/* Right Illustration */}
-          <div className="flex justify-center lg:justify-end lg:w-1/3">
-            <div className="text-[32px] [-webkit-text-stroke:1px_#874182] hidden md:block">
-              <ImagesAssets.botTwo />
-            </div>
+        <div className="flex justify-between items-center py-16 p-8">
+          <div className="text-center lg:text-left text-white ">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">We Love Feedback !</h1>
+            <p className=" text-xl md:text-2xl ">Share your thoughts with us, and let's turn your feedback into<br/> the masterpiece that shapes our journey.</p>
+          </div>
+          <div className="hidden lg:block absolute top-[500px] right-30 w-[300px] h-[300px]">
+             <ImagesAssets.botTwo />
+
           </div>
         </div>
+
 
         {/* Glow Effect */}
         <div className="relative w-full h-[1px] mt-6">
@@ -97,7 +111,6 @@ const OurClients = () => {
         {/* Carousel Section */}
         <SliderCards />
       </section>
-
 
       <section >
         <div>

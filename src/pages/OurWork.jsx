@@ -124,8 +124,6 @@ const OurWork = () => {
             </Card>
           </div>
         </div>
-
-
       </section>
 
       {/* 2nd section */}
@@ -154,38 +152,38 @@ const OurWork = () => {
         </div>
       </section>
 
-     {/* Feedback section */}
-<section className="w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white px-2 sm:px-4 py-8 overflow-hidden">
-  {/* Header Section */}
-  <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-6 sm:gap-10">
-    
-    {/* Text */}
-    <div className="w-full lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
-      <h3 className="text-2xl sm:text-3xl font-semibold mb-2">We Love Feedback!</h3>
-      <p className="text-base sm:text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed text-white/80">
-        Share your thoughts with us, and let's turn your feedback into the
-        masterpiece that shapes our journey.
-      </p>
-    </div>
+      {/* Feedback section */}
+      <section className="w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white px-2 sm:px-4 py-8 overflow-hidden">
+        {/* Header Section */}
+        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-6 sm:gap-10">
 
-    {/* Right Illustration */}
-    <div className="w-full lg:w-1/3 flex justify-center lg:justify-end">
-      <div className="w-[300px] max-w-full hidden lg:block">
-        <ImagesAssets.botTwo className="w-full h-auto" />
-      </div>
-    </div>
-  </div>
+          {/* Text */}
+          <div className="w-full lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
+            <h3 className="text-2xl sm:text-3xl font-semibold mb-2">We Love Feedback!</h3>
+            <p className="text-base sm:text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed text-white/80">
+              Share your thoughts with us, and let's turn your feedback into the
+              masterpiece that shapes our journey.
+            </p>
+          </div>
 
-  {/* Glow Effect */}
-  <div className="relative w-full mt-6">
-    <div className="w-[120px] h-[120px] bg-white rounded-full blur-[60px] absolute top-0 -left-[50px] opacity-30" />
-  </div>
+          {/* Right Illustration */}
+          <div className="w-full lg:w-1/3 flex justify-center lg:justify-end">
+            <div className="w-[300px] max-w-full hidden lg:block">
+              <ImagesAssets.botTwo className="w-full h-auto" />
+            </div>
+          </div>
+        </div>
 
-  {/* Slider Cards */}
-  <div className="mt-6">
-    <SliderCards />
-  </div>
-</section>
+        {/* Glow Effect */}
+        <div className="relative w-full mt-6">
+          <div className="w-[120px] h-[120px] bg-white rounded-full blur-[60px] absolute top-0 -left-[50px] opacity-30" />
+        </div>
+
+        {/* Slider Cards */}
+        <div className="mt-6">
+          <SliderCards />
+        </div>
+      </section>
 
 
 

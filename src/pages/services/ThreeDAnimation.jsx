@@ -137,75 +137,75 @@ const ThreeDAnimation = () => {
       {/* About Category */}
 
       <section className="bg-[#440755]">
-            <AboutCategory
-        sectionHeading={sectionHeading}
-        sectionDescription={sectionDescription}
-        cards={cardData}
-      />
+        <AboutCategory
+          sectionHeading={sectionHeading}
+          sectionDescription={sectionDescription}
+          cards={cardData}
+        />
       </section>
       <section className="bg-[#EEDFFF]">
-             <div className="md:p-10 pt-10">
+        <div className="md:p-10 pt-10">
           <CustomHeading
             firstText="OUR"
             secondText="ACHIEVEMENTS"
-               firstColor="#5C0E6E"
+            firstColor="#5C0E6E"
             secondColor="#A95C9C"
             textSize="text-4xl md:text-6xl font-bold p-5"
             align="text-center"
           />
         </div>
-        <AchievementGallery/>
+        <AchievementGallery />
       </section>
-        <section className="bg-[#320142]">
+      <section className="bg-[#320142]">
         <div>
-           <ContactForm
-  heading1="Hi, "
-  heading2="There!"
-  highlightTextLine1="Ready to bring your"
-  highlightTextLine2="story to life?"
-  heading1Color="text-white"
-  heading2Color="text-[#D977C8]"
-  line1Color="text-white font-extrabold"
-  line2Color="text-[#D977C8] font-extrabold"
-  headingSize="md:text-4xl text-4xl font-extrabold"
-  subheadingSize="text-6xl font-extrabold"
-  highlightSize="text-6xl font-extrabold"
-/>
+          <ContactForm
+            heading1="Hi, "
+            heading2="There!"
+            highlightTextLine1="Ready to bring your"
+            highlightTextLine2="story to life?"
+            heading1Color="text-white"
+            heading2Color="text-[#D977C8]"
+            line1Color="text-white font-extrabold"
+            line2Color="text-[#D977C8] font-extrabold"
+            headingSize="md:text-4xl text-4xl font-extrabold"
+            subheadingSize="text-6xl font-extrabold"
+            highlightSize="text-6xl font-extrabold"
+          />
         </div>
         <div className="md:h-[700px] h-[1400px] px-4">
           <div>
-            
-           <CustomHeading
-            firstText="Frequently Asked"
-            secondText="Questions"
-            firstColor="#fff"
-            secondColor="#D977C8"
-            textSize="text-4xl md:text-6xl font-bold p-5"
-            align="text-center"
-          />
-        </div>
-           <FAQSection />
+
+            <CustomHeading
+              firstText="Frequently Asked"
+              secondText="Questions"
+              firstColor="#fff"
+              secondColor="#D977C8"
+              textSize="text-4xl md:text-6xl font-bold p-5"
+              align="text-center"
+            />
+          </div>
+          <FAQSection />
         </div>
       </section>
-       <section className="bg-[#F2E6FF]">
-          <h1 className="text-center text-4xl font-bold text-[#5C0E6E] pt-5">Our</h1>
-          <CustomHeading
-            firstText="Amazing"
-            secondText="Clients"
-            firstColor="#5C0E6E"
-            secondColor="#D977C8"
-            textSize="text-4xl md:text-6xl font-bold"
-            align="text-center"
-          />
-          <ImageSlider />
-        </section>
-              <section className="bg-[#320142]">
+      <section className="bg-[#F2E6FF]">
+        <h1 className="text-center text-4xl font-bold text-[#5C0E6E] pt-5">Our</h1>
+        <CustomHeading
+          firstText="Amazing"
+          secondText="Clients"
+          firstColor="#5C0E6E"
+          secondColor="#D977C8"
+          textSize="text-4xl md:text-6xl font-bold"
+          align="text-center"
+        />
+        <ImageSlider />
+      </section>
+      <section className="bg-[#320142]">
         <div className="md:p-14 p-8">
           <CustomHeading
             firstText="We Love"
             secondText="Feedback"
-             firstColor="white"
-          secondColor="#D977C8"
+            firstColor="white"
+            secondColor="#D977C8"
             textSize="text-4xl md:text-6xl font-bold"
             align="text-center"
           />

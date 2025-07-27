@@ -16,6 +16,7 @@ import VfxCgi from "@/pages/services/VfxCgi";
 import WebDevelopment from "@/pages/services/WebDevelopment";
 import WhiteBoard from "@/pages/services/WhiteBoard";
 import CartoonAnimation from "@/pages/services/CartoonAnimation";
+import ProfileCTA from "@/components/ProfileCTA";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
       {
         path: "/thank-you",
         element: <ThankYou />,
+      },
+      {
+        path: "/profile-cta",
+        element: <ProfileCTA />,
       },
     ],
   },

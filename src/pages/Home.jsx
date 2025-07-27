@@ -50,7 +50,7 @@ const awards = [
 
 
 const Home = () => {
-  
+
   const { bannerImg } = AppImages;
 
   const [index, setIndex] = useState(0);
@@ -251,7 +251,7 @@ const Home = () => {
         <ImageSlider />
       </section> */}
 
-      
+
 
       {/* history slider section */}
 

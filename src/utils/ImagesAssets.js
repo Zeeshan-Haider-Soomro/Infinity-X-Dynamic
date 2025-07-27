@@ -11,7 +11,9 @@ import {
   CircleIcon,
   BackgroundWave,
   FooterLogo,
-  ContactCall
+  ContactCall,
+  ProfileCTA1,
+  ProfileCtaCard,
 } from "@/assets/ImagesFile";
 import idxwhitelogo from "../assets/ixdwhitelogo.png";
 import footerlogo from "../assets/footerlogo.png";
@@ -25,6 +27,7 @@ import history from "../assets/history.png";
 import sectionOne from "../assets/sectionOne.svg"
 import formImage from "../assets/form.png"
 import video from "../assets/video.png"
+import feedbackProfile from "../assets/feedbackProfile.jpg"
 
 export const ImagesAssets = {
   botOne: BotOneIcon,
@@ -51,5 +54,9 @@ export const ImagesAssets = {
   footerLogo: FooterLogo,
   person1: person1,
   contactCall: ContactCall,
-  video: video
+  video: video,
+  profileCTA1: ProfileCTA1,
+  profileCtaCard: ProfileCtaCard,
+  feedbackProfile: feedbackProfile,
+
 };

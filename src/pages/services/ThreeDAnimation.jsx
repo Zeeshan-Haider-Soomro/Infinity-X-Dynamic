@@ -10,6 +10,7 @@ import FAQSection from "@/components/FAQSection";
 import ContactForm from "@/components/ContactForm";
 import ImageSlider from "@/components/ImageSlider";
 import FeedbackSection from "@/components/FeedbackSection";
+import { ImagesAssets } from "@/utils/ImagesAssets";
 
 // videogallery component items
 
@@ -60,25 +61,25 @@ const sectionDescription =
 
 const cardData = [
   {
-    image: '/images/engaging-storytelling.png',
+    image: ImagesAssets.profileCtaCard,
     title: 'ENGAGING STORYTELLING',
     description:
       '2D animations breathe life into narratives, making them more captivating and memorable, fostering a deeper connection with the audience.',
   },
   {
-    image: '/images/cost-effective.png',
+    image: ImagesAssets.profileCtaCard,
     title: 'COST-EFFECTIVE PRODUCTION',
     description:
       'Compared to 3D animations, 2D animation production is often more affordable, making it an excellent choice for projects with budget constraints.',
   },
   {
-    image: '/images/fast-loading.png',
+    image: ImagesAssets.profileCtaCard,
     title: 'FAST LOADING TIMES',
     description:
       '2D animations are lightweight, ensuring quick loading on websites and applications, contributing to a seamless user experience.',
   },
   {
-    image: '/images/versatile-style.png',
+    image: ImagesAssets.profileCtaCard,
     title: 'VERSATILITY IN STYLE',
     description:
       'From whimsical and playful to sleek and professional, 2D animation offers a versatile range of styles, allowing for customization to suit various brands.',

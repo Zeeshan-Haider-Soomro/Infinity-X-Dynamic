@@ -251,18 +251,13 @@ const ProfileCTA = () => {
                 <div className="absolute -top-20 right-0 z-20 h-[300px] w-[300px] overflow-visible pointer-events-none">
                     <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
                         <ambientLight intensity={0.5} />
-                        <directionalLight position={[10, 10, 5]} intensity={1} />
+                        <directionalLight position={[0, -1.2, 0]} intensity={1} />
                         <My3DModel scale={2} position={[0, -1.5, 0]} />
                         <Environment preset="city" />
-                        <ContactShadows
-                            position={[0, -1.5, 0]}
-                            scale={10}
-                            blur={2}
-                            far={5}
-                            opacity={0.5}
-                        />
+                        <ContactShadows position={[0, -1.5, 0]} scale={10} blur={2} far={5} opacity={0.5} />
                         <OrbitControls enableZoom={false} />
                     </Canvas>
+
                 </div>
 
 

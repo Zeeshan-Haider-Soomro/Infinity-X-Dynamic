@@ -16,6 +16,7 @@ import { Card } from "./ui/card";
 import AboutCategory from "./AboutCategory";
 import { AppImages } from "@/constant/AppImages";
 import FAQSection from "./FAQSection";
+import My3DModel from "./My3DModel";
 
 
 const phrases = [
@@ -247,9 +248,23 @@ const ProfileCTA = () => {
 
             <section className="relative px-4 sm:px-6 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center">
                 {/* Bot image at top right - hidden on small screens */}
-                <div className="absolute -top-16 sm:-top-20 md:-top-24 right-0 z-10 w-16 sm:w-20 md:w-auto">
-                    <ImagesAssets.botTwo className="w-full h-auto" />
+                <div className="absolute -top-20 right-0 z-20 h-[300px] w-[300px] overflow-visible pointer-events-none">
+                    <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+                        <ambientLight intensity={0.5} />
+                        <directionalLight position={[10, 10, 5]} intensity={1} />
+                        <My3DModel scale={2} position={[0, -1.5, 0]} />
+                        <Environment preset="city" />
+                        <ContactShadows
+                            position={[0, -1.5, 0]}
+                            scale={10}
+                            blur={2}
+                            far={5}
+                            opacity={0.5}
+                        />
+                        <OrbitControls enableZoom={false} />
+                    </Canvas>
                 </div>
+
 
                 {/* CEO Message Card */}
                 <div className="relative w-full max-w-[90vw] sm:max-w-[95%] lg:max-w-[1236px] flex-shrink-0 rounded-[15px] md:rounded-[25px] bg-white/10 shadow-[0px_0px_15px_#FFF] md:shadow-[0px_0px_25px_#FFF] text-white px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:py-10 lg:py-12 overflow-hidden">

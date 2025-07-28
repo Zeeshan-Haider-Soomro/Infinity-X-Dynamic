@@ -115,7 +115,7 @@ function NavigationMenuLink({
     <NavigationMenuPrimitive.Link
       data-slot="navigation-menu-link"
       className={cn(
-        "data-[active=true]:text-accent-foreground hover:bg-transparent hover:text-[#e7d5e4] focus:bg-transparent ..."
+        "data-[active=true]:text-accent-foreground hover:bg-transparent hover:text-[#d68eca] focus:bg-transparent ..."
         ,
         className
       )}

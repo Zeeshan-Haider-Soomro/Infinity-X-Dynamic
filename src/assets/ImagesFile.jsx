@@ -352,8 +352,6 @@ export const BackgroundWave = (props) => (
 );
 
 
-
-
 export const ProfileCTA1 = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -369,7 +367,6 @@ export const ProfileCTA1 = (props) => (
   </svg>
 );
 
-import * as React from "react";
 
 export const ProfileCtaCard = (props) => (
   <svg
@@ -398,8 +395,6 @@ export const ProfileCtaCard = (props) => (
     </defs>
   </svg>
 );
-
-
 
 
 export const FooterLogo = (props) => (

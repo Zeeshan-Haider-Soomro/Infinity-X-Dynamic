@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import Header from "@/components/Header";
 import { Outlet } from "react-router";
-import Footer from "@/components/Footer";
-import IntroVideo from "@/components/IntroVideo";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import IntroVideo from "@/components/IntroVideo";
 import CustomCursor from "@/components/CustomCursor";
 import MirrorMagnifierCursor from "@/components/MirrorMagnifierCursor";
 import MirrorCursor from "@/components/MirrorCursor";
@@ -14,35 +15,29 @@ const App = () => {
   const appRef = useRef(null);
   const [showIntro, setShowIntro] = useState(true);
 
-  // Timer to auto-hide intro video
+  // Auto-hide intro video after 7 seconds
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowIntro(false);
-    }, 7000);
-
+    const timer = setTimeout(() => setShowIntro(false), 7000);
     return () => clearTimeout(timer);
   }, []);
 
-  // ✅ Skip on screen click
+  // Allow user to skip intro on click
   useEffect(() => {
-    const skipIntro = () => {
-      setShowIntro(false);
-    };
+    const handleClick = () => setShowIntro(false);
 
     if (showIntro) {
-      window.addEventListener("click", skipIntro);
+      window.addEventListener("click", handleClick);
     }
 
-    return () => {
-      window.removeEventListener("click", skipIntro);
-    };
+    return () => window.removeEventListener("click", handleClick);
   }, [showIntro]);
 
-  // Initialize AOS
+  // Initialize AOS animation on scroll
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
+  // Intro video overlay
   if (showIntro) {
     return <IntroVideo />;
   }
@@ -50,15 +45,22 @@ const App = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
+
+      {/* Optional Cursors - Enable one if needed */}
       {/* <CustomCursor /> */}
       {/* <MirrorCursor /> */}
 
-      <div ref={appRef} id="main-content" className="overflow-hidden bg-main-color">
+      <div
+        ref={appRef}
+        id="main-content"
+        className="overflow-hidden bg-main-color"
+      >
         {/* <MirrorMagnifierCursor zoomTargetRef={appRef} /> */}
+
         <Header />
-        <div className="">
+        <main className="flex-grow">
           <Outlet />
-        </div>
+        </main>
         <Footer />
       </div>
     </div>

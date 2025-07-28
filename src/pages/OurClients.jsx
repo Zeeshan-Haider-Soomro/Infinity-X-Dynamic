@@ -59,7 +59,7 @@ const OurClients = () => {
       <section className="relative flex w-full items-center min-h-screen z-0 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 -z-10">
-          <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
+          <ImagesAssets.backgroundWave className="w-full h-full lg:h-full object-cover" />
         </div>
 
         {/* Foreground Content */}

@@ -50,26 +50,25 @@ const OurWork = () => {
     <div>
       {/* hero section */}
       <div className="h-20" />
-      {/* Our Clients Section */}
-      <section className="relative flex w-full items-center min-h-screen z-0 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 -z-10">
-          <ImagesAssets.backgroundWave className="w-full h-full object-cover" />
+      <section className="relative flex w-full items-center sm:min-h-screen z-0 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <ImagesAssets.backgroundWave className="w-full h-[450px] sm:h-full lg:h-full object-cover" />
         </div>
-
-        {/* Foreground Content */}
-        <div className="flex flex-col-reverse lg:flex-row justify-around items-center z-10 p-5 gap-10">
+        <div className="flex flex-col-reverse lg:flex-row justify-around items-center z-10 mt-8 py-8 px-2 ">
           {/* Left: Text and Stats */}
           <div className="text-white max-w-2xl rounded-3xl p-8 shadow-lg bg-white/10 backdrop-blur-md">
             <h1 className="text-2xl md:text-3xl lg:text-3xl font-secular font-bold text-center md:text-left">
-              <span className="text-[#8B7190]">Work </span>Our
+              Our <span className="text-[#8B7190]" >Work</span>
             </h1>
-            <p className="text-lg md:text-2xl text-center md:text-left mt-4">
-              Our clients consistently praise our creativity, reliability, and results — with glowing reviews from across the globe, reflecting trust in every project we deliver.
+            <p className="text-md md:text-2xl text-center md:text-left mt-4">
+              From bold animations to immersive digital experiences, every project is crafted with precision, passion, and innovation.Explore our portfolio and see how we turn ideas into visual stories that move, inspire, and deliver results.
             </p>
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-secular mt-4 text-[#8B7190] font-semibold ">
-              Their vision, our creativity
-            </h2>
+            <div className="flex justify-between items-center mt-6 gap-4">
+              <h2 className="text-xl md:text-xl lg:text-2xl font-secular font-semibold text-[#8B7190]">
+                Our Work Speaks in Motion
+              </h2>
+
+            </div>
           </div>
 
           {/* Right: Bot Illustration */}
@@ -79,7 +78,7 @@ const OurWork = () => {
         </div>
       </section>
 
-      <section className=" w-full pb-4">
+      <section className=" w-full py-4">
 
         <div className="w-full flex flex-col items-center justify-center text-center px-4 md:h-auto md:flex-row md:justify-between md:text-left md:px-24 md:pb-16">
           <div>

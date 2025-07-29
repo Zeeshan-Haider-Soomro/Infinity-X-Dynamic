@@ -91,6 +91,7 @@ const router = createBrowserRouter([
         path: "/profile-cta",
         element: <ProfileCTA />,
       },
+      { path: "/services/:serviceId", element: <ProfileCTA /> },
     ],
   },
   {

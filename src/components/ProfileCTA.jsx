@@ -17,6 +17,214 @@ import AboutCategory from "./AboutCategory";
 import { AppImages } from "@/constant/AppImages";
 import FAQSection from "./FAQSection";
 import My3DModel from "./My3DModel";
+import CeoMessage from "./CEOMessage";
+import { awards, feedbackList, projects, serviceCards } from "@/data/serviceCards";
+import { useParams } from "react-router-dom"; // ⬅️ ADD THIS
+
+// This is your service-specific data
+const serviceContent = {
+    "2d-animation": {
+        title: "Welcome to Our Vibrant World of",
+        highlight: "2D Animations!",
+        sectionHeading: (
+            <h1 className="text-3xl md:text-5xl font-secular font-bold text-center mb-4">
+                BENEFITS OF <br />
+                <span className=" text-[#C55EBD]">2D </span>VIDEO <span className=" text-[#C55EBD]">ANIMATIONS</span>
+            </h1>
+        ),
+        sectionDescription:
+            "With our 2D animations, you can engage customers with compelling visuals, enjoy faster loading time with less load on website performance.",
+        benefits: [
+            {
+                title: "ENGAGING STORYTELLING",
+                description:
+                    "2D animations breathe life into narratives, making them more captivating and memorable.",
+            },
+            {
+                title: "COST-EFFECTIVE PRODUCTION",
+                description:
+                    "Compared to 3D, 2D animation production is often more affordable.",
+            },
+            {
+                title: "FAST LOADING TIMES",
+                description:
+                    "2D animations are lightweight, ensuring quick loading on websites.",
+            },
+        ],
+    },
+    "3d-animation": {
+        title: "Step Into the Future with",
+        highlight: "3D Animations!",
+        sectionHeading: (
+            <h1 className="text-3xl md:text-5xl font-secular font-bold text-center mb-4">
+                ADVANTAGES OF <br />
+                <span className=" text-[#C55EBD]">3D </span>VIDEO <span className=" text-[#C55EBD]">ANIMATIONS</span>
+            </h1>
+        ),
+        sectionDescription:
+            "Our 3D animation services offer realism and immersive experiences perfect for product demos, architectural visualizations, and more.",
+        benefits: [
+            {
+                title: "IMMERSIVE EXPERIENCES",
+                description:
+                    "3D animation creates ultra-realistic visuals that fully engage users.",
+            },
+            {
+                title: "VERSATILITY IN APPLICATION",
+                description:
+                    "Used in architecture, healthcare, gaming, and industrial design.",
+            },
+            {
+                title: "HIGHER ENGAGEMENT",
+                description:
+                    "Boosts retention by making concepts visually compelling.",
+            },
+        ],
+    },
+    "web-development": {
+        title: "Let's Build with",
+        highlight: "Web Development",
+        sectionHeading: (
+            <h1 className="text-3xl md:text-5xl font-secular font-bold text-center mb-4">
+                CRAFTING YOUR <span className=" text-[#C55EBD]">DIGITAL</span> <br /> PRESENCE
+            </h1>
+        ),
+        sectionDescription:
+            "We develop blazing fast, secure, and modern websites to elevate your brand and digital presence.",
+        benefits: [
+            {
+                title: "RESPONSIVE DESIGN",
+                description: "Websites that work flawlessly on all devices.",
+            },
+            {
+                title: "SEO FRIENDLY",
+                description: "Optimized for visibility on Google and other search engines.",
+            },
+            {
+                title: "SECURE AND SCALABLE",
+                description: "Built with modern frameworks and best practices.",
+            },
+        ],
+    },
+    "logo-animation": {
+        title: "Bring Your Brand to Life with",
+        highlight: "Logo Animation!",
+        sectionHeading: (
+            <h1 className="text-3xl md:text-5xl font-secular font-bold text-center mb-4">
+                ELEVATE YOUR BRAND WITH <br />
+                <span className=" text-[#C55EBD]">LOGO </span>ANIMATION
+            </h1>
+        ),
+        sectionDescription:
+            "Logo animations add a dynamic touch to your brand identity, making it memorable and engaging.",
+        benefits: [
+            {
+                title: "ENHANCED BRAND RECOGNITION",
+                description:
+                    "Animated logos create a lasting impression, making your brand more memorable.",
+            },
+            {
+                title: "VERSATILE USAGE",
+                description:
+                    "Perfect for websites, social media, and video content to enhance brand visibility.",
+            },
+            {
+                title: "CREATIVE EXPRESSION",
+                description:
+                    "Showcase your brand's personality and values through unique animations.",
+            },
+        ],
+    },
+    "cartoon-animation": {
+        title: "Engage with",
+        highlight: "Cartoon Animation!",
+        sectionHeading: (
+            <h1 className="text-3xl md:text-5xl font-secular font-bold text-center mb-4">
+                BRING YOUR IDEAS TO LIFE WITH <br />
+                <span className=" text-[#C55EBD]">CARTOON </span>ANIMATION
+            </h1>
+        ),
+        sectionDescription:
+            "Our cartoon animations are perfect for storytelling, marketing, and educational content, making complex ideas fun and engaging.",
+        benefits: [
+            {
+                title: "FUN AND ENGAGING",
+                description:
+                    "Cartoon animations simplify complex ideas, making them entertaining and easy to understand.",
+            },
+            {
+                title: "WIDE APPEAL",
+                description:
+                    "Perfect for all ages, making your content accessible and enjoyable.",
+            },
+            {
+                title: "CREATIVE STORYTELLING",
+                description:
+                    "Bring characters and stories to life with vibrant animations.",
+            },
+        ],
+    },
+    "whiteboard-videos": {
+        title: "Explain with",
+        highlight: "Whiteboard Videos!",
+        sectionHeading: (
+            <h1 className="text-3xl md:text-5xl font-secular font-bold text-center mb-4">
+                SIMPLIFY YOUR MESSAGE WITH <br />
+                <span className=" text-[#C55EBD]">WHITEBOARD </span>VIDEOS
+            </h1>
+        ),
+        sectionDescription:
+            "Whiteboard videos are perfect for educational content, explainer videos, and marketing campaigns, making learning fun and engaging.",
+        benefits: [
+            {
+                title: "EFFECTIVE COMMUNICATION",
+                description:
+                    "Whiteboard animations simplify complex topics, making them easy to understand.",
+            },
+            {
+                title: "VISUAL LEARNING",
+                description:
+                    "Combines visuals and narration for better retention and engagement.",
+            },
+            {
+                title: "FLEXIBLE APPLICATIONS",
+                description:
+                    "Ideal for training, marketing, and educational purposes.",
+            },
+        ],
+    },
+    "vfx": {
+        title: "Transform Reality with",
+        highlight: "VFX!",
+        sectionHeading: (
+            <h1 className="text-3xl md:text-5xl font-secular font-bold text-center mb-4">
+                UNLEASH THE POWER OF <br />
+                <span className=" text-[#C55EBD]">VFX </span>ANIMATION
+            </h1>
+        ),
+        sectionDescription:
+            "Our VFX services bring imagination to life, creating stunning visual effects for films, games, and more.",
+        benefits: [
+            {
+                title: "REALISM AND DETAIL",
+                description:
+                    "VFX adds depth and realism to animations, enhancing visual storytelling.",
+            },
+            {
+                title: "CREATIVE FREEDOM",
+                description:
+                    "Push the boundaries of imagination with limitless creative possibilities.",
+            },
+            {
+                title: "INDUSTRY APPLICATIONS",
+                description:
+                    "Used in film, gaming, advertising, and more to create captivating visuals.",
+            },
+        ],
+    },
+
+};
+
 
 
 const phrases = [
@@ -34,11 +242,7 @@ const phrases = [
     ["SEO", "SMM"],
 ];
 
-const awards = [
-    { src: ImagesAssets.award, alt: "Award 1" },
-    { src: ImagesAssets.award, alt: "Award 2" },
-    { src: ImagesAssets.award, alt: "Award 3" },
-];
+
 
 
 const sectionHeading = (
@@ -85,6 +289,9 @@ const ProfileCTA = () => {
 
     const [index, setIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { serviceId } = useParams();
+    const currentService = serviceContent[serviceId] || serviceContent["2d-animation"]; // fallback
+
 
     const { CeoImg } = AppImages;
 
@@ -108,14 +315,13 @@ const ProfileCTA = () => {
                     <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1.5} />
                 </Canvas>
 
-
-
                 {/* Centered Heading */}
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white pointer-events-none z-10">
                     <h1 className="text-3xl font-secular md:text-5xl font-bold text-center px-4">
-                        Welcome to Our Vibrant World of <br />
-                        <span className="text-purple-500">2D Animations!</span>
+                        {currentService.title} <br />
+                        <span className="text-purple-500">{currentService.highlight}</span>
                     </h1>
+
                 </div>
 
                 {/* Contact Info – Bottom Left */}
@@ -174,140 +380,43 @@ const ProfileCTA = () => {
                     </a>
                 </div>
             </div>
-
-
             <div className="container flex flex-col justify-center items-center mx-auto px-4 py-16">
-                <h1 className="text-4xl font-bold text-center mb-4 text-white">
-                    Explore Our 2D Animation Services
-                </h1>
-                <h2 className="text-2xl font-bold text-[#C55EBD] mb-4">
-                    We Provide Whiteboard Animations.|
-                </h2>
             </div>
 
-            <div className="container mx-auto px-4 py-8 ">
+            {/* Service Cards */}
+            <div className="container mx-auto px-4 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-7">
-                    {/* Full Row Cards */}
-                    <Card className="bg-white/10 p-6 text-white">
-                        <div className="flex justify-between items-start">
-                            <ImagesAssets.profileCTA1 className="w-full h-48 object-cover mb-4 rounded-lg" />
-                            <div className="pl-4">
-                                <h3 className="text-xl font-semibold mb-2">Graphic Motions</h3>
-                                <p className="text-gray-400 mb-4">Bringing your ideas to life with stunning graphic motions.</p>
-                                <CustomButton onClick={() => setIsModalOpen(true)}>Learn More</CustomButton></div>
-                        </div>
-                    </Card>
-                    <Card className="bg-white/10 p-6 text-white">
-                        <div className="flex justify-between items-start">
-                            <ImagesAssets.profileCTA1 className="w-full h-48 object-cover mb-4 rounded-lg" />
-                            <div className="pl-4">
-                                <h3 className="text-xl font-semibold mb-2">Graphic Motions</h3>
-                                <p className="text-gray-400 mb-4">Bringing your ideas to life with stunning graphic motions.</p>
-                                <CustomButton onClick={() => setIsModalOpen(true)}>Learn More</CustomButton></div>
-                        </div>
-                    </Card>
-                    <Card className="bg-white/10 p-6 text-white">
-                        <div className="flex justify-between items-start">
-                            <ImagesAssets.profileCTA1 className="w-full h-48 object-cover mb-4 rounded-lg" />
-                            <div className="pl-4">
-                                <h3 className="text-xl font-semibold mb-2">Graphic Motions</h3>
-                                <p className="text-gray-400 mb-4">Bringing your ideas to life with stunning graphic motions.</p>
-                                <CustomButton onClick={() => setIsModalOpen(true)}>Learn More</CustomButton></div>
-                        </div>
-                    </Card>
-                    <Card className="bg-white/10 p-6 text-white">
-                        <div className="flex justify-between items-start">
-                            <ImagesAssets.profileCTA1 className="w-full h-48 object-cover mb-4 rounded-lg" />
-                            <div className="pl-4">
-                                <h3 className="text-xl font-semibold mb-2">Graphic Motions</h3>
-                                <p className="text-gray-400 mb-4">Bringing your ideas to life with stunning graphic motions.</p>
-                                <CustomButton onClick={() => setIsModalOpen(true)}>Learn More</CustomButton></div>
-                        </div>
-                    </Card>
-                    <Card className="bg-white/10 p-6 text-white">
-                        <div className="flex justify-between items-start">
-                            <ImagesAssets.profileCTA1 className="w-full h-48 object-cover mb-4 rounded-lg" />
-                            <div className="pl-4">
-                                <h3 className="text-xl font-semibold mb-2">Graphic Motions</h3>
-                                <p className="text-gray-400 mb-4">Bringing your ideas to life with stunning graphic motions.</p>
-                                <CustomButton onClick={() => setIsModalOpen(true)}>Learn More</CustomButton></div>
-                        </div>
-                    </Card>
-
+                    {serviceCards.map((card, index) => (
+                        <Card key={index} className="bg-white/10 p-6 text-white">
+                            <div className="flex justify-between items-start">
+                                <card.image className="w-full h-48 object-cover mb-4 rounded-lg" />
+                                <div className="pl-4">
+                                    <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
+                                    <p className="text-gray-400 mb-4">{card.description}</p>
+                                    <CustomButton onClick={() => setIsModalOpen(true)}>Learn More</CustomButton>
+                                </div>
+                            </div>
+                        </Card>
+                    ))}
                 </div>
             </div>
+
+
             <section className="">
                 <AboutCategory
-                    sectionHeading={sectionHeading}
-                    sectionDescription={sectionDescription}
+                    sectionHeading={
+                        serviceContent[serviceId]?.sectionHeading || sectionHeading
+                    }
+                    sectionDescription={
+                        serviceContent[serviceId]?.sectionDescription || sectionDescription
+                    }
                     cards={cardData}
                 />
             </section>
 
             {/* CEO message section */}
+            <CeoMessage />
 
-            <section className="relative px-4 sm:px-6 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center">
-                {/* Bot image at top right - hidden on small screens */}
-                <div className="absolute -top-20 right-0 z-20 h-[300px] w-[300px] overflow-visible pointer-events-none">
-                    <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
-                        <ambientLight intensity={0.5} />
-                        <directionalLight position={[0, -1.2, 0]} intensity={1} />
-                        <My3DModel scale={2} position={[0, -1.5, 0]} />
-                        <Environment preset="city" />
-                        <ContactShadows position={[0, -1.5, 0]} scale={10} blur={2} far={5} opacity={0.5} />
-                        <OrbitControls enableZoom={false} />
-                    </Canvas>
-
-                </div>
-
-
-                {/* CEO Message Card */}
-                <div className="relative w-full max-w-[90vw] sm:max-w-[95%] lg:max-w-[1236px] flex-shrink-0 rounded-[15px] md:rounded-[25px] bg-white/10 shadow-[0px_0px_15px_#FFF] md:shadow-[0px_0px_25px_#FFF] text-white px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:py-10 lg:py-12 overflow-hidden">
-                    {/* Text content */}
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5 md:mb-6 text-center sm:text-left">
-                        ~ CEO's Message ~
-                    </h2>
-
-                    <p className="text-base sm:text-lg font-light leading-relaxed sm:leading-loose mb-4 sm:mb-5 md:mb-6 w-full sm:w-[90%] md:w-[80%]">
-                        At Infinity X Dynamics, we believe that creativity backed by
-                        technology has the power to transform brands and reshape industries.
-                        From our earliest projects to our latest digital breakthroughs,
-                        we've built IXD around one mission — to turn bold ideas into real
-                        impact. We don't just develop apps or create visuals — we craft
-                        experiences that connect, inspire, and drive results. Every team
-                        member, every client, and every campaign is part of our vision to
-                        lead the next wave of digital innovation across Pakistan and beyond.
-                        Thank you for being a part of our journey. The future is dynamic —
-                        and we're just getting started.
-                    </p>
-
-                    <div className="mt-4 sm:mt-6 items-center text-center">
-                        <p
-                            className="text-[#8B7190] text-center sm:text-start w-full sm:w-[80%] md:w-[60%] lg:w-[50%] font-[Poppins] text-xl sm:text-2xl md:text-[32px] italic font-semibold leading-normal mb-2 sm:mb-3 mx-auto"
-                            style={{
-                                WebkitTextStrokeWidth: "1px",
-                                WebkitTextStrokeColor: "#874182",
-                            }}
-                        >
-                            "In a world full of noise, creativity is our code and innovation
-                            is our voice."
-                        </p>
-                        <p className="text-base sm:text-lg font-medium text-white mt-3 sm:mt-4">
-                            Founder & CEO - Jahanzaib Akram
-                        </p>
-                    </div>
-
-                    {/* CEO Image positioned at bottom-right inside the box */}
-                    <div className="relative flex items-start mt-6 sm:mt-8 md:mt-10">
-                        <div className="w-[100px] sm:w-[120px] md:w-[150px] h-[100px] sm:h-[120px] md:h-[150px] bg-white rounded-[50px] sm:rounded-[60px] md:rounded-[75px] blur-[40px] sm:blur-[50px] md:blur-[60px] absolute -top-24 sm:-top-32 md:-top-40 right-0 sm:right-4" />
-                        <img
-                            src={CeoImg}
-                            alt="CEO"
-                            className="relative sm:absolute mx-auto sm:mx-0 sm:right-3 sm:bottom-0 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[269px] md:h-[269px] rounded-full object-cover shadow-[0_0_10px_#874182] sm:shadow-[0_0_15px_#874182] md:shadow-[0_0_20px_#874182] border border-white"
-                        />
-                    </div>
-                </div>
-            </section>
 
 
             <section className=" w-full pb-4">
@@ -328,56 +437,19 @@ const ProfileCTA = () => {
 
                 <div className="max-w-full mx-auto px-4 md:px-[122px]">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
-                        <Card className="bg-[#320142] text-white p-4 text-center border-0">
-                            <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-                            <img
-                                src={ImagesAssets.video}
-                                alt="Project 1"
-                                className="w-full object-cover rounded-lg"
-                            />
-                        </Card>
-                        <Card className="bg-[#320142] text-white p-4 text-center border-0">
-                            <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-                            <img
-                                src={ImagesAssets.video}
-                                alt="Project 2"
-                                className="w-full object-cover rounded-lg"
-                            />
-                        </Card>
-                        <Card className="bg-[#320142] text-white p-4 text-center border-0">
-                            <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-                            <img
-                                src={ImagesAssets.video}
-                                alt="Project 3"
-                                className="w-full object-cover rounded-lg"
-                            />
-                        </Card>
-                        <Card className="bg-[#320142] text-white p-4 text-center border-0">
-                            <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-                            <img
-                                src={ImagesAssets.video}
-                                alt="Project 1"
-                                className="w-full object-cover rounded-lg"
-                            />
-                        </Card>
-                        <Card className="bg-[#320142] text-white p-4 text-center border-0">
-                            <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-                            <img
-                                src={ImagesAssets.video}
-                                alt="Project 2"
-                                className="w-full object-cover rounded-lg"
-                            />
-                        </Card>
-                        <Card className="bg-[#320142] text-white p-4 text-center border-0">
-                            <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-                            <img
-                                src={ImagesAssets.video}
-                                alt="Project 3"
-                                className="w-full object-cover rounded-lg"
-                            />
-                        </Card>
+                        {projects.map((project) => (
+                            <Card key={project.id} className="bg-[#320142] text-white p-4 text-center border-0">
+                                <p className="text-lg font-semibold mb-2">{project.title}</p>
+                                <img
+                                    src={project.image}
+                                    alt={`Project ${project.id}`}
+                                    className="w-full object-cover rounded-lg"
+                                />
+                            </Card>
+                        ))}
                     </div>
                 </div>
+
             </section>
 
 
@@ -432,8 +504,8 @@ const ProfileCTA = () => {
                         <ImagesAssets.botTwo className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-cover" />
                     </div>
                 </div>
-                <div className="flex flex-col md:flex-row flex-wrap gap-6 text-white ">
-                    {[1, 2].map((_, index) => (
+                <div className="flex flex-col md:flex-row flex-wrap gap-6 text-white">
+                    {feedbackList.map((item, index) => (
                         <Card
                             key={index}
                             className="flex-1 bg-[#4a015f] text-white p-6 rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
@@ -442,21 +514,17 @@ const ProfileCTA = () => {
                                 {/* Profile Section */}
                                 <div className="flex-shrink-0 text-center sm:text-left">
                                     <img
-                                        src={ImagesAssets.feedbackProfile}
-                                        alt="Profile CTA"
+                                        src={item.image}
+                                        alt={item.name}
                                         className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover mx-auto sm:mx-0"
                                     />
-                                    <h2 className="mt-2 text-lg font-semibold">Jennifer Haldoc</h2>
-                                    <p className="text-yellow-400 font-medium">★★★★★ 4.0</p>
+                                    <h2 className="mt-2 text-lg font-semibold">{item.name}</h2>
+                                    <p className="text-yellow-400 font-medium">{item.rating}</p>
                                 </div>
 
                                 {/* Feedback Text */}
                                 <div className="text-sm text-gray-300 sm:text-left">
-                                    <p>
-                                        "Lorem ipsum is a dummy or placeholder text commonly used in graphic
-                                        design, publishing, and web development to fill empty spaces in a
-                                        layout that does not yet have content."
-                                    </p>
+                                    <p>{item.feedback}</p>
                                 </div>
                             </div>
                         </Card>

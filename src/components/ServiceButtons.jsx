@@ -17,15 +17,15 @@ const services = [
 
 const links = [
   "#",
-  "/3d-animation",
-  "/2d-animation", 
+  "/services/3d-animation",
+  "/services/2d-animation",
   "#",
-  "/web-development",
-  "/cartoonAnimation",
-  "/whiteBoard",
-  "/logo-animation",
-  "#", 
-  "/cgi-vfx",
+  "/services/web-development",
+  "/services/cartoon-animation",
+  "/services/whiteboard-videos",
+  "/services/logo-animation",
+  "#",
+  "/services/cgi-vfx",
   "#",
   "#",
 ];

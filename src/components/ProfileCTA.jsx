@@ -243,17 +243,14 @@ const phrases = [
 ];
 
 
-
-
-const sectionHeading = (
-    <div children="">
-        <h1 className="text-3xl md:text-5xl font-secular font-bold text-center mb-4">
-            BENEFITS OF <br />
-            <span className=" text-[#C55EBD]">3D </span>VIDEO <span className=" text-[#C55EBD]">ANIMATIONS</span>
-        </h1>
-    </div>
-);
-
+sectionHeading: (
+  <div className="text-center mb-4">
+    <h1 className="text-3xl md:text-5xl font-secular font-bold">
+      BENEFITS OF <br />
+      <span className="text-[#C55EBD]">3D </span>VIDEO <span className="text-[#C55EBD]">ANIMATIONS</span>
+    </h1>
+  </div>
+)
 const sectionDescription = "With our 2D animations, you can engage customers with compelling visuals, enjoy faster loading time with less load on website performance making it easier for your clients and customers to learn about your services and products.";
 const cardData = [
     {
@@ -317,7 +314,7 @@ const ProfileCTA = () => {
 
                 {/* Centered Heading */}
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white pointer-events-none z-10">
-                    <h1 className="text-3xl font-secular md:text-5xl font-bold text-center px-4">
+                    <h1 className="text-2xl font-secular md:text-5xl font-bold text-center px-14 md:px-4">
                         {currentService.title} <br />
                         <span className="text-purple-500">{currentService.highlight}</span>
                     </h1>

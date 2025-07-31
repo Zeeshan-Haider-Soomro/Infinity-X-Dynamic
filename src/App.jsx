@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { Outlet } from "react-router";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -39,8 +39,13 @@ const App = () => {
 
   // Intro video overlay
   if (showIntro) {
-    return <IntroVideo />;
-  }
+  return (
+    <Suspense fallback={<div className="bg-black h-screen w-screen" />}>
+      <IntroVideo />
+    </Suspense>
+  );
+}
+
 
   return (
     <div className="min-h-screen flex flex-col">

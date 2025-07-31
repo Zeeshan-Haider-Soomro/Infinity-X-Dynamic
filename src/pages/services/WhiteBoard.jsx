@@ -62,30 +62,29 @@ const sectionDescription =
 const cardData = [
   {
     image: ImagesAssets.profileCtaCard,
-    title: 'ENGAGING STORYTELLING',
+    title: "ENGAGING STORYTELLING",
     description:
-      '2D animations breathe life into narratives, making them more captivating and memorable, fostering a deeper connection with the audience.',
+      "2D animations breathe life into narratives, making them more captivating and memorable, fostering a deeper connection with the audience.",
   },
   {
     image: ImagesAssets.profileCtaCard,
-    title: 'COST-EFFECTIVE PRODUCTION',
+    title: "COST-EFFECTIVE PRODUCTION",
     description:
-      'Compared to 3D animations, 2D animation production is often more affordable, making it an excellent choice for projects with budget constraints.',
+      "Compared to 3D animations, 2D animation production is often more affordable, making it an excellent choice for projects with budget constraints.",
   },
   {
     image: ImagesAssets.profileCtaCard,
-    title: 'FAST LOADING TIMES',
+    title: "FAST LOADING TIMES",
     description:
-      '2D animations are lightweight, ensuring quick loading on websites and applications, contributing to a seamless user experience.',
+      "2D animations are lightweight, ensuring quick loading on websites and applications, contributing to a seamless user experience.",
   },
   {
     image: ImagesAssets.profileCtaCard,
-    title: 'VERSATILITY IN STYLE',
+    title: "VERSATILITY IN STYLE",
     description:
-      'From whimsical and playful to sleek and professional, 2D animation offers a versatile range of styles, allowing for customization to suit various brands.',
+      "From whimsical and playful to sleek and professional, 2D animation offers a versatile range of styles, allowing for customization to suit various brands.",
   },
 ];
-
 
 const WhiteBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Add this line
@@ -175,7 +174,6 @@ const WhiteBoard = () => {
         </div>
         <div className="md:h-[700px] h-[1400px] px-4">
           <div>
-
             <CustomHeading
               firstText="Frequently Asked"
               secondText="Questions"
@@ -189,7 +187,9 @@ const WhiteBoard = () => {
         </div>
       </section>
       <section className="bg-[#F2E6FF]">
-        <h1 className="text-center text-4xl font-bold text-[#5C0E6E] pt-5">Our</h1>
+        <h1 className="text-center text-4xl font-bold text-[#5C0E6E] pt-5">
+          Our
+        </h1>
         <CustomHeading
           firstText="Amazing"
           secondText="Clients"

@@ -18,6 +18,9 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { AchievementsSection } from "@/components/AchievementsSection";
 import SliderCards from "@/components/SliderCards";
 import CustomButton from "@/components/CustomButton";
+import { Canvas } from "@react-three/fiber";
+import Static3DModel from "@/components/models/Model3D";
+import { Environment, OrbitControls } from "@react-three/drei";
 
 const sections = [
   {
@@ -54,7 +57,7 @@ const OurWork = () => {
         <div className="absolute inset-0 z-0">
           <ImagesAssets.backgroundWave className="w-full h-[450px] sm:h-full lg:h-full object-cover" />
         </div>
-        <div className="flex flex-col-reverse lg:flex-row justify-around items-center z-10 mt-8 py-8 px-2 ">
+        <div className="flex justify-between items-center w-full max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8 z-10 relative gap-16">
           {/* Left: Text and Stats */}
           <div className="text-white max-w-2xl rounded-3xl p-8 shadow-lg bg-white/10 backdrop-blur-md">
             <h1 className="text-2xl md:text-3xl lg:text-3xl font-secular font-bold text-center md:text-left">
@@ -72,8 +75,19 @@ const OurWork = () => {
           </div>
 
           {/* Right: Bot Illustration */}
-          <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
-            <ImagesAssets.botOne />
+          <div data-aos="fade-left" className="relative -top-4 sm:w-full lg:w-1/2 sm:block hidden">
+            <div className=" overflow-visible pointer-events-none z-20 h-[300px] w-[250px] md:h-[400px] md:w-[350px]">
+              <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+                <ambientLight intensity={0.5} />
+                <directionalLight position={[0, -1.2, 0]} intensity={1} />
+                {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+                <Static3DModel scale={1} position={[0, -1.5, 0]} />
+                <Environment preset="city" />
+
+                <OrbitControls enableZoom={false} />
+              </Canvas>
+
+            </div>
           </div>
         </div>
       </section>
@@ -157,7 +171,7 @@ const OurWork = () => {
         <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-6 sm:gap-10">
 
           {/* Text */}
-          <div className="w-full lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
+          <div className="px-8 w-full lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
             <h3 className="text-2xl sm:text-3xl font-semibold mb-2">We Love Feedback!</h3>
             <p className="text-base sm:text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed text-white/80">
               Share your thoughts with us, and let's turn your feedback into the
@@ -166,10 +180,17 @@ const OurWork = () => {
           </div>
 
           {/* Right Illustration */}
-          <div className="w-full lg:w-1/3 flex justify-center lg:justify-end">
-            <div className="w-[300px] max-w-full hidden lg:block">
-              <ImagesAssets.botTwo className="w-full h-auto" />
-            </div>
+          <div className=" -top-10 right-0 h-[180px] w-[180px]   md:-top-20 md:right-0 z-20 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
+            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[0, -1.2, 0]} intensity={1} />
+              {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+              <Static3DModel scale={1} position={[0, -1.5, 0]} />
+              <Environment preset="city" />
+
+              <OrbitControls enableZoom={false} />
+            </Canvas>
+
           </div>
         </div>
 
@@ -260,22 +281,22 @@ const OurWork = () => {
       {/* FAQs Section */}
 
       <section className="relative overflow-visible ">
-        {/* Bot positioned absolutely */}
-        <div className="absolute right-6 -top-40 z-10">
-          <ImagesAssets.botTwo />
+
+        <div className="py-10 px-16 z-20">
+          
+          <div className=" absolute right-0 h-[180px] w-[180px]  md:-top-24 md:right-0 z-20 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
+          <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[0, -1.2, 0]} intensity={1} />
+            {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+            <Static3DModel scale={1} position={[0, -1.5, 0]} />
+            <Environment preset="city" />
+
+            <OrbitControls enableZoom={false} />
+          </Canvas>
+
         </div>
-
-        <div className="py-10 px-4 relative z-20">
-          {/* <CustomHeading
-                  firstText="Frequently Asked"
-                  secondText="Questions"
-                  firstColor="#FFF"
-                  secondColor="#A95C9C"
-                  textSize="text-4xl md:text-6xl font-bold p-5"
-                  align="text-center"
-                /> */}
-
-          <FAQSection />
+        <FAQSection />
         </div>
       </section>
 

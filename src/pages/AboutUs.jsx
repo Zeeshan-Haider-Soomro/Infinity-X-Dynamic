@@ -14,6 +14,10 @@ import CustomCardModal from "@/components/CustomCardModal";
 import { Card, CardContent } from "@/components/ui/card";
 import AwardBox from "@/components/AwardBox";
 import SliderCards from "@/components/SliderCards";
+import { Environment, OrbitControls } from "@react-three/drei";
+import Static3DModel from "@/components/models/Model3D";
+import { Canvas } from "@react-three/fiber";
+import CeoMessage from "@/components/CEOMessage";
 
 const sections = [
   {
@@ -65,7 +69,7 @@ const AboutUs = () => {
               About<span className="text-[#8B7190]" > Us </span>
             </h1>
             <p className="text-[16px] md:text-xl text-center md:text-left mt-4">
-             At Infinity X Dynamics, we merge creativity with cutting-edge technology to deliver immersive experiences. From stunning visual effects to innovative software solutions, our team is dedicated to bringing your vision to life. Founded in 2020, Infinity X Dynamics has rapidly evolved into a hub for digital excellence.
+              At Infinity X Dynamics, we merge creativity with cutting-edge technology to deliver immersive experiences. From stunning visual effects to innovative software solutions, our team is dedicated to bringing your vision to life. Founded in 2020, Infinity X Dynamics has rapidly evolved into a hub for digital excellence.
             </p>
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-secular mt-4 text-[#8B7190] font-semibold ">
               What We Do
@@ -76,8 +80,17 @@ const AboutUs = () => {
           </div>
 
           {/* Right: Bot Illustration */}
-          <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
-            <ImagesAssets.botOne />
+          <div className="absolute right-0 -top-6 sm:-top-10  md:top-18 lg:-top-16 z-20 h-[200px] w-[100px]   lg:h-full lg:w-[50%] overflow-visible pointer-events-none">
+            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[0, -1.2, 0]} intensity={1} />
+              {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+              <Static3DModel scale={0.8} position={[0, -1.5, 0]} />
+              <Environment preset="city" />
+
+              <OrbitControls enableZoom={false} />
+            </Canvas>
+
           </div>
         </div>
       </section>
@@ -88,70 +101,27 @@ const AboutUs = () => {
 
       {/* CEO message section */}
 
-      <section className="relative px-4 sm:px-6 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center">
-        {/* Bot image at top right - hidden on small screens */}
-        <div className="absolute -top-16 sm:-top-20 md:-top-24 right-0 z-10 w-16 sm:w-20 md:w-auto">
-          <ImagesAssets.botTwo className="w-full h-auto" />
-        </div>
 
-        {/* CEO Message Card */}
-        <div className="relative w-full max-w-[90vw] sm:max-w-[95%] lg:max-w-[1236px] flex-shrink-0 rounded-[15px] md:rounded-[25px] bg-white/10 shadow-[0px_0px_15px_#FFF] md:shadow-[0px_0px_25px_#FFF] text-white px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:py-10 lg:py-12 overflow-hidden">
-          {/* Text content */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5 md:mb-6 text-center sm:text-left">
-            ~ CEO's Message ~
-          </h2>
 
-          <p className="text-base sm:text-lg font-light leading-relaxed sm:leading-loose mb-4 sm:mb-5 md:mb-6 w-full sm:w-[90%] md:w-[80%]">
-            At Infinity X Dynamics, we believe that creativity backed by
-            technology has the power to transform brands and reshape industries.
-            From our earliest projects to our latest digital breakthroughs,
-            we've built IXD around one mission — to turn bold ideas into real
-            impact. We don't just develop apps or create visuals — we craft
-            experiences that connect, inspire, and drive results. Every team
-            member, every client, and every campaign is part of our vision to
-            lead the next wave of digital innovation across Pakistan and beyond.
-            Thank you for being a part of our journey. The future is dynamic —
-            and we're just getting started.
-          </p>
-
-          <div className="mt-4 sm:mt-6 items-center text-center">
-            <p
-              className="text-[#8B7190] text-center sm:text-start w-full sm:w-[80%] md:w-[60%] lg:w-[50%] font-[Poppins] text-xl sm:text-2xl md:text-[32px] italic font-semibold leading-normal mb-2 sm:mb-3 mx-auto"
-              style={{
-                WebkitTextStrokeWidth: "1px",
-                WebkitTextStrokeColor: "#874182",
-              }}
-            >
-              "In a world full of noise, creativity is our code and innovation
-              is our voice."
-            </p>
-            <p className="text-base sm:text-lg font-medium text-white mt-3 sm:mt-4">
-              Founder & CEO - Jahanzaib Akram
-            </p>
-          </div>
-
-          {/* CEO Image positioned at bottom-right inside the box */}
-          <div className="relative flex items-start mt-6 sm:mt-8 md:mt-10">
-            <div className="w-[100px] sm:w-[120px] md:w-[150px] h-[100px] sm:h-[120px] md:h-[150px] bg-white rounded-[50px] sm:rounded-[60px] md:rounded-[75px] blur-[40px] sm:blur-[50px] md:blur-[60px] absolute -top-24 sm:-top-32 md:-top-40 right-0 sm:right-4" />
-            <img
-              src={CeoImg}
-              alt="CEO"
-              className="relative sm:absolute mx-auto sm:mx-0 sm:right-3 sm:bottom-0 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[269px] md:h-[269px] rounded-full object-cover shadow-[0_0_10px_#874182] sm:shadow-[0_0_15px_#874182] md:shadow-[0_0_20px_#874182] border border-white"
-            />
-          </div>
-        </div>
-      </section>
+      <CeoMessage />
 
 
       {/* Our Team Section */}
-      <section className="mt-10 w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white py-2">
+      <section className=" relative  mt-10 w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white py-6">
         {/* Top Row */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mb-16 max-w-[1236px] mx-auto">
           {/* Left Image */}
-          <div className="w-[300px] flex justify-center">
-            <div className="[-webkit-text-stroke:1px_#874182] hidden lg:block [font-family:'Secular_One',Helvetica] font-normal text-[32px] leading-[100px] whitespace-nowrap">
-              <ImagesAssets.botThree />
-            </div>
+          <div className=" -top-10 left-0 h-[180px] w-[180px]   md:-top-20 md:right-0 z-20 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
+            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[0, -1.2, 0]} intensity={1} />
+              {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+              <Static3DModel scale={1} position={[0, -1.5, 0]} />
+              <Environment preset="city" />
+
+              <OrbitControls enableZoom={false} />
+            </Canvas>
+
           </div>
 
           {/* Center Text */}

@@ -2,8 +2,8 @@ import Typewriter from "typewriter-effect";
 
 const TypewriterText = () => {
   return (
-    <div className="flex min-h-[160px] px-10 md:px-20 bg-transparent rounded-lg">
-      <div className="text-[#FFF] font-bold font-sans md:text-4xl lg:text-6xl">
+    <div className="flex px-10 md:px-14 bg-transparent rounded-lg">
+      <div className="text-[#FFF] text-xl font-bold font-sans md:text-2xl lg:text-3xl">
         <Typewriter
           options={{
             strings: [

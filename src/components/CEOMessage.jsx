@@ -12,7 +12,7 @@ const CeoMessage = () => {
     return (
         <section className="relative px-4 sm:px-6 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center">
             {/* Bot image at top right - hidden on small screens */}
-            <div className="absolute hidden sm:block -top-20 right-0 z-20 h-[300px] w-[300px] overflow-visible pointer-events-none">
+            <div className="absolute -top-10 right-8 h-[150px] w-[180px]   md:-top-20 md:right-0 z-20 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
                 <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
                     <ambientLight intensity={0.5} />
                     <directionalLight position={[0, -1.2, 0]} intensity={1} />

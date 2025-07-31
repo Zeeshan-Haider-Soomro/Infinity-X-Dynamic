@@ -20,6 +20,7 @@ import My3DModel from "./My3DModel";
 import CeoMessage from "./CEOMessage";
 import { awards, feedbackList, projects, serviceCards } from "@/data/serviceCards";
 import { useParams } from "react-router-dom"; // ⬅️ ADD THIS
+import Static3DModel from "./models/Model3D";
 
 // This is your service-specific data
 const serviceContent = {
@@ -244,12 +245,12 @@ const phrases = [
 
 
 sectionHeading: (
-  <div className="text-center mb-4">
-    <h1 className="text-3xl md:text-5xl font-secular font-bold">
-      BENEFITS OF <br />
-      <span className="text-[#C55EBD]">3D </span>VIDEO <span className="text-[#C55EBD]">ANIMATIONS</span>
-    </h1>
-  </div>
+    <div className="text-center mb-4">
+        <h1 className="text-3xl md:text-5xl font-secular font-bold">
+            BENEFITS OF <br />
+            <span className="text-[#C55EBD]">3D </span>VIDEO <span className="text-[#C55EBD]">ANIMATIONS</span>
+        </h1>
+    </div>
 )
 const sectionDescription = "With our 2D animations, you can engage customers with compelling visuals, enjoy faster loading time with less load on website performance making it easier for your clients and customers to learn about your services and products.";
 const cardData = [
@@ -482,30 +483,55 @@ const ProfileCTA = () => {
                 </div>
             </section>
 
-            <div className=" px-4  py-2">
-                <FAQSection />
-            </div>
+            <section className="relative overflow-visible ">
+
+                <div className="py-10 px-16 z-20">
+
+                    <div className=" absolute right-0 h-[180px] w-[180px]  md:-top-36 md:right-0 z-0 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
+                        <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+                            <ambientLight intensity={0.5} />
+                            <directionalLight position={[0, -1.2, 0]} intensity={1} />
+                            {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+                            <Static3DModel scale={1} position={[0, -1.5, 0]} />
+                            <Environment preset="city" />
+
+                            <OrbitControls enableZoom={false} />
+                        </Canvas>
+
+                    </div>
+                    <FAQSection />
+                </div>
+            </section>
 
 
             <AchievementsSection />
 
             <div className="bg-[#320142] text-white py-8 md:py-16 px-4 md:px-16">
-                <div className="flex flex-col md:flex-row items-center justify-between  text-white p">
+                <div className="relative flex flex-col md:flex-row items-center justify-between  text-white p">
                     <div>
                         <h1 className="text-2xl md:text-4xl font-bold mb-4 font-secular
                         ">We Love <span className="text-[#8B7190]">Feedback !</span></h1>
                         <p className="text-lg md:text-xl font-light mb-6">
                             Share your thoughts with us, and let's turn your feedback into the masterpiece that shapes our journey.</p>
                     </div>
-                    <div className="hidden md:block">
-                        <ImagesAssets.botTwo className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-cover" />
+                    <div className="absolute right-0 h-[180px] w-[180px]  md:-top-50 md:right-0 z-0 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
+                        <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+                            <ambientLight intensity={0.5} />
+                            <directionalLight position={[0, -1.2, 0]} intensity={1} />
+                            {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+                            <Static3DModel scale={.7} position={[0, -1.5, 0]} />
+                            <Environment preset="city" />
+
+                            <OrbitControls enableZoom={false} />
+                        </Canvas>
+
                     </div>
                 </div>
                 <div className="flex flex-col md:flex-row flex-wrap gap-6 text-white">
                     {feedbackList.map((item, index) => (
                         <Card
                             key={index}
-                            className="flex-1 bg-[#4a015f] text-white p-6 rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
+                            className="flex-1 bg-[#340740] border-blue-900 text-white p-6 rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
                         >
                             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
                                 {/* Profile Section */}

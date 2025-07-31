@@ -14,6 +14,9 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import CustomButton from "@/components/CustomButton"
 import { useState } from "react"
 import SliderCards from "@/components/SliderCards"
+import { Canvas } from "@react-three/fiber"
+import Static3DModel from "@/components/models/Model3D"
+import { Environment, OrbitControls } from "@react-three/drei"
 
 const sections = [
   {
@@ -59,7 +62,7 @@ const ContactUs = () => {
         <div className="absolute inset-0 z-0">
           <ImagesAssets.backgroundWave className="w-full h-[450px] sm:h-full lg:h-full object-cover" />
         </div>
-        <div className="flex flex-col-reverse lg:flex-row justify-around items-center z-10 mt-8 py-8 px-2 ">
+        <div className="flex justify-between items-center w-full max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8 z-10 relative gap-16">
           {/* Left: Text and Stats */}
           <div className="text-white max-w-2xl rounded-3xl p-8 shadow-lg bg-white/10 backdrop-blur-md">
             <h1 className="text-2xl md:text-3xl lg:text-3xl font-secular font-bold text-center md:text-left">
@@ -77,8 +80,19 @@ const ContactUs = () => {
           </div>
 
           {/* Right: Bot Illustration */}
-          <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
-            <ImagesAssets.botOne />
+          <div data-aos="fade-left" className="relative -top-4 sm:w-full lg:w-1/2 sm:block hidden">
+            <div className=" overflow-visible pointer-events-none z-20 h-[300px] w-[250px] md:h-[400px] md:w-[350px]">
+              <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+                <ambientLight intensity={0.5} />
+                <directionalLight position={[0, -1.2, 0]} intensity={1} />
+                {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+                <Static3DModel scale={1} position={[0, -1.5, 0]} />
+                <Environment preset="city" />
+
+                <OrbitControls enableZoom={false} />
+              </Canvas>
+
+            </div>
           </div>
         </div>
       </section>
@@ -169,47 +183,36 @@ const ContactUs = () => {
       {/* FAQs Section */}
 
       <section className="relative overflow-visible ">
-        {/* Bot positioned absolutely */}
-        <div className="hidden md:block absolute right-6 -top-50 z-20">
-          <ImagesAssets.botTwo />
-        </div>
 
-        <div className="py-10 px-4 relative z-20">
-          {/* <CustomHeading
-            firstText="Frequently Asked"
-            secondText="Questions"
-            firstColor="#FFF"
-            secondColor="#A95C9C"
-            textSize="text-4xl md:text-6xl font-bold p-5"
-            align="text-center"
-          /> */}
+        <div className="py-10 px-16 z-20">
 
+          <div className=" absolute right-0 h-[180px] w-[180px]  md:-top-36 md:right-0 z-0 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
+            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[0, -1.2, 0]} intensity={1} />
+              {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+              <Static3DModel scale={1} position={[0, -1.5, 0]} />
+              <Environment preset="city" />
+
+              <OrbitControls enableZoom={false} />
+            </Canvas>
+
+          </div>
           <FAQSection />
         </div>
       </section>
 
       {/* amazing clients section */}
-      {/* <section className="bg-[#320142]">
-        <h1 className="text-center text-4xl font-bold text-white pt-5">Our</h1>
-        <CustomHeading
-          firstText="Amazing"
-          secondText="Clients"
-          firstColor="white"
-          secondColor="#D977C8"
-          textSize="text-4xl md:text-6xl font-bold"
-          align="text-center"
-        />
-        <ImageSlider />
-      </section> */}
+     
 
       <AchievementsSection />
       {/* feedback section */}
 
-      <section className="mt-10 w-full px-4 overflow-hidden pb-4">
+      <section className=" relative mt-10 w-full px-4 overflow-hidden pb-4 ">
         {/* Header Section */}
-        <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between">
+        <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between z-0">
           {/* Text */}
-          <div className="lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
+          <div className="lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white py-8">
             <h3 className="text-[32px] font-semibold mb-2 font-secular">
               We Love Feedback!
             </h3>
@@ -220,10 +223,17 @@ const ContactUs = () => {
           </div>
 
           {/* Right Illustration */}
-          <div className="flex justify-center lg:justify-end lg:w-1/3 mb-6 lg:mb-0">
-            <div className="hidden md:block text-[32px] [-webkit-text-stroke:1px_#874182]">
-              <ImagesAssets.botTwo />
-            </div>
+          <div className="absolute right-0 h-[180px] w-[180px]  md:-top-28 md:right-0 z-0 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
+            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[0, -1.2, 0]} intensity={1} />
+              {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+              <Static3DModel scale={.7} position={[0, -1.5, 0]} />
+              <Environment preset="city" />
+
+              <OrbitControls enableZoom={false} />
+            </Canvas>
+
           </div>
         </div>
 
@@ -236,25 +246,6 @@ const ContactUs = () => {
         <SliderCards />
       </section>
 
-      {/* <section className="bg-[#EEDFFF]">
-        <div className="md:p-14 p-8">
-          <CustomHeading
-            firstText="We Love"
-            secondText="Feedback"
-            firstColor="#5C0E6E"
-            secondColor="#A95C9C"
-            textSize="text-4xl md:text-6xl font-bold"
-            align="text-center"
-          />
-          <p className="text-[#5C0E6E] text-center md:text-2xl text-[16px] md:px-10 md:p-4 py-3 font-medium">
-            Share your thoughts with us, and let's turn your feedback into the
-            masterpiece that shapes our journey.
-          </p>
-        </div>
-        <div>
-          <FeedbackSection />
-        </div>
-      </section> */}
       {/* our location  */}
       <section className="bg-[#320142] text-white py-12 px-6 lg:px-24">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8">

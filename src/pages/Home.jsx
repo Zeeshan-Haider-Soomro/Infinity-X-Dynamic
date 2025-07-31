@@ -22,6 +22,9 @@ import { Card } from "@/components/ui/card";
 import History from "@/components/History";
 import AwardBox from "@/components/AwardBox";
 import ThreeDBackground from "@/components/ThreeBackground";
+import { Canvas } from "@react-three/fiber";
+import Static3DModel from "@/components/models/Model3D";
+import { Environment, OrbitControls } from "@react-three/drei";
 
 
 
@@ -102,14 +105,12 @@ const Home = () => {
         </section>
       </div>
       {/* 2nd section  */}
-      <section className="bg-[#3C0945] bg-zero bg-contain bg-no-repeat"
-        style={{
-          backgroundImage: `url(${ImagesAssets.sectionOne})`,
-        }}
+      <section className=""
+       
       >
         <h1
           data-aos="fade-up"
-          className=" text-2xl  md:text-4xl font-bold text-center text-[#FFF] pt-10 p-3"
+          className=" text-2xl md:text-4xl font-bold  items-center text-center text-[#FFF] pt-10 p-3"
         >
           Welcome to Infinity X Dynamic,
         </h1>
@@ -118,7 +119,7 @@ const Home = () => {
         </div>
 
         {/* text and image section */}
-        <div className="flex flex-col lg:flex-row items-center gap-10 p-6">
+        <div className="flex justify-between py-4 px-10 mb-8">
           {/* Left: Image */}
 
           {/* Right: Text + Button */}
@@ -134,15 +135,17 @@ const Home = () => {
             <CustomButton to="/about-us">READ MORE</CustomButton>
           </div>
 
-          <div data-aos="fade-left" className="relative w-full lg:w-1/2 hidden lg:block">
-            <ImagesAssets.botOne className="animate-float" />
-            {/* <img
-              src={ImagesAssets.botOne}
-              alt="Banner"
-              className="w-[400px] h-[300px] sm:w-[400px] sm:h-[300px] md:w-[500px] md:h-[450px] object-contain rounded-lg mx-auto z-10 relative"
-            /> */}
-            {/* <div className="absolute -top-8 left-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div> */}
-            {/* <div className="absolute -bottom-7 right-1 w-50 h-50 bg-[#440755] rounded-[10px] z-0"></div> */}
+          <div className="absolute hidden sm:block top-[700px] right-18 z-20 h-[300px] w-[300px] overflow-visible pointer-events-none">
+            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[0, -1.2, 0]} intensity={1} />
+              {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+              <Static3DModel scale={1} position={[0, -1.5, 0]} />
+              <Environment preset="city" />
+
+              <OrbitControls enableZoom={false} />
+            </Canvas>
+
           </div>
         </div>
 

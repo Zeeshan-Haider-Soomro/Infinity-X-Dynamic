@@ -1,13 +1,17 @@
-import React, { Suspense, useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef, useMemo } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { clone } from "three/examples/jsm/utils/SkeletonUtils";
 
 export default function Static3DModel(props) {
   const { scene } = useGLTF("/model/chatbot.glb");
   const modelRef = useRef();
 
+  // ✅ Clone the model to avoid shared scene issues
+  const clonedScene = useMemo(() => clone(scene), [scene]);
+
   useEffect(() => {
-    if (!scene || !modelRef.current) return;
+    if (!clonedScene || !modelRef.current) return;
 
     let blinkMesh = null;
     let blinkIndex = null;
@@ -16,7 +20,7 @@ export default function Static3DModel(props) {
     let rightHand = null;
     let handInterval;
 
-    // Traverse model to find blink morph target and hand bones
+    // Traverse model to find blink morph and hands
     modelRef.current.traverse((child) => {
       if (child.isMesh && child.morphTargetDictionary?.Blink !== undefined) {
         blinkMesh = child;
@@ -27,83 +31,62 @@ export default function Static3DModel(props) {
         const name = child.name.toLowerCase();
         if (name.includes("hand_l") || name.includes("lefthand")) {
           leftHand = child;
-          console.log("Found Left Hand:", child.name);
         }
         if (name.includes("hand_r") || name.includes("righthand")) {
           rightHand = child;
-          console.log("Found Right Hand:", child.name);
         }
       }
     });
 
-    // 🟢 Start blinking if Blink morph target exists
+    // Blink logic
     if (blinkMesh && blinkIndex !== null) {
       const blink = () => {
-        blinkMesh.morphTargetInfluences[blinkIndex] = 1; // Close eyes
+        blinkMesh.morphTargetInfluences[blinkIndex] = 1;
         setTimeout(() => {
-          blinkMesh.morphTargetInfluences[blinkIndex] = 0; // Open eyes
+          blinkMesh.morphTargetInfluences[blinkIndex] = 0;
         }, 150);
       };
 
       const startBlinking = () => {
         blink();
-        blinkTimeout = setTimeout(startBlinking, Math.random() * 3000 + 3000); // every 3–6 sec
+        blinkTimeout = setTimeout(startBlinking, Math.random() * 3000 + 3000);
       };
 
       startBlinking();
     }
 
-    // ✋ Hand animation: small waving motion
+    // Hand wave animation
     let handDirection = 1;
     const animateHands = () => {
-      if (leftHand) {
-        leftHand.rotation.z += 0.1 * handDirection;
-      }
-      if (rightHand) {
-        rightHand.rotation.z -= 0.1 * handDirection;
-      }
+      if (leftHand) leftHand.rotation.z += 0.1 * handDirection;
+      if (rightHand) rightHand.rotation.z -= 0.1 * handDirection;
       handDirection *= -1;
     };
 
     handInterval = setInterval(animateHands, 2000);
 
-    // Cleanup
     return () => {
       clearTimeout(blinkTimeout);
       clearInterval(handInterval);
     };
-  }, [scene]);
-  
+  }, [clonedScene]);
+
+  // Head or other movement
   let angle = 0;
-let direction = 1;
+  let direction = 1;
 
-// Model3D.jsx:82 Group: Scene
-// Model3D.jsx:82 Mesh: Cube  = body
-// Model3D.jsx:82 Group: Cube001 = head
-// Model3D.jsx:82 Mesh: Cube002_1 
-// Model3D.jsx:82 Mesh: Cube002_2
-// Model3D.jsx:82 Mesh: Cube004
-// Model3D.jsx:82 Mesh: Cube002
-// Model3D.jsx:82 Mesh: Cube003
-
-
-
-// cube001 is the head mome
-
-useFrame(() => {
-  const leftHand = modelRef.current.getObjectByName("Cube003");
-  if (leftHand) {
-    angle += 0.01 * direction;
-    if (angle > 0.5 || angle < -0.5) direction *= -1;
-
-    leftHand.rotation.x = angle; // waving forward/backward
-  
-  }
-});
+  useFrame(() => {
+    const leftHand = modelRef.current.getObjectByName("Cube003");
+    if (leftHand) {
+      angle += 0.01 * direction;
+      if (angle > 0.5 || angle < -0.5) direction *= -1;
+      leftHand.rotation.x = angle;
+    }
+  });
 
   return (
     <Suspense fallback={null}>
-      <primitive ref={modelRef} object={scene} {...props} />
+      <primitive ref={modelRef} object={clonedScene} {...props} />
     </Suspense>
   );
 }

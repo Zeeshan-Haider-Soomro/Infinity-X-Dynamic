@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import My3DModel from "./models/My3DModel";
 import { AppImages } from "@/constant/AppImages";
 import { OrbitControls, Environment, ContactShadows } from "@react-three/drei";
+import Static3DModel from "./models/Model3D";
 
 
 
@@ -11,13 +12,14 @@ const CeoMessage = () => {
     return (
         <section className="relative px-4 sm:px-6 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center">
             {/* Bot image at top right - hidden on small screens */}
-            <div className="absolute -top-20 right-0 z-20 h-[300px] w-[300px] overflow-visible pointer-events-none">
+            <div className="absolute hidden sm:block -top-20 right-0 z-20 h-[300px] w-[300px] overflow-visible pointer-events-none">
                 <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
                     <ambientLight intensity={0.5} />
                     <directionalLight position={[0, -1.2, 0]} intensity={1} />
-                    <My3DModel scale={2} position={[0, -1.5, 0]} />
+                    {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+                    <Static3DModel scale={1} position={[0, -1.5, 0]} />
                     <Environment preset="city" />
-                    <ContactShadows position={[0, -1.5, 0]} scale={10} blur={2} far={5} opacity={0.5} />
+
                     <OrbitControls enableZoom={false} />
                 </Canvas>
 

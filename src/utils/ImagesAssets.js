@@ -24,9 +24,9 @@ import demobanner from "../assets/demobanner.avif";
 import projects from "../assets/projects.png";
 import client from "../assets/client.png";
 import history from "../assets/history.png";
-import sectionOne from "../assets/sectionOne.svg"
+import sectionOne from "../assets/sectionOne.webp"
 import formImage from "../assets/form.png"
-import video from "../assets/video.png"
+import video from "../assets/video.webp"
 import feedbackProfile from "../assets/feedbackProfile.jpg"
 
 export const ImagesAssets = {

@@ -93,7 +93,6 @@ const OurWork = () => {
       </section>
 
       <section className=" w-full py-4">
-
         <div className="w-full flex flex-col items-center justify-center text-center px-4 md:h-auto md:flex-row md:justify-between md:text-left md:px-24 md:pb-16">
           <div>
             <h3 className="text-white font-secular text-lg md:text-2xl font-bold">
@@ -109,7 +108,7 @@ const OurWork = () => {
         </div>
 
 
-        <div className="max-w-full mx-auto px-4 md:px-[122px]">
+        <div className=" max-w-full mx-auto px-4 md:px-[122px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
             {projects.slice(0, 3).map((project) => (
               <Card
@@ -163,14 +162,19 @@ const OurWork = () => {
       {/* 2nd section */}
       <section className="">
 
-        <div>
-          <RecentProjects />
+        <div >
+          <RecentProjects
+  rows={2}
+  cardsPerRow={4}
+  enablePagination={true}
+/>
+
           {/* <PortfolioTabs /> */}
         </div>
       </section>
 
       {/* Feedback section */}
-      <section className="w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white px-2 sm:px-4 py-8 overflow-hidden">
+      <section className="mt-8 w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white px-2 sm:px-4 py-8 overflow-hidden">
         {/* Header Section */}
         <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-6 sm:gap-10">
 

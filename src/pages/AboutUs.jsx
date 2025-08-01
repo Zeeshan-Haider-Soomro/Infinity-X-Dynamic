@@ -223,27 +223,6 @@ const AboutUs = () => {
         </section>
 
       </section>
-
-
-      {/* amazing clients section */}
-      {/* <section className="bg-[#F2E6FF]">
-        <h1 className="text-center text-4xl font-bold text-[#5C0E6E] pt-5">
-          Our
-        </h1>
-        <CustomHeading
-          firstText="Amazing"
-          secondText="Clients"
-          firstColor="#5C0E6E"
-          secondColor="#D977C8"
-          textSize="text-4xl md:text-6xl font-bold"
-          align="text-center"
-        />
-        <ImageSlider />
-      </section> */}
-      {/* our team section */}
-      {/* <section className="bg-[#320142]">
-        <TeamSection />
-      </section> */}
       <ScrollToTopButton />
     </div>
   );

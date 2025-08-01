@@ -22,10 +22,10 @@ const faqData = [
     question: "Q5: How do payments work?",
     answer: "We work with upfront and milestone-based payments depending on the project.",
   },
-  // {
-  //   question: "Q6: Is support available after delivery?",
-  //   answer: "Yes, we offer post-launch support and maintenance packages.",
-  // },
+  {
+    question: "Q6: Is support available after delivery?",
+    answer: "Yes, we offer post-launch support and maintenance packages.",
+  },
   // {
   //   question: "Q7: Where is IXD based?",
   //   answer: "We are based in Lahore, Pakistan and work with clients globally.",

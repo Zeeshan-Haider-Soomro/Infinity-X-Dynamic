@@ -4,7 +4,11 @@ import CustomButton from "./CustomButton";
 import clsx from "clsx";
 import { allProjects } from "@/data/serviceCards";
 
-export const RecentProjects = () => {
+export const RecentProjects = ({
+  rows = 1,
+  cardsPerRow = 4,
+  enablePagination = false,
+}) => {
   const tabs = [
     "All Projects",
     "Motion Graphics",
@@ -19,18 +23,26 @@ export const RecentProjects = () => {
     "3D Animation",
   ];
 
- 
-
   const [activeTab, setActiveTab] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filteredProjects =
     activeTab === 0
       ? allProjects
       : allProjects.filter((project) => project.category === tabs[activeTab]);
 
+  const cardsPerPage = rows * cardsPerRow;
+  const totalPages = Math.ceil(filteredProjects.length / cardsPerPage);
+  const paginatedProjects = enablePagination
+    ? filteredProjects.slice(
+        (currentPage - 1) * cardsPerPage,
+        currentPage * cardsPerPage
+      )
+    : filteredProjects.slice(0, cardsPerPage);
+
   return (
-    <section className="w-full  py-8 bg-[#3E224F] px-4 md:px-8 lg:px-16 rounded-[50px]">
+    <section className="w-full py-8 bg-[#3E224F] px-4 md:px-8 lg:px-16 rounded-[50px]">
       {/* Title */}
       <div className="mb-8">
         <h2 className="text-white font-secular text-2xl md:text-4xl font-bold mb-2">
@@ -47,7 +59,10 @@ export const RecentProjects = () => {
           <CustomButton
             key={index}
             unstyled
-            onClick={() => setActiveTab(index)}
+            onClick={() => {
+              setActiveTab(index);
+              setCurrentPage(1); // reset on tab change
+            }}
             className={clsx(
               "!w-[150px] sm:!w-[170px] !h-auto !py-2 !text-sm sm:!text-base !rounded-[25px]",
               activeTab === index
@@ -61,8 +76,13 @@ export const RecentProjects = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center">
-        {filteredProjects.slice(0, 4).map((project) => (
+      <div
+        className={clsx(
+          "grid gap-6 justify-items-center",
+          `grid-cols-1 sm:grid-cols-2 lg:grid-cols-${cardsPerRow}`
+        )}
+      >
+        {paginatedProjects.map((project) => (
           <Card
             key={project.id}
             className="bg-[#320142] text-white p-4 text-center border-0 w-full max-w-[320px] relative group"
@@ -70,7 +90,6 @@ export const RecentProjects = () => {
             <p className="text-lg font-semibold mb-2">{project.title}</p>
 
             <div className="relative rounded-lg overflow-hidden">
-              {/* Google Drive preview iframe with pointer-events disabled */}
               {project.video.includes("drive.google.com") ? (
                 <iframe
                   src={project.video}
@@ -90,7 +109,7 @@ export const RecentProjects = () => {
                 />
               )}
 
-              {/* Overlay Play Button */}
+              {/* Play overlay */}
               <button
                 onClick={() => setSelectedVideo(project.video)}
                 className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition"
@@ -110,8 +129,30 @@ export const RecentProjects = () => {
         ))}
       </div>
 
+      {/* Pagination */}
+      {enablePagination && totalPages > 1 && (
+        <div className="flex justify-center mt-8 gap-4">
+          <button
+            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            disabled={currentPage === 1}
+            className="text-white hover:underline disabled:opacity-50"
+          >
+            Prev
+          </button>
+          <span className="text-white">
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            disabled={currentPage === totalPages}
+            className="text-white hover:underline disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+      )}
 
-      {/* Modal for Video Playback */}
+      {/* Modal */}
       {selectedVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
           <div className="relative w-full max-w-3xl bg-black rounded-lg overflow-hidden">
@@ -122,7 +163,6 @@ export const RecentProjects = () => {
               &times;
             </button>
 
-            {/* Conditional iframe or video tag in modal */}
             {selectedVideo.includes("drive.google.com") ? (
               <iframe
                 src={selectedVideo}

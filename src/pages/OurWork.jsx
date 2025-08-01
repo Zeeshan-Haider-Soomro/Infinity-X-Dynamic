@@ -163,7 +163,12 @@ const OurWork = () => {
       <section className="">
 
         <div >
-          <RecentProjects />
+          <RecentProjects
+  rows={2}
+  cardsPerRow={4}
+  enablePagination={true}
+/>
+
           {/* <PortfolioTabs /> */}
         </div>
       </section>

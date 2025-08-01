@@ -4,10 +4,9 @@ import { useFrame } from "@react-three/fiber";
 import { clone } from "three/examples/jsm/utils/SkeletonUtils";
 
 export default function Static3DModel(props) {
-  const { scene } = useGLTF("/model/chatbot.glb");
+  const { scene } = useGLTF("/model/robot.glb");
   const modelRef = useRef();
 
-  // ✅ Clone the model to avoid shared scene issues
   const clonedScene = useMemo(() => clone(scene), [scene]);
 
   useEffect(() => {
@@ -16,29 +15,18 @@ export default function Static3DModel(props) {
     let blinkMesh = null;
     let blinkIndex = null;
     let blinkTimeout;
-    let leftHand = null;
-    let rightHand = null;
-    let handInterval;
 
-    // Traverse model to find blink morph and hands
+    // Traverse through model children
     modelRef.current.traverse((child) => {
+      console.log("Child name:", child.name);
+
       if (child.isMesh && child.morphTargetDictionary?.Blink !== undefined) {
         blinkMesh = child;
         blinkIndex = child.morphTargetDictionary.Blink;
       }
-
-      if (child.isBone) {
-        const name = child.name.toLowerCase();
-        if (name.includes("hand_l") || name.includes("lefthand")) {
-          leftHand = child;
-        }
-        if (name.includes("hand_r") || name.includes("righthand")) {
-          rightHand = child;
-        }
-      }
     });
 
-    // Blink logic
+    // Blinking
     if (blinkMesh && blinkIndex !== null) {
       const blink = () => {
         blinkMesh.morphTargetInfluences[blinkIndex] = 1;
@@ -55,34 +43,39 @@ export default function Static3DModel(props) {
       startBlinking();
     }
 
-    // Hand wave animation
-    let handDirection = 1;
-    const animateHands = () => {
-      if (leftHand) leftHand.rotation.z += 0.1 * handDirection;
-      if (rightHand) rightHand.rotation.z -= 0.1 * handDirection;
-      handDirection *= -1;
-    };
-
-    handInterval = setInterval(animateHands, 2000);
-
     return () => {
       clearTimeout(blinkTimeout);
-      clearInterval(handInterval);
     };
   }, [clonedScene]);
 
-  // Head or other movement
-  let angle = 0;
-  let direction = 1;
+  // Animate head or hand continuously
 
-  useFrame(() => {
-    const leftHand = modelRef.current.getObjectByName("Cube003");
-    if (leftHand) {
-      angle += 0.01 * direction;
-      if (angle > 0.5 || angle < -0.5) direction *= -1;
-      leftHand.rotation.x = angle;
-    }
+  useFrame(({ clock }) => {
+    if (!modelRef.current) return;
+
+    const leftHand = modelRef.current.getObjectByName("Left_Hand");
+    const rightHand = modelRef.current.getObjectByName("Righ_Hand");
+
+    if (!leftHand || !rightHand) return;
+
+    const t = clock.getElapsedTime();
+
+    // Smooth oscillating angle (like a servo easing in/out)
+    const leftRotationX = 0.4 * Math.sin(t * 1.2);
+    const rightRotationX = 0.3 * Math.sin(t * 1.2 + Math.PI); // opposite phase
+
+    // Add subtle servo-like vibration
+    const vibration = Math.sin(t * 30) * 0.002;
+
+    // Apply smoothed robotic motion
+    leftHand.rotation.x = leftRotationX + vibration;
+    leftHand.rotation.y = -1.2 + vibration;
+
+    rightHand.rotation.x = rightRotationX + vibration;
+    rightHand.rotation.y = -0.3 + vibration;
   });
+
+
 
   return (
     <Suspense fallback={null}>

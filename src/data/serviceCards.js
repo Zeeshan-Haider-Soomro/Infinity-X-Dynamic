@@ -31,13 +31,38 @@ export const serviceCards = [
 
 
 export const projects = [
-  { id: 1, title: "TechRec.Com", image: ImagesAssets.video },
-  { id: 2, title: "TechRec.Com", image: ImagesAssets.video },
-  { id: 3, title: "TechRec.Com", image: ImagesAssets.video },
-  { id: 4, title: "TechRec.Com", image: ImagesAssets.video },
-  { id: 5, title: "TechRec.Com", image: ImagesAssets.video },
-  { id: 6, title: "TechRec.Com", image: ImagesAssets.video },
+  {
+    id: 1,
+    title: "TechRec.Com",
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+  },
+  {
+    id: 2,
+    title: "DesignSync",
+    video: "https://www.w3schools.com/html/movie.mp4",
+  },
+  {
+    id: 3,
+    title: "AdBoost AI",
+    video: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+  },
+  {
+    id: 4,
+    title: "LogoCraft",
+    video: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
+  },
+  {
+    id: 5,
+    title: "CGI Works",
+    video: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
+  },
+  {
+    id: 6,
+    title: "MotionCore",
+    video: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
+  },
 ];
+
 
 
 export const awards = [

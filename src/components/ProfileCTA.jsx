@@ -21,6 +21,7 @@ import CeoMessage from "./CEOMessage";
 import { awards, feedbackList, projects, serviceCards } from "@/data/serviceCards";
 import { useParams } from "react-router-dom"; // ⬅️ ADD THIS
 import Static3DModel from "./models/Model3D";
+import Modal from "./ui/modal";
 
 // This is your service-specific data
 const serviceContent = {
@@ -284,7 +285,7 @@ const cardData = [
 
 const ProfileCTA = () => {
 
-
+    const [selectedVideo, setSelectedVideo] = useState(null);
     const [index, setIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { serviceId } = useParams();
@@ -436,15 +437,48 @@ const ProfileCTA = () => {
                 <div className="max-w-full mx-auto px-4 md:px-[122px]">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
                         {projects.map((project) => (
-                            <Card key={project.id} className="bg-[#320142] text-white p-4 text-center border-0">
+                            <Card
+                                key={project.id}
+                                className="bg-[#320142] text-white p-4 text-center border-0 relative group cursor-pointer"
+                                onClick={() => setSelectedVideo(project.video)}
+                            >
                                 <p className="text-lg font-semibold mb-2">{project.title}</p>
-                                <img
-                                    src={project.image}
-                                    alt={`Project ${project.id}`}
-                                    className="w-full object-cover rounded-lg"
-                                />
+
+                                <div className="relative">
+                                    <video
+                                        className="w-full object-cover rounded-lg h-[180px]"
+                                        src={project.video}
+                                        muted
+                                        preload="metadata"
+                                        controls={false}
+                                    />
+
+                                    {/* Center Play Icon Overlay */}
+                                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="48"
+                                            height="48"
+                                            fill="white"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </div>
+                                </div>
                             </Card>
                         ))}
+
+                        {selectedVideo && (
+                            <Modal onClose={() => setSelectedVideo(null)}>
+                                <video
+                                    src={selectedVideo}
+                                    controls
+                                    autoPlay
+                                    className="w-full h-[70vh] object-contain"
+                                />
+                            </Modal>
+                        )}
                     </div>
                 </div>
 

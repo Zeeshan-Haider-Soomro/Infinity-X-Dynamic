@@ -202,36 +202,27 @@ const AboutUs = () => {
         </div>
 
         {/* Responsive Bot Image */}
-        <div className="absolute top-[55%] right-4 md:right-80 translate-y-[-50%] z-20 pointer-events-none w-[80px] md:w-[180px]">
-          <ImagesAssets.botTwo />
-        </div>
+        <section className="relative overflow-visible ">
 
+          <div className="py-10 px-16 z-20">
 
-        <div className=" px-4  py-16">
-          <FAQSection />
-        </div>
+            <div className=" absolute right-0 h-[180px] w-[180px]  md:-top-36 md:right-0 z-0 md:h-[280px] md:w-[280px] overflow-visible pointer-events-none">
+              <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+                <ambientLight intensity={0.5} />
+                <directionalLight position={[0, -1.2, 0]} intensity={1} />
+                {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+                <Static3DModel scale={1} position={[0, -1.5, 0]} />
+                <Environment preset="city" />
+
+                <OrbitControls enableZoom={false} />
+              </Canvas>
+
+            </div>
+            <FAQSection />
+          </div>
+        </section>
+
       </section>
-
-
-      {/* amazing clients section */}
-      {/* <section className="bg-[#F2E6FF]">
-        <h1 className="text-center text-4xl font-bold text-[#5C0E6E] pt-5">
-          Our
-        </h1>
-        <CustomHeading
-          firstText="Amazing"
-          secondText="Clients"
-          firstColor="#5C0E6E"
-          secondColor="#D977C8"
-          textSize="text-4xl md:text-6xl font-bold"
-          align="text-center"
-        />
-        <ImageSlider />
-      </section> */}
-      {/* our team section */}
-      {/* <section className="bg-[#320142]">
-        <TeamSection />
-      </section> */}
       <ScrollToTopButton />
     </div>
   );

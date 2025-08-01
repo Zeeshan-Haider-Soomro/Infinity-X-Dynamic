@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, Suspense } from "react";
 import { Outlet } from "react-router";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import IntroVideo from "@/components/IntroVideo";

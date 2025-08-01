@@ -21,6 +21,8 @@ import CustomButton from "@/components/CustomButton";
 import { Canvas } from "@react-three/fiber";
 import Static3DModel from "@/components/models/Model3D";
 import { Environment, OrbitControls } from "@react-three/drei";
+import Modal from "@/components/ui/modal";
+import { projects } from "@/data/serviceCards";
 
 const sections = [
   {
@@ -40,9 +42,7 @@ const awards = [
 
 
 const OurWork = () => {
-
-
-
+  const [selectedVideo, setSelectedVideo] = useState(null);
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
@@ -103,7 +103,7 @@ const OurWork = () => {
               We turn your thoughts into visuals
             </p>
           </div>
-          <CustomButton className="mt-4 md:mt-0" to="/our-work">
+          <CustomButton className="mt-4 py-6 md:mt-0" to="/our-work">
             VIEW ALL PROJECTS
           </CustomButton>
         </div>
@@ -111,54 +111,58 @@ const OurWork = () => {
 
         <div className="max-w-full mx-auto px-4 md:px-[122px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
-            <Card className="bg-[#320142] text-white p-4 text-center border-0">
-              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-              <img
-                src={ImagesAssets.video}
-                alt="Project 1"
-                className="w-full object-cover rounded-lg"
-              />
-            </Card>
-            <Card className="bg-[#320142] text-white p-4 text-center border-0">
-              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-              <img
-                src={ImagesAssets.video}
-                alt="Project 2"
-                className="w-full object-cover rounded-lg"
-              />
-            </Card>
-            <Card className="bg-[#320142] text-white p-4 text-center border-0">
-              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-              <img
-                src={ImagesAssets.video}
-                alt="Project 3"
-                className="w-full object-cover rounded-lg"
-              />
-            </Card>
+            {projects.slice(0, 3).map((project) => (
+              <Card
+                key={project.id}
+                className="bg-[#320142] text-white p-4 text-center border-0 relative group cursor-pointer"
+                onClick={() => setSelectedVideo(project.video)}
+              >
+                <p className="text-lg font-semibold mb-2">{project.title}</p>
+
+                <div className="relative">
+                  <video
+                    className="w-full object-cover rounded-lg h-[180px]"
+                    src={project.video}
+                    muted
+                    preload="metadata"
+                    controls={false}
+                  />
+
+                  {/* Center Play Icon Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="48"
+                      height="48"
+                      fill="white"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              </Card>
+            ))}
+
+            {selectedVideo && (
+              <Modal onClose={() => setSelectedVideo(null)}>
+                <video
+                  src={selectedVideo}
+                  controls
+                  autoPlay
+                  className="w-full h-[70vh] object-contain"
+                />
+              </Modal>
+            )}
+
+
           </div>
         </div>
       </section>
 
       {/* 2nd section */}
       <section className="">
-        {/* <div className="md:p-10 p-10">
-          <CustomHeading
-            firstText="See Our Recent Projects"
-            secondText="We turn your thoughts into visuals"
-            firstColor="#A95C9C"
-            secondColor="#5C0E6E"
-            textSize="text-2xl md:text-3xl"
-            align="text-center"
-          />
-          <CustomHeading
-            firstText="See Our Recent"
-            secondText="Projects"
-            firstColor="#5C0E6E"
-            secondColor="#A95C9C"
-            textSize="text-4xl md:text-6xl"
-            align="text-center"
-          />
-        </div> */}
+
         <div>
           <RecentProjects />
           {/* <PortfolioTabs /> */}
@@ -240,21 +244,6 @@ const OurWork = () => {
         </div>
       </section>
 
-
-      {/* <section className="bg-[#320142]">
-        <div className="md:p-10 pt-10">
-          <CustomHeading
-            firstText="OUR"
-            secondText="ACHIEVEMENTS"
-            firstColor="#fff"
-            secondColor="#D977C8"
-            textSize="text-4xl md:text-6xl font-bold p-5"
-            align="text-center"
-          />
-        </div>
-        <AchievementGallery />
-      </section> */}
-
       {/* contact form section */}
       <section>
         <div>
@@ -281,22 +270,20 @@ const OurWork = () => {
       {/* FAQs Section */}
 
       <section className="relative overflow-visible ">
-
         <div className="py-10 px-16 z-20">
-          
           <div className=" absolute right-0 h-[180px] w-[180px]  md:-top-24 md:right-0 z-20 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
-          <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[0, -1.2, 0]} intensity={1} />
-            {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
-            <Static3DModel scale={1} position={[0, -1.5, 0]} />
-            <Environment preset="city" />
+            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[0, -1.2, 0]} intensity={1} />
+              {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
+              <Static3DModel scale={1} position={[0, -1.5, 0]} />
+              <Environment preset="city" />
 
-            <OrbitControls enableZoom={false} />
-          </Canvas>
+              <OrbitControls enableZoom={false} />
+            </Canvas>
 
-        </div>
-        <FAQSection />
+          </div>
+          <FAQSection />
         </div>
       </section>
 

@@ -25,6 +25,8 @@ import ThreeDBackground from "@/components/ThreeBackground";
 import { Canvas } from "@react-three/fiber";
 import Static3DModel from "@/components/models/Model3D";
 import { Environment, OrbitControls } from "@react-three/drei";
+import { projects } from "@/data/serviceCards";
+import Modal from "@/components/ui/modal";
 
 
 
@@ -55,6 +57,8 @@ const awards = [
 const Home = () => {
 
   const { bannerImg } = AppImages;
+
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   const [index, setIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -106,7 +110,7 @@ const Home = () => {
       </div>
       {/* 2nd section  */}
       <section className=""
-       
+
       >
         <h1
           data-aos="fade-up"
@@ -181,7 +185,7 @@ const Home = () => {
           {/* 👇 Centered Button */}
           <div className="flex justify-center mt-10">
             <CustomButton
-              className="transition-all duration-300"
+              className="transition-all duration-300 py-6"
               to={"/our-work"}
             >
               VIEW PORTFOLIO
@@ -196,7 +200,7 @@ const Home = () => {
         <div className="max-w-[1236px] md:mx-auto px-6">
           <AwardBox target={21} label=" Successfully Completed Projects" />
         </div>
-        <div className="max-w-full mx-auto px-6 mt-6">
+        <div className="max-w-full mx-auto px-16 mt-6">
           <h3 className=" text-white text-lg md:text-2xl font-bold">
             See Our Recent <span className=" text-[#A95C9C]">Projects</span>
           </h3>
@@ -206,97 +210,64 @@ const Home = () => {
         </div>
         <div className="max-w-full mx-auto px-4 md:px-[122px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
-            <Card className="bg-[#320142] text-white p-4 text-center border-0">
-              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-              <img
-                src={ImagesAssets.video}
-                alt="Project 1"
-                className="w-full object-cover rounded-lg"
-              />
-            </Card>
-            <Card className="bg-[#320142] text-white p-4 text-center border-0">
-              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-              <img
-                src={ImagesAssets.video}
-                alt="Project 2"
-                className="w-full object-cover rounded-lg"
-              />
-            </Card>
-            <Card className="bg-[#320142] text-white p-4 text-center border-0">
-              <p className="text-lg font-semibold mb-2">TechRec.Com</p>
-              <img
-                src={ImagesAssets.video}
-                alt="Project 3"
-                className="w-full object-cover rounded-lg"
-              />
-            </Card>
+            {projects.slice(0, 3).map((project) => (
+              <Card
+                key={project.id}
+                className="bg-[#320142] text-white p-4 text-center border-0 relative group cursor-pointer"
+                onClick={() => setSelectedVideo(project.video)}
+              >
+                <p className="text-lg font-semibold mb-2">{project.title}</p>
+
+                <div className="relative">
+                  <video
+                    className="w-full object-cover rounded-lg h-[180px]"
+                    src={project.video}
+                    muted
+                    preload="metadata"
+                    controls={false}
+                  />
+
+                  {/* Center Play Icon Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="48"
+                      height="48"
+                      fill="white"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              </Card>
+            ))}
+
+            {selectedVideo && (
+              <Modal onClose={() => setSelectedVideo(null)}>
+                <video
+                  src={selectedVideo}
+                  controls
+                  autoPlay
+                  className="w-full h-[70vh] object-contain"
+                />
+              </Modal>
+            )}
+
+
           </div>
         </div>
         <div className="flex justify-center">
-          <CustomButton className="mt-6" to="/our-work">
+          <CustomButton className="mt-6 py-6" to="/our-work">
             VIEW ALL PROJECTS
           </CustomButton>
         </div>
 
       </section>
 
-      {/* amazing client section  */}
-      {/* <section className="bg-[#320142]">
-        <h1 className="text-center text-4xl font-bold text-white pt-5">Our</h1>
-        <CustomHeading
-          firstText="Amazing"
-          secondText="Clients"
-          firstColor="#fff"
-          secondColor="#D977C8"
-          textSize="text-4xl md:text-6xl font-bold"
-          align="text-center"
-        />
-        <ImageSlider />
-      </section> */}
-
-
-
       {/* history slider section */}
 
       <History />
-      {/* <section className="bg-[#EEDFFF]">
-        <div data-aos="fade-up" className="md:p-10 pt-10">
-          <CustomHeading
-            firstText="Key Highlights in the History of"
-            // secondText="Clients"
-            firstColor="#5C0E6E"
-            secondColor="#5C0E6E"
-            textSize="text-4xl md:text-6xl font-bold"
-            align="text-center"
-          />
-          <CustomHeading
-            firstText="INFINITY X DYNAMIC"
-            // secondText="Clients"
-            firstColor="#A95C9C"
-            secondColor="#A95C9C"
-            textSize="text-4xl md:text-6xl font-bold p-5"
-            align="text-center"
-          />
-        </div>
-        <div>
-          <HistorySlider />
-        </div>
-      </section> */}
-      {/* our achievement section */}
-      {/* <section className="bg-[#320142]">
-        <div data-aos="fade-up" className="md:p-10 pt-10">
-          <CustomHeading
-            firstText="OUR"
-            secondText="ACHIEVEMENTS"
-            firstColor="#fff"
-            secondColor="#D977C8"
-            textSize="text-4xl md:text-6xl font-bold p-5"
-            align="text-center"
-          />
-        </div>
-        <AchievementGallery />
-      </section> */}
-
       <AchievementsSection />
 
       {/* Awards Section */}

@@ -2,79 +2,24 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import CustomButton from "./CustomButton";
 import clsx from "clsx";
+import { allProjects } from "@/data/serviceCards";
 
 export const RecentProjects = () => {
   const tabs = [
     "All Projects",
     "Motion Graphics",
-    "2D/3D Animation",
+    "2D Animation",
     "Web Development",
-    "CGI/VFX",
+    // "CGI/VFX",
     "Logo Design",
+    "Game Development",
+    "3D Modeling",
+    "UX/UI Design",
+    "Cartoon Animation",
+    "3D Animation",
   ];
 
-  const allProjects = [
-    {
-      id: 1,
-      title: "TechRec.Com",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
-      category: "Web Development",
-    },
-    {
-      id: 2,
-      title: "DesignSync",
-      video: "https://www.w3schools.com/html/movie.mp4",
-      category: "Motion Graphics",
-    },
-    {
-      id: 3,
-      title: "AdBoost AI",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
-      category: "2D/3D Animation",
-    },
-    {
-      id: 4,
-      title: "LogoCraft",
-      video: "https://www.w3schools.com/html/movie.mp4",
-      category: "Logo Design",
-    },
-    {
-      id: 5,
-      title: "VFX Masters",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
-      category: "CGI/VFX",
-    },
-    {
-      id: 6,
-      title: "Web Innovators",
-      video: "https://www.w3schools.com/html/movie.mp4",
-      category: "Web Development",
-    },
-    {
-      id: 7,
-      title: "Creative Studio",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
-      category: "Motion Graphics",
-    },
-    {
-      id: 8,
-      title: "Digital Dreams",
-      video: "https://www.w3schools.com/html/movie.mp4",
-      category: "2D/3D Animation",
-    },
-    {
-      id: 9,
-      title: "Brand Vision",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
-      category: "Logo Design",
-    },
-    {
-      id: 10,
-      title: "Cinematic Effects",
-      video: "https://www.w3schools.com/html/movie.mp4",
-      category: "CGI/VFX",
-    },
-  ];
+ 
 
   const [activeTab, setActiveTab] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -82,12 +27,10 @@ export const RecentProjects = () => {
   const filteredProjects =
     activeTab === 0
       ? allProjects
-      : allProjects.filter(
-          (project) => project.category === tabs[activeTab]
-        );
+      : allProjects.filter((project) => project.category === tabs[activeTab]);
 
   return (
-    <section className="w-full py-8 bg-[#3E224F] px-4 md:px-8 lg:px-16 rounded-[50px]">
+    <section className="w-full  py-8 bg-[#3E224F] px-4 md:px-8 lg:px-16 rounded-[50px]">
       {/* Title */}
       <div className="mb-8">
         <h2 className="text-white font-secular text-2xl md:text-4xl font-bold mb-2">
@@ -126,14 +69,28 @@ export const RecentProjects = () => {
           >
             <p className="text-lg font-semibold mb-2">{project.title}</p>
 
-            <div className="relative">
-              <video
-                className="w-full h-[180px] object-cover rounded-lg"
-                src={project.video}
-                muted
-                preload="metadata"
-                controls={false}
-              />
+            <div className="relative rounded-lg overflow-hidden">
+              {/* Google Drive preview iframe with pointer-events disabled */}
+              {project.video.includes("drive.google.com") ? (
+                <iframe
+                  src={project.video}
+                  width="100%"
+                  height="180"
+                  allow="autoplay"
+                  allowFullScreen
+                  className="w-full h-[180px] rounded-lg pointer-events-none"
+                />
+              ) : (
+                <video
+                  className="w-full h-[180px] object-cover rounded-lg"
+                  src={project.video}
+                  muted
+                  preload="metadata"
+                  controls={false}
+                />
+              )}
+
+              {/* Overlay Play Button */}
               <button
                 onClick={() => setSelectedVideo(project.video)}
                 className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition"
@@ -153,6 +110,7 @@ export const RecentProjects = () => {
         ))}
       </div>
 
+
       {/* Modal for Video Playback */}
       {selectedVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
@@ -163,12 +121,25 @@ export const RecentProjects = () => {
             >
               &times;
             </button>
-            <video
-              src={selectedVideo}
-              controls
-              autoPlay
-              className="w-full h-[70vh] object-contain"
-            />
+
+            {/* Conditional iframe or video tag in modal */}
+            {selectedVideo.includes("drive.google.com") ? (
+              <iframe
+                src={selectedVideo}
+                width="100%"
+                height="500"
+                allow="autoplay"
+                allowFullScreen
+                className="rounded-lg"
+              />
+            ) : (
+              <video
+                src={selectedVideo}
+                controls
+                autoPlay
+                className="w-full h-[70vh] object-contain"
+              />
+            )}
           </div>
         </div>
       )}

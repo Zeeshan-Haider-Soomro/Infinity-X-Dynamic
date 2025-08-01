@@ -245,14 +245,17 @@ const Home = () => {
 
             {selectedVideo && (
               <Modal onClose={() => setSelectedVideo(null)}>
-                <video
+                <iframe
                   src={selectedVideo}
-                  controls
-                  autoPlay
-                  className="w-full h-[70vh] object-contain"
+                  width="100%"
+                  height="500"
+                  allow="autoplay"
+                  allowFullScreen
+                  className="rounded-lg"
                 />
               </Modal>
             )}
+
 
 
           </div>

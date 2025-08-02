@@ -49,11 +49,6 @@ const App = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
-
-      {/* Optional Cursors - Enable one if needed */}
-      {/* <CustomCursor /> */}
-      {/* <MirrorCursor /> */}
-
       <div
         ref={appRef}
         id="main-content"

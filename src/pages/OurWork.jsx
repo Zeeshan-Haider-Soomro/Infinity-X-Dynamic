@@ -164,10 +164,10 @@ const OurWork = () => {
 
         <div >
           <RecentProjects
-  rows={2}
-  cardsPerRow={4}
-  enablePagination={true}
-/>
+            rows={2}
+            cardsPerRow={4}
+            enablePagination={true}
+          />
 
           {/* <PortfolioTabs /> */}
         </div>

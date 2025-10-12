@@ -91,7 +91,7 @@ const VideoSlider = () => {
           >
             <button
               onClick={closeModal}
-              className="absolute -top-10 right-0 text-white text-3xl hover:text-gray-300 focus:outline-none cursor-pointer"
+              className="absolute md:-top-8 font-bold md:-right-5 -top-10 right-4  text-white text-3xl md:text-6xl hover:text-gray-300 focus:outline-none cursor-pointer"
             >
               &times;
             </button>

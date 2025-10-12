@@ -112,7 +112,7 @@ const Header = () => {
                             <h3 className="text-lg font-bold mb-2">Animation Services</h3>
 
                             <Link
-                              to="/3d-animation"
+                              to="/services/3d-animation"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -125,7 +125,7 @@ const Header = () => {
                             </Link>
 
                             <Link
-                              to="/cartoonAnimation"
+                              to="/services/cartoon-animation"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -138,7 +138,7 @@ const Header = () => {
                             </Link>
 
                             <Link
-                              to="/whiteBoard"
+                              to="/services/whiteboard-videos"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -151,7 +151,7 @@ const Header = () => {
                             </Link>
 
                             <Link
-                              to="/logo-animation"
+                              to="/services/logo-animation"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -169,7 +169,7 @@ const Header = () => {
                             <h3 className="text-lg font-bold mb-2">Advanced Visuals</h3>
 
                             <Link
-                              to="/cgi-vfx"
+                              to="/services/cgi-vfx"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -182,7 +182,7 @@ const Header = () => {
                             </Link>
 
                             <Link
-                              to="/motion-graphics"
+                              to="/services/graphic-motion"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -194,8 +194,8 @@ const Header = () => {
                               </div>
                             </Link>
 
-                            <Link
-                              to="/augmented-reality"
+                            {/* <Link
+                              to="/services/augmented-reality"
                               className="hover:text-[#9C448D] transition flex gap-2 items-start"
                             >
                               <CurveArrow className="flex-shrink-0 mt-1" />
@@ -205,7 +205,7 @@ const Header = () => {
                                   Interactive, immersive AR experiences for your brand.
                                 </div>
                               </div>
-                            </Link>
+                            </Link> */}
 
                             <CustomButton className="mt-4">
                               View Portfolio

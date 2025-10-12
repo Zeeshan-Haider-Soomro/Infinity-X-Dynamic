@@ -106,8 +106,8 @@ const OurClients = () => {
         {/* Header Section */}
 
         <div className="relative flex justify-between items-center py-16 p-8">
-          <div className="text-center lg:text-left text-white ">
-            <h1 className="text-2xl md:text-3xl font-bold mb-2">We Love Feedback !</h1>
+          <div className="p-10 text-center lg:text-left text-white ">
+            <h1 className="md:text-5xl font-bold mb-4 font-secular">We Love Feedback !</h1>
             <p className=" text-xl md:text-2xl ">Share your thoughts with us, and let's turn your feedback into<br /> the masterpiece that shapes our journey.</p>
           </div>
           <div className="z-30 absolute  h-[180px] w-[180px] -top-10 -right-6 md:-top-10   md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">

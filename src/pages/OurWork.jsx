@@ -23,6 +23,7 @@ import Static3DModel from "@/components/models/Model3D";
 import { Environment, OrbitControls } from "@react-three/drei";
 import Modal from "@/components/ui/modal";
 import { projects } from "@/data/serviceCards";
+import Feedback from "@/components/Feedback";
 
 const sections = [
   {
@@ -92,82 +93,17 @@ const OurWork = () => {
         </div>
       </section>
 
-      <section className=" w-full py-4">
-        <div className="w-full flex flex-col items-center justify-center text-center px-4 md:h-auto md:flex-row md:justify-between md:text-left md:px-24 md:pb-16">
-          <div>
-            <h3 className="text-white font-secular text-lg md:text-2xl font-bold">
-              See Our Recent <span className="text-[#A95C9C]">Projects</span>
-            </h3>
-            <p className="text-white text-lg md:text-2xl font-bold mt-2">
-              We turn your thoughts into visuals
-            </p>
-          </div>
-          <CustomButton className="mt-4 py-6 md:mt-0" to="/our-work">
-            VIEW ALL PROJECTS
-          </CustomButton>
-        </div>
 
-
-        <div className=" max-w-full mx-auto px-4 md:px-[122px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
-            {projects.slice(0, 3).map((project) => (
-              <Card
-                key={project.id}
-                className="bg-[#320142] text-white p-4 text-center border-0 relative group cursor-pointer"
-                onClick={() => setSelectedVideo(project.video)}
-              >
-                <p className="text-lg font-semibold mb-2">{project.title}</p>
-
-                <div className="relative">
-                  <video
-                    className="w-full object-cover rounded-lg h-[180px]"
-                    src={project.video}
-                    muted
-                    preload="metadata"
-                    controls={false}
-                  />
-
-                  {/* Center Play Icon Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="48"
-                      height="48"
-                      fill="white"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-              </Card>
-            ))}
-
-            {selectedVideo && (
-              <Modal onClose={() => setSelectedVideo(null)}>
-                <video
-                  src={selectedVideo}
-                  controls
-                  autoPlay
-                  className="w-full h-[70vh] object-contain"
-                />
-              </Modal>
-            )}
-
-
-          </div>
-        </div>
-      </section>
 
       {/* 2nd section */}
       <section className="">
 
         <div >
           <RecentProjects
-  rows={2}
-  cardsPerRow={4}
-  enablePagination={true}
-/>
+            rows={2}
+            cardsPerRow={4}
+            enablePagination={true}
+          />
 
           {/* <PortfolioTabs /> */}
         </div>
@@ -179,8 +115,8 @@ const OurWork = () => {
         <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-6 sm:gap-10">
 
           {/* Text */}
-          <div className="px-8 w-full lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
-            <h3 className="text-2xl sm:text-3xl font-semibold mb-2">We Love Feedback!</h3>
+          <div className="py-20 w-full lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white">
+            <h3 className="md:text-5xl font-bold mb-4 font-secular">We Love Feedback!</h3>
             <p className="text-base sm:text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed text-white/80">
               Share your thoughts with us, and let's turn your feedback into the
               masterpiece that shapes our journey.
@@ -188,18 +124,7 @@ const OurWork = () => {
           </div>
 
           {/* Right Illustration */}
-          <div className=" -top-10 right-0 h-[180px] w-[180px]   md:-top-20 md:right-0 z-20 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
-            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
-              <ambientLight intensity={0.5} />
-              <directionalLight position={[0, -1.2, 0]} intensity={1} />
-              {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
-              <Static3DModel scale={1} position={[0, -1.5, 0]} />
-              <Environment preset="city" />
-
-              <OrbitControls enableZoom={false} />
-            </Canvas>
-
-          </div>
+   
         </div>
 
         {/* Glow Effect */}
@@ -209,7 +134,9 @@ const OurWork = () => {
 
         {/* Slider Cards */}
         <div className="mt-6">
-          <SliderCards />
+          {/* <SliderCards /> */}
+          {/* <FeedbackSection/> */}
+          <Feedback/>
         </div>
       </section>
 
@@ -227,7 +154,7 @@ const OurWork = () => {
           <p className="max-w-3xl text-lg font-light mb-12">
             Over 100+ successful projects delivered for clients across 10+
             industries — from startups to global brands. Our work has earned
-            long-term partnerships in countries like Egypt, UAE, and the UK.
+            long-term partnerships in countries like UAE, KSA, AU, UK and the USA.
           </p>
 
           {/* Awards */}

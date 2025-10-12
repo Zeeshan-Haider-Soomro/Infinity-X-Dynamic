@@ -114,7 +114,7 @@ const Footer = () => {
                       <FaPhoneAlt className="text-white w-4 h-4" />
                     </span>
                     <span >
-                      +92 321 8456611
+                      +92 305 3069747
                     </span>
                   </p>
 
@@ -124,7 +124,7 @@ const Footer = () => {
                       <FaEnvelope className="text-white w-4 h-4" />
                     </span>
                     <span >
-                      contact@infinityxdynamics.com
+                      ceo@infinityxdynamics.com
                     </span>
                   </div>
 

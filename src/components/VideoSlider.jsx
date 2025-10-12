@@ -78,24 +78,28 @@ const VideoSlider = () => {
           onClick={closeModal}
         >
           <div
-            className="relative max-w-4xl w-full p-4"
+            className="relative max-w-4xl w-full p-2 md:p-4"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute -top-10 right-0 text-white text-3xl hover:text-gray-300 focus:outline-none cursor-pointer"
+              className="absolute md:-top-8 font-bold md:-right-5 -top-10 right-4  text-white text-3xl md:text-6xl hover:text-gray-300 focus:outline-none cursor-pointer"
             >
               &times;
             </button>
+
+            {/* Video */}
             <video
               key={currentVideo}
               src={currentVideo}
               controls
               autoPlay
-              className="w-full max-h-[80vh]"
+              className="w-full max-h-[70vh] md:max-h-[80vh] rounded-lg"
             />
           </div>
         </div>
+
       )}
     </>
   );

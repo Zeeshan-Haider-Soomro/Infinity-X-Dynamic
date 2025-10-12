@@ -213,7 +213,7 @@ const ContactUs = () => {
         <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between z-0">
           {/* Text */}
           <div className="lg:w-2/3 text-center lg:text-left font-['Quicksand'] text-white py-8">
-            <h3 className="text-[32px] font-semibold mb-2 font-secular">
+            <h3 className="md:text-5xl font-bold mb-4 font-secular">
               We Love Feedback!
             </h3>
             <p className="text-xl max-w-lg mx-auto lg:mx-0">

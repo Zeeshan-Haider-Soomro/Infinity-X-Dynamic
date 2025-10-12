@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import CustomButton from "./CustomButton";
 import clsx from "clsx";
 import { allProjects } from "@/data/serviceCards";
+import { useLocation } from "react-router";
 
 export const RecentProjects = ({
   rows = 1,
@@ -26,6 +27,7 @@ export const RecentProjects = ({
   const [activeTab, setActiveTab] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const location = useLocation();
 
   const filteredProjects =
     activeTab === 0
@@ -36,10 +38,11 @@ export const RecentProjects = ({
   const totalPages = Math.ceil(filteredProjects.length / cardsPerPage);
   const paginatedProjects = enablePagination
     ? filteredProjects.slice(
-        (currentPage - 1) * cardsPerPage,
-        currentPage * cardsPerPage
-      )
+      (currentPage - 1) * cardsPerPage,
+      currentPage * cardsPerPage
+    )
     : filteredProjects.slice(0, cardsPerPage);
+
 
   return (
     <section className="w-full py-8 bg-[#3E224F] px-4 md:px-8 lg:px-16 rounded-[50px]">
@@ -85,7 +88,7 @@ export const RecentProjects = ({
         {paginatedProjects.map((project) => (
           <Card
             key={project.id}
-            className="bg-[#320142] text-white p-4 text-center border-0 w-full max-w-[320px] relative group"
+            className="bg-[#320142] cursor-pointer text-white p-4 text-center border-0 w-full max-w-[320px] relative group"
           >
             <p className="text-lg font-semibold mb-2">{project.title}</p>
 
@@ -112,7 +115,7 @@ export const RecentProjects = ({
               {/* Play overlay */}
               <button
                 onClick={() => setSelectedVideo(project.video)}
-                className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition"
+                className="cursor-pointer absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -156,13 +159,27 @@ export const RecentProjects = ({
       {selectedVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
           <div className="relative w-full max-w-3xl bg-black rounded-lg overflow-hidden">
-            <button
-              onClick={() => setSelectedVideo(null)}
-              className="absolute top-2 right-2 text-white text-3xl z-10"
-            >
-              &times;
-            </button>
+            {/* Buttons Row */}
+            <div className="absolute top-2 left-0 w-full flex justify-between px-4 z-10">
+              {/* Cross Button (Left) */}
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="cursor-pointer text-white text-3xl md:text-5xl"
+              >
+                &times;
+              </button>
 
+              {/* Link Button (Right) */}
+              <a
+                href={selectedVideo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-lg md:text-xl hover:text-purple-300"
+              >
+              </a>
+            </div>
+
+            {/* Video Section */}
             {selectedVideo.includes("drive.google.com") ? (
               <iframe
                 src={selectedVideo}
@@ -181,6 +198,18 @@ export const RecentProjects = ({
               />
             )}
           </div>
+
+        </div>
+      )}
+            {/* 👇 Centered Button */}
+      {location.pathname === "/" && (
+        <div className="flex justify-center mt-10">
+          <CustomButton
+            className="transition-all duration-300 py-6"
+            to="/our-work"
+          >
+            VIEW MORE
+          </CustomButton>
         </div>
       )}
     </section>

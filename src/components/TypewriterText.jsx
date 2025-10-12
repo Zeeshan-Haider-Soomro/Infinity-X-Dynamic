@@ -7,7 +7,7 @@ const TypewriterText = () => {
         <Typewriter
           options={{
             strings: [
-              `The leading VFX and <span style="color:#8B7190;">animation</span> studio in Pakistan.`
+              `Where Innovation Meets VFX, <span style="color:#8B7190;"> Animation </span> & CGI Excellence.`
             ],
             autoStart: true,
             loop: true,

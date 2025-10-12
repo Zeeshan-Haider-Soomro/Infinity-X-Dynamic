@@ -80,12 +80,16 @@ const Home = () => {
           <h1 className="text-white text-center text-3xl lg:text-[50px] font-secular">
             We Provide
           </h1>
-          <div className="h-[50px] md:h-[80px]">
+
+          {/* Center Dynamic Heading */}
+          <div className="flex justify-center items-center h-[50px] md:h-[80px]">
             <DynamicHeading phrases={phrases} index={index} />
           </div>
+
           <h1 className="text-white text-center pb-2 text-3xl md:text-[50px] lg:text-[70px] font-medium font-secular">
             Services
           </h1>
+
           <div>
             <ServiceButtons activeIndex={index} />
           </div>
@@ -116,7 +120,7 @@ const Home = () => {
           data-aos="fade-up"
           className=" text-2xl md:text-4xl font-bold  items-center text-center text-[#FFF] pt-10 p-3"
         >
-          Welcome to Infinity X Dynamic,
+          Welcome to Infinity X Dynamics,
         </h1>
         <div className="">
           <TypewriterText />
@@ -127,7 +131,7 @@ const Home = () => {
           {/* Left: Image */}
 
           {/* Right: Text + Button */}
-          <div data-aos="fade-right" className="w-full lg:w-1/2 space-y-6">
+          <div data-aos="fade-right" className="w-full px-4 lg:w-1/2 space-y-6">
             <p className="text-[#FFF] text-base md:text-lg leading-relaxed">
               At Infinity X Dynamics, we merge creativity with cutting-edge
               technology to deliver immersive experiences. From stunning visual
@@ -270,7 +274,7 @@ const Home = () => {
 
       {/* history slider section */}
 
-      <History />
+      {/* <History /> */}
       <AchievementsSection />
 
       {/* Awards Section */}

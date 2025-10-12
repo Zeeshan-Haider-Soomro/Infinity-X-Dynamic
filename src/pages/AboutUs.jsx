@@ -110,23 +110,9 @@ const AboutUs = () => {
       <section className=" relative  mt-10 w-full bg-[#1a0127e6] rounded-t-[65px] border-t-[3px] border-white py-6">
         {/* Top Row */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mb-16 max-w-[1236px] mx-auto">
-          {/* Left Image */}
-          <div className=" -top-10 left-0 h-[180px] w-[180px]   md:-top-20 md:right-0 z-20 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
-            <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
-              <ambientLight intensity={0.5} />
-              <directionalLight position={[0, -1.2, 0]} intensity={1} />
-              {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
-              <Static3DModel scale={1} position={[0, -1.5, 0]} />
-              <Environment preset="city" />
-
-              <OrbitControls enableZoom={false} />
-            </Canvas>
-
-          </div>
-
           {/* Center Text */}
-          <div className="flex-1 text-center lg:text-left  font-medium text-white text-2xl leading-[30px]">
-            <h3 className="md:text-3xl font-bold mb-4 font-secular">
+          <div className="flex-1 py-20 text-center lg:text-left  font-medium text-white text-2xl leading-[30px]">
+            <h3 className="md:text-5xl font-bold mb-4 font-secular">
               Our <span className="text-[#8B7190]">Team</span>
             </h3>
             <p className="md:text-3xl text-xl px-2">
@@ -138,7 +124,7 @@ const AboutUs = () => {
 
           {/* Right Award Box */}
           <div className="w-[300px] flex justify-center">
-            <AwardBox target={21} label="Team Members" />
+            <AwardBox target={12} label="Team Members" />
           </div>
         </div>
 

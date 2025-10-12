@@ -11,21 +11,26 @@ const ContactSocialIcons = () => {
         <div className="flex space-x-2 items-center">
           <div className="border border-white rounded-full p-2">
             <a
-              href="mailto:info@infinityXdynamic.com"
+              href="https://mail.google.com/mail/?view=cm&to=ceo@infinityxdynamics.com?subject=Inquiry&body=Hello, I would like to know more about your services."
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white hover:text-purple-300"
             >
-              <CiMail />
+              <CiMail size={24} />
             </a>
+
           </div>
-          <p className="text-white text-sm">info@infinityXdynamic.com</p>
+          <p className="text-white text-sm">ceo@infinityxdynamics.com</p>
         </div>
         <div className="flex space-x-2 items-center">
           <div className="border border-white rounded-full p-2">
             <a
-              href="tel:+923128379812"
+              href="https://wa.me/923053069747"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white hover:text-purple-300"
             >
-              <IoIosCall />
+              <IoIosCall size={24} />
             </a>
           </div>
           <p className="text-white text-sm">+92 312 8379812</p>
@@ -56,7 +61,7 @@ const ContactSocialIcons = () => {
         </div>
         <div className="border border-white rounded-full p-2">
           <a
-            href="https://www.linkedin.com/Infinityxdynamics"
+            href="https://www.linkedin.com/InfinityXDynamics"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-purple-300"

@@ -12,18 +12,7 @@ const CeoMessage = () => {
     return (
         <section className="relative px-4 sm:px-6 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center">
             {/* Bot image at top right - hidden on small screens */}
-            <div className="absolute -top-10 right-8 h-[150px] w-[180px]   md:-top-20 md:right-0 z-20 md:h-[300px] md:w-[300px] overflow-visible pointer-events-none">
-                <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[0, -1.2, 0]} intensity={1} />
-                    {/* <My3DModel scale={2} position={[0, -1.5, 0]} /> */}
-                    <Static3DModel scale={1} position={[0, -1.5, 0]} />
-                    <Environment preset="city" />
-
-                    <OrbitControls enableZoom={false} />
-                </Canvas>
-
-            </div>
+     
 
 
             {/* CEO Message Card */}
@@ -51,14 +40,14 @@ const CeoMessage = () => {
                         className="text-[#8B7190] text-center sm:text-start w-full sm:w-[80%] md:w-[60%] lg:w-[50%] font-[Poppins] text-xl sm:text-2xl md:text-[32px] italic font-semibold leading-normal mb-2 sm:mb-3 mx-auto"
                         style={{
                             WebkitTextStrokeWidth: "1px",
-                            WebkitTextStrokeColor: "#874182",
+                            WebkitTextStrokeColor: "#F7EAF5",
                         }}
                     >
                         "In a world full of noise, creativity is our code and innovation
                         is our voice."
                     </p>
                     <p className="text-base sm:text-lg font-medium text-white mt-3 sm:mt-4">
-                        Founder & CEO - Jahanzaib Akram
+                        Founder & CEO - M. Jahanzeb Akram
                     </p>
                 </div>
 

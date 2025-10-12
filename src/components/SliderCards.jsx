@@ -5,30 +5,90 @@ import React from "react";
 const achievementImages = [
   {
     src: ImagesAssets.person,
-    name: "Mr Abc",
+    name: "M. Jahanzeb Akram",
+    title: "Founder | CEO",
+    description:
+      "Leading IXD with vision and innovation, ensuring growth and excellence.",
+  },
+  {
+    src: ImagesAssets.person,
+    name: "Zeeshan Haider Soomro",
+    title: "Website Developer | CTO | Project Manager | Team Lead IT Department",
+    description:
+      "Driving technology strategy, managing projects, and leading IT development at IXD.",
+  },
+  {
+    src: ImagesAssets.person,
+    name: "Umar Iqbal",
+    title: "CO - Founder | HR | Head Of Sales Supervisors",
+    description:
+      "Co-founder of IXD, leading HR initiatives and supervising the sales team.",
+  },
+  {
+    src: ImagesAssets.person,
+    name: "Syed Arham",
+    title: "CO - Founder | Sales Supervisor",
+    description:
+      "Co-founder of IXD, guiding and managing the sales operations effectively.",
+  },
+  {
+    src: ImagesAssets.person,
+    name: "Sharukh Akram",
+    title: "Senior Logo Designer | Media Head | Animation Expert",
+    description:
+      "Designing impactful logos, managing media, and creating animations that inspire.",
+  },
+  {
+    src: ImagesAssets.person,
+    name: "Sidra Akhtar",
+    title: "Telemarketing Expert",
+    description:
+      "Connecting with clients and generating leads through effective telemarketing strategies.",
+  },
+  {
+    src: ImagesAssets.person,
+    name: "Saad Mubashir",
+    title: "VFX Artist",
+    description:
+      "Crafting stunning visual effects to bring creativity and imagination to life.",
+  },
+  {
+    src: ImagesAssets.person,
+    name: "Alishba Soomro",
     title: "UI/UX Designer",
     description:
-      "As a UI/UX designer at IXD, I craft interfaces that don’t just look stunning—they guide, engage, and convert with purpose.",
+      "Designing user-friendly and visually engaging digital experiences at IXD.",
   },
   {
     src: ImagesAssets.person,
-    name: "Ms Def",
-    title: "Developer",
-    description: "I turn code into digital experiences at IXD.",
+    name: "Mohammad Sufyan",
+    title: "AI Specialist",
+    description:
+      "Developing AI-driven solutions to enhance efficiency and innovation at IXD.",
   },
   {
     src: ImagesAssets.person,
-    name: "Mr Ghi",
-    title: "Project Manager",
-    description: "I keep IXD projects on track and teams aligned.",
+    name: "Abdul Qudoos",
+    title: "Senior Web Developer",
+    description:
+      "Building scalable and high-performance web applications for IXD clients.",
   },
   {
     src: ImagesAssets.person,
-    name: "Ms Jkl",
-    title: "Animator",
-    description: "I bring IXD’s visuals to life with motion.",
+    name: "Daim Hussain",
+    title: "Data Entry Operator",
+    description:
+      "Managing and maintaining accurate data records to support IXD operations.",
+  },
+  {
+    src: ImagesAssets.person,
+    name: "Will Hire",
+    title: "Social Media Specialist",
+    description:
+      "Managing and growing IXD’s online presence through creative social media strategies.",
   },
 ];
+
 
 const SliderCards = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -75,9 +135,8 @@ const SliderCards = () => {
         className="flex lg:px-[105px] transition-transform duration-500 ease-in-out"
         style={{
           width: `${(achievementImages.length * 100) / responsiveCount}%`,
-          transform: `translateX(-${
-            (currentIndex * 100) / achievementImages.length
-          }%)`,
+          transform: `translateX(-${(currentIndex * 100) / achievementImages.length
+            }%)`,
         }}
       >
         {achievementImages.map((item, index) => (
@@ -88,26 +147,28 @@ const SliderCards = () => {
               width: `${100 / achievementImages.length}%`,
             }}
           >
-            <div className="h-full flex flex-col justify-between shadow-sm bg-[#3C0945] rounded-lg text-white overflow-hidden">
-              <a href="#">
+            <div className="h-full flex flex-col justify-between shadow-sm bg-[#3C0945] rounded-lg text-white overflow-hidden p-5">
+              {/* 👤 Rounded Image + Name/Title */}
+              <div className="flex justify-between items-start py-10 -mt-12">
                 <img
-                  className="w-full h-[180px] object-cover"
+                  className="w-24 h-24 rounded-full border-4 border-white shadow-md object-cover"
                   src={item.src}
                   alt={item.name}
                 />
-              </a>
-              <div className="p-5 flex flex-col flex-grow">
-                <a href="#">
-                  <h5 className="mb-2 text-xl font-bold tracking-tight">
-                    {item.name}
-                  </h5>
-                </a>
-                <p className="mb-1 text-sm">{item.title}</p>
-                <p className="text-sm text-gray-200 flex-grow">
-                  {item.description}
-                </p>
+
+                {/* Name + Title aligned to right */}
+                <div className="flex flex-col items-end ml-4">
+                  <p className="mt-2 text-right font-semibold">{item.name}</p>
+                  <p className="text-right text-xs text-gray-300">{item.title}</p>
+                </div>
               </div>
+
+              {/* Feedback Content */}
+              <p className="text-gray-200 flex-grow text-[20px] text-center">
+                {item.description}
+              </p>
             </div>
+
           </div>
         ))}
       </div>
@@ -116,7 +177,7 @@ const SliderCards = () => {
       <div className="flex justify-center gap-10 mt-6">
         <button
           onClick={handlePrev}
-          className="hover:scale-110 transition-transform duration-300"
+          className="cursor-pointer hover:scale-110 transition-transform duration-300"
           disabled={currentIndex === 0}
         >
           <ImagesAssets.leftButton />
@@ -124,7 +185,7 @@ const SliderCards = () => {
 
         <button
           onClick={handleNext}
-          className="hover:scale-110 transition-transform duration-300"
+          className="cursor-pointer hover:scale-110 transition-transform duration-300"
           disabled={
             currentIndex >= achievementImages.length - responsiveCount
           }

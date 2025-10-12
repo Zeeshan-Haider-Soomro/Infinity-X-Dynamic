@@ -22,6 +22,8 @@ import { awards, feedbackList, projects, serviceCards } from "@/data/serviceCard
 import { useParams } from "react-router-dom"; // ⬅️ ADD THIS
 import Static3DModel from "./models/Model3D";
 import Modal from "./ui/modal";
+import { projectsByService } from "@/data/serviceCards"; // or new file
+
 
 // This is your service-specific data
 const serviceContent = {
@@ -195,7 +197,36 @@ const serviceContent = {
             },
         ],
     },
-    "vfx": {
+    "cgi-vfx": {
+        title: "Transform Reality with",
+        highlight: "VFX!",
+        sectionHeading: (
+            <h1 className="text-3xl md:text-5xl font-secular font-bold text-center mb-4">
+                UNLEASH THE POWER OF <br />
+                <span className=" text-[#C55EBD]">VFX </span>ANIMATION
+            </h1>
+        ),
+        sectionDescription:
+            "Our VFX services bring imagination to life, creating stunning visual effects for films, games, and more.",
+        benefits: [
+            {
+                title: "REALISM AND DETAIL",
+                description:
+                    "VFX adds depth and realism to animations, enhancing visual storytelling.",
+            },
+            {
+                title: "CREATIVE FREEDOM",
+                description:
+                    "Push the boundaries of imagination with limitless creative possibilities.",
+            },
+            {
+                title: "INDUSTRY APPLICATIONS",
+                description:
+                    "Used in film, gaming, advertising, and more to create captivating visuals.",
+            },
+        ],
+    },
+    "graphic-motion": {
         title: "Transform Reality with",
         highlight: "VFX!",
         sectionHeading: (
@@ -285,11 +316,14 @@ const cardData = [
 
 const ProfileCTA = () => {
 
+
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [index, setIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { serviceId } = useParams();
     const currentService = serviceContent[serviceId] || serviceContent["2d-animation"]; // fallback
+    const currentProjects = projectsByService[serviceId] || [];
+
 
 
     const { CeoImg } = AppImages;
@@ -331,7 +365,7 @@ const ProfileCTA = () => {
                                 <CiMail />
                             </a>
                         </div>
-                        <span>info@infinityXdynamic.com</span>
+                        <span>ceo@infinityxdynamics.com</span>
                     </div>
                     <div className="flex items-center space-x-2">
                         <div className="border border-white rounded-full p-2 text-lg">
@@ -339,7 +373,7 @@ const ProfileCTA = () => {
                                 <IoIosCall />
                             </a>
                         </div>
-                        <span>+92 312 8379812</span>
+                        <span>+92 305 3069747</span>
                     </div>
                 </div>
 
@@ -436,50 +470,35 @@ const ProfileCTA = () => {
 
                 <div className="max-w-full mx-auto px-4 md:px-[122px]">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[67px] mt-6">
-                        {projects.map((project) => (
-                            <Card
-                                key={project.id}
-                                className="bg-[#320142] text-white p-4 text-center border-0 relative group cursor-pointer"
-                                onClick={() => setSelectedVideo(project.video)}
-                            >
-                                <p className="text-lg font-semibold mb-2">{project.title}</p>
-
-                                <div className="relative">
-                                    <video
-                                        className="w-full object-cover rounded-lg h-[180px]"
-                                        src={project.video}
-                                        muted
-                                        preload="metadata"
-                                        controls={false}
-                                    />
-
-                                    {/* Center Play Icon Overlay */}
-                                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="48"
-                                            height="48"
-                                            fill="white"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M8 5v14l11-7z" />
-                                        </svg>
+                        {currentProjects.length > 0 ? (
+                            currentProjects.map((project) => (
+                                <Card
+                                    key={project.id}
+                                    className="bg-[#320142] text-white p-4 text-center border-0 relative group cursor-pointer"
+                                    onClick={() => setSelectedVideo(project.video)}
+                                >
+                                    <p className="text-lg font-semibold mb-2">{project.title}</p>
+                                    <div className="relative">
+                                        <video
+                                            className="w-full object-cover rounded-lg h-[180px]"
+                                            src={project.video}
+                                            muted
+                                            preload="metadata"
+                                            controls={false}
+                                        />
+                                        <div className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/50 rounded-lg transition">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="white" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
                                     </div>
-                                </div>
-                            </Card>
-                        ))}
-
-                        {selectedVideo && (
-                            <Modal onClose={() => setSelectedVideo(null)}>
-                                <video
-                                    src={selectedVideo}
-                                    controls
-                                    autoPlay
-                                    className="w-full h-[70vh] object-contain"
-                                />
-                            </Modal>
+                                </Card>
+                            ))
+                        ) : (
+                            <p className="text-white col-span-full text-center">No projects available for this category yet.</p>
                         )}
                     </div>
+
                 </div>
 
             </section>

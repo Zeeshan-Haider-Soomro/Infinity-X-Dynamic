@@ -16,7 +16,7 @@ const services = [
 ];
 
 const links = [
-  "#",
+  "/services/graphic-motion",
   "/services/3d-animation",
   "/services/2d-animation",
   "#",

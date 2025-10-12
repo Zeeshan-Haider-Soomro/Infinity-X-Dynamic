@@ -6,13 +6,13 @@ const feedbacks = [
     image: "https://assets.zyrosite.com/AVL7Qn7WvkSKJGaj/generated/generated-mjE7bJk5qGIPRb7W.png",
     name: "Ali Khan",
   },
-  { title: "Team Lead", image: "https://via.placeholder.com/150", name: "Ali Khan" },
-  { title: "Team Lead", image: "https://via.placeholder.com/150", name: "Ali Khan" },
-  { title: "Team Lead", image: "https://via.placeholder.com/150", name: "Ali Khan" },
-  { title: "Team Lead", image: "https://via.placeholder.com/150", name: "Ali Khan" },
-  { title: "Designer", image: "https://via.placeholder.com/150", name: "Sara Ahmed" },
-  { title: "Developer", image: "https://via.placeholder.com/150", name: "Zeeshan Haider" },
-  { title: "Manager", image: "https://via.placeholder.com/150", name: "Amna Raza" },
+  { title: "Team Lead", image: "src/assets/person1.jpg", name: "Ali Khan" },
+  { title: "Team Lead", image: "src/assets/person1.jpg", name: "Ali Khan" },
+  { title: "Team Lead", image: "src/assets/person1.jpg", name: "Ali Khan" },
+  { title: "Team Lead", image: "src/assets/person1.jpg", name: "Ali Khan" },
+  { title: "Designer", image: "src/assets/person1.jpg", name: "Sara Ahmed" },
+  { title: "Developer", image: "src/assets/person1.jpg", name: "Zeeshan Haider" },
+  { title: "Manager", image: "src/assets/person1.jpg", name: "Amna Raza" },
 ];
 
 const FeedbackSection = () => {
